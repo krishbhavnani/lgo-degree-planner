@@ -1,0 +1,22 @@
+{
+  "15.572": {"lab": "A-LAB", "name": "Analytics Lab", "term": "Fall"},
+  "15.S17": {"lab": "DDUV-LAB", "name": "Defense & Dual-Use Ventures Lab", "term": "Fall"},
+  "15.275": {"lab": "EMS-LAB", "name": "Entertainment, Media & Sports Lab", "term": "Fall"},
+  "15.399": {"lab": "E-LAB", "name": "Entrepreneurship Lab", "term": "Fall & Spring"},
+  "15.451": {"lab": "IM-LAB", "name": "Investment Management Lab", "term": "Fall"},
+  "15.830": {"lab": "EM-LAB", "name": "Enterprise Management Lab", "term": "Fall+IAP"},
+  "15.389": {"lab": "G-LAB", "name": "Global Entrepreneurship Lab", "term": "Fall+IAP"},
+  "15.777": {"lab": "H-LAB", "name": "Healthcare Lab", "term": "Fall+IAP"},
+  "15.S24": {"lab": "LWI", "name": "Leading with Impact: Social Impact Lab", "term": "IAP"},
+  "15.453": {"lab": "FIN-LAB", "name": "Finance Lab", "term": "IAP+Spring"},
+  "15.786": {"lab": "PM-LAB", "name": "Product Management Lab", "term": "IAP+Spring"},
+  "15.226": {"lab": "ASEAN-LAB", "name": "Modern Business in Southeast Asia", "term": "Spring"},
+  "15.369": {"lab": "CE-LAB", "name": "Corporate Entrepreneurship Lab", "term": "Spring"},
+  "15.355": {"lab": "ENGINE-LAB", "name": "Engine Lab: Deep Tech Ventures", "term": "Spring"},
+  "15.S04": {"lab": "GENAI-LAB", "name": "Generative AI Lab", "term": "Spring"},
+  "15.784": {"lab": "OPS-LAB", "name": "Operations Lab", "term": "Spring"},
+  "15.452": {"lab": "CF-LAB", "name": "Proseminar in Corporate Finance/IB/PE", "term": "Spring"},
+  "15.S67": {"lab": "RE-LAB", "name": "Real Estate Lab", "term": "Spring"},
+  "15.878": {"lab": "S-LAB", "name": "Sustainable Business Lab", "term": "Spring"},
+  "15.679": {"lab": "WORK-LAB", "name": "Work Lab", "term": "Spring"}
+}

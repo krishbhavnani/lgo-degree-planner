@@ -1,0 +1,830 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>MIT Grad Course Dashboard — Course 6 + 15</title>
+<style>
+  :root{
+    --bg:#f6f7f9; --panel:#fff; --ink:#1d2330; --muted:#6b7384; --line:#e3e6ec;
+    --accent:#8a1f2b; --chip:#eef1f5; --star:#e8a300;
+    --ok:#1c7c4a; --warn:#b06a00; --bad:#b23b3b; --blue:#1f5fd0; --grey:#8a8f99;
+  }
+  *{box-sizing:border-box}
+  [hidden]{display:none !important}
+  body{margin:0;font:14px/1.45 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+       color:var(--ink);background:var(--bg)}
+  header{background:var(--panel);border-bottom:1px solid var(--line);padding:14px 20px;
+         position:sticky;top:0;z-index:30;display:flex;align-items:center;gap:16px;flex-wrap:wrap}
+  header h1{font-size:17px;margin:0;font-weight:700;color:var(--accent)}
+  header .meta{font-size:12px;color:var(--muted)}
+  .grow{flex:1}
+  button,select,input{font:inherit}
+  button{cursor:pointer;border:1px solid var(--line);background:#fff;border-radius:7px;padding:6px 11px}
+  button:hover{background:#f0f2f5}
+  button.primary{background:var(--accent);color:#fff;border-color:var(--accent)}
+  button.primary:hover{filter:brightness(1.08)}
+  #search{padding:7px 11px;border:1px solid var(--line);border-radius:7px;min-width:240px}
+  .layout{display:flex;align-items:flex-start;gap:0}
+  aside{width:260px;flex:none;background:var(--panel);border-right:1px solid var(--line);
+        padding:14px 16px;height:calc(100vh - 56px);overflow:auto;position:sticky;top:56px}
+  aside h3{font-size:12px;text-transform:uppercase;letter-spacing:.04em;color:var(--muted);
+           margin:18px 0 8px;border-top:1px solid var(--line);padding-top:14px}
+  aside h3:first-child{border-top:none;padding-top:0;margin-top:0}
+  .frow{display:flex;align-items:center;gap:7px;margin:5px 0;font-size:13px}
+  .frow input[type=number]{width:62px;padding:4px 6px;border:1px solid var(--line);border-radius:6px}
+  .checks label{display:flex;align-items:center;gap:7px;margin:4px 0;font-size:13px;cursor:pointer}
+  .checks input{margin:0}
+  main{flex:1;min-width:0;padding:14px 18px}
+  .statbar{display:flex;gap:18px;align-items:center;margin-bottom:10px;font-size:13px;color:var(--muted);flex-wrap:wrap}
+  .statbar b{color:var(--ink)}
+  .tablewrap{overflow:auto;border:1px solid var(--line);border-radius:10px;background:#fff;max-height:calc(100vh - 150px)}
+  table{border-collapse:separate;border-spacing:0;width:100%;font-size:13px}
+  th,td{padding:8px 10px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}
+  thead th{position:sticky;top:0;background:#f0f2f5;z-index:10;cursor:pointer;white-space:nowrap;
+           font-weight:600;user-select:none;border-bottom:2px solid var(--line)}
+  thead th:hover{background:#e7eaef}
+  th .arrow{color:var(--accent);font-size:11px}
+  tbody tr:hover{background:#fafbfd}
+  td.num{font-variant-numeric:tabular-nums;white-space:nowrap}
+  .num.lown{color:var(--warn)} /* low response count (n<5) */
+  .dbadge{font-size:11px;padding:1px 7px;border-radius:9px;font-weight:600;white-space:nowrap}
+  .d-l{background:#e4f4ea;color:var(--ok)} .d-m{background:#eef4e0;color:#5e7d1e}
+  .d-h{background:#fdf0db;color:var(--warn)} .d-x{background:#fae6e6;color:var(--bad)}
+  .dz{font-size:12px} .dz-conditional{opacity:.5}
+  .albadge{font-size:10.5px;padding:1px 6px;border-radius:9px;background:#ece3fb;color:#6b3fa0;font-weight:600;white-space:nowrap}
+  .cnum{font-weight:600;white-space:nowrap}
+  .cnum a{color:var(--accent);text-decoration:none}
+  .cnum a:hover{text-decoration:underline}
+  .addplan{cursor:pointer;color:var(--accent);font-weight:700;font-size:14px;user-select:none}
+  .addplan:hover{filter:brightness(1.2)}
+  .addplan.added{color:var(--ok);cursor:default}
+  .star{cursor:pointer;font-size:17px;color:#cfd4dc;line-height:1}
+  .star.on{color:var(--star)}
+  .chip{display:inline-block;background:var(--chip);border-radius:11px;padding:1px 8px;font-size:11.5px;margin:1px 2px 1px 0;white-space:nowrap}
+  .badge{display:inline-block;border-radius:6px;padding:1px 7px;font-size:11.5px;font-weight:600}
+  .b-ok{background:#e4f4ea;color:var(--ok)} .b-warn{background:#fdf0db;color:var(--warn)}
+  .b-bad{background:#fae6e6;color:var(--bad)} .b-blue{background:#e6eefb;color:var(--blue)}
+  .b-grey{background:#eceef1;color:var(--grey)} .b-none{color:var(--muted)}
+  .desc{max-width:380px}
+  .desc .full{display:none}
+  .desc.open .clip{display:none} .desc.open .full{display:inline}
+  .more{color:var(--accent);cursor:pointer;font-size:12px;white-space:nowrap}
+  .prq{max-width:230px}
+  .rate{font-weight:700}
+  .rate .r5{color:var(--ok)} .rate .r4{color:#3f8f55} .rate .r3{color:var(--warn)}
+  .rate .r2{color:#c2562f} .rate .r1{color:var(--bad)}
+  .matchY{color:var(--ok);font-weight:600} .matchN{color:var(--warn)} .matchNA{color:var(--muted)}
+  .coltoggle{columns:2;font-size:12.5px}
+  .empty{color:var(--muted)}
+  .hint{font-size:11.5px;color:var(--muted);margin-top:4px}
+  td.hcol,th.hcol{display:none}
+
+  /* ---- tabs ---- */
+  .tabs{display:flex;gap:4px}
+  .tab{border:1px solid var(--line);background:#fff;border-radius:7px;padding:6px 12px;font-weight:600}
+  .tab.on{background:var(--accent);color:#fff;border-color:var(--accent)}
+  /* ---- plan view ---- */
+  .plan-wrap{display:flex;align-items:flex-start;gap:0}
+  .plan-reqs{width:330px;flex:none;background:var(--panel);border-right:1px solid var(--line);
+             padding:12px 14px;height:calc(100vh - 56px);overflow:auto;position:sticky;top:56px}
+  .plan-tools{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:10px}
+  .plan-tools button{padding:5px 9px;font-size:12.5px}
+  .plan-main{flex:1;min-width:0;padding:12px 16px}
+  .plan-headbar{display:flex;align-items:center;gap:14px;margin-bottom:10px;font-size:13px;color:var(--muted)}
+  #termgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:12px}
+  .term{border:1px solid var(--line);border-radius:10px;background:#fff;overflow:hidden}
+  .term.unassigned{border-style:dashed;background:#fffdf7}
+  .term-h{display:flex;align-items:center;gap:8px;padding:7px 10px;background:#f0f2f5;border-bottom:1px solid var(--line);font-weight:700;font-size:13px}
+  .term-h .tu{margin-left:auto;font-weight:600;font-variant-numeric:tabular-nums}
+  .term-h .tu.over{color:var(--bad)}
+  .term-body{padding:6px 8px;min-height:24px}
+  .pitem{border:1px solid var(--line);border-radius:7px;padding:6px 8px;margin:5px 0;font-size:12.5px}
+  .pitem.audit{opacity:.62;background:repeating-linear-gradient(45deg,#fafafa,#fafafa 6px,#f1f1f1 6px,#f1f1f1 12px)}
+  .pitem .pi-top{display:flex;align-items:center;gap:6px}
+  .pitem .pi-num{font-weight:700;white-space:nowrap}
+  .pitem .pi-title{flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+  .pitem .pi-u{width:42px;text-align:right;border:1px solid var(--line);border-radius:5px;padding:1px 3px;font-size:12px}
+  .pi-x{cursor:pointer;color:var(--muted);font-weight:700;padding:0 3px}
+  .pi-x:hover{color:var(--bad)}
+  .pi-tags{display:flex;flex-wrap:wrap;gap:3px;margin-top:4px;align-items:center}
+  .tagchip{font-size:10.5px;padding:1px 6px;border-radius:9px;background:var(--chip);cursor:default}
+  .tagchip.t-core{background:#e6eefb;color:var(--blue)} .tagchip.t-lgo{background:#e4f4ea;color:var(--ok)}
+  .tagchip.t-elec{background:#eef1f5;color:var(--ink)} .tagchip.t-thesis{background:#f3e8fb;color:#7a3ca8}
+  .tagchip.t-design{background:#fdf0db;color:var(--warn)} .tagchip.t-python{background:#e9f6f8;color:#1c7c8c}
+  .pi-controls{display:flex;gap:5px;margin-top:5px;align-items:center}
+  .pi-controls select{font-size:11px;padding:1px 3px;border:1px solid var(--line);border-radius:5px;max-width:130px}
+  .pi-controls label{font-size:11px;color:var(--muted);display:flex;gap:3px;align-items:center}
+  /* requirement bars */
+  .reqgroup{margin-bottom:14px}
+  .reqgroup h4{margin:6px 0 6px;font-size:12px;text-transform:uppercase;letter-spacing:.04em;color:var(--muted)}
+  .reqrow{margin:7px 0}
+  .reqrow .rl{display:flex;justify-content:space-between;font-size:12.5px;margin-bottom:2px}
+  .reqrow .rl .rn{font-weight:600}
+  .bar{height:7px;border-radius:5px;background:#e9ecf1;overflow:hidden}
+  .bar > i{display:block;height:100%;background:var(--accent);border-radius:5px}
+  .bar.done > i{background:var(--ok)}
+  .reqrow.met .rv{color:var(--ok);font-weight:700}
+  .reqrow .rv.short{color:var(--warn)}
+  .reqtotal{display:flex;align-items:center;justify-content:space-between;gap:8px;
+            border:1.5px solid var(--line);border-radius:9px;padding:9px 12px;margin:9px 0;background:#eef1f5}
+  .reqtotal.met{border-color:var(--ok);background:#e7f6ee}
+  .reqtotal .rt-l{font-weight:700;font-size:12.5px;text-transform:uppercase;letter-spacing:.03em}
+  .reqtotal .rt-v{font-weight:800;font-size:19px;font-variant-numeric:tabular-nums;color:var(--accent);white-space:nowrap}
+  .reqtotal.met .rt-v{color:var(--ok)}
+  .reqtotal .rt-t{font-size:12px;font-weight:600;color:var(--muted);margin-left:3px}
+  .addresult.added{opacity:.7}
+  .ar-in{margin-left:auto;color:var(--ok);font-weight:700;font-size:12px}
+  /* modal */
+  #modal{position:fixed;inset:0;background:rgba(20,25,40,.4);display:flex;align-items:flex-start;justify-content:center;z-index:50;padding:40px 16px;overflow:auto}
+  #modal[hidden]{display:none}
+  .modal-card{background:#fff;border-radius:12px;max-width:640px;width:100%;box-shadow:0 12px 40px rgba(0,0,0,.25)}
+  .modal-head{display:flex;align-items:center;padding:12px 16px;border-bottom:1px solid var(--line)}
+  .modal-head b{font-size:15px}.modal-head button{margin-left:auto;border:none;background:none;font-size:16px;cursor:pointer}
+  #modal-body{padding:14px 16px}
+  .setrow{display:flex;align-items:center;gap:8px;margin:6px 0;font-size:13px}
+  .setrow .sn{flex:1}.setrow input[type=number]{width:64px;padding:3px 5px;border:1px solid var(--line);border-radius:6px}
+  .addresult{display:flex;align-items:center;gap:8px;padding:5px 6px;border-bottom:1px solid var(--line);font-size:13px;cursor:pointer}
+  .addresult:hover{background:#f3f5f8}
+  .addresult .ar-add{margin-left:auto;border:1px solid var(--line);border-radius:6px;padding:2px 8px;background:#fff}
+</style>
+</head>
+<body>
+<header>
+  <h1>MIT LGO Course Dashboard</h1>
+  <div class="tabs">
+    <button class="tab on" id="tab-browse">📚 Browse</button>
+    <button class="tab" id="tab-plan">🗓 Plan</button>
+  </div>
+  <input id="search" type="search" placeholder="Search title, number, instructor, description…">
+  <div class="grow"></div>
+  <div class="meta" id="lastpull"></div>
+  <button class="primary" id="refresh" title="Reloads data.js from disk. To re-pull from MIT run: python3 scrape.py (catalog+AAGS); evals/ratings refresh via Claude.">↻ Refresh</button>
+  <button id="export">Export flagged CSV</button>
+</header>
+
+<div class="layout" id="view-browse">
+  <aside>
+    <h3>View</h3>
+    <div class="frow"><label><input type="checkbox" id="f_flagged"> ★ Interested only</label></div>
+    <button id="resetf" style="width:100%;margin-top:6px">Reset all filters</button>
+
+    <h3>Department</h3>
+    <div class="checks" id="f_dept"></div>
+
+    <h3>Term offered</h3>
+    <div class="checks" id="f_terms"></div>
+
+    <h3>Offering status</h3>
+    <div class="checks" id="f_offering"></div>
+
+    <h3>AAGS approval</h3>
+    <div class="checks" id="f_aags"></div>
+
+    <h3>Design</h3>
+    <div class="frow"><label><input type="checkbox" id="f_design"> 🎨 Pre-approved design only</label></div>
+
+    <h3>Action Learning</h3>
+    <div class="frow"><label><input type="checkbox" id="f_al"> 🧪 Action Learning labs only</label></div>
+
+    <h3>Category</h3>
+    <div class="checks" id="f_cat" style="max-height:200px;overflow:auto"></div>
+
+    <h3>Total units</h3>
+    <div class="frow">min <input type="number" id="u_min" min="0"> max <input type="number" id="u_max" min="0"></div>
+
+    <h3>Weekly hours (in+out)</h3>
+    <div class="frow">max <input type="number" id="h_max" min="0" step="0.5"></div>
+    <div class="hint">Courses with no eval data always pass this filter.</div>
+
+    <h3>Minimum rating</h3>
+    <div class="frow"><select id="r_min"><option value="0">any</option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option></select> / 5</div>
+
+    <h3>Columns</h3>
+    <div class="coltoggle" id="coltoggle"></div>
+  </aside>
+
+  <main>
+    <div class="statbar">
+      <span><b id="shown">0</b> of <b id="total">0</b> courses</span>
+      <span><b id="flagcount">0</b> flagged</span>
+      <span id="evalnote"></span>
+    </div>
+    <div class="tablewrap">
+      <table>
+        <thead><tr id="headrow"></tr></thead>
+        <tbody id="rows"></tbody>
+      </table>
+    </div>
+  </main>
+</div>
+
+<section id="view-plan" hidden>
+  <div class="plan-wrap">
+    <aside class="plan-reqs">
+      <div class="plan-tools">
+        <button id="plan-add">＋ Add course</button>
+        <button id="plan-settings">⚙ Requirements</button>
+        <button id="plan-export">⬇ Export</button>
+        <button id="plan-import">⬆ Import</button>
+        <button id="plan-reset" title="Reset schedule + requirements to the LGO sample defaults">↺ Reset</button>
+      </div>
+      <div id="reqpanel"></div>
+    </aside>
+    <main class="plan-main">
+      <div class="plan-headbar">
+        <span id="plan-summary"></span>
+        <label class="hint" style="margin-left:auto"><input type="checkbox" id="hide-audit"> hide audit</label>
+      </div>
+      <div id="termgrid"></div>
+    </main>
+  </div>
+</section>
+
+<!-- Add-course / settings modal -->
+<div id="modal" hidden><div class="modal-card"><div class="modal-head"><b id="modal-title"></b><button id="modal-x">✕</button></div><div id="modal-body"></div></div></div>
+
+<script src="data.js"></script>
+<script>
+const DATA = (window.COURSE_DATA || {meta:{},courses:[]});
+const COURSES = DATA.courses;
+
+// ---- column definitions -------------------------------------------------
+const COLS = [
+  {key:'flag',  label:'★', sort:false, fixed:true,
+     get:c=>flags.has(c.number)?1:0, render:renderStar},
+  {key:'number',label:'Course', get:c=>c.number, render:c=>{
+     const planned=typeof planItems!=='undefined' && planItems.some(it=>it.number===c.number);
+     return `<span class="cnum"><a href="${c.url}" target="_blank">${c.number}</a></span> `+
+       (planned?`<span class="addplan added" title="Already in your plan">✓</span>`
+               :`<span class="addplan" data-addplan="${c.number}" title="Add to plan (Unassigned)">＋</span>`);}},
+  {key:'department',label:'Dept', get:c=>c.department||'', render:c=>{
+     const d=c.department||''; const short=d.includes('15')?'15 Mgmt':(d.includes('6')?'6 EECS':d);
+     return `<span class="chip" title="${esc(d)}">${esc(short)}</span>`;}},
+  {key:'title', label:'Title', get:c=>c.title, render:c=>esc(c.title)+
+     (c.action_learning?` <span class="albadge" title="Action Learning lab · ${esc(c.al_term||'')}">🧪 ${esc(c.action_learning)}</span>`:'')+
+     (c.design_approved?` <span class="dz dz-${c.design_approved}" title="LGO ${c.design_approved} design class — fulfills the Design requirement">🎨</span>`:'')},
+  {key:'category',label:'Category', get:c=>c.category||'', render:c=>esc(c.category||'')},
+  {key:'terms', label:'Terms', get:c=>(c.terms||[]).join(','),
+     render:c=>(c.terms||[]).map(t=>`<span class="chip">${t}</span>`).join('')||'<span class="empty">—</span>'},
+  {key:'offering_status',label:'Offering', get:c=>c.offering_status||'', render:renderOffering},
+  {key:'aags', label:'AAGS', get:c=>c.aags||'', render:renderAags},
+  {key:'units_raw',label:'Units', get:c=>c.units_raw||'', render:c=>esc(c.units_raw||'—')},
+  {key:'units_total',label:'Total', num:true, get:c=>c.units_total, render:c=>
+     c.units_total==null?'<span class="empty">—</span>':`<span class="num">${c.units_total}</span>`},
+  {key:'schedule_summary',label:'Schedule', get:c=>c.schedule_summary||'',
+     render:c=>esc(c.schedule_summary||'')||'<span class="empty">—</span>'},
+  {key:'prereqs',label:'Prerequisites', get:c=>c.prereq_raw||'', render:renderPrereqs},
+  {key:'eval_hours_in', label:'Hrs in', num:true, get:c=>c.eval_hours_in, render:c=>hoursCell(c,c.eval_hours_in)},
+  {key:'eval_hours_out',label:'Hrs out', num:true, get:c=>c.eval_hours_out, render:c=>hoursCell(c,c.eval_hours_out)},
+  {key:'difficulty',label:'Difficulty', num:true, get:c=>diffTotal(c), render:c=>diffBadge(c)},
+  {key:'eval_instructor_match',label:'Eval match', get:c=>String(c.eval_instructor_match??''), render:renderMatch},
+  {key:'rating',label:'Rating', num:true, get:c=>c.rating, render:renderRating},
+  {key:'rating_rationale',label:'Why', get:c=>c.rating_rationale||'',
+     render:c=>c.rating_rationale?`<span class="desc">${esc(c.rating_rationale)}</span>`:'<span class="empty">—</span>'},
+  {key:'instructor',label:'Instructor', get:c=>c.instructor||'',
+     render:c=>c.instructor?`<i>${esc(c.instructor)}</i>`:'<span class="empty">—</span>'},
+  {key:'description',label:'Description', sort:false, get:c=>c.description||'', render:renderDesc},
+];
+const DEFAULT_HIDDEN = []; // all visible by default
+
+// ---- persisted state ----------------------------------------------------
+const LS = {flags:'mitdash.flags', hidden:'mitdash.hidden', sort:'mitdash.sort'};
+const flags = new Set(load(LS.flags, []));
+let hidden = new Set(load(LS.hidden, DEFAULT_HIDDEN));
+let sort = load(LS.sort, {key:'number', dir:1});
+const expanded = new Set();
+
+function load(k,def){try{const v=JSON.parse(localStorage.getItem(k));return v??def;}catch(e){return def;}}
+function save(k,v){localStorage.setItem(k,JSON.stringify(v));}
+function esc(s){return (s==null?'':String(s)).replace(/[&<>"]/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[m]));}
+
+// ---- renderers ----------------------------------------------------------
+function renderStar(c){return `<span class="star ${flags.has(c.number)?'on':''}" data-star="${c.number}">★</span>`;}
+function numCell(v){return v==null?'<span class="empty">—</span>':`<span class="num">${v}</span>`;}
+function diffTotal(c){return (c.eval_hours_in!=null||c.eval_hours_out!=null)?((c.eval_hours_in||0)+(c.eval_hours_out||0)):null;}
+function diffInfo(t){if(t==null)return null; if(t<8)return{l:'Light',c:'d-l'}; if(t<11)return{l:'Moderate',c:'d-m'}; if(t<15)return{l:'Heavy',c:'d-h'}; return{l:'Very Heavy',c:'d-x'};}
+function diffBadge(c){const t=diffTotal(c); const d=diffInfo(t); return d?`<span class="dbadge ${d.c}" title="${t} hrs/week total (eval)">${d.l}</span>`:'<span class="empty">—</span>';}
+function hoursCell(c,v){
+  if(v==null) return c.eval_status==='none'?'<span class="empty" title="No evaluation on record">n/a</span>':'<span class="empty">—</span>';
+  const bits=[]; if(c.eval_term)bits.push(c.eval_term); if(c.eval_responses!=null)bits.push('n='+c.eval_responses);
+  const lowN=c.eval_responses!=null&&c.eval_responses<5;
+  return `<span class="num${lowN?' lown':''}" title="${esc(bits.join(' · '))}">${v}${lowN?'*':''}</span>`;
+}
+function renderOffering(c){
+  const s=c.offering_status||'';
+  let cls='b-ok'; if(/this year/.test(s))cls='b-bad'; else if(/next year/.test(s))cls='b-warn';
+  else if(/not currently/i.test(s))cls='b-grey';
+  let h=`<span class="badge ${cls}">${esc(s)}</span>`;
+  if((c.offering_notes||[]).length) h+=`<div class="hint">${esc(c.offering_notes.join('; '))}</div>`;
+  return h;
+}
+function renderAags(c){
+  const a=c.aags||'Not approved';
+  const map={'Approved-Offered':['b-blue','AAGS ✓ offered'],'Approved-NotThisYear':['b-grey','AAGS ✓ (not this yr)'],
+             'Approved-NotInCatalog':['b-grey','AAGS ✓ (not in catalog)'],'Not approved':['b-none','— not approved'],
+             'N/A':['b-none','—']};
+  const [cls,txt]=map[a]||['b-none',a];
+  return `<span class="badge ${cls}">${esc(txt)}</span>`;
+}
+function renderPrereqs(c){
+  if(!c.prereqs || !c.prereqs.length){
+    return c.prereq_raw?`<span class="prq">${esc(c.prereq_raw)}</span>`:'<span class="empty">None</span>';
+  }
+  const parts=c.prereqs.map(p=>p.name?`${p.number} ${p.name}`:p.number);
+  return `<span class="prq" title="${esc(c.prereq_raw)}">${esc(parts.join('; '))}</span>`;
+}
+function renderMatch(c){
+  const m=c.eval_instructor_match;
+  if(m===true) return '<span class="matchY">✓ same</span>';
+  if(m===false){
+    const who=c.eval_instructor?` (${esc(c.eval_instructor)})`:'';
+    return `<span class="matchN" title="Evaluation reflects a different instructor than the catalog: ${esc(c.eval_instructor||'')}">✗ diff${who}</span>`;
+  }
+  if(c.eval_status==='none') return '<span class="matchNA" title="No evaluation on record">n/a</span>';
+  return '<span class="matchNA" title="Catalog instructor unknown — cannot compare">—</span>';
+}
+function renderRating(c){
+  if(c.rating==null) return '<span class="empty">—</span>';
+  return `<span class="rate"><span class="r${c.rating}">${c.rating}/5</span></span>`;
+}
+function renderDesc(c){
+  const d=c.description||''; if(!d) return '<span class="empty">—</span>';
+  const open=expanded.has(c.number);
+  const clip=d.length>160?d.slice(0,160)+'… ':d;
+  if(d.length<=160) return `<span class="desc">${esc(d)}</span>`;
+  return `<span class="desc ${open?'open':''}"><span class="clip">${esc(clip)}</span>`+
+         `<span class="full">${esc(d)} </span>`+
+         `<span class="more" data-more="${c.number}">${open?'less':'more'}</span></span>`;
+}
+
+// ---- build sidebar filters ----------------------------------------------
+function uniq(arr){return [...new Set(arr)].filter(x=>x!=null&&x!=='');}
+const TERMS=['Fall','IAP','Spring','Summer'];
+const OFFER=uniq(COURSES.map(c=>c.offering_status)).sort();
+const AAGS=['Approved-Offered','Approved-NotThisYear','Approved-NotInCatalog','Not approved'];
+const CATS=uniq(COURSES.map(c=>c.category)).sort();
+const DEPTS=uniq(COURSES.map(c=>c.department)).sort();
+
+function checkList(host,items,name){
+  document.getElementById(host).innerHTML=items.map(v=>
+    `<label><input type="checkbox" data-${name}="${esc(v)}">${esc(v)}</label>`).join('');
+}
+checkList('f_dept',DEPTS,'dept');
+checkList('f_terms',TERMS,'term');
+checkList('f_offering',OFFER,'offer');
+checkList('f_aags',AAGS,'aags');
+checkList('f_cat',CATS,'cat');
+
+// column toggles
+document.getElementById('coltoggle').innerHTML=COLS.filter(c=>!c.fixed).map(c=>
+  `<label style="display:block"><input type="checkbox" data-col="${c.key}" ${hidden.has(c.key)?'':'checked'}> ${esc(c.label)}</label>`).join('');
+
+// ---- filtering / sorting -------------------------------------------------
+function checkedVals(name){return [...document.querySelectorAll(`[data-${name}]`)].filter(x=>x.checked).map(x=>x.getAttribute('data-'+name));}
+
+function getFilters(){
+  return {
+    q:document.getElementById('search').value.trim().toLowerCase(),
+    flagged:document.getElementById('f_flagged').checked,
+    terms:checkedVals('term'), offer:checkedVals('offer'),
+    aags:checkedVals('aags'), cat:checkedVals('cat'), dept:checkedVals('dept'),
+    design:document.getElementById('f_design').checked,
+    al:document.getElementById('f_al').checked,
+    umin:numOrNull('u_min'), umax:numOrNull('u_max'),
+    hmax:numOrNull('h_max'), rmin:+document.getElementById('r_min').value,
+  };
+}
+function numOrNull(id){const v=document.getElementById(id).value;return v===''?null:+v;}
+
+function passes(c,f){
+  if(f.flagged && !flags.has(c.number)) return false;
+  if(f.dept.length && !f.dept.includes(c.department)) return false;
+  if(f.design && !c.design_approved) return false;
+  if(f.al && !c.action_learning) return false;
+  if(f.q){
+    const hay=(c.number+' '+c.title+' '+(c.instructor||'')+' '+(c.description||'')+' '+(c.category||'')+' '+(c.department||'')).toLowerCase();
+    if(!hay.includes(f.q)) return false;
+  }
+  if(f.terms.length && !(c.terms||[]).some(t=>f.terms.includes(t))) return false;
+  if(f.offer.length && !f.offer.includes(c.offering_status)) return false;
+  if(f.aags.length && !f.aags.includes(c.aags||'Not approved')) return false;
+  if(f.cat.length && !f.cat.includes(c.category)) return false;
+  if(f.umin!=null && (c.units_total==null || c.units_total<f.umin)) return false;
+  if(f.umax!=null && (c.units_total==null || c.units_total>f.umax)) return false;
+  if(f.hmax!=null){
+    const h=(c.eval_hours_in||0)+(c.eval_hours_out||0);
+    const hasEval=c.eval_hours_in!=null||c.eval_hours_out!=null;
+    if(hasEval && h>f.hmax) return false; // null eval always passes
+  }
+  if(f.rmin && (c.rating==null || c.rating<f.rmin)) return false;
+  return true;
+}
+
+function sorted(list){
+  const col=COLS.find(c=>c.key===sort.key)||COLS[1];
+  const dir=sort.dir;
+  return list.slice().sort((a,b)=>{
+    let va=col.get(a), vb=col.get(b);
+    if(col.num){
+      const na=va==null?null:+va, nb=vb==null?null:+vb;
+      if(na==null&&nb==null)return 0; if(na==null)return 1; if(nb==null)return -1; // nulls last
+      return (na-nb)*dir;
+    }
+    va=(va==null?'':String(va)).toLowerCase(); vb=(vb==null?'':String(vb)).toLowerCase();
+    return va<vb?-dir:va>vb?dir:0;
+  });
+}
+
+// ---- render --------------------------------------------------------------
+function renderHead(){
+  document.getElementById('headrow').innerHTML=COLS.map(c=>{
+    const arr=sort.key===c.key?`<span class="arrow">${sort.dir>0?'▲':'▼'}</span>`:'';
+    const hc=hidden.has(c.key)?'hcol':'';
+    return `<th class="${hc}" data-col="${c.key}">${esc(c.label)} ${arr}</th>`;
+  }).join('');
+}
+function renderRows(){
+  const f=getFilters();
+  const list=sorted(COURSES.filter(c=>passes(c,f)));
+  document.getElementById('rows').innerHTML=list.map(c=>
+    '<tr>'+COLS.map(col=>{
+      const hc=hidden.has(col.key)?'hcol':'';
+      return `<td class="${hc} ${col.key==='number'?'cnum':''}">${col.render(c)}</td>`;
+    }).join('')+'</tr>').join('');
+  document.getElementById('shown').textContent=list.length;
+  document.getElementById('total').textContent=COURSES.length;
+  document.getElementById('flagcount').textContent=flags.size;
+}
+function renderAll(){renderHead();renderRows();}
+
+// ---- events --------------------------------------------------------------
+document.addEventListener('input',e=>{
+  if(e.target.matches('#search,[data-dept],[data-term],[data-offer],[data-aags],[data-cat],#u_min,#u_max,#h_max,#r_min,#f_flagged,#f_design,#f_al'))
+    renderRows();
+});
+document.getElementById('headrow').addEventListener('click',e=>{
+  const th=e.target.closest('th'); if(!th)return;
+  const key=th.getAttribute('data-col'); const col=COLS.find(c=>c.key===key);
+  if(!col||col.sort===false)return;
+  if(sort.key===key) sort.dir=-sort.dir; else {sort.key=key;sort.dir=1;}
+  save(LS.sort,sort); renderAll();
+});
+document.getElementById('rows').addEventListener('click',e=>{
+  const s=e.target.closest('[data-star]');
+  if(s){const n=s.getAttribute('data-star'); flags.has(n)?flags.delete(n):flags.add(n);
+        save(LS.flags,[...flags]); renderRows(); return;}
+  const ap=e.target.closest('[data-addplan]');
+  if(ap){addPlanItem(ap.getAttribute('data-addplan'),null,null,"Unassigned"); renderRows(); return;}
+  const m=e.target.closest('[data-more]');
+  if(m){const n=m.getAttribute('data-more'); expanded.has(n)?expanded.delete(n):expanded.add(n); renderRows();}
+});
+document.getElementById('coltoggle').addEventListener('change',e=>{
+  const k=e.target.getAttribute('data-col'); if(!k)return;
+  e.target.checked?hidden.delete(k):hidden.add(k);
+  save(LS.hidden,[...hidden]); renderAll();
+});
+document.getElementById('refresh').addEventListener('click',()=>location.reload());
+document.getElementById('resetf').addEventListener('click',()=>{
+  document.getElementById('search').value='';
+  document.querySelectorAll('[data-dept],[data-term],[data-offer],[data-aags],[data-cat]').forEach(x=>x.checked=false);
+  ['u_min','u_max','h_max'].forEach(id=>document.getElementById(id).value='');
+  document.getElementById('r_min').value='0';
+  document.getElementById('f_flagged').checked=false;
+  document.getElementById('f_design').checked=false;
+  document.getElementById('f_al').checked=false;
+  renderRows();
+});
+document.getElementById('export').addEventListener('click',()=>{
+  const cols=['number','title','department','category','terms','offering_status','aags','units_raw','units_total',
+              'schedule_summary','prereq_raw','eval_hours_in','eval_hours_out','eval_instructor_match',
+              'rating','rating_rationale','instructor','url'];
+  const rows=COURSES.filter(c=>flags.has(c.number));
+  const csv=[cols.join(',')].concat(rows.map(c=>cols.map(k=>{
+    let v=c[k]; if(Array.isArray(v))v=v.join('; '); v=v==null?'':String(v);
+    return '"'+v.replace(/"/g,'""')+'"';
+  }).join(','))).join('\n');
+  const blob=new Blob([csv],{type:'text/csv'});
+  const a=document.createElement('a'); a.href=URL.createObjectURL(blob);
+  a.download='flagged_courses.csv'; a.click();
+});
+
+// ===========================================================================
+// PLAN VIEW — schedule sandbox + degree-requirement tracker
+// ===========================================================================
+const PLAN_TERMS=["Summer 2026","Fall 2026","IAP 2027","Spring 2027","Summer 2027","Fall 2027","IAP 2028","Spring 2028"];
+// migrate older "1st/2nd" term labels (and saved plans) to calendar years
+const TERM_MIG={"1st Summer":"Summer 2026","1st Fall":"Fall 2026","1st IAP":"IAP 2027","1st Spring":"Spring 2027","2nd Summer":"Summer 2027","2nd Fall":"Fall 2027","2nd IAP":"IAP 2028","2nd Spring":"Spring 2028"};
+const migTerm=t=>TERM_MIG[t]||t;
+// per the LGO handbook, the 66-unit term cap excludes 15.792/15.794/##.THG; the Excel also
+// excludes the 6.S090 Python workshop from term totals. These don't count toward the term load.
+function excludedFromCap(it){
+  if((it.tags||[]).includes("Python")||(it.tags||[]).includes("Thesis")) return true;
+  if(it.number==="15.792"||it.number==="15.794"||/THG/.test(it.number)) return true;
+  return false;
+}
+const TAGS=["MBA Core","LGO Required MBA","MBA Elective","LGO Required Eng","Eng Elective","Thesis","Python","LGO Design"];
+const TAGCLASS={"MBA Core":"t-core","LGO Required MBA":"t-lgo","MBA Elective":"t-elec","LGO Required Eng":"t-lgo","Eng Elective":"t-elec","Thesis":"t-thesis","Python":"t-python","LGO Design":"t-design"};
+const MBA_CORE_SET=["15.010","15.280","15.311","15.515"];
+const LGO_REQ_MBA_SET=["15.316","15.317","15.761","15.876","15.S21","15.086","15.792","15.766","15.S23","15.794","15.769"];
+const courseByNum={}; COURSES.forEach(c=>{courseByNum[c.number]=c;});
+
+// Sample 2-year LGO plan (from the Excel) — the default schedule.
+const PLAN_DEFAULT=[
+ // 1st Summer
+ ["15.316","Building & Leading Effective Teams",4,["LGO Required MBA"],"1st Summer"],
+ ["15.317","Organizational Leadership & Change",6,["LGO Required MBA"],"1st Summer"],
+ ["15.761","Intro to Operations Management",9,["LGO Required MBA"],"1st Summer"],
+ ["15.876","Lean Operations",3,["LGO Required MBA"],"1st Summer"],
+ ["15.086","Engineering Probability",3,["LGO Required MBA"],"1st Summer"],
+ ["6.S090","Python Workshop",3,["Python"],"1st Summer"],
+ ["15.066","Systems Optimization & Analysis for Ops",12,["LGO Required Eng"],"1st Summer"],
+ ["15.087","Engineering Statistics & Data Science",12,["LGO Required Eng"],"1st Summer"],
+ // 1st Fall
+ ["15.010","Economic Analysis for Business Decisions",9,["MBA Core"],"1st Fall"],
+ ["15.280","Communication for Leaders",9,["MBA Core"],"1st Fall"],
+ ["15.311","Organizational Processes",9,["MBA Core"],"1st Fall"],
+ ["15.515","Financial Accounting",9,["MBA Core"],"1st Fall"],
+ ["15.792","Global Operations Leadership Seminar",2,["LGO Required MBA"],"1st Fall"],
+ ["15.401","Managerial Finance",9,["MBA Elective"],"1st Fall"],
+ ["6.7960","Deep Learning",12,["Eng Elective"],"1st Fall"],
+ // 1st IAP
+ ["15.766","Domestic Plant Trek & Partner Integration",9,["LGO Required MBA"],"1st IAP"],
+ // 1st Spring
+ ["15.762","Supply Chain Planning",6,["MBA Elective"],"1st Spring"],
+ ["15.665","Power and Negotiation",9,["MBA Elective"],"1st Spring"],
+ ["15.792","Global Operations Leadership Seminar",2,["LGO Required MBA"],"1st Spring"],
+ ["15.784","Operations Lab",9,["MBA Elective"],"1st Spring"],
+ ["15.321","Improvisational Leadership",6,["MBA Elective"],"1st Spring"],
+ ["6.C85","Interactive Data Viz & Society",12,["Eng Elective","LGO Design"],"1st Spring"],
+ ["6.C51","Modeling with Machine Learning",12,["Eng Elective"],"1st Spring"],
+ // 2nd Summer
+ ["15.794","Research Project in Operations",1,["LGO Required MBA"],"2nd Summer"],
+ // 2nd Fall
+ ["15.794","Research Project in Operations",12,["LGO Required MBA"],"2nd Fall"],
+ ["15.THG","Graduate Thesis",9,["Thesis"],"2nd Fall"],
+ // 2nd Spring
+ ["15.317","Organizational Leadership & Change",6,["LGO Required MBA"],"2nd Spring"],
+ ["15.769","Operations Strategy",9,["LGO Required MBA"],"2nd Spring"],
+ ["15.871","System Dynamics",6,["MBA Elective"],"2nd Spring"],
+ ["15.402","Corporate Finance",9,["MBA Elective"],"2nd Spring"],
+ ["15.794","Research Project in Operations",5,["LGO Required MBA"],"2nd Spring"],
+ ["6.8510","Intelligent Multimodal User Interfaces",12,["Eng Elective"],"2nd Spring"],
+ ["15.THG","Graduate Thesis",15,["Thesis"],"2nd Spring"],
+].map((a,i)=>({id:"p"+i,number:a[0],title:a[1],units:a[2],tags:a[3],term:migTerm(a[4]),audit:false}));
+
+const REQ_DEFAULT=[
+ {key:"mba_core",group:"MBA",name:"MBA Core",target:36,type:"units",tags:["MBA Core"]},
+ {key:"mba_lgo",group:"MBA",name:"LGO Required MBA",target:71,type:"units",tags:["LGO Required MBA"]},
+ {key:"mba_elec",group:"MBA",name:"MBA Free Electives",target:49,type:"units",tags:["MBA Elective"]},
+ {key:"mba_total",group:"MBA",name:"MBA Total Coursework",target:156,type:"units",tags:["MBA Core","LGO Required MBA","MBA Elective"],headline:true},
+ {key:"eng_lgo",group:"EECS",name:"LGO Required Eng",target:24,type:"units",tags:["LGO Required Eng"]},
+ {key:"eng_elec",group:"EECS",name:"Engineering Electives",target:42,type:"units",tags:["Eng Elective"]},
+ {key:"eng_total",group:"EECS",name:"EECS Total Coursework",target:66,type:"units",tags:["LGO Required Eng","Eng Elective"],headline:true},
+ {key:"aags",group:"EECS",name:"AAGS-approved eng (≥3 courses)",target:36,type:"aags",tags:["Eng Elective","LGO Required Eng"]},
+ {key:"thesis",group:"Thesis & extras",name:"SM Thesis",target:24,type:"units",tags:["Thesis"]},
+ {key:"python",group:"Thesis & extras",name:"Python (6.S090)",target:1,type:"count",tags:["Python"]},
+ {key:"design",group:"Thesis & extras",name:"LGO Design",target:1,type:"count",tags:["LGO Design"]},
+];
+
+const PLS={plan:"mitdash.plan",reqs:"mitdash.reqs",view:"mitdash.view"};
+const newId=()=>"p"+Date.now().toString(36)+Math.random().toString(36).slice(2,7);
+let planItems=(load(PLS.plan,null)||PLAN_DEFAULT).map(x=>({...x,tags:[...x.tags],term:migTerm(x.term)}));
+// Repair any historical duplicate ids (older builds reused a counter that reset on reload).
+(()=>{const seen=new Set();planItems.forEach(it=>{if(!it.id||seen.has(it.id))it.id=newId();seen.add(it.id);});})();
+let reqs=load(PLS.reqs,null)||REQ_DEFAULT.map(x=>({...x,tags:[...x.tags]}));
+let hideAudit=false;
+function planSave(){save(PLS.plan,planItems);}
+function reqSave(){save(PLS.reqs,reqs);}
+
+function defaultTagsFor(number,dept){
+  if(MBA_CORE_SET.includes(number)) return ["MBA Core"];
+  if(LGO_REQ_MBA_SET.includes(number)) return ["LGO Required MBA"];
+  if(number==="15.066"||number==="15.087") return ["LGO Required Eng"];
+  if(number.indexOf("6.S090")===0) return ["Python"];
+  if(/THG/.test(number)) return ["Thesis"];
+  const d=dept||"";
+  if(d.includes("Course 15")) return ["MBA Elective"];
+  if(d.includes("Course 6")||d.includes("Course 2")) return ["Eng Elective"];  // non-EECS eng also = Eng Elective
+  return [];
+}
+function addPlanItem(number,title,units,term){
+  const c=courseByNum[number];
+  planItems.push({id:newId(),number,title:title||(c?c.title:number),
+    units:units!=null?units:(c&&c.units_total!=null?c.units_total:0),
+    tags:defaultTagsFor(number,c?c.department:""),term:term||"Unassigned",audit:false});
+  planSave(); renderPlan();
+}
+
+// ---- requirement computation ----
+function reqEarned(b){
+  // Design is satisfied by any planned pre-approved design course OR a manual "LGO Design" tag.
+  if(b.key==="design"){
+    const items=planItems.filter(it=>!it.audit && ((it.tags||[]).includes("LGO Design") ||
+        (courseByNum[it.number]||{}).design_approved==="approved"));
+    return {n:items.length, courses:items.length};
+  }
+  const items=planItems.filter(it=>!it.audit && (it.tags||[]).some(t=>b.tags.includes(t)));
+  if(b.type==="count") return {n:items.length, courses:items.length};
+  if(b.type==="aags"){
+    const ag=items.filter(it=>{const c=courseByNum[it.number]; return c && (c.aags||"").startsWith("Approved");});
+    return {n:ag.reduce((s,it)=>s+(+it.units||0),0), courses:ag.length};
+  }
+  return {n:items.reduce((s,it)=>s+(+it.units||0),0), courses:items.length};
+}
+function renderReqPanel(){
+  const groups={}; reqs.forEach(b=>{(groups[b.group]=groups[b.group]||[]).push(b);});
+  let h="";
+  for(const g of Object.keys(groups)){
+    h+=`<div class="reqgroup"><h4>${esc(g)}</h4>`;
+    for(const b of groups[g]){
+      const e=reqEarned(b);
+      let met, label, pct;
+      if(b.type==="aags"){ met=e.n>=b.target && e.courses>=3; label=`${e.n} / ${b.target}u · ${e.courses}/3 courses`; pct=Math.min(100,100*e.n/b.target);}
+      else if(b.type==="count"){ met=e.n>=b.target; label=`${e.n} / ${b.target}`; pct=Math.min(100,100*e.n/(b.target||1));}
+      else { met=e.n>=b.target; label=`${e.n} / ${b.target}u`; pct=Math.min(100,100*e.n/(b.target||1));}
+      if(b.headline){
+        h+=`<div class="reqtotal ${met?'met':''}">
+            <span class="rt-l">${esc(b.name)}</span>
+            <span class="rt-v">${met?'✓ ':''}${e.n}<span class="rt-t">/ ${b.target}u</span></span></div>`;
+        continue;
+      }
+      h+=`<div class="reqrow ${met?'met':''}">
+        <div class="rl"><span class="rn">${esc(b.name)}</span>
+        <span class="rv ${met?'':'short'}">${met?'✓ ':''}${label}</span></div>
+        <div class="bar ${met?'done':''}"><i style="width:${pct}%"></i></div></div>`;
+    }
+    h+="</div>";
+  }
+  document.getElementById("reqpanel").innerHTML=h;
+}
+
+// ---- term grid ----
+function renderTerms(){
+  const grid=document.getElementById("termgrid");
+  const order=["Unassigned",...PLAN_TERMS];
+  let h="";
+  for(const term of order){
+    const items=planItems.filter(it=>it.term===term && (!hideAudit||!it.audit));
+    items.sort((a,b)=>(a.audit-b.audit) || ((+b.units||0)-(+a.units||0)));  // size desc; audits last
+    if(term==="Unassigned" && items.length===0) continue;
+    const tot=items.filter(it=>!it.audit && !excludedFromCap(it)).reduce((s,it)=>s+(+it.units||0),0);
+    const excl=items.filter(it=>!it.audit && excludedFromCap(it)).reduce((s,it)=>s+(+it.units||0),0);
+    const cap=term==="Unassigned"?Infinity:66;
+    h+=`<div class="term ${term==='Unassigned'?'unassigned':''}"><div class="term-h">${esc(term)}
+        <span class="tu ${tot>cap?'over':''}">${tot}u${excl?` <span class="hint" style="font-weight:400">+${excl} excl</span>`:''}</span></div><div class="term-body">`;
+    for(const it of items){
+      const tagChips=(it.tags||[]).map(t=>`<span class="tagchip ${TAGCLASS[t]||''}" data-act="rmtag" data-id="${it.id}" data-tag="${esc(t)}" title="click to remove">${esc(t)} ✕</span>`).join("");
+      const avail=TAGS.filter(t=>!(it.tags||[]).includes(t));
+      const addsel=`<select data-act="addtag" data-id="${it.id}"><option value="">+tag</option>${avail.map(t=>`<option>${esc(t)}</option>`).join("")}</select>`;
+      const termsel=`<select data-act="term" data-id="${it.id}">${order.map(t=>`<option ${t===it.term?'selected':''}>${esc(t)}</option>`).join("")}</select>`;
+      h+=`<div class="pitem ${it.audit?'audit':''}">
+        <div class="pi-top"><span class="pi-num">${esc(it.number)}</span>
+          ${(courseByNum[it.number]||{}).design_approved?`<span class="dz" title="Pre-approved design class">🎨</span>`:''}
+          <span class="pi-title" title="${esc(it.title)}">${esc(it.title)}</span>
+          <input class="pi-u" type="number" min="0" value="${it.units}" data-act="units" data-id="${it.id}">
+          <span class="pi-x" data-act="rm" data-id="${it.id}" title="remove">✕</span></div>
+        <div class="pi-tags">${tagChips}${addsel}</div>
+        <div class="pi-controls">${termsel}
+          <label><input type="checkbox" data-act="audit" data-id="${it.id}" ${it.audit?'checked':''}> audit</label></div>
+      </div>`;
+    }
+    h+="</div></div>";
+  }
+  grid.innerHTML=h;
+}
+function renderPlanSummary(){
+  const active=planItems.filter(it=>!it.audit);
+  const mba=reqEarned(reqs.find(b=>b.key==="mba_total")).n;
+  const eng=reqEarned(reqs.find(b=>b.key==="eng_total")).n;
+  const th=reqEarned(reqs.find(b=>b.key==="thesis")).n;
+  document.getElementById("plan-summary").innerHTML=
+    `<b>${active.length}</b> courses planned · MBA <b>${mba}</b>/156u · EECS <b>${eng}</b>/66u · Thesis <b>${th}</b>/24u`;
+}
+function renderPlan(){ renderReqPanel(); renderTerms(); renderPlanSummary(); }
+
+// ---- plan event handling ----
+function itemById(id){return planItems.find(x=>x.id===id);}
+document.getElementById("termgrid").addEventListener("change",e=>{
+  const t=e.target, id=t.getAttribute("data-id"), act=t.getAttribute("data-act"); if(!id)return;
+  const it=itemById(id); if(!it)return;
+  if(act==="term"){ it.term=t.value; }
+  else if(act==="units"){ it.units=+t.value||0; }
+  else if(act==="audit"){ it.audit=t.checked; }
+  else if(act==="addtag"){ if(t.value && !it.tags.includes(t.value)) it.tags.push(t.value); }
+  else return;
+  planSave(); renderPlan();
+});
+document.getElementById("termgrid").addEventListener("click",e=>{
+  const t=e.target.closest("[data-act]"); if(!t)return;
+  const act=t.getAttribute("data-act"), id=t.getAttribute("data-id"), it=itemById(id); if(!it)return;
+  if(act==="rm"){ planItems=planItems.filter(x=>x.id!==id); }
+  else if(act==="rmtag"){ const tg=t.getAttribute("data-tag"); it.tags=it.tags.filter(x=>x!==tg); }
+  else return;
+  planSave(); renderPlan();
+});
+document.getElementById("hide-audit").addEventListener("change",e=>{hideAudit=e.target.checked; renderTerms();});
+
+// ---- modal (add course + settings) ----
+const modal=document.getElementById("modal");
+function openModal(title,bodyHTML){document.getElementById("modal-title").textContent=title;document.getElementById("modal-body").innerHTML=bodyHTML;modal.hidden=false;}
+function closeModal(){modal.hidden=true;}
+document.getElementById("modal-x").addEventListener("click",closeModal);
+modal.addEventListener("click",e=>{if(e.target===modal)closeModal();});
+
+function addCourseModal(){
+  const termOpts=["Unassigned",...PLAN_TERMS].map(t=>`<option>${esc(t)}</option>`).join("");
+  openModal("Add course to plan",
+    `<div class="setrow">Add to term: <select id="add-term">${termOpts}</select></div>
+     <input id="add-search" placeholder="Search catalog by number or title…" style="width:100%;padding:7px;border:1px solid var(--line);border-radius:7px;margin:6px 0">
+     <div id="add-results" style="max-height:300px;overflow:auto;border:1px solid var(--line);border-radius:7px"></div>
+     <div class="hint" style="margin-top:10px">Not in the catalog? Add a custom course:</div>
+     <div class="setrow"><input id="cu-num" placeholder="Number (e.g. 15.S99)" style="width:120px;padding:4px;border:1px solid var(--line);border-radius:6px">
+       <input id="cu-title" placeholder="Title" style="flex:1;padding:4px;border:1px solid var(--line);border-radius:6px">
+       <input id="cu-u" type="number" placeholder="units" style="width:60px;padding:4px;border:1px solid var(--line);border-radius:6px">
+       <button id="cu-add">Add</button></div>`);
+  const resBox=document.getElementById("add-results");
+  const doSearch=()=>{
+    const q=document.getElementById("add-search").value.trim().toLowerCase();
+    if(!q){resBox.innerHTML='<div class="hint" style="padding:8px">Type to search 538 courses…</div>';return;}
+    const inPlan=new Set(planItems.map(it=>it.number));
+    const hits=COURSES.filter(c=>(c.number+" "+c.title).toLowerCase().includes(q)).slice(0,40);
+    resBox.innerHTML=hits.map(c=>{const added=inPlan.has(c.number);
+      return `<div class="addresult ${added?'added':''}" data-add="${added?'':c.number}"><b>${esc(c.number)}</b> ${esc(c.title)}
+      <span class="hint">${c.units_total!=null?c.units_total+'u':''}</span>${added?'<span class="ar-in">✓ in plan</span>':'<span class="ar-add">＋ add</span>'}</div>`;}).join("")||'<div class="hint" style="padding:8px">no matches</div>';
+  };
+  document.getElementById("add-search").addEventListener("input",doSearch); doSearch();
+  resBox.addEventListener("click",e=>{const r=e.target.closest("[data-add]");if(!r)return;
+    const num=r.getAttribute("data-add"); if(!num)return; const term=document.getElementById("add-term").value;
+    addPlanItem(num,null,null,term); doSearch();});
+  document.getElementById("cu-add").addEventListener("click",()=>{
+    const num=document.getElementById("cu-num").value.trim(); if(!num)return;
+    addPlanItem(num,document.getElementById("cu-title").value.trim()||num,+document.getElementById("cu-u").value||0,document.getElementById("add-term").value);
+    closeModal();});
+}
+function settingsModal(){
+  const rows=reqs.map((b,i)=>`<div class="setrow"><span class="sn">${esc(b.name)} <span class="hint">(${esc(b.group)}, counts: ${b.tags.join(', ')||'—'})</span></span>
+    <input type="number" data-req="${i}" value="${b.target}"> ${b.type==='count'?'courses':'units'}</div>`).join("");
+  openModal("Requirement settings (editable)",
+    `<div class="hint" style="margin-bottom:8px">Adjust the target for any requirement. These are your editable model of the LGO degree rules.</div>
+     ${rows}<div style="margin-top:12px"><button id="req-reset">↺ Reset requirements to LGO defaults</button></div>`);
+  document.getElementById("modal-body").addEventListener("change",e=>{
+    const i=e.target.getAttribute("data-req"); if(i==null)return;
+    reqs[+i].target=+e.target.value||0; reqSave(); renderReqPanel();
+  });
+  document.getElementById("req-reset").addEventListener("click",()=>{
+    reqs=REQ_DEFAULT.map(x=>({...x,tags:[...x.tags]})); reqSave(); renderReqPanel(); settingsModal();
+  });
+}
+document.getElementById("plan-add").addEventListener("click",addCourseModal);
+document.getElementById("plan-settings").addEventListener("click",settingsModal);
+document.getElementById("plan-export").addEventListener("click",()=>{
+  const blob=new Blob([JSON.stringify({plan:planItems,reqs},null,2)],{type:"application/json"});
+  const a=document.createElement("a");a.href=URL.createObjectURL(blob);a.download="lgo_plan.json";a.click();
+});
+document.getElementById("plan-import").addEventListener("click",()=>{
+  const inp=document.createElement("input");inp.type="file";inp.accept=".json";
+  inp.onchange=()=>{const f=inp.files[0];if(!f)return;const r=new FileReader();
+    r.onload=()=>{try{const d=JSON.parse(r.result); if(d.plan)planItems=d.plan; if(d.reqs)reqs=d.reqs; planSave();reqSave();renderPlan();}catch(err){alert("Could not parse JSON");}};
+    r.readAsText(f);};
+  inp.click();
+});
+document.getElementById("plan-reset").addEventListener("click",()=>{
+  if(!confirm("Reset the schedule AND requirements to the LGO sample defaults? Your current plan will be lost."))return;
+  planItems=PLAN_DEFAULT.map(x=>({...x,tags:[...x.tags]})); reqs=REQ_DEFAULT.map(x=>({...x,tags:[...x.tags]}));
+  planSave();reqSave();renderPlan();
+});
+
+// ---- view switching ----
+function setView(v){
+  const plan=v==="plan";
+  document.getElementById("view-browse").hidden=plan;
+  document.getElementById("view-plan").hidden=!plan;
+  document.getElementById("tab-browse").classList.toggle("on",!plan);
+  document.getElementById("tab-plan").classList.toggle("on",plan);
+  document.getElementById("search").style.display=plan?"none":"";
+  document.getElementById("export").style.display=plan?"none":"";
+  save(PLS.view,v);
+  if(plan) renderPlan();
+}
+document.getElementById("tab-browse").addEventListener("click",()=>setView("browse"));
+document.getElementById("tab-plan").addEventListener("click",()=>setView("plan"));
+
+// ---- init ----------------------------------------------------------------
+function init(){
+  const m=DATA.meta||{};
+  const loaded=new Date().toLocaleString([], {month:'numeric',day:'numeric',hour:'numeric',minute:'2-digit'});
+  document.getElementById('lastpull').innerHTML=
+    `<span title="When the data was last scraped from MIT (re-run scrape.py to update)">Data pulled from MIT: <b>${m.pulled_at||'unknown'}</b>${m.course_count?` · ${m.course_count} courses`:''}</span>`+
+    ` &nbsp;·&nbsp; <span title="When this page was last loaded/refreshed">page loaded ${loaded}</span>`;
+  const haveEval=COURSES.filter(c=>c.eval_hours_in!=null).length;
+  const haveRate=COURSES.filter(c=>c.rating!=null).length;
+  document.getElementById('evalnote').textContent=
+    `eval data: ${haveEval}/${COURSES.length} · ratings: ${haveRate}/${COURSES.length}`;
+  renderAll();
+  setView(load(PLS.view,"browse"));
+}
+init();
+</script>
+</body>
+</html>

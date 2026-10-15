@@ -1,0 +1,111 @@
+# LGO Degree Planner
+
+A fast, offline-friendly dashboard for **MIT Leaders for Global Operations (LGO)** students to
+browse graduate courses, plan a two-year schedule term by term, and track progress toward the dual
+**SM + MBA** degree requirements — all in a single HTML page with no sign-in and no server.
+
+> **Planning aid, not an official degree audit.** This tool is unofficial and may contain errors or
+> stale data. Always confirm requirements and course details against the
+> [MIT Course Catalog](https://student.mit.edu/catalog/), your department, and the LGO program
+> office before registering.
+
+---
+
+## What it does
+
+**Browse** — 713 graduate subjects across the departments LGO students most commonly draw from:
+
+| Dept | Courses | Covers |
+|------|--------:|--------|
+| Course 6 — EECS | 151 | engineering electives, AAGS core |
+| Course 15 — Management (Sloan) | 392 | MBA core, LGO-required, MBA electives |
+| Course 2 — MechE | 170 | non-EECS engineering electives |
+
+For each course: number, title, category, term offered, offering status (e.g. *not offered this
+year*), units (and total), prerequisites (resolved to names), parsed schedule, description,
+instructor, and **AAGS** approval status. Filter by department, term, offering, category, AAGS,
+unit range, **🎨 pre-approved design classes**, and **🧪 Action Learning labs**; search and sort on
+any column; show/hide columns.
+
+**Plan** — switch to the Plan tab for a sandbox schedule:
+
+- An 8-term grid (Summer → Spring across two years) plus an "Unassigned" holding area.
+- Add any catalog course (or a custom one), move it between terms, set units, add tags, or mark it
+  as **audit** (shown but not counted toward credit).
+- A live **requirements tracker** for the LGO dual degree:
+  - **MBA** — core (36u) + LGO-required (71u) + free electives (≥49u) = **156u**
+  - **EECS SM** — AAGS core (3 courses / 36u) + LGO-required eng (24u) + eng electives = **≥66u**
+  - **SM thesis** (24u), **Python** (6.S090), and the **LGO Design** requirement
+  - Pre-approved design courses satisfy the Design requirement automatically.
+- Requirement targets are **editable** (and resettable to defaults), so the model isn't locked in.
+- Export or import your plan as JSON.
+
+Everything you do — your plan, flagged courses, column preferences, and requirement edits — is saved
+in your browser's `localStorage`, so each visitor gets their own private dashboard.
+
+---
+
+## Quick start
+
+No build step. **Open `index.html` in any modern browser** (double-click it, or serve the folder
+over `http://` if you prefer). It loads `data.js` and runs entirely client-side.
+
+---
+
+## How the data is built
+
+Course data is scraped once into `data.js` / `courses.json` by `scrape.py` (Python 3, standard
+library only). The snapshot in this repo was pulled **2026-07-30**.
+
+```bash
+python3 scrape.py              # uses cached catalog HTML if present in .scratch/
+python3 scrape.py --refresh    # re-download the catalog + AAGS list from MIT
+```
+
+The scraper pulls the public [MIT Course Catalog](https://student.mit.edu/catalog/) pages and the
+EECS [AAGS](https://eecsis.mit.edu/degree_requirements.pcgi?program=AAGS) approved-subject list,
+merges in the small public data files below, and writes `data.js`.
+
+| File | What it is |
+|------|------------|
+| `index.html` | the app (UI + logic) |
+| `data.js` | generated: `window.COURSE_DATA`, loaded by the page |
+| `courses.json` | the same data as JSON, for inspection |
+| `scrape.py` | the catalog + AAGS scraper |
+| `al.json` | MIT Sloan Action Learning labs (lab codes, terms) |
+| `design.json` | LGO pre-approved design classes (approved / conditional) |
+| `extra.json` | hand-added special subjects not in the main catalog pages |
+
+To add a department, add an entry to the `DEPARTMENTS` list at the top of `scrape.py` and re-run it.
+
+---
+
+## Notes & limitations
+
+- **Requirement model.** The built-in requirement tracker reflects the **LGO EECS SM + MBA** dual
+  degree. Courses from other departments are browsable and plannable as electives, but per-major
+  requirement models for other engineering programs aren't built in yet.
+- **Term labels** currently span a fixed two-year window and fit one cohort at a time.
+- **No ratings or workload data.** This public build intentionally ships **without** subjective
+  "worth-taking" ratings or course-evaluation workload hours. (Evaluation data comes from a
+  login-gated MIT site, and ratings are inherently personal.) The Rating / Difficulty / Hours
+  columns are present but empty. Letting users import their own ratings/notes is on the roadmap.
+
+---
+
+## Data sources
+
+- MIT Course Catalog — `student.mit.edu/catalog`
+- EECS AAGS approved-subject list — `eecsis.mit.edu`
+- LGO Online Handbook (degree requirements, pre-approved design classes)
+- MIT Sloan Action Learning booklet
+
+All course content belongs to MIT and its departments; this tool only reorganizes publicly listed
+information for planning convenience.
+
+---
+
+## Status
+
+Early public version. Feedback and requirement corrections from LGO students across majors are
+welcome — please open an issue.
