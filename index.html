@@ -106,6 +106,7 @@
   .pitem .pi-num{font-weight:700;white-space:nowrap}
   .pitem .pi-title{flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
   .pitem .pi-u{width:42px;text-align:right;border:1px solid var(--line);border-radius:5px;padding:1px 3px;font-size:12px}
+  .lockbadge{font-size:10.5px;font-weight:700;color:var(--accent);white-space:nowrap}
   .pi-x{cursor:pointer;color:var(--muted);font-weight:700;padding:0 3px}
   .pi-x:hover{color:var(--bad)}
   .pi-tags{display:flex;flex-wrap:wrap;gap:3px;margin-top:4px;align-items:center}
@@ -557,8 +558,10 @@ const PLAN_DEFAULT=[
  // IAP 2027
  ["15.766","Domestic Plant Trek & Partner Integration",9,["LGO Required MBA"],"IAP 2027"],
  // Spring 2027
- ["15.769","Operations Strategy",9,["LGO Required MBA"],"Spring 2027"],
- ["15.792","Global Operations Leadership Seminar",2,["LGO Required MBA"],"Spring 2027"],
+ // Required, flexible-term courses: start in Unassigned, locked (can't be removed), and can only be
+ // scheduled in their allowed terms.
+ ["15.769","Operations Strategy",9,["LGO Required MBA"],"Unassigned",{required:true,allowedTerms:["Spring 2027","Spring 2028"]}],
+ ["15.792","Global Operations Leadership Seminar",2,["LGO Required MBA"],"Unassigned",{required:true,allowedTerms:["Spring 2027","Fall 2027","Spring 2028"]}],
  // Summer 2027
  ["15.794","Research Project in Operations",1,["LGO Required MBA"],"Summer 2027"],
  // Fall 2027
@@ -568,7 +571,7 @@ const PLAN_DEFAULT=[
  ["15.THG","Graduate Thesis",15,["Thesis"],"Spring 2028"],
  ["15.317","Organizational Leadership & Change",6,["LGO Required MBA"],"Spring 2028"],
  ["15.794","Research Project in Operations",5,["LGO Required MBA"],"Spring 2028"],
-].map((a,i)=>({id:"p"+i,number:a[0],title:a[1],units:a[2],tags:a[3],term:migTerm(a[4]),audit:false}));
+].map((a,i)=>({id:"p"+i,number:a[0],title:a[1],units:a[2],tags:a[3],term:migTerm(a[4]),audit:false,...(a[5]||{})}));
 
 const REQ_DEFAULT=[
  {key:"mba_core",group:"MBA",name:"MBA Core",target:36,type:"units",tags:["MBA Core"]},
@@ -615,6 +618,10 @@ function addPlanItem(number,title,units,term){
 }
 
 // ---- requirement computation ----
+// Only scheduled courses count: audits and anything still in "Unassigned" don't.
+const TERM_LIMIT=72;  // units per term (per Krish, 2026-10-27)
+const counts=it=>!it.audit && it.term!=="Unassigned";
+const fmtTerms=ts=>ts.length>1?ts.slice(0,-1).join(", ")+" or "+ts[ts.length-1]:ts[0];
 // LGO EECS handbook: 6.C51 (6u) taken with exactly one 6u co-req module counts as ONE 12u AAGS course.
 const C51_MODULES=["1.C51","2.C51","3.C51","6.C511","7.C51","10.C51","11.C51","15.C51","20.C51","22.C51","SCM.C51"];
 // Allocate engineering courses: AAGS-approved courses fill the AAGS core first (largest first)
@@ -624,7 +631,7 @@ function engAllocation(){
   const aagsB=reqs.find(x=>x.type==="aags");
   const tags=aagsB?aagsB.tags:["Eng Elective","LGO Required Eng"];
   const target=aagsB?aagsB.target:36, minC=aagsB?(aagsB.minCourses||3):3;
-  const items=planItems.filter(it=>!it.audit && (it.tags||[]).some(t=>tags.includes(t)));
+  const items=planItems.filter(it=>counts(it) && (it.tags||[]).some(t=>tags.includes(t)));
   const isAags=it=>((courseByNum[it.number]||{}).aags||"").startsWith("Approved");
   const notes=[], cands=[];
   const c51=items.find(it=>it.number==="6.C51");
@@ -657,18 +664,22 @@ function reqEarned(b){
   }
   if(b.type==="elec_beyond_aags"){
     const a=engAllocation();
-    const elec=planItems.filter(it=>!it.audit && !a.used.has(it.id) && (it.tags||[]).some(t=>b.tags.includes(t)));
+    const elec=planItems.filter(it=>counts(it) && !a.used.has(it.id) && (it.tags||[]).some(t=>b.tags.includes(t)));
     return {n:elec.reduce((s,it)=>s+(+it.units||0),0), courses:elec.length,
             info:elec.length?["Counted: "+elec.map(it=>it.number).join(", ")]:[]};
   }
   // Design is satisfied by any planned pre-approved design course OR a manual "LGO Design" tag.
   if(b.key==="design"){
-    const items=planItems.filter(it=>!it.audit && ((it.tags||[]).includes("LGO Design") ||
+    const items=planItems.filter(it=>counts(it) && ((it.tags||[]).includes("LGO Design") ||
         (courseByNum[it.number]||{}).design_approved==="approved"));
     return {n:items.length, courses:items.length};
   }
-  const items=planItems.filter(it=>!it.audit && (it.tags||[]).some(t=>b.tags.includes(t)));
+  const items=planItems.filter(it=>counts(it) && (it.tags||[]).some(t=>b.tags.includes(t)));
   if(b.type==="count") return {n:items.length, courses:items.length};
+  // flag required courses that are still unscheduled (on the specific bucket, not the totals)
+  const pending=b.headline?[]:planItems.filter(it=>it.required && it.term==="Unassigned" && (it.tags||[]).some(t=>b.tags.includes(t)));
+  if(pending.length) return {n:items.reduce((s,it)=>s+(+it.units||0),0), courses:items.length,
+      notes:pending.map(it=>`${it.number} (${it.units}u) is required — schedule it in ${fmtTerms(it.allowedTerms||[])}.`)};
   return {n:items.reduce((s,it)=>s+(+it.units||0),0), courses:items.length};
 }
 function renderReqPanel(){
@@ -711,23 +722,27 @@ function renderTerms(){
     if(term==="Unassigned" && items.length===0) continue;
     const tot=items.filter(it=>!it.audit && !excludedFromCap(it)).reduce((s,it)=>s+(+it.units||0),0);
     const excl=items.filter(it=>!it.audit && excludedFromCap(it)).reduce((s,it)=>s+(+it.units||0),0);
-    const cap=term==="Unassigned"?Infinity:66;
-    h+=`<div class="term ${term==='Unassigned'?'unassigned':''}"><div class="term-h">${esc(term)}
-        <span class="tu ${tot>cap?'over':''}" ${tot>cap?`title="Over the LGO limit of 66 units per term (15.792, 15.794, thesis and 6.S090 don't count toward it)"`:''}>${tot}u${tot>cap?' · over 66u limit':''}${excl?` <span class="hint" style="font-weight:400">+${excl} excl</span>`:''}</span></div><div class="term-body">`;
+    const cap=term==="Unassigned"?Infinity:TERM_LIMIT;
+    h+=`<div class="term ${term==='Unassigned'?'unassigned':''}"><div class="term-h">${esc(term)}${term==='Unassigned'?' <span class="hint" style="font-weight:400">· not counted toward requirements</span>':''}
+        <span class="tu ${tot>cap?'over':''}" ${tot>cap?`title="Over the limit of ${TERM_LIMIT} units per term (15.792, 15.794, thesis and 6.S090 don't count toward it)"`:''}>${term==='Unassigned'?'':`${tot}u${tot>cap?` · over ${TERM_LIMIT}u limit`:''}${excl?` <span class="hint" style="font-weight:400">+${excl} excl</span>`:''}`}</span></div><div class="term-body">`;
     for(const it of items){
-      const tagChips=(it.tags||[]).map(t=>`<span class="tagchip ${TAGCLASS[t]||''}" data-act="rmtag" data-id="${it.id}" data-tag="${esc(t)}" title="click to remove">${esc(t)} ✕</span>`).join("");
+      const req=!!it.required;
+      const tagChips=(it.tags||[]).map(t=>req?`<span class="tagchip ${TAGCLASS[t]||''}">${esc(t)}</span>`
+          :`<span class="tagchip ${TAGCLASS[t]||''}" data-act="rmtag" data-id="${it.id}" data-tag="${esc(t)}" title="click to remove">${esc(t)} ✕</span>`).join("");
       const avail=TAGS.filter(t=>!(it.tags||[]).includes(t));
-      const addsel=`<select data-act="addtag" data-id="${it.id}"><option value="">+tag</option>${avail.map(t=>`<option>${esc(t)}</option>`).join("")}</select>`;
-      const termsel=`<select data-act="term" data-id="${it.id}">${order.map(t=>`<option ${t===it.term?'selected':''}>${esc(t)}</option>`).join("")}</select>`;
+      const addsel=req?'':`<select data-act="addtag" data-id="${it.id}"><option value="">+tag</option>${avail.map(t=>`<option>${esc(t)}</option>`).join("")}</select>`;
+      const termOpts=req?["Unassigned",...(it.allowedTerms||[])]:order;
+      const termsel=`<select data-act="term" data-id="${it.id}">${termOpts.map(t=>`<option ${t===it.term?'selected':''}>${esc(t)}</option>`).join("")}</select>`;
       h+=`<div class="pitem ${it.audit?'audit':''}">
         <div class="pi-top"><span class="pi-num">${esc(it.number)}</span>
           ${(courseByNum[it.number]||{}).design_approved?`<span class="dz" title="Pre-approved design class">🎨</span>`:''}
           <span class="pi-title" title="${esc(it.title)}">${esc(it.title)}</span>
           <input class="pi-u" type="number" min="0" value="${it.units}" data-act="units" data-id="${it.id}">
-          <span class="pi-x" data-act="rm" data-id="${it.id}" title="remove">✕</span></div>
+          ${req?`<span class="lockbadge" title="Required — must be scheduled in ${esc(fmtTerms(it.allowedTerms||[]))}. Can't be removed.">🔒 Required</span>`
+               :`<span class="pi-x" data-act="rm" data-id="${it.id}" title="remove">✕</span>`}</div>
         <div class="pi-tags">${tagChips}${addsel}</div>
         <div class="pi-controls">${termsel}
-          <label><input type="checkbox" data-act="audit" data-id="${it.id}" ${it.audit?'checked':''}> audit</label></div>
+          ${req?'':`<label><input type="checkbox" data-act="audit" data-id="${it.id}" ${it.audit?'checked':''}> audit</label>`}</div>
       </div>`;
     }
     h+="</div></div>";
@@ -735,12 +750,12 @@ function renderTerms(){
   grid.innerHTML=h;
 }
 function renderPlanSummary(){
-  const active=planItems.filter(it=>!it.audit);
+  const active=planItems.filter(counts);
   const mba=reqEarned(reqs.find(b=>b.key==="mba_total")).n;
   const eng=reqEarned(reqs.find(b=>b.key==="eng_total")).n;
   const th=reqEarned(reqs.find(b=>b.key==="thesis")).n;
   document.getElementById("plan-summary").innerHTML=
-    `<b>${active.length}</b> courses planned · MBA <b>${mba}</b>/156u · EECS <b>${eng}</b>/66u · Thesis <b>${th}</b>/24u`;
+    `<b>${active.length}</b> courses scheduled · MBA <b>${mba}</b>/156u · EECS <b>${eng}</b>/66u · Thesis <b>${th}</b>/24u`;
 }
 function renderPlan(){ renderReqPanel(); renderTerms(); renderPlanSummary(); }
 
@@ -749,7 +764,8 @@ function itemById(id){return planItems.find(x=>x.id===id);}
 document.getElementById("termgrid").addEventListener("change",e=>{
   const t=e.target, id=t.getAttribute("data-id"), act=t.getAttribute("data-act"); if(!id)return;
   const it=itemById(id); if(!it)return;
-  if(act==="term"){ it.term=t.value; }
+  if(act==="term"){ if(it.required && t.value!=="Unassigned" && !(it.allowedTerms||[]).includes(t.value)) return; it.term=t.value; }
+  else if(it.required && act!=="units") return;
   else if(act==="units"){ it.units=+t.value||0; }
   else if(act==="audit"){ it.audit=t.checked; }
   else if(act==="addtag"){ if(t.value && !it.tags.includes(t.value)) it.tags.push(t.value); }
@@ -759,6 +775,7 @@ document.getElementById("termgrid").addEventListener("change",e=>{
 document.getElementById("termgrid").addEventListener("click",e=>{
   const t=e.target.closest("[data-act]"); if(!t)return;
   const act=t.getAttribute("data-act"), id=t.getAttribute("data-id"), it=itemById(id); if(!it)return;
+  if(it.required) return;  // locked
   if(act==="rm"){ planItems=planItems.filter(x=>x.id!==id); }
   else if(act==="rmtag"){ const tg=t.getAttribute("data-tag"); it.tags=it.tags.filter(x=>x!==tg); }
   else return;
@@ -837,8 +854,8 @@ document.getElementById("plan-reset").addEventListener("click",()=>{
 });
 
 document.getElementById("plan-blank").addEventListener("click",()=>{
-  if(!confirm("Clear your schedule and start from a blank plan? Your current plan will be lost (requirement settings stay)."))return;
-  planItems=[]; planSave(); renderPlan();
+  if(!confirm("Clear your schedule and start from a blank plan? Your current plan will be lost (requirement settings stay; required courses go back to Unassigned)."))return;
+  planItems=planItems.filter(it=>it.required).map(it=>({...it,term:"Unassigned"})); planSave(); renderPlan();
 });
 
 // ---- view switching ----
