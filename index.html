@@ -538,46 +538,36 @@ const courseByNum={}; COURSES.forEach(c=>{courseByNum[c.number]=c;});
 
 // Sample 2-year LGO plan (from the Excel) — the default schedule.
 const PLAN_DEFAULT=[
- // 1st Summer
- ["15.316","Building & Leading Effective Teams",4,["LGO Required MBA"],"1st Summer"],
- ["15.317","Organizational Leadership & Change",6,["LGO Required MBA"],"1st Summer"],
- ["15.761","Intro to Operations Management",9,["LGO Required MBA"],"1st Summer"],
- ["15.876","Lean Operations",3,["LGO Required MBA"],"1st Summer"],
- ["15.086","Engineering Probability",3,["LGO Required MBA"],"1st Summer"],
- ["6.S090","Python Workshop",3,["Python"],"1st Summer"],
- ["15.066","Systems Optimization & Analysis for Ops",12,["LGO Required Eng"],"1st Summer"],
- ["15.087","Engineering Statistics & Data Science",12,["LGO Required Eng"],"1st Summer"],
- // 1st Fall
- ["15.010","Economic Analysis for Business Decisions",9,["MBA Core"],"1st Fall"],
- ["15.280","Communication for Leaders",9,["MBA Core"],"1st Fall"],
- ["15.311","Organizational Processes",9,["MBA Core"],"1st Fall"],
- ["15.515","Financial Accounting",9,["MBA Core"],"1st Fall"],
- ["15.792","Global Operations Leadership Seminar",2,["LGO Required MBA"],"1st Fall"],
- ["15.401","Managerial Finance",9,["MBA Elective"],"1st Fall"],
- ["6.7960","Deep Learning",12,["Eng Elective"],"1st Fall"],
- // 1st IAP
- ["15.766","Domestic Plant Trek & Partner Integration",9,["LGO Required MBA"],"1st IAP"],
- // 1st Spring
- ["15.762","Supply Chain Planning",6,["MBA Elective"],"1st Spring"],
- ["15.665","Power and Negotiation",9,["MBA Elective"],"1st Spring"],
- ["15.792","Global Operations Leadership Seminar",2,["LGO Required MBA"],"1st Spring"],
- ["15.784","Operations Lab",9,["MBA Elective"],"1st Spring"],
- ["15.321","Improvisational Leadership",6,["MBA Elective"],"1st Spring"],
- ["6.C85","Interactive Data Viz & Society",12,["Eng Elective","LGO Design"],"1st Spring"],
- ["6.C51","Modeling with Machine Learning",12,["Eng Elective"],"1st Spring"],
- // 2nd Summer
- ["15.794","Research Project in Operations",1,["LGO Required MBA"],"2nd Summer"],
- // 2nd Fall
- ["15.794","Research Project in Operations",12,["LGO Required MBA"],"2nd Fall"],
- ["15.THG","Graduate Thesis",9,["Thesis"],"2nd Fall"],
- // 2nd Spring
- ["15.317","Organizational Leadership & Change",6,["LGO Required MBA"],"2nd Spring"],
- ["15.769","Operations Strategy",9,["LGO Required MBA"],"2nd Spring"],
- ["15.871","System Dynamics",6,["MBA Elective"],"2nd Spring"],
- ["15.402","Corporate Finance",9,["MBA Elective"],"2nd Spring"],
- ["15.794","Research Project in Operations",5,["LGO Required MBA"],"2nd Spring"],
- ["6.8510","Intelligent Multimodal User Interfaces",12,["Eng Elective"],"2nd Spring"],
- ["15.THG","Graduate Thesis",15,["Thesis"],"2nd Spring"],
+ // Base plan = LGO-required courses only; students add their own electives.
+ // Summer 2026
+ ["15.316","Building & Leading Effective Teams",4,["LGO Required MBA"],"Summer 2026"],
+ ["15.317","Organizational Leadership & Change",6,["LGO Required MBA"],"Summer 2026"],
+ ["15.761","Intro to Operations Management",9,["LGO Required MBA"],"Summer 2026"],
+ ["15.876","Lean Operations",3,["LGO Required MBA"],"Summer 2026"],
+ ["15.086","Engineering Probability",3,["LGO Required MBA"],"Summer 2026"],
+ ["6.S090","Python Workshop",3,["Python"],"Summer 2026"],
+ ["15.066","Systems Optimization & Analysis for Ops",12,["LGO Required Eng"],"Summer 2026"],
+ ["15.087","Engineering Statistics & Data Science",12,["LGO Required Eng"],"Summer 2026"],
+ // Fall 2026
+ ["15.010","Economic Analysis for Business Decisions",9,["MBA Core"],"Fall 2026"],
+ ["15.280","Communication for Leaders",9,["MBA Core"],"Fall 2026"],
+ ["15.311","Organizational Processes",9,["MBA Core"],"Fall 2026"],
+ ["15.515","Financial Accounting",9,["MBA Core"],"Fall 2026"],
+ ["15.792","Global Operations Leadership Seminar",2,["LGO Required MBA"],"Fall 2026"],
+ // IAP 2027
+ ["15.766","Domestic Plant Trek & Partner Integration",9,["LGO Required MBA"],"IAP 2027"],
+ // Spring 2027
+ ["15.769","Operations Strategy",9,["LGO Required MBA"],"Spring 2027"],
+ ["15.792","Global Operations Leadership Seminar",2,["LGO Required MBA"],"Spring 2027"],
+ // Summer 2027
+ ["15.794","Research Project in Operations",1,["LGO Required MBA"],"Summer 2027"],
+ // Fall 2027
+ ["15.794","Research Project in Operations",12,["LGO Required MBA"],"Fall 2027"],
+ ["15.THG","Graduate Thesis",9,["Thesis"],"Fall 2027"],
+ // Spring 2028
+ ["15.THG","Graduate Thesis",15,["Thesis"],"Spring 2028"],
+ ["15.317","Organizational Leadership & Change",6,["LGO Required MBA"],"Spring 2028"],
+ ["15.794","Research Project in Operations",5,["LGO Required MBA"],"Spring 2028"],
 ].map((a,i)=>({id:"p"+i,number:a[0],title:a[1],units:a[2],tags:a[3],term:migTerm(a[4]),audit:false}));
 
 const REQ_DEFAULT=[
@@ -627,36 +617,49 @@ function addPlanItem(number,title,units,term){
 // ---- requirement computation ----
 // LGO EECS handbook: 6.C51 (6u) taken with exactly one 6u co-req module counts as ONE 12u AAGS course.
 const C51_MODULES=["1.C51","2.C51","3.C51","6.C511","7.C51","10.C51","11.C51","15.C51","20.C51","22.C51","SCM.C51"];
-function aagsCore(b){
-  const items=planItems.filter(it=>!it.audit && (it.tags||[]).some(t=>b.tags.includes(t)));
+// Allocate engineering courses: AAGS-approved courses fill the AAGS core first (largest first)
+// until it has its minimum courses AND units; every other engineering course — including extra
+// AAGS courses — counts as an eng elective. Each course counts toward exactly one bucket.
+function engAllocation(){
+  const aagsB=reqs.find(x=>x.type==="aags");
+  const tags=aagsB?aagsB.tags:["Eng Elective","LGO Required Eng"];
+  const target=aagsB?aagsB.target:36, minC=aagsB?(aagsB.minCourses||3):3;
+  const items=planItems.filter(it=>!it.audit && (it.tags||[]).some(t=>tags.includes(t)));
   const isAags=it=>((courseByNum[it.number]||{}).aags||"").startsWith("Approved");
-  let units=0, courses=0; const notes=[];
-  for(const it of items){
-    if(it.number==="6.C51" || C51_MODULES.includes(it.number)) continue;  // handled as a pair below
-    if(isAags(it)){ units+=(+it.units||0); courses++; }
-  }
+  const notes=[], cands=[];
   const c51=items.find(it=>it.number==="6.C51");
   const mods=items.filter(it=>C51_MODULES.includes(it.number));
   if(c51){
     const mod=mods[0];
-    units+=(+c51.units||0)+(mod?(+mod.units||0):0); courses++;
+    cands.push({ids:[c51.id].concat(mod?[mod.id]:[]), label:mod?"6.C51+"+mod.number:"6.C51",
+                units:(+c51.units||0)+(mod?(+mod.units||0):0)});
     if(!mod && (+c51.units||0)<12) notes.push("6.C51 needs a 6u co-req module (e.g. 15.C51 or SCM.C51) to count as a full 12u AAGS course.");
-    if(mods.length>1) notes.push("Only one co-req module pairs with 6.C51; "+mods.slice(1).map(m=>m.number).join(", ")+" not counted toward AAGS.");
+    if(mods.length>1) notes.push("Only one co-req module pairs with 6.C51; "+mods.slice(1).map(m=>m.number).join(", ")+" counted as eng electives instead.");
   } else if(mods.length){
     notes.push(mods.map(m=>m.number).join(", ")+" only counts toward AAGS when paired with 6.C51.");
   }
-  return {n:units, courses, notes};
+  for(const it of items){
+    if(it.number==="6.C51" || C51_MODULES.includes(it.number)) continue;
+    if((it.tags||[]).includes("LGO Required Eng")) continue;   // LGO-required eng has its own bucket
+    if(isAags(it)) cands.push({ids:[it.id], label:it.number, units:+it.units||0});
+  }
+  cands.sort((a,b)=>b.units-a.units);
+  const core=[]; let coreUnits=0;
+  for(const c of cands){ if(core.length>=minC && coreUnits>=target) break; core.push(c); coreUnits+=c.units; }
+  const used=new Set(); core.forEach(c=>c.ids.forEach(id=>used.add(id)));
+  return {coreUnits, coreCourses:core.length, coreLabels:core.map(c=>c.label), used, notes};
 }
 function reqEarned(b){
-  if(b.type==="aags") return aagsCore(b);
+  if(b.type==="aags"){
+    const a=engAllocation();
+    return {n:a.coreUnits, courses:a.coreCourses, notes:a.notes,
+            info:a.coreLabels.length?["Counted: "+a.coreLabels.join(", ")]:[]};
+  }
   if(b.type==="elec_beyond_aags"){
-    // engineering-elective units left over after the AAGS core takes its 36u
-    const elec=planItems.filter(it=>!it.audit && (it.tags||[]).some(t=>b.tags.includes(t)))
-                        .reduce((s,it)=>s+(+it.units||0),0);
-    const core=reqs.find(x=>x.type==="aags");
-    const used=core?Math.min(aagsCore(core).n, core.target):0;
-    const n=Math.max(0, elec-used);
-    return {n, courses:0};
+    const a=engAllocation();
+    const elec=planItems.filter(it=>!it.audit && !a.used.has(it.id) && (it.tags||[]).some(t=>b.tags.includes(t)));
+    return {n:elec.reduce((s,it)=>s+(+it.units||0),0), courses:elec.length,
+            info:elec.length?["Counted: "+elec.map(it=>it.number).join(", ")]:[]};
   }
   // Design is satisfied by any planned pre-approved design course OR a manual "LGO Design" tag.
   if(b.key==="design"){
@@ -689,6 +692,7 @@ function renderReqPanel(){
         <div class="rl"><span class="rn">${esc(b.name)}</span>
         <span class="rv ${met?'':'short'}">${met?'✓ ':''}${label}</span></div>
         <div class="bar ${met?'done':''}"><i style="width:${pct}%"></i></div>
+        ${(e.info||[]).map(n=>`<div class="hint" style="margin-top:3px">${esc(n)}</div>`).join("")}
         ${(e.notes||[]).map(n=>`<div class="hint" style="margin-top:3px">⚠ ${esc(n)}</div>`).join("")}</div>`;
     }
     h+="</div>";
@@ -709,7 +713,7 @@ function renderTerms(){
     const excl=items.filter(it=>!it.audit && excludedFromCap(it)).reduce((s,it)=>s+(+it.units||0),0);
     const cap=term==="Unassigned"?Infinity:66;
     h+=`<div class="term ${term==='Unassigned'?'unassigned':''}"><div class="term-h">${esc(term)}
-        <span class="tu ${tot>cap?'over':''}">${tot}u${excl?` <span class="hint" style="font-weight:400">+${excl} excl</span>`:''}</span></div><div class="term-body">`;
+        <span class="tu ${tot>cap?'over':''}" ${tot>cap?`title="Over the LGO limit of 66 units per term (15.792, 15.794, thesis and 6.S090 don't count toward it)"`:''}>${tot}u${tot>cap?' · over 66u limit':''}${excl?` <span class="hint" style="font-weight:400">+${excl} excl</span>`:''}</span></div><div class="term-body">`;
     for(const it of items){
       const tagChips=(it.tags||[]).map(t=>`<span class="tagchip ${TAGCLASS[t]||''}" data-act="rmtag" data-id="${it.id}" data-tag="${esc(t)}" title="click to remove">${esc(t)} ✕</span>`).join("");
       const avail=TAGS.filter(t=>!(it.tags||[]).includes(t));
