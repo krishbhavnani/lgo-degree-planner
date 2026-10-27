@@ -1,23 +1,23 @@
 {
   "meta": {
-    "pulled_at": "2026-07-30 12:58",
+    "pulled_at": "2026-10-21 12:16",
     "source_dates": {
-      "m6a": "29-JUL-2026 05:10 PM",
-      "m6b": "29-JUL-2026 05:10 PM",
-      "m6c": "29-JUL-2026 05:10 PM",
-      "m6d": "29-JUL-2026 05:10 PM",
-      "m15a": "29-JUL-2026 05:10 PM",
-      "m15b": "29-JUL-2026 05:10 PM",
-      "m15c": "29-JUL-2026 05:10 PM",
-      "m2a": "29-JUL-2026 05:10 PM",
-      "m2b": "29-JUL-2026 05:10 PM",
-      "m2c": "29-JUL-2026 05:10 PM"
+      "m6a": "20-OCT-2026 05:10 PM",
+      "m6b": "20-OCT-2026 05:10 PM",
+      "m6c": "20-OCT-2026 05:10 PM",
+      "m6d": "20-OCT-2026 05:10 PM",
+      "m15a": "20-OCT-2026 05:10 PM",
+      "m15b": "20-OCT-2026 05:10 PM",
+      "m15c": "20-OCT-2026 05:10 PM",
+      "m2a": "20-OCT-2026 05:10 PM",
+      "m2b": "20-OCT-2026 05:10 PM",
+      "m2c": "20-OCT-2026 05:10 PM"
     },
-    "aags_count": 178,
-    "course_count": 713,
+    "aags_count": 180,
+    "course_count": 718,
     "departments": {
-      "Course 6 — EECS": 151,
-      "Course 15 — Management": 392,
+      "Course 6 — EECS": 152,
+      "Course 15 — Management": 396,
       "Course 2 — MechE": 170
     }
   },
@@ -303,7 +303,7 @@
       "terms": [
         "Spring"
       ],
-      "offering_status": "Offered",
+      "offering_status": "Not offered this year (2026-2027)",
       "offering_notes": [],
       "meets_with": [
         "6.5151"
@@ -341,7 +341,7 @@
       "eval_url": null,
       "rating": null,
       "rating_rationale": null,
-      "aags": "Approved-Offered",
+      "aags": "Approved-NotThisYear",
       "design_approved": null,
       "action_learning": null
     },
@@ -613,17 +613,17 @@
       "schedule": [
         {
           "kind": "Lecture",
-          "code": "TR2.30",
+          "code": "TR2.30-4",
           "days": [
             "Tue",
             "Thu"
           ],
           "start": "14:30",
-          "end": null,
-          "raw": "TR2.30 ( 36-153 )"
+          "end": "16:00",
+          "raw": "TR2.30-4 ( 36-153 )"
         }
       ],
-      "schedule_summary": "Lecture: Tue/Thu 14:30",
+      "schedule_summary": "Lecture: Tue/Thu 14:30–16:00",
       "description": "Sublinear time algorithms understand parameters and properties of input data after viewing only a minuscule fraction of it. Tools from number theory, combinatorics, linear algebra, optimization theory, distributed algorithms, statistics, and probability are covered. Topics include: testing and estimating properties of distributions, functions, graphs, strings, point sets, and various combinatorial objects.",
       "instructor": "R. Rubinfeld",
       "source_page": "m6a",
@@ -1349,7 +1349,7 @@
           ],
           "start": "13:00",
           "end": "14:30",
-          "raw": "MW1-2.30 ( 2-190 )"
+          "raw": "MW1-2.30 ( 2-190 ) +final"
         }
       ],
       "schedule_summary": "Lecture: Mon/Wed 13:00–14:30",
@@ -1547,7 +1547,7 @@
       "terms": [
         "Fall"
       ],
-      "offering_status": "Offered",
+      "offering_status": "Not offered this year (2026-2027)",
       "offering_notes": [],
       "meets_with": [],
       "prereq_raw": "6.1020 and ( 6.1800 or 6.1810 )",
@@ -1577,22 +1577,10 @@
         "prep": 3
       },
       "units_total": 12,
-      "schedule": [
-        {
-          "kind": "Lecture",
-          "code": "MW1-2.30",
-          "days": [
-            "Mon",
-            "Wed"
-          ],
-          "start": "13:00",
-          "end": "14:30",
-          "raw": "MW1-2.30 ( 2-136 )"
-        }
-      ],
-      "schedule_summary": "Lecture: Mon/Wed 13:00–14:30",
-      "description": "Fundamental design and implementation issues in the engineering of operating systems. Lectures based on the study of a symmetric multiprocessor version of UNIX version 6 and research papers. Topics include virtual memory; file system; threads; context switches; kernels; interrupts; system calls; interprocess communication; coordination, and interaction between software and hardware. Individual laboratory assignments accumulate in the construction of a minimal operating system (for an x86-based personal computer) that implements the basic operating system abstractions and a shell. Knowledge of programming in the C language is a prerequisite.",
-      "instructor": "A. Belay",
+      "schedule": [],
+      "schedule_summary": "",
+      "description": "Fundamental design and implementation issues in the engineering of operating systems. Lectures based on the study of a symmetric multiprocessor version of UNIX version 6 and research papers. Topics include virtual memory; file system; threads; context switches; kernels; interrupts; system calls; interprocess communication; coordination, and interaction between software and hardware. Individual laboratory assignments accumulate in the construction of a minimal operating system (for an x86-based personal computer) that implements the basic operating system abstractions and a shell. Knowledge of programming in the C language is a prerequisite. Staff",
+      "instructor": null,
       "source_page": "m6a",
       "url": "https://student.mit.edu/catalog/m6a.html#6.5810",
       "eval_status": null,
@@ -1605,7 +1593,7 @@
       "eval_url": null,
       "rating": null,
       "rating_rationale": null,
-      "aags": "Approved-Offered",
+      "aags": "Approved-NotThisYear",
       "design_approved": null,
       "action_learning": null
     },
@@ -1684,7 +1672,7 @@
       "terms": [
         "Spring"
       ],
-      "offering_status": "Offered",
+      "offering_status": "Not offered this year (2026-2027)",
       "offering_notes": [],
       "meets_with": [
         "6.5831"
@@ -1724,7 +1712,7 @@
       "schedule": [],
       "schedule_summary": "",
       "description": "Topics related to the engineering and design of database systems, including data models; database and schema design; schema normalization and integrity constraints; query processing; query optimization and cost estimation; transactions; recovery; concurrency control; isolation and consistency; distributed, parallel and heterogeneous databases; adaptive databases; trigger systems; pub-sub systems; semi structured data and XML querying. Lecture and readings from original research papers. Semester-long project and paper. Students taking graduate version complete different assignments. Enrollment may be limited.",
-      "instructor": "M. Cafarella, T. Li",
+      "instructor": "S. R. Madden",
       "source_page": "m6a",
       "url": "https://student.mit.edu/catalog/m6a.html#6.5830",
       "eval_status": null,
@@ -1737,7 +1725,7 @@
       "eval_url": null,
       "rating": null,
       "rating_rationale": null,
-      "aags": "Approved-Offered",
+      "aags": "Approved-NotThisYear",
       "design_approved": null,
       "action_learning": null
     },
@@ -2227,7 +2215,7 @@
           ],
           "start": "13:00",
           "end": "14:30",
-          "raw": "TR1-2.30 ( 35-308 )"
+          "raw": "TR1-2.30 ( 36-156 )"
         },
         {
           "kind": "Lab",
@@ -2354,9 +2342,19 @@
           "start": "11:00",
           "end": "12:30",
           "raw": "TR11-12.30 ( 34-302 )"
+        },
+        {
+          "kind": "Lab",
+          "code": "F11",
+          "days": [
+            "Fri"
+          ],
+          "start": "11:00",
+          "end": null,
+          "raw": "F11 ( 32-144 )"
         }
       ],
-      "schedule_summary": "Lecture: Tue/Thu 11:00–12:30",
+      "schedule_summary": "Lecture: Tue/Thu 11:00–12:30 | Lab: Fri 11:00",
       "description": "Device and circuit level optimization of digital building blocks. Circuit design styles for logic, arithmetic, and sequential blocks. Estimation and minimization of energy consumption. Interconnect models and parasitics, device sizing and logical effort, timing issues (clock skew and jitter), and active clock distribution techniques. Memory architectures, circuits (sense amplifiers), and devices. Evaluation of how design choices affect tradeoffs across key metrics including energy consumption, speed, robustness, and cost. Extensive use of modern design flow and EDA/CAD tools for the analysis and design of digital building blocks and digital VLSI design for labs and design projects",
       "instructor": "V. Sze",
       "source_page": "m6b",
@@ -2538,7 +2536,7 @@
           ],
           "start": "11:00",
           "end": null,
-          "raw": "F11 ( 4-257 )"
+          "raw": "F11 ( 4-257 ) +final"
         }
       ],
       "schedule_summary": "Lecture: Tue/Thu 14:30–16:00 | Recitation: Fri 11:00",
@@ -3347,12 +3345,12 @@
           ],
           "start": "13:00",
           "end": "14:30",
-          "raw": "TR1-2.30 ( 54-100 ) +final"
+          "raw": "TR1-2.30 ( 4-237 ) +final"
         }
       ],
       "schedule_summary": "Lecture: Tue/Thu 13:00–14:30",
       "description": "Provides an introduction to the theory and practice of quantum computation. Topics covered: physics of information processing; quantum algorithms including the factoring algorithm and Grover's search algorithm; quantum error correction; quantum communication and cryptography. Knowledge of quantum mechanics helpful but not required.",
-      "instructor": "S. Lloyd",
+      "instructor": "P. Shor",
       "source_page": "m6b",
       "url": "https://student.mit.edu/catalog/m6b.html#6.6410",
       "eval_status": null,
@@ -3839,7 +3837,7 @@
           ],
           "start": "13:00",
           "end": "14:30",
-          "raw": "TR1-2.30 ( 1-135 )"
+          "raw": "TR1-2.30 ( 9-354 )"
         }
       ],
       "schedule_summary": "Lecture: Tue/Thu 13:00–14:30",
@@ -4572,7 +4570,7 @@
       "terms": [
         "Spring"
       ],
-      "offering_status": "Offered",
+      "offering_status": "Not offered this year (2026-2027)",
       "offering_notes": [],
       "meets_with": [],
       "prereq_raw": "6.3702 and 18.06",
@@ -4613,7 +4611,7 @@
       "eval_url": null,
       "rating": null,
       "rating_rationale": null,
-      "aags": "Approved-Offered",
+      "aags": "Approved-NotThisYear",
       "design_approved": null,
       "action_learning": null
     },
@@ -4730,7 +4728,7 @@
           ],
           "start": "14:30",
           "end": "16:00",
-          "raw": "TR2.30-4 ( 4-265 )"
+          "raw": "TR2.30-4 ( 32-155 )"
         }
       ],
       "schedule_summary": "Lecture: Tue/Thu 14:30–16:00",
@@ -5051,7 +5049,7 @@
           ],
           "start": "14:30",
           "end": "16:00",
-          "raw": "TR2.30-4 ( 56-154 )"
+          "raw": "TR2.30-4 ( 56-154 ) +final"
         }
       ],
       "schedule_summary": "Lecture: Tue/Thu 14:30–16:00",
@@ -5485,17 +5483,17 @@
         },
         {
           "kind": "Recitation",
-          "code": "TR1",
+          "code": "TR12",
           "days": [
             "Tue",
             "Thu"
           ],
-          "start": "13:00",
+          "start": "12:00",
           "end": null,
-          "raw": "TR1 ( E25-117 ) or TR2 ( E25-117 ) +final"
+          "raw": "TR12 ( 66-144 ) or TR1 ( 66-168 ) +final"
         }
       ],
-      "schedule_summary": "Lecture: Mon/Wed 11:00–12:30 | Recitation: Tue/Thu 13:00",
+      "schedule_summary": "Lecture: Mon/Wed 11:00–12:30 | Recitation: Tue/Thu 12:00",
       "description": "An introduction to probability theory, the modeling and analysis of probabilistic systems, and elements of statistical inference. Probabilistic models, conditional probability. Discrete and continuous random variables. Expectation and conditional expectation, and further topics about random variables. Limit Theorems. Bayesian estimation and hypothesis testing. Elements of classical statistical inference. Bernoulli and Poisson processes. Markov chains. Students taking graduate version complete additional assignments. Fall:",
       "instructor": "M. Roozbehani",
       "source_page": "m6c",
@@ -6797,7 +6795,7 @@
           ],
           "start": "13:00",
           "end": "14:30",
-          "raw": "TR1-2.30 ( 45-230 )"
+          "raw": "TR1-2.30 ( 45-230 ) +final"
         }
       ],
       "schedule_summary": "Lecture: Tue/Thu 13:00–14:30",
@@ -6827,7 +6825,7 @@
       "terms": [
         "Spring"
       ],
-      "offering_status": "Offered",
+      "offering_status": "Not offered this year (2026-2027)",
       "offering_notes": [],
       "meets_with": [],
       "prereq_raw": "6.100A , 6.1210 , and 18.C06",
@@ -6873,7 +6871,7 @@
       "eval_url": null,
       "rating": null,
       "rating_rationale": null,
-      "aags": "Approved-Offered",
+      "aags": "Approved-NotThisYear",
       "design_approved": null,
       "action_learning": null
     },
@@ -6944,6 +6942,64 @@
       "rating": null,
       "rating_rationale": null,
       "aags": "Approved-Offered",
+      "design_approved": null,
+      "action_learning": null
+    },
+    {
+      "number": "6.7990",
+      "title": "Ethical Machine Learning in Human Systems",
+      "department": "Course 6 — EECS",
+      "category": "Machine Learning",
+      "terms": [
+        "Spring"
+      ],
+      "offering_status": "Offered",
+      "offering_notes": [],
+      "meets_with": [],
+      "prereq_raw": "6.3900 , 6.7900 , or 9.520",
+      "prereq_numbers": [
+        "6.3900",
+        "6.7900",
+        "9.520"
+      ],
+      "prereqs": [
+        {
+          "number": "6.3900",
+          "name": "Introduction to Machine Learning"
+        },
+        {
+          "number": "6.7900",
+          "name": "Machine Learning"
+        },
+        {
+          "number": "9.520",
+          "name": ""
+        }
+      ],
+      "units_raw": "3-0-9",
+      "units": {
+        "lec": 3,
+        "lab": 0,
+        "prep": 9
+      },
+      "units_total": 12,
+      "schedule": [],
+      "schedule_summary": "",
+      "description": "Focuses on the human-facing considerations in the pipeline of machine learning (ML) development in human-facing systems like healthcare, employment, and education. Topics covered include: algorithmic fairness, sources of model error/bias, model robustness, human/model evaluations, and policy. Discusses pertinent issues co-occurring in society; projects emphasize the technical and ethical challenges of using machine learning in human systems. Staff",
+      "instructor": null,
+      "source_page": "m6c",
+      "url": "https://student.mit.edu/catalog/m6c.html#6.7990",
+      "eval_status": null,
+      "eval_hours_in": null,
+      "eval_hours_out": null,
+      "eval_responses": null,
+      "eval_term": null,
+      "eval_instructor": null,
+      "eval_instructor_match": null,
+      "eval_url": null,
+      "rating": null,
+      "rating_rationale": null,
+      "aags": "Not approved",
       "design_approved": null,
       "action_learning": null
     },
@@ -7187,7 +7243,7 @@
       "department": "Course 6 — EECS",
       "category": "Artificial Intelligence",
       "terms": [
-        "Fall"
+        "Spring"
       ],
       "offering_status": "Not offered this year (2026-2027)",
       "offering_notes": [],
@@ -7569,7 +7625,9 @@
         "Spring"
       ],
       "offering_status": "Offered",
-      "offering_notes": [],
+      "offering_notes": [
+        "Not offered regularly; consult department"
+      ],
       "meets_with": [],
       "prereq_raw": "( 6.1020 and 6.4110 ) or permission of instructor",
       "prereq_numbers": [
@@ -7609,7 +7667,7 @@
       "eval_url": null,
       "rating": null,
       "rating_rationale": null,
-      "aags": "Approved-Offered",
+      "aags": "Approved-NotThisYear",
       "design_approved": "approved",
       "action_learning": null
     },
@@ -7978,7 +8036,7 @@
       ],
       "schedule_summary": "Lecture: Tue/Thu 09:30–11:00 | Recitation: Wed 13:00",
       "description": "Application of the principles of energy and mass flow to major human organ systems. Anatomical, physiological and clinical features of the cardiovascular, respiratory and renal systems. Mechanisms of regulation and homeostasis. Systems, features and devices that are most illuminated by the methods of physical sciences and engineering models. Required laboratory work includes animal studies. Students taking graduate version complete additional assignments.",
-      "instructor": "T. Heldt, R. G. Mark, L. G. Petersen",
+      "instructor": "T. Heldt",
       "source_page": "m6d",
       "url": "https://student.mit.edu/catalog/m6d.html#6.4822",
       "eval_status": null,
@@ -8324,7 +8382,7 @@
       "terms": [
         "Spring"
       ],
-      "offering_status": "Not offered this year (2026-2027)",
+      "offering_status": "Offered",
       "offering_notes": [],
       "meets_with": [],
       "prereq_raw": "6.3010",
@@ -8360,7 +8418,7 @@
       "eval_url": null,
       "rating": null,
       "rating_rationale": null,
-      "aags": "Approved-NotThisYear",
+      "aags": "Approved-Offered",
       "design_approved": null,
       "action_learning": null
     },
@@ -8673,8 +8731,10 @@
       "terms": [
         "Spring"
       ],
-      "offering_status": "Not offered next year (2027-2028)",
-      "offering_notes": [],
+      "offering_status": "Offered",
+      "offering_notes": [
+        "Not offered regularly; consult department"
+      ],
       "meets_with": [],
       "prereq_raw": "6.3000 and 6.3900",
       "prereq_numbers": [
@@ -8714,7 +8774,7 @@
       "eval_url": null,
       "rating": null,
       "rating_rationale": null,
-      "aags": "Approved-Offered",
+      "aags": "Approved-NotThisYear",
       "design_approved": null,
       "action_learning": null
     },
@@ -8841,11 +8901,11 @@
           "days": [],
           "start": null,
           "end": null,
-          "raw": "TBA"
+          "raw": "TBA ( TBD )"
         }
       ],
       "schedule_summary": "Lecture: TBA",
-      "description": "Units assigned to Master of Business Analytics students upon completion of the Analytics Tools requirement. Restricted to Master of Business Analytics students.",
+      "description": "Units assigned to Master of Business Analytics students upon completion of the Analytics Tools requirement. Restricted to Master of Business Analytics students. Fall:",
       "instructor": "M. Li",
       "source_page": "m15a",
       "url": "https://student.mit.edu/catalog/m15a.html#15.003",
@@ -9202,7 +9262,7 @@
       "terms": [
         "Spring"
       ],
-      "offering_status": "Offered",
+      "offering_status": "Not offered this year (2026-2027)",
       "offering_notes": [],
       "meets_with": [],
       "prereq_raw": "Permission of instructor",
@@ -9288,7 +9348,7 @@
           ],
           "start": "13:00",
           "end": "14:30",
-          "raw": "MW1-2.30 ( E51-315 ) +final"
+          "raw": "MW1-2.30 ( E51-315 )"
         }
       ],
       "schedule_summary": "Lecture: Mon/Wed 13:00–14:30",
@@ -9318,7 +9378,7 @@
       "terms": [
         "Spring"
       ],
-      "offering_status": "Offered",
+      "offering_status": "Not offered this year (2026-2027)",
       "offering_notes": [],
       "meets_with": [],
       "prereq_raw": "None",
@@ -9464,7 +9524,7 @@
           ],
           "start": null,
           "end": null,
-          "raw": "W EVE (4.30-6 PM) ( 9-354 )"
+          "raw": "W EVE (4.30-6 PM) ( 9-354 ) +final"
         }
       ],
       "schedule_summary": "Lecture: Tue/Thu 14:30–16:00 | Recitation: W EVE (4.30-6 PM)",
@@ -9642,13 +9702,13 @@
     },
     {
       "number": "15.027",
-      "title": "Opportunities in Developing Economies",
+      "title": "The Private Sector in Emerging Markets",
       "department": "Course 15 — Management",
       "category": "Managerial Economics",
       "terms": [
         "Spring"
       ],
-      "offering_status": "Offered",
+      "offering_status": "Not offered this year (2026-2027)",
       "offering_notes": [],
       "meets_with": [],
       "prereq_raw": "None",
@@ -9663,7 +9723,7 @@
       "units_total": 6,
       "schedule": [],
       "schedule_summary": "",
-      "description": "Investigates the role of the private sector in developing economies, highlighting how solving market failures can improve overall welfare. Covers constraints faced by firms in developing economies: contract enforcement, corruption, political risk, human rights, IP and infrastructure. Uses case studies to discuss successful firms and innovative solutions to these constraints, including public-private partnerships, the role of technology, the role of finance and impact investing.",
+      "description": "Investigates the role of the private sector in emerging markets, highlighting how solving market failures can improve overall welfare. Covers constraints faced by firms in developing economies: contract enforcement, corruption, political risk, human rights, IP, and infrastructure. Uses case studies to discuss successful firms and innovative solutions to these constraints, including public-private partnerships, the role of technology, the role of finance, and impact investing.",
       "instructor": "T. Suri",
       "source_page": "m15a",
       "url": "https://student.mit.edu/catalog/m15a.html#15.027",
@@ -9733,7 +9793,7 @@
       "terms": [
         "Spring"
       ],
-      "offering_status": "Offered",
+      "offering_status": "Not offered this year (2026-2027)",
       "offering_notes": [],
       "meets_with": [
         "15.0341"
@@ -9750,7 +9810,7 @@
       "units_total": 9,
       "schedule": [],
       "schedule_summary": "",
-      "description": "<p class=\"xmsonormal\">Looks at predicting and understanding the causal effects of decisions across finance, marketing, human resources, and general business strategy. Develops a toolkit to go beyond correlations and get to causality. Students gain a deeper understanding of designing experiments, modeling natural experiments using multivariate regression, instrumental-variable regression, and machine learning tools including regression trees, random forest, LASSO, and neural networks. Expectations and evaluation criteria differ for students taking graduate version; consult syllabus or instructor for specific details.",
+      "description": "Looks at predicting and understanding the causal effects of decisions across finance, marketing, human resources, and general business strategy. Develops a toolkit to go beyond correlations and get to causality. Students gain a deeper understanding of designing experiments, modeling natural experiments using multivariate regression, instrumental-variable regression, and machine learning tools including regression trees, random forest, LASSO, and neural networks. Expectations and evaluation criteria differ for students taking graduate version; consult syllabus or instructor for specific details.",
       "instructor": "J. Doyle, R. Rigobon",
       "source_page": "m15a",
       "url": "https://student.mit.edu/catalog/m15a.html#15.034",
@@ -9777,7 +9837,9 @@
         "Spring"
       ],
       "offering_status": "Offered",
-      "offering_notes": [],
+      "offering_notes": [
+        "Not offered regularly; consult department"
+      ],
       "meets_with": [],
       "prereq_raw": "14.01 or permission of instructor",
       "prereq_numbers": [
@@ -9851,7 +9913,7 @@
       "units_total": 12,
       "schedule": [],
       "schedule_summary": "",
-      "description": "Analyzes business and public policy issues in energy markets and in the environmental markets to which they are closely tied. Examines the economic determinants of industry structure and evolution of competition among firms in these industries. Investigates successful and unsuccessful strategies for entering new markets and competing in existing markets. Industries studied include oil, natural gas, coal, electricity, and transportation. Topics include climate change and environmental policy, the role of speculation in energy markets, the political economy of energy policies, and market power and antitrust. Two team-based simulation games, representing the world oil market and a deregulated electricity market, act to cement the concepts covered in lecture. Students taking graduate version complete additional assignments. Limited to 60.",
+      "description": "Analyzes business and public policy issues in energy markets and in the environmental markets to which they are closely tied. Examines the economic determinants of industry structure and evolution of competition among firms in these industries. Investigates successful and unsuccessful strategies for entering new markets and competing in existing markets. Industries studied include oil, natural gas, coal, electricity, and transportation. Topics include climate change and environmental policy, the role of speculation in energy markets, the political economy of energy policies, and market power and antitrust. Two team-based simulation games, representing the world oil market and a deregulated electricity market, act to cement the concepts covered in lecture. Students taking graduate version complete additional assignments.",
       "instructor": "C. Knittel",
       "source_page": "m15a",
       "url": "https://student.mit.edu/catalog/m15a.html#15.038",
@@ -9947,14 +10009,14 @@
       "schedule": [
         {
           "kind": "Lecture",
-          "code": "MW8.30-10 (ENDS DEC 11)",
+          "code": "MW8.30-10",
           "days": [
             "Mon",
             "Wed"
           ],
           "start": "08:30",
           "end": "10:00",
-          "raw": "MW8.30-10 (ENDS DEC 11) ( E62-262 , E62-223 , E51-325 ) or MW10-11.30 (ENDS DEC 11) ( E62-262 , E62-223 , E51-325 )"
+          "raw": "MW8.30-10 ( E62-262 , E62-223 , E51-325 ) or MW10-11.30 ( E62-262 , E62-223 , E51-325 )"
         },
         {
           "kind": "Recitation",
@@ -10065,7 +10127,7 @@
       "schedule": [],
       "schedule_summary": "",
       "description": "Introduction to mathematical modeling, optimization, and simulation, as applied to manufacturing and operations. Specific methods include linear programming, network flow problems, integer and nonlinear programming, discrete-event simulation, heuristics and computer applications for manufacturing processes, operations and systems. Restricted to Leaders for Global Operations students.",
-      "instructor": "D. Freund",
+      "instructor": "M. Fazel Zarandi",
       "source_page": "m15a",
       "url": "https://student.mit.edu/catalog/m15a.html#15.066",
       "eval_status": null,
@@ -10091,7 +10153,9 @@
         "Spring"
       ],
       "offering_status": "Offered",
-      "offering_notes": [],
+      "offering_notes": [
+        "Not offered regularly; consult department"
+      ],
       "meets_with": [],
       "prereq_raw": "15.060",
       "prereq_numbers": [
@@ -10310,7 +10374,7 @@
           ],
           "start": "09:00",
           "end": null,
-          "raw": "F9 ( E51-315 )"
+          "raw": "F9 ( E51-345 )"
         }
       ],
       "schedule_summary": "Lecture: Mon/Wed 13:00–14:30 | Recitation: Fri 09:00",
@@ -10839,7 +10903,7 @@
       "units_total": null,
       "schedule": [],
       "schedule_summary": "",
-      "description": "Provides students with experience working in teams on a data-driven ML project. After a week of classes that cover a range of tools (Keras, Google Collab, etc.) and deep learning technologies, students compete in teams in a jointly chosen Kaggle competition. Short homework assignments help students get acquainted with the required technologies, and regular presentations foster interactions within the ORC cohort. Restricted to Operations Research Center doctoral students.",
+      "description": "Provides students with experience working in teams on a data-driven ML/AI project in an operational context. After a week of classes that cover a range of tools (e.g., agentic systems, deep learning, etc.) and OR/ML/AI concepts, students compete in teams on a project in which they build and critically analyze the performance of a prototype solution for a given operational issue. Short homework assignments help students get acquainted with the required tools and concepts, and regular presentations foster interactions within the ORC cohort. Restricted to Operations Research Center doctoral students.",
       "instructor": "S. Gupta, A. Aouad",
       "source_page": "m15a",
       "url": "https://student.mit.edu/catalog/m15a.html#15.090",
@@ -10865,7 +10929,7 @@
       "terms": [
         "Spring"
       ],
-      "offering_status": "Offered",
+      "offering_status": "Not offered this year (2026-2027)",
       "offering_notes": [],
       "meets_with": [],
       "prereq_raw": "18.06 or permission of instructor",
@@ -11242,7 +11306,7 @@
       ],
       "schedule_summary": "Lecture: W EVE (3-6 PM)",
       "description": "Description and critical assessment of the major issues and stages of developing a pharmaceutical or biopharmaceutical. Drug discovery, preclinical development, clinical investigation, manufacturing and regulatory issues considered for small and large molecules. Economic and financial considerations of the drug development process. Multidisciplinary perspective from faculty in clinical; life; and management sciences; as well as industry guests.",
-      "instructor": "S. Finkelstein",
+      "instructor": "S. Finkelstein, C. Cooney, B. DeKosky",
       "source_page": "m15a",
       "url": "https://student.mit.edu/catalog/m15a.html#15.136",
       "eval_status": null,
@@ -11687,7 +11751,7 @@
     },
     {
       "number": "15.226",
-      "title": "Modern Business in Southeast Asia: ASEAN Lab",
+      "title": "Modern Business in Asia: Asia Lab",
       "department": "Course 15 — Management",
       "category": "Global Economics & Management",
       "terms": [
@@ -11708,7 +11772,7 @@
       "units_total": 12,
       "schedule": [],
       "schedule_summary": "",
-      "description": "Provides integrated approach to analyze the economies of the Association of Southeast Asian Nations (ASEAN) region — specifically Thailand, Vietnam, Malaysia, and Indonesia — through action learning. Covers modern history, economics, and politics in that region that shape the business environment, cases of companies operating in that region, and project-related issues and personal and learning reflections. Students work in teams to tackle a real world business problem with an entrepreneurial Indian ASEAN-based company and produce a final deliverable for the host company. Projects focus on dynamic sectors such as artificial intelligence, the sharing economy, social media, health care, energy, and manufacturing; examples include creating a business plan for fundraising, developing a new market strategy, and assembling financial models. Limited to graduate students who participate in ASEAN Lab.",
+      "description": "Provides integrated approach to analyze the economies of Asia ? primarily Thailand, Vietnam, Malaysia, Indonesia, South Korea, Japan, and Taiwan ? through action learning. Covers modern history, economics, and politics in that region that shape the business environment, cases of companies operating in that region, and project-related issues and personal and learning reflections. Students work in teams to tackle a real world business problem with an innovative Asia-based company and produce a final deliverable for the host company. Projects focus on dynamic sectors such as artificial intelligence, the sharing economy, social media, health care, energy, and manufacturing; examples include creating a business plan for fundraising, developing a new market strategy, and assembling financial models. Limited to graduate students who participate in Asia Lab.",
       "instructor": "Y. Huang, R. Card",
       "source_page": "m15a",
       "url": "https://student.mit.edu/catalog/m15a.html#15.226",
@@ -11724,8 +11788,8 @@
       "rating_rationale": null,
       "aags": "N/A",
       "design_approved": null,
-      "action_learning": "ASEAN-LAB",
-      "al_name": "Modern Business in Southeast Asia",
+      "action_learning": "ASIA-LAB",
+      "al_name": "Modern Business in Asia: Asia Lab",
       "al_term": "Spring"
     },
     {
@@ -11794,7 +11858,7 @@
       "units_total": 9,
       "schedule": [],
       "schedule_summary": "",
-      "description": "Explores the intersection of public policy and the private sector. Senior level guests, who have been deeply involved in public policy, will join this discussion-based course weekly focusing on key economic policy choices - touching on technology, trade, tax, financial, macro-economic and competitions policies. Provides a deep understanding of the process by which policy comes to life. Examines how the private sector affects - and sometimes shapes - public policy. Taught through the lens of US policy decision-making; also covers international dimensions.",
+      "description": "Explores the intersection of public policy and the private sector. Senior-level guests ? who have been deeply involved in public policy ? join this discussion-based subject regularly, focusing on key economic policy choices, including: trade, tax, immigration, technology, AI, macro-economic, and competitions policies. Provides a deep understanding of the process by which policy comes to life. Examines how the private sector affects, and sometimes shapes, public policy. Taught through the lens of US policy decision-making; also covers international dimensions.",
       "instructor": "G. Gensler, S. Johnson",
       "source_page": "m15a",
       "url": "https://student.mit.edu/catalog/m15a.html#15.230",
@@ -11919,7 +11983,7 @@
       "units_total": 6,
       "schedule": [],
       "schedule_summary": "",
-      "description": "Discussion based-course examines applications of artificial intelligence and robotics in the business world. Emphasizes understanding the likely direction of technology and how it is likely to be used. Students examine particular applications to deepen their understanding of topical issues. Also focuses on how global economies will change in light of this wave of technology. Preference to Sloan graduate students.",
+      "description": "Discussion-based subject on how aI and robotics are reshaping work, firms, and global competition. Utilizes a range of economic, managerial, and behavioral frameworks to analyze these transformative technologies. Focuses on current developments in the field and frontier concepts. No technical background required. Preference to Sloan graduate students.",
       "instructor": "J. Ruane, S. Johnson, E. So",
       "source_page": "m15a",
       "url": "https://student.mit.edu/catalog/m15a.html#15.236",
@@ -11989,7 +12053,7 @@
       "terms": [
         "Spring"
       ],
-      "offering_status": "Offered",
+      "offering_status": "Not offered this year (2026-2027)",
       "offering_notes": [],
       "meets_with": [],
       "prereq_raw": "None",
@@ -12152,7 +12216,7 @@
       ],
       "schedule_summary": "Lecture: Mon/Wed 13:00–14:30",
       "description": "Designed to help students develop and polish a range of communication skills necessary for success as a finance professional. Emphasis on presentation, team, and writing skills important to the finance professions. Restricted to MIT Sloan Master of Finance students.",
-      "instructor": "M. Webster",
+      "instructor": "C. Cullen, M. Webster",
       "source_page": "m15a",
       "url": "https://student.mit.edu/catalog/m15a.html#15.273",
       "eval_status": null,
@@ -12841,7 +12905,9 @@
         "Spring"
       ],
       "offering_status": "Offered",
-      "offering_notes": [],
+      "offering_notes": [
+        "Not offered regularly; consult department"
+      ],
       "meets_with": [],
       "prereq_raw": "None",
       "prereq_numbers": [],
@@ -13032,8 +13098,8 @@
       "units_total": null,
       "schedule": [],
       "schedule_summary": "",
-      "description": "Course spans the entire two-year Leaders for Global Operations (LGO) program, with a focus on leadership that blends theory and practice. During their first summer in the program, students reflect on exemplary leaders' stories in cases, the arts, journalism, philosophy, and social science, and evaluate their own previous leadership experience. During the succeeding four semesters, they apply the lessons they have learned in class to their off-campus internship and other activities at Sloan, and intensively review that experience as they reach the end of the program. Classes take the form of moderated discussion, with the expectation that students will participate fully in each session; students also submit short, written deliverables throughout the program. Staff Textbooks (Summer 2026)",
-      "instructor": null,
+      "description": "Course spans the entire two-year Leaders for Global Operations (LGO) program, with a focus on leadership that blends theory and practice. During their first summer in the program, students reflect on exemplary leaders' stories in cases, the arts, journalism, philosophy, and social science, and evaluate their own previous leadership experience. During the succeeding four semesters, they apply the lessons they have learned in class to their off-campus internship and other activities at Sloan, and intensively review that experience as they reach the end of the program. Classes take the form of moderated discussion, with the expectation that students will participate fully in each session; students also submit short, written deliverables throughout the program. Spring:",
+      "instructor": "L. Hafrey",
       "source_page": "m15b",
       "url": "https://student.mit.edu/catalog/m15b.html#15.317",
       "eval_status": null,
@@ -13249,7 +13315,7 @@
       "terms": [
         "Spring"
       ],
-      "offering_status": "Offered",
+      "offering_status": "Not offered this year (2026-2027)",
       "offering_notes": [],
       "meets_with": [],
       "prereq_raw": "None",
@@ -13463,32 +13529,71 @@
       "action_learning": null
     },
     {
-      "number": "15.335",
-      "title": "Organizations Lab: Leading with Impact",
+      "number": "15.334",
+      "title": "Leading on Purpose: An Exploration of Identity, Values, and Intention",
       "department": "Course 15 — Management",
       "category": "Work and Organizational Studies",
       "terms": [
-        "Spring"
+        "IAP"
       ],
       "offering_status": "Offered",
-      "offering_notes": [
-        "Not offered regularly; consult department"
-      ],
+      "offering_notes": [],
       "meets_with": [],
-      "prereq_raw": "None",
+      "prereq_raw": "Permission of instructor",
       "prereq_numbers": [],
       "prereqs": [],
-      "units_raw": "3-0-6",
+      "units_raw": "2-0-4",
+      "units": {
+        "lec": 2,
+        "lab": 0,
+        "prep": 4
+      },
+      "units_total": 6,
+      "schedule": [],
+      "schedule_summary": "",
+      "description": "Examination of self-awareness as a core leadership competency and the capacity to engage thoughtfully and effectively with others. Explores intentionality in leadership presence, interpersonal interaction, and personal goal-setting. Conducted as a four-day intensive that includes an introduction to frameworks and concepts, facilitated small-group discussions, and coaching sessions with MIT Leadership Center coaches, along with immersive peer interaction. Application required for admission. Staff",
+      "instructor": null,
+      "source_page": "m15b",
+      "url": "https://student.mit.edu/catalog/m15b.html#15.334",
+      "eval_status": null,
+      "eval_hours_in": null,
+      "eval_hours_out": null,
+      "eval_responses": null,
+      "eval_term": null,
+      "eval_instructor": null,
+      "eval_instructor_match": null,
+      "eval_url": null,
+      "rating": null,
+      "rating_rationale": null,
+      "aags": "N/A",
+      "design_approved": null,
+      "action_learning": null
+    },
+    {
+      "number": "15.335",
+      "title": "Leading with Impact: A Social Impact Lab",
+      "department": "Course 15 — Management",
+      "category": "Work and Organizational Studies",
+      "terms": [
+        "IAP"
+      ],
+      "offering_status": "Offered",
+      "offering_notes": [],
+      "meets_with": [],
+      "prereq_raw": "Permission of instructor",
+      "prereq_numbers": [],
+      "prereqs": [],
+      "units_raw": "3-0-3",
       "units": {
         "lec": 3,
         "lab": 0,
-        "prep": 6
+        "prep": 3
       },
-      "units_total": 9,
+      "units_total": 6,
       "schedule": [],
       "schedule_summary": "",
-      "description": "Experiential study of the organizational change process within the larger context of the community in which the organization resides. Exposes students to leadership exemplars in the for-profit, nonprofit, and public sectors. Examines cases of complex social dynamics in areas of housing, employment, credit, education, and criminal justice. Centers around a semester-long action learning project in which students assist a local nonprofit organization in achieving sustainable social justice objectives. Through a project identified with the nonprofit leaders, students apply their knowledge of systems and their practice of leadership to recommend an operational change that advances the mission of the organization.",
-      "instructor": "N. Repenning, B. Akinc, M. McCreary",
+      "description": "Through a field-based partnership with Boston-area nonprofit organizations, students collaborate with nonprofit executives, boards, and community stakeholders on an action-learning project focused on measuring and strengthening community impact. Emphasizes applied problem solving, cross-sector leadership, and stakeholder engagement across business, government, nonprofit, philanthropic, and social enterprise contexts. Students examine how proximity, power, and perspective shape how impact is defined and experienced within organizations and across communities. Frameworks and reflective practice prepare students to align strategy with mission and values while leading culturally relevant, community-centered change. Application required for admission.",
+      "instructor": "M. McCreary",
       "source_page": "m15b",
       "url": "https://student.mit.edu/catalog/m15b.html#15.335",
       "eval_status": null,
@@ -13503,7 +13608,9 @@
       "rating_rationale": null,
       "aags": "N/A",
       "design_approved": null,
-      "action_learning": null
+      "action_learning": "LWI",
+      "al_name": "Leading with Impact: A Social Impact Lab",
+      "al_term": "IAP"
     },
     {
       "number": "15.336",
@@ -13751,7 +13858,7 @@
           ],
           "start": "13:00",
           "end": "16:00",
-          "raw": "F1-4 ( E62-446 )"
+          "raw": "F1-4 ( E62-446 ) +final"
         }
       ],
       "schedule_summary": "Lecture: Fri 13:00–16:00",
@@ -13966,8 +14073,8 @@
       "units_total": 6,
       "schedule": [],
       "schedule_summary": "",
-      "description": "Designed for students who are interested in entrepreneurship. Introduces practices for building a successful company, such as idea creation and validation, defining a value proposition, building a team, marketing, customer traction, and possible funding models. Staff",
-      "instructor": null,
+      "description": "Designed for students who are interested in entrepreneurship. Introduces practices for building a successful company, such as idea creation and validation, defining a value proposition, building a team, marketing, customer traction, and possible funding models.",
+      "instructor": "S. Neal",
       "source_page": "m15b",
       "url": "https://student.mit.edu/catalog/m15b.html#15.352",
       "eval_status": null,
@@ -14137,16 +14244,16 @@
           "name": "Advanced Strategic Management"
         }
       ],
-      "units_raw": "3-0-6",
+      "units_raw": "3-0-3",
       "units": {
         "lec": 3,
         "lab": 0,
-        "prep": 6
+        "prep": 3
       },
-      "units_total": 9,
+      "units_total": 6,
       "schedule": [],
       "schedule_summary": "",
-      "description": "Considers key strategic concepts and frameworks useful for managers and entrepreneurs, such as the distinction between a product and a platform strategy as well as an innovation versus a transaction platform (or hybrid) business model. Relatively deep dive into novel hardware and software technologies that have stimulated new platforms, businesses, and startup companies. Topics may include Generative AI as a new innovation platform and AI/ML ventures more broadly, Gig/sharing economy ventures, Fintech ventures, and new platform-like technologies in quantum computing and communications as well as biotech. Classes consist of lectures, case studies, short videos, an occasional guest lecture, and student team presentations. Assignments include short reaction papers and a final team paper.",
+      "description": "Considers key strategic concepts and frameworks useful for managers and entrepreneurs, such as the distinction between a product and a platform strategy as well as an innovation versus a transaction platform (or hybrid) business model. Relatively deep dive into novel hardware and software technologies that have stimulated new platforms, businesses, and startup companies. Topics may include: Generative AI as a new innovation platform and AI/ML ventures more broadly; Gig/sharing economy ventures; Fintech ventures; and new platform-like technologies in quantum computing and communications, as well as biotech. Classes consist of lectures, case studies, short videos, an occasional guest lecture, and occasionally some voluntary student presentations. Grading consists of two short reaction papers, as well as attendance and participation.",
       "instructor": "M. Cusumano, I. Sayeed",
       "source_page": "m15b",
       "url": "https://student.mit.edu/catalog/m15b.html#15.358",
@@ -14198,7 +14305,7 @@
         }
       ],
       "schedule_summary": "Lecture: M EVE (4-7 PM)",
-      "description": "Provides an overview of the process of entrepreneurship. Describes the entrepreneurial mindset, skillset, and way of operating to most efficiently and effectively create new innovation-driven ventures. Allows quick and efficient understanding of the resources available to guide students' entrepreneurial education journey. Aimed at a wide spectrum of students from little exposure to startup founders who want to enhance their skills or change industries. Format consists of lectures, discussions, and workshops. Emphasis is on building a common base of fundamental knowledge as well as community. Serves as an entry point to understand and access the rich body of resources in entrepreneurship at MIT. Enrollment in Silicon Valley Study Tour for the following spring term is required. No listeners; restricted to students in Sloan Entrepreneurship & Innovation (E&I) Certificate program.",
+      "description": "Provides an overview of the process of entrepreneurship. Describes the entrepreneurial mindset, skillset, and way of operating to most efficiently and effectively create new innovation-driven ventures. Allows quick and efficient understanding of the resources available to guide students' entrepreneurial education journey. Aimed at a wide spectrum of students from little exposure to startup founders who want to enhance their skills or change industries. Format consists of lectures, discussions, and workshops. Emphasis is on building a common base of fundamental knowledge as well as community. Serves as an entry point to understand and access the rich body of resources in entrepreneurship at MIT. Enrollment in Silicon Valley Study Tour for the following spring term is required. No listeners; restricted to first-year MBA students in Sloan Entrepreneurship & Innovation (E&I) Certificate program.",
       "instructor": "B. Aulet, A. Bakshi",
       "source_page": "m15b",
       "url": "https://student.mit.edu/catalog/m15b.html#15.360",
@@ -14314,13 +14421,13 @@
       "prereq_raw": "None",
       "prereq_numbers": [],
       "prereqs": [],
-      "units_raw": "3-0-6",
+      "units_raw": "3-0-9",
       "units": {
         "lec": 3,
         "lab": 0,
-        "prep": 6
+        "prep": 9
       },
-      "units_total": 9,
+      "units_total": 12,
       "schedule": [],
       "schedule_summary": "",
       "description": "Surveys key strategic decisions faced by managers, investors and scientists at each stage in the value chain of the life science industry. Aims to develop students' ability to understand and effectively assess these strategic challenges. Focuses on the biotech sector, with additional examples from the digital health and precision medicine industries. Includes case studies, analytical models, and detailed quantitative analysis. Intended for students interested in building a life science company or working in the sector as a manager, consultant, analyst, or investor. Provides analytical background to the industry for biological and biomedical scientists, engineers and physicians with an interest in understanding the commercial dynamics of the life sciences or the commercial potential of their research.",
@@ -14696,7 +14803,7 @@
       "terms": [
         "Spring"
       ],
-      "offering_status": "Offered",
+      "offering_status": "Not offered this year (2026-2027)",
       "offering_notes": [],
       "meets_with": [],
       "prereq_raw": "None",
@@ -14821,7 +14928,7 @@
       ],
       "schedule_summary": "Lecture: Mon/Wed 11:30–13:00",
       "description": "Explores technological, behavioral, policy, and systems-wide frameworks for innovation in transportation systems, complemented with case studies across the mobility spectrum, from autonomous vehicles to urban air mobility to last-mile sidewalk robots. Students interact with a series of guest lecturers from CEOs and other business and government executives who are actively reshaping the future of mobility. Interdisciplinary teams of students collaborate to deliver business plans for proposed mobility-focused startups with an emphasis on primary market research. Students taking graduate version complete additional assignments.",
-      "instructor": "J. Zhao, J. Moavenzadeh, S. Gronfeldt",
+      "instructor": "J. Moavenzadeh, J. Zhao, S. Gronfeldt",
       "source_page": "m15b",
       "url": "https://student.mit.edu/catalog/m15b.html#15.379",
       "eval_status": null,
@@ -14994,7 +15101,9 @@
         "Spring"
       ],
       "offering_status": "Offered",
-      "offering_notes": [],
+      "offering_notes": [
+        "Not offered regularly; consult department"
+      ],
       "meets_with": [],
       "prereq_raw": "None",
       "prereq_numbers": [],
@@ -15185,7 +15294,7 @@
         }
       ],
       "schedule_summary": "Lecture: Tue/Thu 14:30–16:00 | Recitation: Thu 12:00",
-      "description": "Experiential study of the climate for innovation and determinants of entrepreneurial success. In teams of four, students work in collaboration with top management of a company to address real-world business challenges. Class sessions comprised of relevant content and dedicated project work meetings. Teams work on campus during the fall term and on-site/in-country with the company during IAP. Students gain insight as to how companies build, run, and scale a new enterprise. Focuses primarily on scale-ups operating in emerging and frontier markets. Restricted to MBA students; all other graduate students by permission of instructor only.",
+      "description": "Experiential study of the climate for innovation and determinants of entrepreneurial success. In teams of four, students work in collaboration with top management of a company to address real-world business challenges. Class sessions comprised of relevant content and dedicated project work meetings. Teams work on campus during the fall term and on-site/in-country with the company during IAP. Students gain insight as to how companies build, run, and scale a new enterprise. Focuses primarily on scale-ups operating in emerging and frontier markets. Restricted to MBA students; all other graduate students by permission of instructor only. Fall:",
       "instructor": "M. Jester, S. Johnson",
       "source_page": "m15b",
       "url": "https://student.mit.edu/catalog/m15b.html#15.389",
@@ -15335,8 +15444,8 @@
       "units_total": 3,
       "schedule": [],
       "schedule_summary": "",
-      "description": "Designed to foster an understanding of how to start a new venture (for-profit and social/development). Details the process from an idea's inception to the development of a successful new venture to deliver products and services enabled by the idea. Explores customer identification, the business/economic models, financial projections, legal and operational issues, and financing alternatives and sources. All sessions taught by persons who have actually launched or have been involved in successful ventures. Staff",
-      "instructor": null,
+      "description": "Designed to foster an understanding of how to start a new venture (for-profit and social/development). Details the process from an idea's inception to the development of a successful new venture to deliver products and services enabled by the idea. Explores customer identification, the business/economic models, financial projections, legal and operational issues, and financing alternatives and sources. All sessions taught by persons who have actually launched or have been involved in successful ventures.",
+      "instructor": "J. Hadzima",
       "source_page": "m15b",
       "url": "https://student.mit.edu/catalog/m15b.html#15.393",
       "eval_status": null,
@@ -15515,8 +15624,8 @@
       "units_total": 6,
       "schedule": [],
       "schedule_summary": "",
-      "description": "Focuses on the CEO and other analogous leadership roles such as co-founder, chairman of the board, etc. Provides a unique opportunity for students to interact with some of the world's leading organizational leaders who are invited to participate in each class. The guest speakers offer advice and answer questions related to issues in management, strategy, and leadership, and the fulfillment experienced via their role and responsibilities.",
-      "instructor": "S. Hockfield",
+      "description": "Focuses on the CEO and other analogous leadership roles such as co-founder, chairman of the board, etc. Provides a unique opportunity for students to interact with some of the world's leading organizational leaders who are invited to participate in each class. The guest speakers offer advice and answer questions related to issues in management, strategy, and leadership, and the fulfillment experienced via their role and responsibilities. Staff",
+      "instructor": null,
       "source_page": "m15b",
       "url": "https://student.mit.edu/catalog/m15b.html#15.398",
       "eval_status": null,
@@ -15635,7 +15744,7 @@
       ],
       "schedule_summary": "Lecture: Tue/Thu 10:00–11:30 | Recitation: Fri 14:00",
       "description": "Introduction to finance from the perspective of business people and finance professionals. Designed to build effective decision-making skills based on sound financial knowledge, focusing on areas such as day-to-day operational issues and management, launching a startup, or negotiating option bonuses. Provides a firm grounding in the modern financial analysis underlying any decision, through three core themes: determining the value of a project, deciding how to finance a project, and managing its risk. Students also hone their ability to negotiate skillfully and speak intelligently about finance. Meets with 15.417 when offered concurrently. Expectations and evaluation criteria differ for students taking graduate version; consult syllabus or instructor for specific details. Some sections are restricted to graduate students only without the permission of the instructor. See syllabus url for further details. Fall:",
-      "instructor": "T. Choukhmane",
+      "instructor": "T. Choukhmane, J. Taillard, D. Bruns-Smith",
       "source_page": "m15b",
       "url": "https://student.mit.edu/catalog/m15b.html#15.401",
       "eval_status": null,
@@ -15707,7 +15816,7 @@
     },
     {
       "number": "15.410",
-      "title": "Finance Ethics & Regulation",
+      "title": "Regulation, Ethics, and Money",
       "department": "Course 15 — Management",
       "category": "Finance",
       "terms": [
@@ -15728,7 +15837,7 @@
       "units_total": 3,
       "schedule": [],
       "schedule_summary": "",
-      "description": "Explores a range of ethical issues and challenges that arise in organizations and financial practice. Provides fundamental theories typically used to evaluate ethical dilemmas and references both real situations and hypothetical examples. Highlights the importance of ethical values and their impact on financial regulation for professional practice. Discusses the various factors that influence ethical behavior, such as family, religious values, personal standards and needs, senior leadership behavior, norms among colleagues, organizational expressed and implicit standards, and broader community values. Restricted to students in the Master of Finance Program. Staff",
+      "description": "Explores the strategic intersection of regulation, ethics, and principled leadership in finance. Focuses on how success in finance is built and maintained on trust, reputation, and client alignment. Examines financial regulation, norms, and arbitrage across asset management, banking, trading, underwriting, and customer interactions. Emphasizes real-world commercial implications of \"remaining within the chalk lines,\" providing practical insight into how to be successful principled leaders. Restricted to students in the Master of Finance Program. Staff",
       "instructor": null,
       "source_page": "m15b",
       "url": "https://student.mit.edu/catalog/m15b.html#15.410",
@@ -15784,7 +15893,7 @@
           ],
           "start": "10:00",
           "end": "11:30",
-          "raw": "TR10-11.30 ( E51-149 ) or TR1-2.30 ( E51-149 )"
+          "raw": "TR10-11.30 ( E51-149 ) or TR1-2.30 ( E51-149 ) +final"
         }
       ],
       "schedule_summary": "Lecture: Tue/Thu 10:00–11:30",
@@ -16146,7 +16255,7 @@
           ],
           "start": "08:30",
           "end": "10:00",
-          "raw": "TR8.30-10 ( E52-164 ) or TR10-11.30 ( E52-164 ) +final"
+          "raw": "TR8.30-10 ( E52-164 ) or TR10-11.30 ( E52-164 )"
         }
       ],
       "schedule_summary": "Lecture: Tue/Thu 08:30–10:00",
@@ -16216,7 +16325,7 @@
           ],
           "start": "08:30",
           "end": "10:00",
-          "raw": "MW8.30-10 ( E51-145 ) or MW10-11.30 ( E51-145 )"
+          "raw": "MW8.30-10 ( E51-145 ) or MW10-11.30 ( E51-145 ) +final"
         }
       ],
       "schedule_summary": "Lecture: Mon/Wed 08:30–10:00",
@@ -16787,7 +16896,7 @@
     },
     {
       "number": "15.452",
-      "title": "Proseminar in Corporate Finance/Investment Banking/Private Equity",
+      "title": "Corporate Finance/Investment Banking/Private Equity Lab",
       "department": "Course 15 — Management",
       "category": "Finance",
       "terms": [
@@ -16825,8 +16934,8 @@
       "units_total": 9,
       "schedule": [],
       "schedule_summary": "",
-      "description": "This action learning course provides an opportunity to bring theory into practice by working on projects sponsored by leaders in corporate finance, investment banking, and private equity. Students work in teams to analyze and problem-solve, culminating in reports which teams present to sponsors for evaluation and feedback. Develops and hones skills required to distill the complexity of a real-world finance problems and to provide an insightful solution that is sensitive to the full context. Recent project sponsors include leading investment banks (Goldman Sachs, JP Morgan), private equity firms (Apollo, KKR, Carlyle), and consulting firms (McKinsey, Bain PE group). Not open to students from other institutions. Enrollment by application only. Staff",
-      "instructor": null,
+      "description": "This action-learning subject provides an opportunity to bring theory into practice by working on projects sponsored by leaders in private equity, investment banking, and corporate finance. Students work in teams to analyze complex financial problems and develop practical solutions, culminating in a written report and a formal presentation delivered to the sponsoring organization for evaluation and feedback. Develops and refines the skills required to distill complex, real-world finance challenges and to produce insightful, context-sensitive recommendations. Recent project sponsors have included leading investment banks (e.g., Goldman Sachs, J.P. Morgan), private equity firms (e.g., Apollo, Advent, Carlyle), and the corporate finance practices of major consulting firms (e.g., McKinsey Strategy & Corporate Finance, Bain & Company Private Equity Practice). Not open to students from other institutions.",
+      "instructor": "E. Matveyev",
       "source_page": "m15b",
       "url": "https://student.mit.edu/catalog/m15b.html#15.452",
       "eval_status": null,
@@ -16877,13 +16986,13 @@
           "name": "Foundations of Modern Finance"
         }
       ],
-      "units_raw": "3-0-6",
+      "units_raw": "3-0-9",
       "units": {
         "lec": 3,
         "lab": 0,
-        "prep": 6
+        "prep": 9
       },
-      "units_total": 9,
+      "units_total": 12,
       "schedule": [],
       "schedule_summary": "",
       "description": "Bridges theory and practice, providing students with an immersive research and analysis experience during IAP followed by a classroom segment in the first half of spring term. Students work with leading industry practitioners and a diverse cross-section of students on collaborative teams, focusing on topical, real-world finance research questions posed by the practitioners. Teams then deliver a nuanced analysis and report findings, gaining insight and coaching from the experts. Practitioners represent a range of financial institutions, including investment management, hedge funds, private equity, venture capital, risk, and consulting. Examples of project topics include equity and fixed income research, trading, risk analysis, venture capital valuation, private equity due diligence, and fundamental industry analysis. Application required; restricted to MIT students.",
@@ -16929,7 +17038,7 @@
       "units_total": 9,
       "schedule": [],
       "schedule_summary": "",
-      "description": "Covers fundamental mathematics essential for the study of modern finance: linear algebra, probability, statistics, optimization, stochastic processes, econometrics, and basic programming in Python. Restricted to students in the Master of Finance Program.",
+      "description": "Covers fundamental mathematics essential for the study of modern finance: linear algebra, probability, statistics, optimization, stochastic processes, econometrics, machine learning, and basic programming in Python. Restricted to students in the Master of Finance Program.",
       "instructor": "H. Ru",
       "source_page": "m15b",
       "url": "https://student.mit.edu/catalog/m15b.html#15.454",
@@ -17400,18 +17509,18 @@
         },
         {
           "kind": "Recitation",
-          "code": "F11",
+          "code": "F10",
           "days": [
             "Fri"
           ],
-          "start": "11:00",
+          "start": "10:00",
           "end": null,
-          "raw": "F11 ( E62-350 ) +final"
+          "raw": "F10 ( E62-350 ) +final"
         }
       ],
-      "schedule_summary": "Lecture: Mon/Wed 16:00–17:30 | Recitation: Fri 11:00",
+      "schedule_summary": "Lecture: Mon/Wed 16:00–17:30 | Recitation: Fri 10:00",
       "description": "Provides a foundation in the neoclassical theory of finance that underlies more advanced study. Covers arbitrage asset pricing, optimal consumption-portfolio choices, neo-classic theory of corporate finance, static equilibrium models of asset pricing, asymmetric information, and dynamic modeling. Prepares students for further study of asset pricing theories, corporate finance and econometric work in finance. Primarily for doctoral students in finance, economics, and accounting.",
-      "instructor": "L. Schmidt, L. Mota",
+      "instructor": "J. Antolin-Diaz, O. Xie",
       "source_page": "m15b",
       "url": "https://student.mit.edu/catalog/m15b.html#15.470",
       "eval_status": null,
@@ -17452,7 +17561,7 @@
       "schedule": [],
       "schedule_summary": "",
       "description": "Provides an introduction to the basic theoretical and empirical contributions in corporate finance. Covers capital structure, corporate governance and agency problems, the market for corporate control, investments and financing frictions, banking and financial intermediation, and other selected topics. Exposes students to the key methodological tools in modern corporate finance. Primarily for doctoral students in finance, economics, and accounting.",
-      "instructor": "A. Schoar",
+      "instructor": "A. Schoar, A. Rampini",
       "source_page": "m15b",
       "url": "https://student.mit.edu/catalog/m15b.html#15.471",
       "eval_status": null,
@@ -17493,27 +17602,27 @@
       "schedule": [
         {
           "kind": "Lecture",
-          "code": "MW9-10.30",
+          "code": "TR4-5.30",
           "days": [
-            "Mon",
-            "Wed"
+            "Tue",
+            "Thu"
           ],
-          "start": "09:00",
-          "end": "10:30",
-          "raw": "MW9-10.30 ( E62-687 )"
+          "start": "16:00",
+          "end": "17:30",
+          "raw": "TR4-5.30 ( E62-650 )"
         },
         {
           "kind": "Recitation",
-          "code": "M EVE (6-7.30 PM) (ENDS DEC 11",
+          "code": "M EVE (6-7.30 PM)",
           "days": [
             "Mon"
           ],
           "start": null,
           "end": null,
-          "raw": "M EVE (6-7.30 PM) (ENDS DEC 11 ( E51-376 )"
+          "raw": "M EVE (6-7.30 PM) ( E51-376 )"
         }
       ],
-      "schedule_summary": "Lecture: Mon/Wed 09:00–10:30 | Recitation: M EVE (6-7.30 PM) (ENDS DEC 11",
+      "schedule_summary": "Lecture: Tue/Thu 16:00–17:30 | Recitation: M EVE (6-7.30 PM)",
       "description": "Focuses on developing, solving, estimating, and empirically evaluating theoretical models of asset prices and financial markets, as well as their microeconomic foundations and macroeconomic implications. Discusses theory and econometric methods, the state of the literature, and recent developments and empirical evidence. Covers topics such as cross-sectional and time-series models, consumption-based and intermediary-based models, financial institutions, household finance, housing, behavioral finance, financial crises, market structure, and continuous-time tools and applications. Primarily for doctoral students in finance, economics, and accounting.",
       "instructor": "L. Kogan, D. Lucas, H. Zhu",
       "source_page": "m15b",
@@ -17926,9 +18035,26 @@
       "offering_status": "Offered",
       "offering_notes": [],
       "meets_with": [],
-      "prereq_raw": "None",
-      "prereq_numbers": [],
-      "prereqs": [],
+      "prereq_raw": "None. Coreq: 15.401 , 15.414 , or 15.415",
+      "prereq_numbers": [
+        "15.401",
+        "15.414",
+        "15.415"
+      ],
+      "prereqs": [
+        {
+          "number": "15.401",
+          "name": "Managerial Finance"
+        },
+        {
+          "number": "15.414",
+          "name": "Financial Management"
+        },
+        {
+          "number": "15.415",
+          "name": "Foundations of Modern Finance"
+        }
+      ],
       "units_raw": "3-0-3",
       "units": {
         "lec": 3,
@@ -18065,7 +18191,7 @@
       "units_total": 6,
       "schedule": [],
       "schedule_summary": "",
-      "description": "Deep dive into impact investing — an approach intentionally seeking to create financial return and positive impact (climate and/or social) that is actively measured. Imparts a solid analytical framework for evaluating the spectrum of social impact investments, including mission related investing. Students gain experience in structuring different types of investments, and critically compare and contrast these investments with traditional mainstream investments, with a view to understanding structural constraints. Designed for students interested in the intersection of finance and social impact. Provides career guidance and networking opportunities. Staff",
+      "description": "Deep dive into impact investing ? an approach intentionally seeking to create financial return and positive impact (climate and/or social) that is actively measured. Imparts a solid analytical framework for evaluating the spectrum of impact investments, including mission related investing. Students gain experience in structuring different types of investments, and critically compare and contrast these investments with traditional mainstream investments, with a view to understanding structural constraints. Designed for students interested in the intersection of finance and social impact. Provides career guidance and networking opportunities. Staff",
       "instructor": null,
       "source_page": "m15b",
       "url": "https://student.mit.edu/catalog/m15b.html#15.499",
@@ -18148,24 +18274,24 @@
       "schedule": [
         {
           "kind": "Lecture",
-          "code": "TR8.30-10 (ENDS DEC 11)",
+          "code": "TR8.30-10",
           "days": [
             "Tue",
             "Thu"
           ],
           "start": "08:30",
           "end": "10:00",
-          "raw": "TR8.30-10 (ENDS DEC 11) ( E62-276 , E51-335 , E62-223 ) or TR10-11.30 (ENDS DEC 11) ( E62-276 , E51-335 , E62-223 )"
+          "raw": "TR8.30-10 ( E62-276 , E51-335 , E62-223 ) or TR10-11.30 ( E62-276 , E51-335 , E62-223 )"
         },
         {
           "kind": "Recitation",
-          "code": "F10 (MEETS 10/2 TO 12/11)",
+          "code": "F10 (MEETS 10/2 TO 12/4)",
           "days": [
             "Fri"
           ],
           "start": "10:00",
           "end": null,
-          "raw": "F10 (MEETS 10/2 TO 12/11) ( VIRTUAL ) or F11 (MEETS 10/2 TO 12/11) ( VIRTUAL ) +final"
+          "raw": "F10 (MEETS 10/2 TO 12/4) ( VIRTUAL ) or F11 (MEETS 10/2 TO 12/4) ( VIRTUAL ) +final"
         }
       ],
       "schedule_summary": "Lecture: Tue/Thu 08:30–10:00 | Recitation: Fri 10:00",
@@ -18438,7 +18564,7 @@
       ],
       "schedule_summary": "Lecture: Mon/Wed 13:00–14:30",
       "description": "Focuses on the strategic, financial, and accounting analysis of a company by means of historical financial statement data. Also studies financial statement forecasting along with a specific application of forecasting - valuation. Concepts are applied to a number of decision-making contexts, including securities analysis, credit analysis, merger analysis, and company performance assessment.",
-      "instructor": "C. Noe",
+      "instructor": "B. Dharan, C. Gallimberti",
       "source_page": "m15b",
       "url": "https://student.mit.edu/catalog/m15b.html#15.535",
       "eval_status": null,
@@ -18716,8 +18842,51 @@
       "action_learning": null
     },
     {
+      "number": "15.566",
+      "title": "Generative AI Lab",
+      "department": "Course 15 — Management",
+      "category": "Information Technologies",
+      "terms": [
+        "Spring"
+      ],
+      "offering_status": "Not offered this year (2026-2027)",
+      "offering_notes": [],
+      "meets_with": [],
+      "prereq_raw": "Permission of instructor",
+      "prereq_numbers": [],
+      "prereqs": [],
+      "units_raw": "3-0-9",
+      "units": {
+        "lec": 3,
+        "lab": 0,
+        "prep": 9
+      },
+      "units_total": 12,
+      "schedule": [],
+      "schedule_summary": "",
+      "description": "Pairs student teams with host organizations to solve real-world business challenges using generative AI. Emphasizes strategic implementation and practical application, requiring teams to build working end-to-end prototypes on top of LLM APIs rather than focusing on pure theory or research. Students gain experience with modern AI engineering tools and methods as pertinent to their projects including: AI evals, RAG/vector databases, agentic workflows and frameworks, prompt engineering, and coding assistants like Claude Code and Cursor. Students are expected to be proficient in Python or TypeScript to contribute meaningfully to technical deliverables. Application required for admission. Staff",
+      "instructor": null,
+      "source_page": "m15b",
+      "url": "https://student.mit.edu/catalog/m15b.html#15.566",
+      "eval_status": null,
+      "eval_hours_in": null,
+      "eval_hours_out": null,
+      "eval_responses": null,
+      "eval_term": null,
+      "eval_instructor": null,
+      "eval_instructor_match": null,
+      "eval_url": null,
+      "rating": null,
+      "rating_rationale": null,
+      "aags": "N/A",
+      "design_approved": null,
+      "action_learning": "GENAI-LAB",
+      "al_name": "Generative AI Lab",
+      "al_term": "Spring (from 2027-28)"
+    },
+    {
       "number": "15.567",
-      "title": "The Economics of Information: Strategy, Structure and Pricing",
+      "title": "The Economics of Information: Strategy, Structure, and Pricing",
       "department": "Course 15 — Management",
       "category": "Information Technologies",
       "terms": [
@@ -18726,7 +18895,7 @@
       "offering_status": "Offered",
       "offering_notes": [],
       "meets_with": [],
-      "prereq_raw": "Permission of instructor",
+      "prereq_raw": "None",
       "prereq_numbers": [],
       "prereqs": [],
       "units_raw": "3-0-3",
@@ -19004,7 +19173,7 @@
       "terms": [
         "Spring"
       ],
-      "offering_status": "Offered",
+      "offering_status": "Not offered this year (2026-2027)",
       "offering_notes": [],
       "meets_with": [],
       "prereq_raw": "Permission of instructor",
@@ -19317,7 +19486,9 @@
         "Spring"
       ],
       "offering_status": "Offered",
-      "offering_notes": [],
+      "offering_notes": [
+        "Not offered regularly; consult department"
+      ],
       "meets_with": [],
       "prereq_raw": "None",
       "prereq_numbers": [],
@@ -19331,8 +19502,8 @@
       "units_total": 3,
       "schedule": [],
       "schedule_summary": "",
-      "description": "Intensive introduction to the basic provisions of US patent law, emphasizing the requirements for patentability and the process of applying for a patent. Topics include requirements of utility, novelty, and non-obviousness; eligible subject matter; applying for a patent, including patent searches and the language of patent claims; infringement, defenses, and remedies; comparison of patents with other forms of intellectual property (copyrights, trade secrets, and trademarks). Reading materials include key sections of the US patent statute (Title 35, US Code) and related judicial decisions.",
-      "instructor": "J. Meldman",
+      "description": "Intensive introduction to the basic provisions of US patent law, emphasizing the requirements for patentability and the process of applying for a patent. Topics include requirements of utility, novelty, and non-obviousness; eligible subject matter; applying for a patent, including patent searches and the language of patent claims; infringement, defenses, and remedies; comparison of patents with other forms of intellectual property (copyrights, trade secrets, and trademarks). Reading materials include key sections of the US patent statute (Title 35, US Code) and related judicial decisions. Staff",
+      "instructor": null,
       "source_page": "m15b",
       "url": "https://student.mit.edu/catalog/m15b.html#15.620",
       "eval_status": null,
@@ -19428,7 +19599,7 @@
       ],
       "schedule_summary": "Lecture: M EVE (5.30-7 PM)",
       "description": "Focuses on the law of artificial intelligence, big data, and related cutting-edge digital technologies. Considers the law's impact on the development and adoption of these technologies, and the legal response to beneficial and mischievous impacts. Emphasis on current issues, but topics generally include the legal frameworks of intellectual property rights, cybersecurity, privacy, bias, fintech, fair competition and fair dealing in digital markets, and political discourse on social media. Gives special attention to the legal concerns of those planning careers built on cutting-edge skills, and of managers, entrepreneurs, scientists, and engineers bringing innovations from ideas to impact. Explores how to find and make good use of legal advice. Meets with 15.6221 when offered concurrently. Expectations and evaluation criteria differ for students taking graduate version.",
-      "instructor": "J. Akula, L. Rodriques",
+      "instructor": "J. Akula",
       "source_page": "m15b",
       "url": "https://student.mit.edu/catalog/m15b.html#15.622",
       "eval_status": null,
@@ -19468,8 +19639,8 @@
       "units_total": 3,
       "schedule": [],
       "schedule_summary": "",
-      "description": "Surveys selected ethical dilemmas and legal issues that arise in business analytics and AI. Explains how to maintain current knowledge about key laws and regulations for evolving technologies. Issues of data privacy are presented through consideration of the European Legislation General Data Protection Regulation (GDPR) and its requirements. Explores the many ethical dilemmas that arise beyond legal regulations with guests who work on the cutting edge of law, ethics, and data science. Restricted to Master of Business Analytics students. Staff",
-      "instructor": null,
+      "description": "Surveys selected ethical dilemmas and legal issues that arise in business analytics and AI. Explains how to maintain current knowledge about key laws and regulations for evolving technologies. Issues of data privacy are presented through consideration of the European Legislation General Data Protection Regulation (GDPR) and its requirements. Explores the many ethical dilemmas that arise beyond legal regulations with guests who work on the cutting edge of law, ethics, and data science. Restricted to Master of Business Analytics students.",
+      "instructor": "J. Saviano",
       "source_page": "m15b",
       "url": "https://student.mit.edu/catalog/m15b.html#15.630",
       "eval_status": null,
@@ -20050,7 +20221,7 @@
           ],
           "start": "14:30",
           "end": "16:00",
-          "raw": "MW2.30-4 ( E51-372 )"
+          "raw": "MW2.30-4 ( 9-354 )"
         }
       ],
       "schedule_summary": "Lecture: Mon/Wed 14:30–16:00",
@@ -20119,9 +20290,9 @@
       "department": "Course 15 — Management",
       "category": "Industrial Relations and Human Resource Management",
       "terms": [
-        "Spring"
+        "Fall"
       ],
-      "offering_status": "Offered",
+      "offering_status": "Not offered this year (2026-2027)",
       "offering_notes": [],
       "meets_with": [],
       "prereq_raw": "Permission of instructor",
@@ -20136,8 +20307,8 @@
       "units_total": 12,
       "schedule": [],
       "schedule_summary": "",
-      "description": "Interactive reading and discussion subject focused on work and employment relations. Students draw upon and integrate research and theory from various disciplines, primarily the industrial relations tradition and the sociology of work. Addresses trends in employment relations, systems of power and control within workplaces, the replication or remediation of inequalities within organizations, and various proposed strategies for improving work. Focus is on the contemporary US, with a grounding in recent history and institutions.",
-      "instructor": "E. Kelly",
+      "description": "Interactive reading and discussion subject focused on work and employment relations. Students draw upon and integrate research and theory from various disciplines, primarily the industrial relations tradition and the sociology of work. Addresses trends in employment relations, systems of power and control within workplaces, the replication or remediation of inequalities within organizations, and various proposed strategies for improving work. Focus is on the contemporary US, with a grounding in recent history and institutions. Staff",
+      "instructor": null,
       "source_page": "m15b",
       "url": "https://student.mit.edu/catalog/m15b.html#15.676",
       "eval_status": null,
@@ -20208,7 +20379,7 @@
     },
     {
       "number": "15.679",
-      "title": "Work Lab: Building Better Jobs",
+      "title": "Frontline Lab: Manufacturing",
       "department": "Course 15 — Management",
       "category": "Industrial Relations and Human Resource Management",
       "terms": [
@@ -20220,16 +20391,16 @@
       "prereq_raw": "None",
       "prereq_numbers": [],
       "prereqs": [],
-      "units_raw": "3-1-2",
+      "units_raw": "3-1-5",
       "units": {
         "lec": 3,
         "lab": 1,
-        "prep": 2
+        "prep": 5
       },
-      "units_total": 6,
+      "units_total": 9,
       "schedule": [],
       "schedule_summary": "",
-      "description": "Teaches skills to redesign work to improve job quality and competitive advantage. In this hands-on lab, students partner directly with innovative firms in New England to tackle real workforce challenges—from reducing turnover to optimizing human-AI collaboration. Includes classes in addition to site visits and students share executive presentations of their plans. Provides opportunities for multi-stakeholder analysis particularly relevant to future operations leaders, consultants, or anyone building people-focused businesses.",
+      "description": "Students partner directly with innovative firms to examine workforce practices and identify redesign opportunities. They tackle real challenges, from reducing turnover to optimizing human-AI collaboration while developing solutions that balance job quality with competitive advantage. Includes lectures, site visits, and a final project in which students develop and share executive presentations of their plans. Provides opportunities for multi-stakeholder analysis particularly relevant to future operations leaders, consultants, or anyone building people-focused businesses.",
       "instructor": "B. Armstrong",
       "source_page": "m15b",
       "url": "https://student.mit.edu/catalog/m15b.html#15.679",
@@ -20245,8 +20416,8 @@
       "rating_rationale": null,
       "aags": "N/A",
       "design_approved": null,
-      "action_learning": "WORK-LAB",
-      "al_name": "Work Lab",
+      "action_learning": "FRONTLINE-LAB",
+      "al_name": "Frontline Lab: Manufacturing",
       "al_term": "Spring"
     },
     {
@@ -20791,8 +20962,8 @@
       "units_total": 3,
       "schedule": [],
       "schedule_summary": "",
-      "description": "Designed to help students understand the fundamental rules and practices of corporate boards in three key areas: the audit committee, the compensation committee, and corporate takeovers. Includes discussion related to case studies, with short lectures at the start and end of each session to highlight the differences and similarities in practices by boards in the US and abroad. Restricted to MIT Executive MBA and Sloan Fellow MBA students. Staff",
-      "instructor": null,
+      "description": "Designed to help students understand the fundamental rules and practices of corporate boards in three key areas: the audit committee, the compensation committee, and corporate takeovers. Includes discussion related to case studies, with short lectures at the start and end of each session to highlight the differences and similarities in practices by boards in the US and abroad. Restricted to MIT Executive MBA and Sloan Fellow MBA students.",
+      "instructor": "R. Pozen",
       "source_page": "m15c",
       "url": "https://student.mit.edu/catalog/m15c.html#15.709",
       "eval_status": null,
@@ -20832,8 +21003,8 @@
       "units_total": 3,
       "schedule": [],
       "schedule_summary": "",
-      "description": "Condensed version of 15.361 that introduces a comprehensive framework to understand how leaders can execute strategy more effectively. Presents case studies of companies that excel at execution, and a series of practical tools that can be applied immediately to boost performance. Intended for owner-operators and managers in complex organizations (more than 200 employees, multiple functions or units), particularly those competing in volatile markets. Restricted to Executive MBA and Sloan Fellow MBA students. Staff",
-      "instructor": null,
+      "description": "Condensed version of 15.361 that introduces a comprehensive framework to understand how leaders can execute strategy more effectively. Presents case studies of companies that excel at execution, and a series of practical tools that can be applied immediately to boost performance. Intended for owner-operators and managers in complex organizations (more than 200 employees, multiple functions or units), particularly those competing in volatile markets. Restricted to Executive MBA and Sloan Fellow MBA students.",
+      "instructor": "D. Sull",
       "source_page": "m15c",
       "url": "https://student.mit.edu/catalog/m15c.html#15.711",
       "eval_status": null,
@@ -21087,8 +21258,8 @@
       "units_total": 3,
       "schedule": [],
       "schedule_summary": "",
-      "description": "Fast-paced introduction to the disciplined entrepreneurship approach to enhancing entrepreneurial skills needed to be more productive at work, start a new venture, interact and evaluate new ventures, and understand what entrepreneurship is and is not. Interactive, action-oriented workshops build skills to apply knowledge imparted by the books Disciplined Entrepreneurship: 24 Steps to a Successful Startup and the Disciplined Entrepreneurship Workbook. Restricted to Executive MBA and Sloan Fellow MBA students. Staff",
-      "instructor": null,
+      "description": "Fast-paced introduction to the disciplined entrepreneurship approach to enhancing entrepreneurial skills needed to be more productive at work, start a new venture, interact and evaluate new ventures, and understand what entrepreneurship is and is not. Interactive, action-oriented workshops build skills to apply knowledge imparted by the books Disciplined Entrepreneurship: 24 Steps to a Successful Startup and the Disciplined Entrepreneurship Workbook. Restricted to Executive MBA and Sloan Fellow MBA students.",
+      "instructor": "W. Aulet",
       "source_page": "m15c",
       "url": "https://student.mit.edu/catalog/m15c.html#15.718",
       "eval_status": null,
@@ -21169,8 +21340,8 @@
       "units_total": 3,
       "schedule": [],
       "schedule_summary": "",
-      "description": "Explains how to better convey complex, quantitative information to non-experts inside and outside of one's organization. Aims to improve skill set and teach tools that can be used to demonstrate to others how to be more effective. Specific skills covered include improving ability to create effective visuals for communicating quantitative information, maximizing audience comprehension when presenting data, and cultivating ability to communicate complex ideas in writing. Restricted to Executive MBA and Sloan Fellow MBA students. Staff",
-      "instructor": null,
+      "description": "Explains how to better convey complex, quantitative information to non-experts inside and outside of one's organization. Aims to improve skill set and teach tools that can be used to demonstrate to others how to be more effective. Specific skills covered include improving ability to create effective visuals for communicating quantitative information, maximizing audience comprehension when presenting data, and cultivating ability to communicate complex ideas in writing. Restricted to Executive MBA and Sloan Fellow MBA students.",
+      "instructor": "M. Kazakoff",
       "source_page": "m15c",
       "url": "https://student.mit.edu/catalog/m15c.html#15.721",
       "eval_status": null,
@@ -21358,8 +21529,8 @@
       "units_total": 3,
       "schedule": [],
       "schedule_summary": "",
-      "description": "Focuses on practical pricing tactics. Presents a framework for the steps firms should take when thinking about pricing a new product or improving the pricing performance of an old product. Tools covered include monadic pricing surveys, empirical price elasticity calculations, and conjoint. Restricted to Executive MBA and Sloan Fellow MBA students. Staff",
-      "instructor": null,
+      "description": "Focuses on practical pricing tactics. Presents a framework for the steps firms should take when thinking about pricing a new product or improving the pricing performance of an old product. Tools covered include monadic pricing surveys, empirical price elasticity calculations, and conjoint. Restricted to Executive MBA and Sloan Fellow MBA students.",
+      "instructor": "C. Tucker",
       "source_page": "m15c",
       "url": "https://student.mit.edu/catalog/m15c.html#15.726",
       "eval_status": null,
@@ -21447,8 +21618,8 @@
       "units_total": 3,
       "schedule": [],
       "schedule_summary": "",
-      "description": "Uses interdisciplinary approaches and real-world examples to show how analytics inform organizational change. Takes into account the human and cultural components of organizations. Restricted to Executive MBA and Sloan Fellow MBA students. Staff",
-      "instructor": null,
+      "description": "Uses interdisciplinary approaches and real-world examples to show how analytics inform organizational change. Takes into account the human and cultural components of organizations. Restricted to Executive MBA and Sloan Fellow MBA students.",
+      "instructor": "D. Bertsimas",
       "source_page": "m15c",
       "url": "https://student.mit.edu/catalog/m15c.html#15.729",
       "eval_status": null,
@@ -21541,8 +21712,8 @@
       "units_total": 3,
       "schedule": [],
       "schedule_summary": "",
-      "description": "Provides several core analytical and management concepts, helping students identify, model, think about, analyze, and manage risk. Topics vary; examples include risk measures, the drivers-event-outcomes framework, low-probability high-impact risk events, hedging risk with financial options, real options, risk management in the supply chain, project risk management, modern portfolio management, systemic risk. Restricted to Executive MBA and Sloan Fellow MBA students. Staff",
-      "instructor": null,
+      "description": "Provides several core analytical and management concepts, helping students identify, model, think about, analyze, and manage risk. Topics vary; examples include risk measures, the drivers-event-outcomes framework, low-probability high-impact risk events, hedging risk with financial options, real options, risk management in the supply chain, project risk management, modern portfolio management, systemic risk. Restricted to Executive MBA and Sloan Fellow MBA students.",
+      "instructor": "R. Levi",
       "source_page": "m15c",
       "url": "https://student.mit.edu/catalog/m15c.html#15.731",
       "eval_status": null,
@@ -21632,8 +21803,8 @@
       "units_total": 3,
       "schedule": [],
       "schedule_summary": "",
-      "description": "Addresses the risks taken by trading goods and services across borders and by borrowing and investing globally. Provides a framework for understanding and assessing cross-border transactions, global financing, and global investment opportunities, with a particular attention to exchange rate risk and how it affects decision-making. Restricted to Executive MBA and Sloan Fellow MBA students. Staff",
-      "instructor": null,
+      "description": "Addresses the risks taken by trading goods and services across borders and by borrowing and investing globally. Provides a framework for understanding and assessing cross-border transactions, global financing, and global investment opportunities, with a particular attention to exchange rate risk and how it affects decision-making. Restricted to Executive MBA and Sloan Fellow MBA students.",
+      "instructor": "A. Verdelhan",
       "source_page": "m15c",
       "url": "https://student.mit.edu/catalog/m15c.html#15.733",
       "eval_status": null,
@@ -21817,8 +21988,8 @@
       "units_total": 3,
       "schedule": [],
       "schedule_summary": "",
-      "description": "Case studies and lectures introduce financial tools needed to make value-enhancing business decisions. Topics drawn from issues such as advanced valuation analysis, capital structure decisions, debt restructuring, bankruptcy, incentive problems, real options, and valuation of international projects. Restricted to Executive MBA and Sloan Fellow MBA students. Staff",
-      "instructor": null,
+      "description": "Case studies and lectures introduce financial tools needed to make value-enhancing business decisions. Topics drawn from issues such as advanced valuation analysis, capital structure decisions, debt restructuring, bankruptcy, incentive problems, real options, and valuation of international projects. Restricted to Executive MBA and Sloan Fellow MBA students.",
+      "instructor": "C. Palmer",
       "source_page": "m15c",
       "url": "https://student.mit.edu/catalog/m15c.html#15.738",
       "eval_status": null,
@@ -21910,8 +22081,8 @@
       "units_total": 3,
       "schedule": [],
       "schedule_summary": "",
-      "description": "Develops communication skills crucial to successful management. Focuses on identifying a range of communication styles, and recognizing how to use them; dealing successfully with challenging or hostile audiences; understanding cross-cultural and global communication issues and differences; and leading and communicating in a crisis situation. Restricted to Executive MBA and Sloan Fellow MBA students. Staff",
-      "instructor": null,
+      "description": "Develops communication skills crucial to successful management. Focuses on identifying a range of communication styles, and recognizing how to use them; dealing successfully with challenging or hostile audiences; understanding cross-cultural and global communication issues and differences; and leading and communicating in a crisis situation. Restricted to Executive MBA and Sloan Fellow MBA students.",
+      "instructor": "N. Hartman",
       "source_page": "m15c",
       "url": "https://student.mit.edu/catalog/m15c.html#15.740",
       "eval_status": null,
@@ -21951,8 +22122,8 @@
       "units_total": 3,
       "schedule": [],
       "schedule_summary": "",
-      "description": "Leverages game theory — the analysis of multi-person decision problems — to develop interactive thinking in strategic environments. Students play and analyze games that arise frequently in business settings and discuss numerous real-world examples. Restricted to Executive MBA and Sloan Fellow MBA students. Staff",
-      "instructor": null,
+      "description": "Leverages game theory — the analysis of multi-person decision problems — to develop interactive thinking in strategic environments. Students play and analyze games that arise frequently in business settings and discuss numerous real-world examples. Restricted to Executive MBA and Sloan Fellow MBA students.",
+      "instructor": "A. Bonatti",
       "source_page": "m15c",
       "url": "https://student.mit.edu/catalog/m15c.html#15.741",
       "eval_status": null,
@@ -21992,8 +22163,8 @@
       "units_total": 3,
       "schedule": [],
       "schedule_summary": "",
-      "description": "Provides a framework for strategy for firms pursuing multi-sided platform business models. Emphasizes the development and application of conceptual frameworks that enable managers to make effective decisions as they seek to create value with a platform, and to capture value from it in the face of competition from other platform providers. Restricted to Executive MBA and Sloan Fellow MBA students. Staff",
-      "instructor": null,
+      "description": "Provides a framework for strategy for firms pursuing multi-sided platform business models. Emphasizes the development and application of conceptual frameworks that enable managers to make effective decisions as they seek to create value with a platform, and to capture value from it in the face of competition from other platform providers. Restricted to Executive MBA and Sloan Fellow MBA students.",
+      "instructor": "P. Azoulay",
       "source_page": "m15c",
       "url": "https://student.mit.edu/catalog/m15c.html#15.742",
       "eval_status": null,
@@ -22096,7 +22267,9 @@
         "Spring"
       ],
       "offering_status": "Offered",
-      "offering_notes": [],
+      "offering_notes": [
+        "Not offered regularly; consult department"
+      ],
       "meets_with": [],
       "prereq_raw": "15.761 or SCM.260",
       "prereq_numbers": [
@@ -22278,7 +22451,7 @@
       "units_total": 6,
       "schedule": [],
       "schedule_summary": "",
-      "description": "Focuses on the planning, processes, and activities of supply chain management for companies involved in international commerce. Students examine the end-to-end processes and operational challenges in managing global supply chains, such as the basics of global trade, international transportation, duty, taxes, trade finance and hedging, currency issues, outsourcing, cultural differences, risks and security, and green supply chains issues. Highly interactive format features student-led discussions, staged debates, and a mock trial. Includes assignments on case studies and sourcing analysis, as well as projects and a final exam.",
+      "description": "Develops modeling skills and intuition to optimize information flows, material flows, and financial flows in global supply chains. Categorizes the five reasons global supply chains are hard to optimize in practice: nonlinearity, volatility, opacity, complexity, and humanity. Case studies present real-world problems recent graduates solved applying the models developed in this course. Global supply chain problems are drawn from international sourcing of steel, distributing consumer packages goods around the globe, designing global supply chains for high-technology products, choosing the transportation mode that optimizes total landed profit, and defining the minimum viable supply chain in the presence of supply disruptions.",
       "instructor": "S. Willems",
       "source_page": "m15c",
       "url": "https://student.mit.edu/catalog/m15c.html#15.765",
@@ -22319,8 +22492,8 @@
       "units_total": 9,
       "schedule": [],
       "schedule_summary": "",
-      "description": "During required travel over three weeks around the United States, participants visit eight to 12 LGO industry partner sites to observe manufacturing and operations processes. The class is divided into smaller groups that individually assess each site's operations or manufacturing across an array of areas, which may include: global competition and strategy; leadership; customers; society and sustainability; new product introduction; global supply chain; organizational structure and culture; operations of machinery, processes, and materials; and metrics and quality. Travel costs are primarily covered by site hosts, but co-payment (up to $500) may be necessary. Restricted to Leaders for Global Operations students. Staff",
-      "instructor": null,
+      "description": "During required travel over three weeks around the United States, participants visit eight to 12 LGO industry partner sites to observe manufacturing and operations processes. The class is divided into smaller groups that individually assess each site's operations or manufacturing across an array of areas, which may include: global competition and strategy; leadership; customers; society and sustainability; new product introduction; global supply chain; organizational structure and culture; operations of machinery, processes, and materials; and metrics and quality. Travel costs are primarily covered by site hosts, but co-payment (up to $500) may be necessary. Restricted to Leaders for Global Operations students.",
+      "instructor": "T. Roemer",
       "source_page": "m15c",
       "url": "https://student.mit.edu/catalog/m15c.html#15.766",
       "eval_status": null,
@@ -22384,8 +22557,8 @@
         }
       ],
       "schedule_summary": "Lecture: Tue/Thu 10:00–11:30",
-      "description": "Focuses on the business challenges and opportunities to deliver high-quality and reasonably priced health services, mainly in the United States. Provides an opportunity to interact with guest speakers and senior executives from the health sector. Topics include: aspects of healthcare delivery operations and how they are affected by healthcare reform policies, alternative payment models, population health perspectives, and social determinants of health. Discussions include examples from the ongoing healthcare-related work of Sloan faculty, as well as the potential for analytics and digitization to impact healthcare delivery. Provides a broad perspective on various career paths, such as consulting, entrepreneurship, delivery system management, and digital innovation development. Staff",
-      "instructor": null,
+      "description": "Focuses on the business challenges and opportunities to deliver high-quality and reasonably priced health services, mainly in the United States. Provides an opportunity to interact with guest speakers and senior executives from the health sector. Topics include: aspects of healthcare delivery operations and how they are affected by healthcare reform policies, alternative payment models, population health perspectives, and social determinants of health. Discussions include examples from the ongoing healthcare-related work of Sloan faculty, as well as the potential for analytics and digitization to impact healthcare delivery. Provides a broad perspective on various career paths, such as consulting, entrepreneurship, delivery system management, and digital innovation development.",
+      "instructor": "A. Quaadgras",
       "source_page": "m15c",
       "url": "https://student.mit.edu/catalog/m15c.html#15.767",
       "eval_status": null,
@@ -22660,7 +22833,7 @@
       "schedule": [],
       "schedule_summary": "",
       "description": "Fast-paced introduction to deep learning, the engine behind modern artificial intelligence and generative AI, with an emphasis on developing a practical understanding of how to build models to solve complex problems involving unstructured data. Topics include: the basics of deep neural networks and how to set up and train them, transformers for natural language processing and computer vision, large language models (such as ChatGPT), and text-to-image and multi-modal models. Prior familiarity with Python and fundamental machine learning concepts (such as training/validation/testing, overfitting/underfitting, and regularization) required.",
-      "instructor": "R. Ramakrishnan, T. Lykouris",
+      "instructor": "R. Ramakrishnan, N. Golrezaei",
       "source_page": "m15c",
       "url": "https://student.mit.edu/catalog/m15c.html#15.773",
       "eval_status": null,
@@ -22715,7 +22888,7 @@
           ],
           "start": "14:30",
           "end": "16:00",
-          "raw": "MW2.30-4 ( E51-335 )"
+          "raw": "MW2.30-4 ( E51-345 )"
         },
         {
           "kind": "Recitation",
@@ -22725,7 +22898,7 @@
           ],
           "start": "12:00",
           "end": null,
-          "raw": "F12 ( E51-335 )"
+          "raw": "F12 ( E51-345 )"
         }
       ],
       "schedule_summary": "Lecture: Mon/Wed 14:30–16:00 | Recitation: Fri 12:00",
@@ -23067,7 +23240,7 @@
       "terms": [
         "Spring"
       ],
-      "offering_status": "Offered",
+      "offering_status": "Not offered this year (2026-2027)",
       "offering_notes": [],
       "meets_with": [],
       "prereq_raw": "None",
@@ -23297,8 +23470,8 @@
       "units_total": 12,
       "schedule": [],
       "schedule_summary": "",
-      "description": "Hands on, action learning course for students wanting a deep dive into product management (PM). Focuses on experiential learning in PM, and application of relevant tools and frameworks, but does not dwell on the presentation of such tools and frameworks, which are covered in 15.785. Student teams are matched with partner companies and contribute to a PM-related project at the company. The IAP activity is devoted to intensive work with the company project, which continues during H3. Class sessions in H3 utilize team project challenges and experiences to dig deeply in problem solving, use of PM tools, and effective management strategies. Staff",
-      "instructor": null,
+      "description": "Hands on, action learning course for students wanting a deep dive into product management (PM). Focuses on experiential learning in PM, and application of relevant tools and frameworks, but does not dwell on the presentation of such tools and frameworks, which are covered in 15.785. Student teams are matched with partner companies and contribute to a PM-related project at the company. The IAP activity is devoted to intensive work with the company project, which continues during H3. Class sessions in H3 utilize team project challenges and experiences to dig deeply in problem solving, use of PM tools, and effective management strategies.",
+      "instructor": "C. Fine",
       "source_page": "m15c",
       "url": "https://student.mit.edu/catalog/m15c.html#15.786",
       "eval_status": null,
@@ -23316,6 +23489,47 @@
       "action_learning": "PM-LAB",
       "al_name": "Product Management Lab",
       "al_term": "IAP+Spring"
+    },
+    {
+      "number": "15.789",
+      "title": "[J] Leadership: People, Products, Projects",
+      "department": "Course 15 — Management",
+      "category": "Operations Management",
+      "terms": [
+        "Spring"
+      ],
+      "offering_status": "Offered",
+      "offering_notes": [],
+      "meets_with": [],
+      "prereq_raw": "None",
+      "prereq_numbers": [],
+      "prereqs": [],
+      "units_raw": "4-0-5",
+      "units": {
+        "lec": 4,
+        "lab": 0,
+        "prep": 5
+      },
+      "units_total": 9,
+      "schedule": [],
+      "schedule_summary": "",
+      "description": "Provides an introduction to product development and engineering leadership concepts by reviewing and practicing core leadership principles on a team-based project. Students identify worthy problems to tackle, generate creative concepts, make quick prototypes, and test them with stakeholders. Product management tools are used to identify user needs, translate needs into design elements, and develop product roadmaps. Project management tools are used to mobilize team activity and organize deliverables. Students practice effective teamwork, persuasive presentations, and influencing strategies. Each class session introduces a new topic relating to the project or leadership skills, experiential learning around the topic, and time for team meetings with instructional staff available for guidance. Limited to 25. Enrollment in 15.789 is limited to 10. Staff",
+      "instructor": null,
+      "source_page": "m15c",
+      "url": "https://student.mit.edu/catalog/m15c.html#15.789",
+      "eval_status": null,
+      "eval_hours_in": null,
+      "eval_hours_out": null,
+      "eval_responses": null,
+      "eval_term": null,
+      "eval_instructor": null,
+      "eval_instructor_match": null,
+      "eval_url": null,
+      "rating": null,
+      "rating_rationale": null,
+      "aags": "N/A",
+      "design_approved": null,
+      "action_learning": null
     },
     {
       "number": "15.792",
@@ -23405,7 +23619,7 @@
         }
       ],
       "schedule_summary": "Lecture: TBA",
-      "description": "Required course designed for Leaders for Global Operations (LGO) students in conjunction with on-site projects at LGO partner companies. Internship experience must be at least 1,000 hours in length over 25-week period over the course of two academic terms, and students enter a formal agreement with their internship host company. Students work on faculty-supervised thesis research projects that deal with a specific aspect of operations, informed by this experience. Students' completion of requirements will be certified by faculty advisor. Students are required to summarize their work in the context of understanding organization, leadership, teamwork, and task management, in conjunction with 15.317.",
+      "description": "Required course designed for Leaders for Global Operations (LGO) students in conjunction with on-site projects at LGO partner companies. Internship experience must be at least 1,000 hours in length over 25-week period over the course of two academic terms, and students enter a formal agreement with their internship host company. Students work on faculty-supervised thesis research projects that deal with a specific aspect of operations, informed by this experience. Students' completion of requirements will be certified by faculty advisor. Students are required to summarize their work in the context of understanding organization, leadership, teamwork, and task management, in conjunction with 15.317. Fall:",
       "instructor": "T. Roemer",
       "source_page": "m15c",
       "url": "https://student.mit.edu/catalog/m15c.html#15.794",
@@ -23459,7 +23673,7 @@
       ],
       "schedule_summary": "Lecture: Mon 11:30–13:00",
       "description": "Presentations by faculty, doctoral students, and guest speakers of ongoing research relating to current issues in operations management, including reports of research projects (proposed or in progress) and informal discussions of recent literature dealing with subjects of special interest to participants. Primarily for doctoral students.",
-      "instructor": "D. Freund, T. Lykouris",
+      "instructor": "A. Aouad",
       "source_page": "m15c",
       "url": "https://student.mit.edu/catalog/m15c.html#15.799",
       "eval_status": null,
@@ -23585,16 +23799,16 @@
       "prereq_raw": "None",
       "prereq_numbers": [],
       "prereqs": [],
-      "units_raw": "3-0-6",
+      "units_raw": "3-0-3",
       "units": {
         "lec": 3,
         "lab": 0,
-        "prep": 6
+        "prep": 3
       },
-      "units_total": 9,
+      "units_total": 6,
       "schedule": [],
       "schedule_summary": "",
-      "description": "Introduction to behavioral economics for future managers, analysts, consultants or advisors to private and public enterprises. Presents basic principles of behavioral economics, and selected applications to marketing, management, finance, and public policy. Focuses on hidden influences, habits, and irrationalities in our behavior. Treats departures from 'rational behavior' as opportunities - for individuals to improve themselves, for companies to solve consumers' problems, for society to create new institutions and policies.",
+      "description": "Introduction to behavioral economics for future managers, analysts, consultants, or advisors to private and public enterprises. Presents basic principles of behavioral economics, and selected applications to marketing, management, finance, and public policy. Focuses on hidden influences, habits, and irrationalities in our behavior. Treats departures from \"rational behavior\" as opportunities ? for individuals to improve themselves, for companies to solve consumers' problems, and for society to create new institutions and policies.",
       "instructor": "D. Prelec",
       "source_page": "m15c",
       "url": "https://student.mit.edu/catalog/m15c.html#15.815",
@@ -23878,7 +24092,7 @@
         }
       ],
       "schedule_summary": "Lecture: M EVE (4-7 PM)",
-      "description": "Lays the foundation for the Enterprise Management (EM) Certificate by developing students' ability to apply integrated management perspectives and practices through action-learning. Small teams of students deliver quality deliverables by working on projects for large organizations and emergent innovators that integrate marketing, operations, and/or strategy. Students engage with faculty mentors and guest faculty speakers from marketing, strategy, and operations. Promotes a holistic cross-functional approach to addressing business issues. Significant class time allocated to team collaboration on projects. Students must register for both the fall term and IAP. Restricted to students eligible for the MIT Sloan Enterprise Management Certificate.",
+      "description": "Lays the foundation for the Enterprise Management (EM) Certificate by developing students' ability to apply integrated management perspectives and practices through action-learning. Small teams of students deliver quality deliverables by working on projects for large organizations and emergent innovators that integrate marketing, operations, and/or strategy. Students engage with faculty mentors and guest faculty speakers from marketing, strategy, and operations. Promotes a holistic cross-functional approach to addressing business issues. Significant class time allocated to team collaboration on projects. Students must register for both the fall term and IAP. Restricted to students eligible for the MIT Sloan Enterprise Management Certificate. Fall:",
       "instructor": "S. Chatterjee",
       "source_page": "m15c",
       "url": "https://student.mit.edu/catalog/m15c.html#15.830",
@@ -24086,18 +24300,18 @@
       "schedule": [
         {
           "kind": "Lecture",
-          "code": "T9-12",
+          "code": "F9.30-12.30",
           "days": [
-            "Tue"
+            "Fri"
           ],
-          "start": "09:00",
-          "end": "12:00",
-          "raw": "T9-12 ( E62-346 )"
+          "start": "09:30",
+          "end": "12:30",
+          "raw": "F9.30-12.30 ( E62-587 )"
         }
       ],
-      "schedule_summary": "Lecture: Tue 09:00–12:00",
-      "description": "Seminar on current marketing literature and current research interests of faculty and students. Topics such as marketing models, consumer behavior, competitive strategy, marketing experimentation, and game theory. Restricted to doctoral students. Staff",
-      "instructor": null,
+      "schedule_summary": "Lecture: Fri 09:30–12:30",
+      "description": "Seminar on current marketing literature and current research interests of faculty and students. Topics such as marketing models, consumer behavior, competitive strategy, marketing experimentation, and game theory. Restricted to doctoral students.",
+      "instructor": "R. Hoong, A. Shchetkina",
       "source_page": "m15c",
       "url": "https://student.mit.edu/catalog/m15c.html#15.838",
       "eval_status": null,
@@ -24413,7 +24627,7 @@
       ],
       "schedule_summary": "Lecture: Mon/Wed 13:00–14:30 | Recitation: Fri 13:00–14:30",
       "description": "Introduction to systems thinking and system dynamics modeling applied to strategy, organizational change, and policy design. Students use simulation models, management flight simulators, and case studies to develop conceptual and modeling skills for the design and management of high-performance organizations in a dynamic world. Case studies of successful applications of system dynamics in growth strategy, management of technology, operations, public policy, product development, and others. Principles for effective use of modeling in the real world. Meets with 15.873 first half of term when offered concurrently. Students taking 15.871 complete additional assignments. Fall:",
-      "instructor": "H. Rahmandad",
+      "instructor": "V. Yang",
       "source_page": "m15c",
       "url": "https://student.mit.edu/catalog/m15c.html#15.871",
       "eval_status": null,
@@ -24526,8 +24740,8 @@
         }
       ],
       "schedule_summary": "Lecture: Mon/Wed 13:00–14:30 | Recitation: Fri 13:00–14:30",
-      "description": "Focuses on developing the skills and tools needed to successfully apply systems thinking and simulation modeling in diverse real-world settings, including growth strategy, management of technology, operations, public policy, product development, supply chains, forecasting, project management, process improvement, service operations, and platform-based businesses, among others. Uses simulation models, management flight simulators, and case studies to deepen conceptual and modeling skills beyond what is introduced in 15.871. Exploring case studies of successful applications, students develop proficiency in how to use qualitative and quantitative data to formulate and test models, and how to work effectively with senior executives to successfully implement change. Prepares students for further work in the field. Meets with 15.871 in first half of term when offered concurrently. Students taking 15.871 complete additional assignments.",
-      "instructor": "H. Rahmandad",
+      "description": "Focuses on developing the skills and tools needed to successfully apply systems thinking and simulation modeling in diverse real-world settings, including growth strategy, management of technology, operations, public policy, product development, supply chains, forecasting, project management, process improvement, service operations, and platform-based businesses, among others. Uses simulation models, management flight simulators, and case studies to deepen conceptual and modeling skills beyond what is introduced in 15.871. Exploring case studies of successful applications, students develop proficiency in how to use qualitative and quantitative data to formulate and test models, and how to work effectively with senior executives to successfully implement change. Prepares students for further work in the field. Meets with 15.871 in first half of term when offered concurrently. Students taking 15.871 complete additional assignments. Fall:",
+      "instructor": "V. Yang",
       "source_page": "m15c",
       "url": "https://student.mit.edu/catalog/m15c.html#15.873",
       "eval_status": null,
@@ -24571,6 +24785,47 @@
       "instructor": null,
       "source_page": "m15c",
       "url": "https://student.mit.edu/catalog/m15c.html#15.876",
+      "eval_status": null,
+      "eval_hours_in": null,
+      "eval_hours_out": null,
+      "eval_responses": null,
+      "eval_term": null,
+      "eval_instructor": null,
+      "eval_instructor_match": null,
+      "eval_url": null,
+      "rating": null,
+      "rating_rationale": null,
+      "aags": "N/A",
+      "design_approved": null,
+      "action_learning": null
+    },
+    {
+      "number": "15.877",
+      "title": "Creating Effective Work Using Dynamic Work Design",
+      "department": "Course 15 — Management",
+      "category": "System Dynamics",
+      "terms": [
+        "IAP"
+      ],
+      "offering_status": "Offered",
+      "offering_notes": [],
+      "meets_with": [],
+      "prereq_raw": "Permission of instructor",
+      "prereq_numbers": [],
+      "prereqs": [],
+      "units_raw": "2-0-1",
+      "units": {
+        "lec": 2,
+        "lab": 0,
+        "prep": 1
+      },
+      "units_total": 3,
+      "schedule": [],
+      "schedule_summary": "",
+      "description": "Introduction to Dynamic Work Design, a method for designing work processes in rapidly changing environments. Draws on intervention case studies from academic laboratories, corporations, healthcare systems, and nonprofit organizations. Examination of organizational challenges includes target setting, communication and collaboration, workflow management, and approaches to sustained innovation. Explores specific tools that past participants have used to improve their organization's performance. Application required for admission.",
+      "instructor": "J. Jay",
+      "source_page": "m15c",
+      "url": "https://student.mit.edu/catalog/m15c.html#15.877",
       "eval_status": null,
       "eval_hours_in": null,
       "eval_hours_out": null,
@@ -24678,7 +24933,7 @@
       ],
       "schedule_summary": "Lecture: Fri 09:00–12:00",
       "description": "Doctoral seminar in system dynamics modeling, with a focus on building advanced modeling and research skills. Topics vary from year to year and may include: classic works in dynamic modeling from various disciplines (e.g., psychology, sociology, behavioral economics) and current research problems and papers; advanced system dynamics models focused on research and practical problems of interest to students; analytic tools and methods for model development, estimation, and analysis (e.g., automating modeling workflow, maximum likelihood, simulated method of moments, dynamical games, dynamic programming); bootcamp for enhancing modeling skills working on multiple problem sets.",
-      "instructor": "C. Yang",
+      "instructor": "V. Yang",
       "source_page": "m15c",
       "url": "https://student.mit.edu/catalog/m15c.html#15.879",
       "eval_status": null,
@@ -24732,7 +24987,7 @@
       ],
       "schedule_summary": "Lecture: Mon/Wed 08:30–10:00",
       "description": "Explores a wide range of strategic problems, focusing particularly on the sources of competitive advantage and the interaction between industry structure and organizational capabilities. Introduces a wide variety of modern strategy frameworks and methodologies. Builds upon and integrates material from core topics, such as economics and organizational processes. Meets with 15.9001 when offered concurrently. Expectations and evaluation criteria differ for students taking graduate version; consult syllabus or instructor for specific details. Restricted to MIT Sloan master's students in the fall term. No enrollment limitation in the spring term.",
-      "instructor": "D. Sull, P. Azoulay",
+      "instructor": "D. Sull, E. Zuckerman Sivan",
       "source_page": "m15c",
       "url": "https://student.mit.edu/catalog/m15c.html#15.900",
       "eval_status": null,
@@ -24801,7 +25056,9 @@
         "Spring"
       ],
       "offering_status": "Offered",
-      "offering_notes": [],
+      "offering_notes": [
+        "Not offered regularly; consult department"
+      ],
       "meets_with": [],
       "prereq_raw": "15.010 and 15.311",
       "prereq_numbers": [
@@ -25177,7 +25434,7 @@
         },
         {
           "number": "15.567",
-          "name": "The Economics of Information: Strategy, Structure and Pricing"
+          "name": "The Economics of Information: Strategy, Structure, and Pricing"
         },
         {
           "number": "15.900",
@@ -25571,24 +25828,24 @@
       "schedule": [
         {
           "kind": "Lecture",
-          "code": "TR8.30-10 (ENDS DEC 11)",
+          "code": "TR8.30-10",
           "days": [
             "Tue",
             "Thu"
           ],
           "start": "08:30",
           "end": "10:00",
-          "raw": "TR8.30-10 (ENDS DEC 11) ( E51-345 ) or TR2.30-4 ( E25-111 ) or MW10-11.30 ( E25-111 )"
+          "raw": "TR8.30-10 ( E51-345 ) or TR2.30-4 ( E25-111 ) or MW10-11.30 ( E25-111 )"
         },
         {
           "kind": "Recitation",
-          "code": "F10 (ENDS DEC 11)",
+          "code": "F10",
           "days": [
             "Fri"
           ],
           "start": "10:00",
           "end": null,
-          "raw": "F10 (ENDS DEC 11) ( E51-345 ) or F1 ( 45-230 ) or F2 ( 45-230 )"
+          "raw": "F10 ( E51-345 ) or F1 ( 45-230 ) or F2 ( 45-230 )"
         }
       ],
       "schedule_summary": "Lecture: Tue/Thu 08:30–10:00 | Recitation: Fri 10:00",
@@ -25731,7 +25988,7 @@
         }
       ],
       "schedule_summary": "Lecture: Mon/Wed 16:00–17:30",
-      "description": "Opportunity for group study by graduate students on current topics related to management not otherwise included in curriculum.",
+      "description": "Opportunity for group study by graduate students on current topics related to management not otherwise included in curriculum. Fall:",
       "instructor": "G. Gensler",
       "source_page": "m15c",
       "url": "https://student.mit.edu/catalog/m15c.html#15.S03",
@@ -25755,8 +26012,7 @@
       "department": "Course 15 — Management",
       "category": "Special Subjects",
       "terms": [
-        "Fall",
-        "Spring"
+        "Fall"
       ],
       "offering_status": "Offered",
       "offering_notes": [],
@@ -25785,8 +26041,8 @@
         }
       ],
       "schedule_summary": "Lecture: Mon/Wed 08:30–10:00",
-      "description": "Opportunity for group study by graduate students on current topics related to management not otherwise included in curriculum. Fall:",
-      "instructor": "J. Horton",
+      "description": "Opportunity for group study by graduate students on current topics related to management not otherwise included in curriculum.",
+      "instructor": "J. Saviano",
       "source_page": "m15c",
       "url": "https://student.mit.edu/catalog/m15c.html#15.S04",
       "eval_status": null,
@@ -25874,8 +26130,7 @@
       "department": "Course 15 — Management",
       "category": "Special Subjects",
       "terms": [
-        "Fall",
-        "Spring"
+        "Fall"
       ],
       "offering_status": "Offered",
       "offering_notes": [],
@@ -25899,7 +26154,7 @@
           ],
           "start": null,
           "end": null,
-          "raw": "W EVE (4-7 PM) ( E62-221 )"
+          "raw": "W EVE (4-7 PM) ( E62-450 )"
         }
       ],
       "schedule_summary": "Lecture: W EVE (4-7 PM)",
@@ -25927,8 +26182,7 @@
       "department": "Course 15 — Management",
       "category": "Special Subjects",
       "terms": [
-        "Fall",
-        "Spring"
+        "Fall"
       ],
       "offering_status": "Offered",
       "offering_notes": [],
@@ -25946,16 +26200,16 @@
       "schedule": [
         {
           "kind": "Lecture",
-          "code": "W EVE (4-7 PM)",
+          "code": "R EVE (4-7 PM)",
           "days": [
-            "Wed"
+            "Thu"
           ],
           "start": null,
           "end": null,
-          "raw": "W EVE (4-7 PM) ( E62-262 )"
+          "raw": "R EVE (4-7 PM) ( E62-233 )"
         }
       ],
-      "schedule_summary": "Lecture: W EVE (4-7 PM)",
+      "schedule_summary": "Lecture: R EVE (4-7 PM)",
       "description": "Opportunity for group study by graduate students on current topics related to management not otherwise included in curriculum.",
       "instructor": "T. Keith",
       "source_page": "m15c",
@@ -26010,7 +26264,7 @@
       ],
       "schedule_summary": "Lecture: M EVE (4-7 PM)",
       "description": "Opportunity for group study by graduate students on current topics related to management not otherwise included in curriculum.",
-      "instructor": "M. Shulman, G Kucsko",
+      "instructor": "M. Chen, A. Zachary",
       "source_page": "m15c",
       "url": "https://student.mit.edu/catalog/m15c.html#15.S08",
       "eval_status": null,
@@ -26060,9 +26314,19 @@
           "start": "16:00",
           "end": "17:30",
           "raw": "MW4-5.30 ( E62-223 )"
+        },
+        {
+          "kind": "Recitation",
+          "code": "F11",
+          "days": [
+            "Fri"
+          ],
+          "start": "11:00",
+          "end": null,
+          "raw": "F11 ( E51-376 )"
         }
       ],
-      "schedule_summary": "Lecture: Mon/Wed 16:00–17:30",
+      "schedule_summary": "Lecture: Mon/Wed 16:00–17:30 | Recitation: Fri 11:00",
       "description": "Opportunity for group study by graduate students on current topics related to management not otherwise included in curriculum.",
       "instructor": "X. Sun",
       "source_page": "m15c",
@@ -26087,8 +26351,7 @@
       "department": "Course 15 — Management",
       "category": "Special Subjects",
       "terms": [
-        "Fall",
-        "Spring"
+        "Fall"
       ],
       "offering_status": "Offered",
       "offering_notes": [],
@@ -26117,7 +26380,7 @@
       ],
       "schedule_summary": "Lecture: R EVE (4-7 PM)",
       "description": "Group study of current topics related to management not otherwise included in curriculum. Consult Department headquarters.",
-      "instructor": "C. Tucker, K. Ligris, A. Shklarek",
+      "instructor": "K. Ligris",
       "source_page": "m15c",
       "url": "https://student.mit.edu/catalog/m15c.html#15.S10",
       "eval_status": null,
@@ -26168,8 +26431,8 @@
         }
       ],
       "schedule_summary": "Lecture: R EVE (4-7 PM)",
-      "description": "Opportunity for group study by graduate students on current topics related to management not otherwise included in curriculum. Staff 15.S10:",
-      "instructor": null,
+      "description": "Opportunity for group study by graduate students on current topics related to management not otherwise included in curriculum.",
+      "instructor": "A. Makarin",
       "source_page": "m15c",
       "url": "https://student.mit.edu/catalog/m15c.html#15.S10",
       "eval_status": null,
@@ -26263,13 +26526,13 @@
       "schedule": [
         {
           "kind": "Lecture",
-          "code": "T EVE (4-7 PM) (ENDS DEC 11)",
+          "code": "T EVE (4-7 PM)",
           "days": [
             "Tue"
           ],
           "start": null,
           "end": null,
-          "raw": "T EVE (4-7 PM) (ENDS DEC 11) ( 34-101 )"
+          "raw": "T EVE (4-7 PM) ( 34-101 )"
         },
         {
           "kind": "Recitation",
@@ -26282,7 +26545,7 @@
           "raw": "F1 ( 34-101 )"
         }
       ],
-      "schedule_summary": "Lecture: T EVE (4-7 PM) (ENDS DEC 11) | Recitation: Fri 13:00",
+      "schedule_summary": "Lecture: T EVE (4-7 PM) | Recitation: Fri 13:00",
       "description": "Opportunity for group study by graduate students on current topics related to management not otherwise included in curriculum.",
       "instructor": "A. Lo",
       "source_page": "m15c",
@@ -26348,7 +26611,9 @@
       "department": "Course 15 — Management",
       "category": "Special Subjects",
       "terms": [
-        "IAP"
+        "Fall",
+        "IAP",
+        "Spring"
       ],
       "offering_status": "Offered",
       "offering_notes": [],
@@ -26363,10 +26628,21 @@
         "prep": null
       },
       "units_total": null,
-      "schedule": [],
-      "schedule_summary": "",
-      "description": "Group study of current topics related to management not otherwise included in curriculum. Staff",
-      "instructor": null,
+      "schedule": [
+        {
+          "kind": "Lecture",
+          "code": "T EVE (6-9 PM)",
+          "days": [
+            "Tue"
+          ],
+          "start": null,
+          "end": null,
+          "raw": "T EVE (6-9 PM) ( E62-450 )"
+        }
+      ],
+      "schedule_summary": "Lecture: T EVE (6-9 PM)",
+      "description": "Group study of current topics related to management not otherwise included in curriculum. Fall:",
+      "instructor": "S. Stern",
       "source_page": "m15c",
       "url": "https://student.mit.edu/catalog/m15c.html#15.S15",
       "eval_status": null,
@@ -26389,7 +26665,6 @@
       "department": "Course 15 — Management",
       "category": "Special Subjects",
       "terms": [
-        "Fall",
         "Spring"
       ],
       "offering_status": "Offered",
@@ -26405,21 +26680,10 @@
         "prep": null
       },
       "units_total": null,
-      "schedule": [
-        {
-          "kind": "Lecture",
-          "code": "M EVE (5.30-8 PM)",
-          "days": [
-            "Mon"
-          ],
-          "start": null,
-          "end": null,
-          "raw": "M EVE (5.30-8 PM) ( E38-579 )"
-        }
-      ],
-      "schedule_summary": "Lecture: M EVE (5.30-8 PM)",
-      "description": "Group study of current topics related to management not otherwise included in curriculum. Fall:",
-      "instructor": "D. Sherif, H. Khoury",
+      "schedule": [],
+      "schedule_summary": "",
+      "description": "Group study of current topics related to management not otherwise included in curriculum.",
+      "instructor": "G. Gensler, P. Weinberg",
       "source_page": "m15c",
       "url": "https://student.mit.edu/catalog/m15c.html#15.S16",
       "eval_status": null,
@@ -26467,12 +26731,12 @@
           ],
           "start": "14:30",
           "end": "16:00",
-          "raw": "TR2.30-4 ( E51-145 )"
+          "raw": "TR2.30-4 ( E51-345 )"
         }
       ],
       "schedule_summary": "Lecture: Tue/Thu 14:30–16:00",
       "description": "Group study of current topics related to management not otherwise included in curriculum.",
-      "instructor": "G. Keselman",
+      "instructor": "G. Keselman, P. Budden, F. Murray",
       "source_page": "m15c",
       "url": "https://student.mit.edu/catalog/m15c.html#15.S17",
       "eval_status": null,
@@ -26513,10 +26777,21 @@
         "prep": null
       },
       "units_total": null,
-      "schedule": [],
-      "schedule_summary": "",
-      "description": "Group study of current topics related to management not otherwise included in curriculum.",
-      "instructor": "E. Zuckerman",
+      "schedule": [
+        {
+          "kind": "Lecture",
+          "code": "T EVE (4-6 PM)",
+          "days": [
+            "Tue"
+          ],
+          "start": null,
+          "end": null,
+          "raw": "T EVE (4-6 PM) ( E62-446 )"
+        }
+      ],
+      "schedule_summary": "Lecture: T EVE (4-6 PM)",
+      "description": "Group study of current topics related to management not otherwise included in curriculum. Fall:",
+      "instructor": "B. Grimmer",
       "source_page": "m15c",
       "url": "https://student.mit.edu/catalog/m15c.html#15.S18",
       "eval_status": null,
@@ -26609,8 +26884,8 @@
         }
       ],
       "schedule_summary": "Lecture: Mon/Wed 08:30–10:00",
-      "description": "Group study of current topics related to management not otherwise included in curriculum. Coursework may continue into the following term. Staff 15.S21: No textbook information available 15.S22: No textbook information available 15.S23: No textbook information available 15.S25:",
-      "instructor": null,
+      "description": "Group study of current topics related to management not otherwise included in curriculum. Coursework may continue into the following term.",
+      "instructor": "G. Rao",
       "source_page": "m15c",
       "url": "https://student.mit.edu/catalog/m15c.html#15.S20",
       "eval_status": null,
@@ -26876,11 +27151,11 @@
           ],
           "start": "08:30",
           "end": "10:00",
-          "raw": "MW8.30-10 ( E51-372 ) or MW10-11.30 ( E51-372 ) or MW4-5.30 ( E52-164 )"
+          "raw": "MW8.30-10 ( E51-149 ) or MW10-11.30 ( E51-372 ) or MW4-5.30 ( E52-164 )"
         }
       ],
       "schedule_summary": "Lecture: Mon/Wed 08:30–10:00",
-      "description": "Group study of current topics related to management not otherwise included in curriculum.",
+      "description": "Group study of current topics related to management not otherwise included in curriculum. Fall:",
       "instructor": "K. Kellogg",
       "source_page": "m15c",
       "url": "https://student.mit.edu/catalog/m15c.html#15.S50",
@@ -26931,7 +27206,7 @@
           ],
           "start": "08:30",
           "end": "10:00",
-          "raw": "MW8.30-10 ( E62-250 )"
+          "raw": "MW8.30-10 ( E51-149 )"
         }
       ],
       "schedule_summary": "Lecture: Mon/Wed 08:30–10:00",
@@ -26976,8 +27251,8 @@
       "units_total": null,
       "schedule": [],
       "schedule_summary": "",
-      "description": "Group study of current topics related to management not otherwise included in curriculum. Staff",
-      "instructor": null,
+      "description": "Group study of current topics related to management not otherwise included in curriculum.",
+      "instructor": "H. Chen",
       "source_page": "m15c",
       "url": "https://student.mit.edu/catalog/m15c.html#15.S52",
       "eval_status": null,
@@ -27017,8 +27292,8 @@
       "units_total": null,
       "schedule": [],
       "schedule_summary": "",
-      "description": "Group study of current topics related to management not otherwise included in curriculum. Staff",
-      "instructor": null,
+      "description": "Group study of current topics related to management not otherwise included in curriculum.",
+      "instructor": "J. Akula",
       "source_page": "m15c",
       "url": "https://student.mit.edu/catalog/m15c.html#15.S53",
       "eval_status": null,
@@ -27058,8 +27333,8 @@
       "units_total": null,
       "schedule": [],
       "schedule_summary": "",
-      "description": "Group study of current topics related to management not otherwise included in curriculum. Staff",
-      "instructor": null,
+      "description": "Group study of current topics related to management not otherwise included in curriculum.",
+      "instructor": "J. Horton",
       "source_page": "m15c",
       "url": "https://student.mit.edu/catalog/m15c.html#15.S54",
       "eval_status": null,
@@ -27111,7 +27386,7 @@
         }
       ],
       "schedule_summary": "Lecture: M EVE (4-7 PM)",
-      "description": "Group study of current topics related to management not otherwise included in curriculum.",
+      "description": "Group study of current topics related to management not otherwise included in curriculum. Fall:",
       "instructor": "T. Vanparys",
       "source_page": "m15c",
       "url": "https://student.mit.edu/catalog/m15c.html#15.S55",
@@ -27152,8 +27427,8 @@
       "units_total": null,
       "schedule": [],
       "schedule_summary": "",
-      "description": "Group study of current topics related to management not otherwise included in curriculum. Staff",
-      "instructor": null,
+      "description": "Group study of current topics related to management not otherwise included in curriculum.",
+      "instructor": "R. Verdi",
       "source_page": "m15c",
       "url": "https://student.mit.edu/catalog/m15c.html#15.S56",
       "eval_status": null,
@@ -27193,8 +27468,8 @@
       "units_total": null,
       "schedule": [],
       "schedule_summary": "",
-      "description": "Group study of current topics related to management not otherwise included in curriculum. Staff",
-      "instructor": null,
+      "description": "Group study of current topics related to management not otherwise included in curriculum.",
+      "instructor": "E. Castilla",
       "source_page": "m15c",
       "url": "https://student.mit.edu/catalog/m15c.html#15.S57",
       "eval_status": null,
@@ -27234,8 +27509,8 @@
       "units_total": null,
       "schedule": [],
       "schedule_summary": "",
-      "description": "Group study of current topics related to management not otherwise included in curriculum. Staff",
-      "instructor": null,
+      "description": "Group study of current topics related to management not otherwise included in curriculum.",
+      "instructor": "A. Jacquillat",
       "source_page": "m15c",
       "url": "https://student.mit.edu/catalog/m15c.html#15.S58",
       "eval_status": null,
@@ -27258,8 +27533,7 @@
       "department": "Course 15 — Management",
       "category": "Special Subjects",
       "terms": [
-        "IAP",
-        "Spring"
+        "IAP"
       ],
       "offering_status": "Offered",
       "offering_notes": [],
@@ -27276,8 +27550,8 @@
       "units_total": null,
       "schedule": [],
       "schedule_summary": "",
-      "description": "Group study of current topics related to management not otherwise included in curriculum. Staff",
-      "instructor": null,
+      "description": "Group study of current topics related to management not otherwise included in curriculum.",
+      "instructor": "D. Giambrone",
       "source_page": "m15c",
       "url": "https://student.mit.edu/catalog/m15c.html#15.S59",
       "eval_status": null,
@@ -27317,8 +27591,8 @@
       "units_total": null,
       "schedule": [],
       "schedule_summary": "",
-      "description": "Group study of current topics related to management not otherwise included in curriculum. Staff",
-      "instructor": null,
+      "description": "Group study of current topics related to management not otherwise included in curriculum.",
+      "instructor": "G. Perakis",
       "source_page": "m15c",
       "url": "https://student.mit.edu/catalog/m15c.html#15.S60",
       "eval_status": null,
@@ -27358,8 +27632,8 @@
       "units_total": null,
       "schedule": [],
       "schedule_summary": "",
-      "description": "Group study of current topics related to management not otherwise included in curriculum. Staff",
-      "instructor": null,
+      "description": "Group study of current topics related to management not otherwise included in curriculum.",
+      "instructor": "B. Shields",
       "source_page": "m15c",
       "url": "https://student.mit.edu/catalog/m15c.html#15.S61",
       "eval_status": null,
@@ -27399,8 +27673,8 @@
       "units_total": null,
       "schedule": [],
       "schedule_summary": "",
-      "description": "Group study of current topics related to management not otherwise included in curriculum. Staff",
-      "instructor": null,
+      "description": "Group study of current topics related to management not otherwise included in curriculum.",
+      "instructor": "Z. Ton",
       "source_page": "m15c",
       "url": "https://student.mit.edu/catalog/m15c.html#15.S62",
       "eval_status": null,
@@ -27440,8 +27714,8 @@
       "units_total": null,
       "schedule": [],
       "schedule_summary": "",
-      "description": "Group study of current topics related to management not otherwise included in curriculum. Staff",
-      "instructor": null,
+      "description": "Group study of current topics related to management not otherwise included in curriculum.",
+      "instructor": "D. Ancona",
       "source_page": "m15c",
       "url": "https://student.mit.edu/catalog/m15c.html#15.S63",
       "eval_status": null,
@@ -27481,8 +27755,8 @@
       "units_total": null,
       "schedule": [],
       "schedule_summary": "",
-      "description": "Group study of current topics related to management not otherwise included in curriculum. Staff",
-      "instructor": null,
+      "description": "Group study of current topics related to management not otherwise included in curriculum.",
+      "instructor": "K. Isaacs",
       "source_page": "m15c",
       "url": "https://student.mit.edu/catalog/m15c.html#15.S64",
       "eval_status": null,
@@ -27505,8 +27779,7 @@
       "department": "Course 15 — Management",
       "category": "Special Subjects",
       "terms": [
-        "IAP",
-        "Spring"
+        "IAP"
       ],
       "offering_status": "Offered",
       "offering_notes": [],
@@ -27523,8 +27796,8 @@
       "units_total": null,
       "schedule": [],
       "schedule_summary": "",
-      "description": "Group study of current topics related to management not otherwise included in curriculum. Staff",
-      "instructor": null,
+      "description": "Group study of current topics related to management not otherwise included in curriculum.",
+      "instructor": "D. Sherif",
       "source_page": "m15c",
       "url": "https://student.mit.edu/catalog/m15c.html#15.S65",
       "eval_status": null,
@@ -27550,7 +27823,9 @@
         "Spring"
       ],
       "offering_status": "Offered",
-      "offering_notes": [],
+      "offering_notes": [
+        "Not offered regularly; consult department"
+      ],
       "meets_with": [],
       "prereq_raw": "Permission of instructor",
       "prereq_numbers": [],
@@ -27689,8 +27964,8 @@
       "units_total": null,
       "schedule": [],
       "schedule_summary": "",
-      "description": "Group study of current topics related to management not otherwise included in curriculum. Staff",
-      "instructor": null,
+      "description": "Group study of current topics related to management not otherwise included in curriculum.",
+      "instructor": "A. Orphanides",
       "source_page": "m15c",
       "url": "https://student.mit.edu/catalog/m15c.html#15.S69",
       "eval_status": null,
@@ -27713,7 +27988,7 @@
       "department": "Course 15 — Management",
       "category": "Special Subjects",
       "terms": [
-        "Fall"
+        "Spring"
       ],
       "offering_status": "Offered",
       "offering_notes": [],
@@ -27728,21 +28003,10 @@
         "prep": null
       },
       "units_total": null,
-      "schedule": [
-        {
-          "kind": "Lecture",
-          "code": "M EVE (5.30-8 PM)",
-          "days": [
-            "Mon"
-          ],
-          "start": null,
-          "end": null,
-          "raw": "M EVE (5.30-8 PM) ( E38-579 )"
-        }
-      ],
-      "schedule_summary": "Lecture: M EVE (5.30-8 PM)",
+      "schedule": [],
+      "schedule_summary": "",
       "description": "Group study of current topics related to management not otherwise included in curriculum.",
-      "instructor": "D. Sherif, H. Khoury",
+      "instructor": "D. Giambrone, P. Russell",
       "source_page": "m15c",
       "url": "https://student.mit.edu/catalog/m15c.html#15.S70",
       "eval_status": null,
@@ -27823,8 +28087,8 @@
       "units_total": null,
       "schedule": [],
       "schedule_summary": "",
-      "description": "Group study of current topics related to management not otherwise included in curriculum. Staff",
-      "instructor": null,
+      "description": "Group study of current topics related to management not otherwise included in curriculum.",
+      "instructor": "F. Ahimaz",
       "source_page": "m15c",
       "url": "https://student.mit.edu/catalog/m15c.html#15.S72",
       "eval_status": null,
@@ -27864,8 +28128,8 @@
       "units_total": null,
       "schedule": [],
       "schedule_summary": "",
-      "description": "Group study of current topics related to management not otherwise included in curriculum. Staff",
-      "instructor": null,
+      "description": "Group study of current topics related to management not otherwise included in curriculum.",
+      "instructor": "F. Ahimaz",
       "source_page": "m15c",
       "url": "https://student.mit.edu/catalog/m15c.html#15.S73",
       "eval_status": null,
@@ -27929,8 +28193,7 @@
       "department": "Course 15 — Management",
       "category": "Special Subjects",
       "terms": [
-        "IAP",
-        "Spring"
+        "IAP"
       ],
       "offering_status": "Offered",
       "offering_notes": [],
@@ -27991,7 +28254,7 @@
       "units_total": null,
       "schedule": [],
       "schedule_summary": "",
-      "description": "Advanced work, special investigation or application of a management topic, on an individual basis, under faculty supervision. May include readings, conferences, laboratory and fieldwork, and reports. Projects require prior approval, as well as a written proposal and a final report.",
+      "description": "Advanced work, special investigation or application of a management topic, on an individual basis, under faculty supervision. May include readings, conferences, laboratory and fieldwork, and reports. Projects require prior approval, as well as a written proposal and a final report. Fall:",
       "instructor": "C. Beck",
       "source_page": "m15c",
       "url": "https://student.mit.edu/catalog/m15c.html#15.960",
@@ -28044,7 +28307,7 @@
         }
       ],
       "schedule_summary": "Lecture: TBA",
-      "description": "Advanced work, special investigation or application of a management topic, on an individual basis, under faculty supervision. May include readings, conferences, laboratory and fieldwork, and reports. Projects require prior approval, as well as a written proposal and a final report.",
+      "description": "Advanced work, special investigation or application of a management topic, on an individual basis, under faculty supervision. May include readings, conferences, laboratory and fieldwork, and reports. Projects require prior approval, as well as a written proposal and a final report. Fall:",
       "instructor": "C. Beck",
       "source_page": "m15c",
       "url": "https://student.mit.edu/catalog/m15c.html#15.961",
@@ -28115,8 +28378,6 @@
       "category": "Thesis, Research, and Practice",
       "terms": [
         "Fall",
-        "IAP",
-        "Spring",
         "Summer"
       ],
       "offering_status": "Offered",
@@ -28143,8 +28404,8 @@
         }
       ],
       "schedule_summary": "Lecture: TBA",
-      "description": "Elective subject in which students participate in an off-campus internship experience and apply topics of management and/or culture to their experience. Requirements include a written deliverable. Internship experience must be at least two weeks in length, and students must have a formal offer letter from host employer/organization. Restricted to MIT Sloan students who wish to intern in an area related to their field of study. Additional restrictions may apply.",
-      "instructor": "C. Beck",
+      "description": "Elective subject in which students participate in an off-campus internship experience and apply topics of management and/or culture to their experience. Requirements include a written deliverable. Internship experience must be at least two weeks in length, and students must have a formal offer letter from host employer/organization. Restricted to MIT Sloan students who wish to intern in an area related to their field of study. Additional restrictions may apply. Fall:",
+      "instructor": "R. Verdi",
       "source_page": "m15c",
       "url": "https://student.mit.edu/catalog/m15c.html#15.999",
       "eval_status": null,
@@ -28196,7 +28457,7 @@
         }
       ],
       "schedule_summary": "Lecture: TBA",
-      "description": "Research and writing of thesis; to be arranged by the student with supervising committee.",
+      "description": "Research and writing of thesis; to be arranged by the student with supervising committee. Fall:",
       "instructor": "C. Beck",
       "source_page": "m15c",
       "url": "https://student.mit.edu/catalog/m15c.html#15.THG",
@@ -28292,7 +28553,7 @@
       "terms": [
         "Spring"
       ],
-      "offering_status": "Not offered next year (2027-2028)",
+      "offering_status": "Not offered this year (2026-2027)",
       "offering_notes": [],
       "meets_with": [
         "1.068"
@@ -28833,7 +29094,7 @@
           ],
           "start": "11:00",
           "end": null,
-          "raw": "F11 ( 3-333 )"
+          "raw": "F11 ( 1-246 ) +final"
         }
       ],
       "schedule_summary": "Lecture: Mon/Wed 11:00–12:30 | Recitation: Fri 11:00",
@@ -28879,17 +29140,17 @@
       "schedule": [
         {
           "kind": "Lecture",
-          "code": "TR11-12.30",
+          "code": "TR9.30-11",
           "days": [
             "Tue",
             "Thu"
           ],
-          "start": "11:00",
-          "end": "12:30",
-          "raw": "TR11-12.30 ( 5-234 )"
+          "start": "09:30",
+          "end": "11:00",
+          "raw": "TR9.30-11 ( 5-234 )"
         }
       ],
-      "schedule_summary": "Lecture: Tue/Thu 11:00–12:30",
+      "schedule_summary": "Lecture: Tue/Thu 09:30–11:00",
       "description": "Covers a number of fundamental topics in the emerging field of soft and active materials, including polymer mechanics and physics, poroelasticity, viscoelasticity, and mechanics of electro-magneto-active and other responsive polymers. Lectures, recitations, and experiments elucidate the basic mechanical and thermodynamic principles underlying soft and active materials. Develops an understanding of the fundamental mechanisms for designing soft materials that possess extraordinary properties, such as stretchable, tough, strong, resilient, adhesive and responsive to external stimuli, from molecular to bulk scales.",
       "instructor": "X. Zhao",
       "source_page": "m2a",
@@ -29200,7 +29461,7 @@
       "terms": [
         "Fall"
       ],
-      "offering_status": "Not offered next year (2027-2028)",
+      "offering_status": "Offered",
       "offering_notes": [],
       "meets_with": [],
       "prereq_raw": "None",
@@ -29672,12 +29933,12 @@
           ],
           "start": "13:00",
           "end": "14:30",
-          "raw": "TR1-2.30 ( 54-100 ) +final"
+          "raw": "TR1-2.30 ( 4-237 ) +final"
         }
       ],
       "schedule_summary": "Lecture: Tue/Thu 13:00–14:30",
       "description": "Provides an introduction to the theory and practice of quantum computation. Topics covered: physics of information processing; quantum algorithms including the factoring algorithm and Grover's search algorithm; quantum error correction; quantum communication and cryptography. Knowledge of quantum mechanics helpful but not required.",
-      "instructor": "S. Lloyd",
+      "instructor": "P. Shor",
       "source_page": "m2a",
       "url": "https://student.mit.edu/catalog/m2a.html#2.111",
       "eval_status": null,
@@ -30186,8 +30447,8 @@
       "units_total": 12,
       "schedule": [],
       "schedule_summary": "",
-      "description": "Introduction to nonlinear control and estimation in physical and biological systems. Nonlinear stability theory, Lyapunov analysis, Barbalat's lemma. Feedback linearization, differential flatness, internal dynamics. Sliding surfaces. Adaptive nonlinear control and estimation. Multiresolution bases, nonlinear system identification. Contraction analysis, differential stability theory. Nonlinear observers. Asynchronous distributed computation and learning. Concurrent synchronization, polyrhythms. Monotone nonlinear systems. Emphasizes application to physical systems (robots, aircraft, spacecraft, underwater vehicles, reaction-diffusion processes, machine vision, oscillators, internet), machine learning, computational neuroscience, and systems biology. Includes term projects. Staff",
-      "instructor": null,
+      "description": "Introduction to nonlinear control and estimation in physical and biological systems. Nonlinear stability theory, Lyapunov analysis, Barbalat's lemma. Feedback linearization, differential flatness, internal dynamics. Sliding surfaces. Adaptive nonlinear control and estimation. Multiresolution bases, nonlinear system identification. Contraction analysis, differential stability theory. Nonlinear observers. Asynchronous distributed computation and learning. Concurrent synchronization, polyrhythms. Monotone nonlinear systems. Emphasizes application to physical systems (robots, aircraft, spacecraft, underwater vehicles, reaction-diffusion processes, machine vision, oscillators, internet), machine learning, computational neuroscience, and systems biology. Includes term projects.",
+      "instructor": "J.-J. E. Slotine",
       "source_page": "m2a",
       "url": "https://student.mit.edu/catalog/m2a.html#2.152",
       "eval_status": null,
@@ -30283,17 +30544,17 @@
       "schedule": [
         {
           "kind": "Lecture",
-          "code": "TR9.30-11",
+          "code": "TR11-12.30",
           "days": [
             "Tue",
             "Thu"
           ],
-          "start": "09:30",
-          "end": "11:00",
-          "raw": "TR9.30-11 ( 1-134 )"
+          "start": "11:00",
+          "end": "12:30",
+          "raw": "TR11-12.30 ( 5-217 )"
         }
       ],
-      "schedule_summary": "Lecture: Tue/Thu 09:30–11:00",
+      "schedule_summary": "Lecture: Tue/Thu 11:00–12:30",
       "description": "Maneuvering motions of surface and underwater vehicles. Derivation of equations of motion, hydrodynamic coefficients. Memory effects. Linear and nonlinear forms of the equations of motion. Control surfaces modeling and design. Engine, propulsor, and transmission systems modeling and simulation during maneuvering. Stability of motion. Principles of multivariable automatic control. Optimal control, Kalman filtering, loop transfer recovery. Term project: applications chosen from autopilots for surface vehicles; towing in open seas; remotely operated vehicles.",
       "instructor": "N. Patrikalakis",
       "source_page": "m2a",
@@ -30623,7 +30884,7 @@
       "schedule": [],
       "schedule_summary": "",
       "description": "Concepts in mechanics (solid mechanics: continuum, micro, meso, and molecular mechanics; elasticity, plasticity, fracture and buckling) and machine learning (stochastic optimization, neural networks, convolutional neural nets, adversarial neural nets, graph neural nets, recurrent neural networks and long/short-term memory nets, attention models, variational/autoencoders) introduced and applied to mechanics problems. Covers numerical methods, data and image processing, dataset generation, curation and collection, and experimental validation using additive manufacturing. Modules cover: foundations, fracture mechanics and size effects, molecular mechanics and applications to biomaterials (proteins), forward and inverse problems, mechanics of architected materials, and time dependent mechanical phenomena. Students taking graduate version complete additional assignments.",
-      "instructor": "M. Buehler",
+      "instructor": "H. Yang",
       "source_page": "m2a",
       "url": "https://student.mit.edu/catalog/m2a.html#2.174",
       "eval_status": null,
@@ -31141,7 +31402,7 @@
       "terms": [
         "Spring"
       ],
-      "offering_status": "Not offered next year (2027-2028)",
+      "offering_status": "Not offered this year (2026-2027)",
       "offering_notes": [],
       "meets_with": [
         "1.063"
@@ -31185,7 +31446,9 @@
         "Spring"
       ],
       "offering_status": "Offered",
-      "offering_notes": [],
+      "offering_notes": [
+        "Not offered regularly; consult department"
+      ],
       "meets_with": [],
       "prereq_raw": "18.085 and ( 2.25 or permission of instructor)",
       "prereq_numbers": [
@@ -31861,9 +32124,9 @@
       "department": "Course 2 — MechE",
       "category": "Heat and Mass Transfer",
       "terms": [
-        "Fall"
+        "Spring"
       ],
-      "offering_status": "Not offered this year (2026-2027)",
+      "offering_status": "Not offered next year (2027-2028)",
       "offering_notes": [],
       "meets_with": [],
       "prereq_raw": "2.006 , 10.302 , 22.312 , or permission of instructor",
@@ -32044,9 +32307,7 @@
         "Spring"
       ],
       "offering_status": "Offered",
-      "offering_notes": [
-        "Not offered regularly; consult department"
-      ],
+      "offering_notes": [],
       "meets_with": [
         "2.60",
         "10.390"
@@ -32314,7 +32575,7 @@
           ],
           "start": "11:00",
           "end": "12:30",
-          "raw": "TR11-12.30 ( 9-354 )"
+          "raw": "TR11-12.30 ( 10-250 )"
         }
       ],
       "schedule_summary": "Lecture: Tue/Thu 11:00–12:30",
@@ -32944,7 +33205,7 @@
       ],
       "schedule_summary": "Lecture: Mon/Wed 09:30–11:00 | Lab: Fri 13:00",
       "description": "Presents principles of naval architecture, ship geometry, hydrostatics, calculation and drawing of curves of form, intact and damage stability, hull structure strength calculations and ship resistance. Introduces computer-aided naval ship design and analysis tools. Projects include analysis of ship lines drawings, calculation of ship hydrostatic characteristics, analysis of intact and damaged stability, ship model testing, and hull structure strength calculations. Students taking graduate version complete additional assignments.",
-      "instructor": "A. Gillespy, C. MacLean",
+      "instructor": "J. Darcy",
       "source_page": "m2b",
       "url": "https://student.mit.edu/catalog/m2b.html#2.701",
       "eval_status": null,
@@ -32991,8 +33252,8 @@
       "units_total": 12,
       "schedule": [],
       "schedule_summary": "",
-      "description": "Introduces principles of systems engineering and ship design with an overview of naval ship design and acquisition processes, requirements setting, formulation of a systematic plan, design philosophy and constraints, formal decision making methods, selection criteria, optimization, variant analysis, trade-offs, analysis of ship design trends, risk, and cost analysis. Emphasizes the application of principles through completion of a design exercise and project.",
-      "instructor": "A. Gillespy, C. MacLean",
+      "description": "Introduces principles of systems engineering and ship design with an overview of naval ship design and acquisition processes, requirements setting, formulation of a systematic plan, design philosophy and constraints, formal decision making methods, selection criteria, optimization, variant analysis, trade-offs, analysis of ship design trends, risk, and cost analysis. Emphasizes the application of principles through completion of a design exercise and project. Staff",
+      "instructor": null,
       "source_page": "m2b",
       "url": "https://student.mit.edu/catalog/m2b.html#2.702",
       "eval_status": null,
@@ -33055,14 +33316,14 @@
       "schedule": [
         {
           "kind": "Lecture",
-          "code": "TR11-12.30",
+          "code": "TR9.30-11",
           "days": [
             "Tue",
             "Thu"
           ],
-          "start": "11:00",
-          "end": "12:30",
-          "raw": "TR11-12.30 ( 5-217 )"
+          "start": "09:30",
+          "end": "11:00",
+          "raw": "TR9.30-11 ( 1-134 )"
         },
         {
           "kind": "Recitation",
@@ -33075,9 +33336,9 @@
           "raw": "W3 ( 5-217 )"
         }
       ],
-      "schedule_summary": "Lecture: Tue/Thu 11:00–12:30 | Recitation: Wed 15:00",
+      "schedule_summary": "Lecture: Tue/Thu 09:30–11:00 | Recitation: Wed 15:00",
       "description": "Covers the design of surface ship platforms for naval applications. Includes topics such as hull form selection and concept design synthesis, topside and general arrangements, weight estimation, and technical feasibility analyses (including strength, stability, seakeeping, and survivability.). Practical exercises involve application of design principles and utilization of advanced computer-aided ship design tools.",
-      "instructor": "A. Gillespy, C. MacLean",
+      "instructor": "C. Maclean",
       "source_page": "m2b",
       "url": "https://student.mit.edu/catalog/m2b.html#2.703",
       "eval_status": null,
@@ -33125,8 +33386,8 @@
       "units_total": 12,
       "schedule": [],
       "schedule_summary": "",
-      "description": "Focuses on conversion design of a naval ship. A new mission requirement is defined, requiring significant modification to an existing ship. Involves requirements setting, design plan formulation and design philosophy, and employs formal decision-making methods. Technical aspects demonstrate feasibility and desirability. Includes formal written and verbal reports and team projects. IAP:",
-      "instructor": "A. Gillespy, C. MacLean",
+      "description": "Focuses on conversion design of a naval ship. A new mission requirement is defined, requiring significant modification to an existing ship. Involves requirements setting, design plan formulation and design philosophy, and employs formal decision-making methods. Technical aspects demonstrate feasibility and desirability. Includes formal written and verbal reports and team projects.",
+      "instructor": "A. Gillespy",
       "source_page": "m2b",
       "url": "https://student.mit.edu/catalog/m2b.html#2.704",
       "eval_status": null,
@@ -33174,8 +33435,8 @@
       "units_total": null,
       "schedule": [],
       "schedule_summary": "",
-      "description": "Focus on preliminary design of a new naval ship, fulfilling a given set of mission requirements. Design plan formulation, system level trade-off studies, emphasizes achieving a balanced design and total system integration. Formal written and oral reports. Team projects extend over three terms. Fall:",
-      "instructor": "A. Gillespy, C. MacLean",
+      "description": "Focus on preliminary design of a new naval ship, fulfilling a given set of mission requirements. Design plan formulation, system level trade-off studies, emphasizes achieving a balanced design and total system integration. Formal written and oral reports. Team projects extend over three terms.",
+      "instructor": "J. Darcy",
       "source_page": "m2b",
       "url": "https://student.mit.edu/catalog/m2b.html#2.705",
       "eval_status": null,
@@ -34798,7 +35059,7 @@
       ],
       "schedule_summary": "Lecture: Tue/Thu 09:30–11:00 | Recitation: Wed 13:00",
       "description": "Application of the principles of energy and mass flow to major human organ systems. Anatomical, physiological and clinical features of the cardiovascular, respiratory and renal systems. Mechanisms of regulation and homeostasis. Systems, features and devices that are most illuminated by the methods of physical sciences and engineering models. Required laboratory work includes animal studies. Students taking graduate version complete additional assignments.",
-      "instructor": "T. Heldt, R. G. Mark, L. G. Petersen",
+      "instructor": "T. Heldt",
       "source_page": "m2b",
       "url": "https://student.mit.edu/catalog/m2b.html#2.796",
       "eval_status": null,
@@ -35150,7 +35411,7 @@
           ],
           "start": "13:00",
           "end": "14:30",
-          "raw": "TR1-2.30 ( 1-135 )"
+          "raw": "TR1-2.30 ( 9-354 )"
         }
       ],
       "schedule_summary": "Lecture: Tue/Thu 13:00–14:30",
@@ -35284,7 +35545,7 @@
       "schedule": [],
       "schedule_summary": "",
       "description": "Introduction to mathematical modeling, optimization, and simulation, as applied to manufacturing and operations. Specific methods include linear programming, network flow problems, integer and nonlinear programming, discrete-event simulation, heuristics and computer applications for manufacturing processes, operations and systems. Restricted to Leaders for Global Operations students.",
-      "instructor": "D. Freund",
+      "instructor": "M. Fazel Zarandi",
       "source_page": "m2c",
       "url": "https://student.mit.edu/catalog/m2c.html#2.851",
       "eval_status": null,
@@ -35338,16 +35599,16 @@
         },
         {
           "kind": "Recitation",
-          "code": "F10-12",
+          "code": "F2-4",
           "days": [
             "Fri"
           ],
-          "start": "10:00",
-          "end": "12:00",
-          "raw": "F10-12 ( 2-143 )"
+          "start": "14:00",
+          "end": "16:00",
+          "raw": "F2-4 ( 1-150 )"
         }
       ],
-      "schedule_summary": "Lecture: Tue/Thu 09:30–11:00 | Recitation: Fri 10:00–12:00",
+      "schedule_summary": "Lecture: Tue/Thu 09:30–11:00 | Recitation: Fri 14:00–16:00",
       "description": "Provides ways to analyze manufacturing systems in terms of material flow and storage, information flow, capacities, and times and durations of events. Fundamental topics include probability, inventory and queuing models, forecasting, optimization, process analysis, and linear and dynamic systems. Factory planning and scheduling topics include flow planning, bottleneck characterization, buffer and batch-size tactics, seasonal planning, and dynamic behavior of production systems. Graduate students are required to complete additional assignments.",
       "instructor": "B. Anthony",
       "source_page": "m2c",
@@ -35739,7 +36000,7 @@
           ],
           "start": "16:00",
           "end": null,
-          "raw": "M4 ( 1-150 )"
+          "raw": "M4 ( 35-308 )"
         }
       ],
       "schedule_summary": "Lecture: Mon/Wed 11:00–12:30 | Lab: Mon 16:00",
@@ -35796,7 +36057,7 @@
       "units_total": 6,
       "schedule": [],
       "schedule_summary": "",
-      "description": "Focuses on the planning, processes, and activities of supply chain management for companies involved in international commerce. Students examine the end-to-end processes and operational challenges in managing global supply chains, such as the basics of global trade, international transportation, duty, taxes, trade finance and hedging, currency issues, outsourcing, cultural differences, risks and security, and green supply chains issues. Highly interactive format features student-led discussions, staged debates, and a mock trial. Includes assignments on case studies and sourcing analysis, as well as projects and a final exam.",
+      "description": "Develops modeling skills and intuition to optimize information flows, material flows, and financial flows in global supply chains. Categorizes the five reasons global supply chains are hard to optimize in practice: nonlinearity, volatility, opacity, complexity, and humanity. Case studies present real-world problems recent graduates solved applying the models developed in this course. Global supply chain problems are drawn from international sourcing of steel, distributing consumer packages goods around the globe, designing global supply chains for high-technology products, choosing the transportation mode that optimizes total landed profit, and defining the minimum viable supply chain in the presence of supply disruptions.",
       "instructor": "S. Willems",
       "source_page": "m2c",
       "url": "https://student.mit.edu/catalog/m2c.html#2.965",
@@ -35816,7 +36077,7 @@
     },
     {
       "number": "2.98",
-      "title": "Sports Technology: Engineering & Innovation",
+      "title": "[J] Sports Technology: Engineering & Innovation",
       "department": "Course 2 — MechE",
       "category": "Advanced Topics and Special Subjects",
       "terms": [
@@ -35938,7 +36199,7 @@
       "units_total": null,
       "schedule": [],
       "schedule_summary": "",
-      "description": "Provides students the opportunity to learn and gain professional experience by participating in industrial projects related to Mechanical Engineering. Minimum project length is 10 weeks. Requires a written report upon completion. Before enrolling, students must contact MechE Graduate Office for procedures and restrictions; they must also have a firm internship offer and an identified MechE faculty member who will act as supervisor. Limited to Mechanical Engineering graduate students.",
+      "description": "Provides students the opportunity to learn and gain professional experience by participating in industrial projects related to Mechanical Engineering. Minimum project length is 10 weeks. Requires a written report upon completion. Before enrolling, students must contact MechE Graduate Office for procedures and restrictions; they must also have a firm internship offer and an identified MechE faculty member who will act as supervisor. Limited to Mechanical Engineering graduate students. Fall:",
       "instructor": "S. McDaniel",
       "source_page": "m2c",
       "url": "https://student.mit.edu/catalog/m2c.html#2.989",
@@ -36075,7 +36336,7 @@
       "units_total": null,
       "schedule": [],
       "schedule_summary": "",
-      "description": "Assigned reading and problems or research in distinct areas, either theoretical or experimental, or design. Arranged on individual basis with instructor in the following areas: mechanics and materials, thermal and fluid sciences, systems and design, biomedical engineering, and ocean engineering. Can be repeated for credit only for completely different subject matter.",
+      "description": "Assigned reading and problems or research in distinct areas, either theoretical or experimental, or design. Arranged on individual basis with instructor in the following areas: mechanics and materials, thermal and fluid sciences, systems and design, biomedical engineering, and ocean engineering. Can be repeated for credit only for completely different subject matter. Fall:",
       "instructor": "S. McDaniel",
       "source_page": "m2c",
       "url": "https://student.mit.edu/catalog/m2c.html#2.995",
@@ -36105,9 +36366,7 @@
         "Summer"
       ],
       "offering_status": "Offered",
-      "offering_notes": [
-        "Not offered regularly; consult department"
-      ],
+      "offering_notes": [],
       "meets_with": [],
       "prereq_raw": "Permission of instructor",
       "prereq_numbers": [],
@@ -36240,7 +36499,9 @@
         "Spring"
       ],
       "offering_status": "Offered",
-      "offering_notes": [],
+      "offering_notes": [
+        "Not offered regularly; consult department"
+      ],
       "meets_with": [],
       "prereq_raw": "None",
       "prereq_numbers": [],
@@ -36368,7 +36629,9 @@
         "Fall"
       ],
       "offering_status": "Offered",
-      "offering_notes": [],
+      "offering_notes": [
+        "Not offered regularly; consult department"
+      ],
       "meets_with": [],
       "prereq_raw": "None",
       "prereq_numbers": [],
@@ -36380,19 +36643,8 @@
         "prep": null
       },
       "units_total": null,
-      "schedule": [
-        {
-          "kind": "Lecture",
-          "code": "T EVE (5-7 PM)",
-          "days": [
-            "Tue"
-          ],
-          "start": null,
-          "end": null,
-          "raw": "T EVE (5-7 PM) ( N52-399 )"
-        }
-      ],
-      "schedule_summary": "Lecture: T EVE (5-7 PM)",
+      "schedule": [],
+      "schedule_summary": "",
       "description": "Advanced lecture, seminar, or laboratory consisting of material not offered in regularly scheduled subjects. Can be repeated for credit only for completely different subject matter.",
       "instructor": "M. Yang, J. Ochsendorf",
       "source_page": "m2c",
@@ -36863,8 +37115,20 @@
         "prep": null
       },
       "units_total": null,
-      "schedule": [],
-      "schedule_summary": "",
+      "schedule": [
+        {
+          "kind": "Lecture",
+          "code": "MW11-12.30",
+          "days": [
+            "Mon",
+            "Wed"
+          ],
+          "start": "11:00",
+          "end": "12:30",
+          "raw": "MW11-12.30 ( 5-233 )"
+        }
+      ],
+      "schedule_summary": "Lecture: Mon/Wed 11:00–12:30",
       "description": "Lecture, seminar, or laboratory consisting of material not offered in regularly scheduled subjects. Can be repeated for credit only for completely different subject matter.",
       "instructor": "R. Zufferey",
       "source_page": "m2c",
@@ -36933,9 +37197,7 @@
         "Fall"
       ],
       "offering_status": "Offered",
-      "offering_notes": [
-        "Not offered regularly; consult department"
-      ],
+      "offering_notes": [],
       "meets_with": [],
       "prereq_raw": "None",
       "prereq_numbers": [],
@@ -36950,7 +37212,7 @@
       "schedule": [],
       "schedule_summary": "",
       "description": "Advanced lecture, seminar, or laboratory consisting of material not offered in regularly scheduled subjects. Can be repeated for credit only for completely different subject matter.",
-      "instructor": "G. Traverso",
+      "instructor": "C. Traverso",
       "source_page": "m2c",
       "url": "https://student.mit.edu/catalog/m2c.html#2.S988",
       "eval_status": null,
@@ -37145,9 +37407,7 @@
         "Fall"
       ],
       "offering_status": "Offered",
-      "offering_notes": [
-        "Not offered regularly; consult department"
-      ],
+      "offering_notes": [],
       "meets_with": [],
       "prereq_raw": "Permission of instructor",
       "prereq_numbers": [],
@@ -37159,10 +37419,31 @@
         "prep": null
       },
       "units_total": null,
-      "schedule": [],
-      "schedule_summary": "",
+      "schedule": [
+        {
+          "kind": "Lecture",
+          "code": "W3-4.30",
+          "days": [
+            "Wed"
+          ],
+          "start": "15:00",
+          "end": "16:30",
+          "raw": "W3-4.30 ( 36-112 )"
+        },
+        {
+          "kind": "Lab",
+          "code": "F10.30-12",
+          "days": [
+            "Fri"
+          ],
+          "start": "10:30",
+          "end": "12:00",
+          "raw": "F10.30-12 ( 1-150 )"
+        }
+      ],
+      "schedule_summary": "Lecture: Wed 15:00–16:30 | Lab: Fri 10:30–12:00",
       "description": "Advanced lecture, seminar, or laboratory consisting of material not offered in regularly scheduled subjects. Can be repeated for credit only for completely different subject matter. 2.S980 and 2.S996 are graded P/D/F.",
-      "instructor": "Hunter",
+      "instructor": "B. Anthony",
       "source_page": "m2c",
       "url": "https://student.mit.edu/catalog/m2c.html#2.S998",
       "eval_status": null,
@@ -37527,7 +37808,7 @@
       "units_total": null,
       "schedule": [],
       "schedule_summary": "",
-      "description": "Program of research leading to the writing of an SM, PhD, or ScD thesis; to be arranged by the student and an appropriate MIT faculty member. For MIT-WHOI Joint Program students, a WHOI faculty member may also be appropriate.",
+      "description": "Program of research leading to the writing of an SM, PhD, or ScD thesis; to be arranged by the student and an appropriate MIT faculty member. For MIT-WHOI Joint Program students, a WHOI faculty member may also be appropriate. Fall:",
       "instructor": "S. McDaniel",
       "source_page": "m2c",
       "url": "https://student.mit.edu/catalog/m2c.html#2.THG",
