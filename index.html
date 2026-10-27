@@ -289,7 +289,9 @@ const COLS = [
 const DEFAULT_HIDDEN = []; // all visible by default
 
 // ---- persisted state ----------------------------------------------------
-const LS = {flags:'mitdash.flags', hidden:'mitdash.hidden', sort:'mitdash.sort'};
+// Storage keys are namespaced 'lgo-dp.' so this public build never shares saved state with
+// the personal build (both run from file://, which browsers treat as one origin).
+const LS = {flags:'lgo-dp.flags', hidden:'lgo-dp.hidden', sort:'lgo-dp.sort'};
 const flags = new Set(load(LS.flags, []));
 let hidden = new Set(load(LS.hidden, DEFAULT_HIDDEN));
 let sort = load(LS.sort, {key:'number', dir:1});
@@ -587,7 +589,7 @@ const REQ_DEFAULT=[
  {key:"design",group:"Thesis & extras",name:"LGO Design",target:1,type:"count",tags:["LGO Design"]},
 ];
 
-const PLS={plan:"mitdash.plan",reqs:"mitdash.reqs.v2",view:"mitdash.view"};
+const PLS={plan:"lgo-dp.plan",reqs:"lgo-dp.reqs",view:"lgo-dp.view"};
 const newId=()=>"p"+Date.now().toString(36)+Math.random().toString(36).slice(2,7);
 let planItems=(load(PLS.plan,null)||PLAN_DEFAULT).map(x=>({...x,tags:[...x.tags],term:migTerm(x.term)}));
 // Repair any historical duplicate ids (older builds reused a counter that reset on reload).
