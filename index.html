@@ -106,7 +106,6 @@
   .pitem .pi-num{font-weight:700;white-space:nowrap}
   .pitem .pi-title{flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
   .pitem .pi-u{width:42px;text-align:right;border:1px solid var(--line);border-radius:5px;padding:1px 3px;font-size:12px}
-  .lockbadge{font-size:10.5px;font-weight:700;color:var(--accent);white-space:nowrap}
   .pi-x{cursor:pointer;color:var(--muted);font-weight:700;padding:0 3px}
   .pi-x:hover{color:var(--bad)}
   .pi-tags{display:flex;flex-wrap:wrap;gap:3px;margin-top:4px;align-items:center}
@@ -524,13 +523,6 @@ const PLAN_TERMS=["Summer 2026","Fall 2026","IAP 2027","Spring 2027","Summer 202
 // migrate older "1st/2nd" term labels (and saved plans) to calendar years
 const TERM_MIG={"1st Summer":"Summer 2026","1st Fall":"Fall 2026","1st IAP":"IAP 2027","1st Spring":"Spring 2027","2nd Summer":"Summer 2027","2nd Fall":"Fall 2027","2nd IAP":"IAP 2028","2nd Spring":"Spring 2028"};
 const migTerm=t=>TERM_MIG[t]||t;
-// per the LGO handbook, the 66-unit term cap excludes 15.792/15.794/##.THG; the Excel also
-// excludes the 6.S090 Python workshop from term totals. These don't count toward the term load.
-function excludedFromCap(it){
-  if((it.tags||[]).includes("Python")||(it.tags||[]).includes("Thesis")) return true;
-  if(it.number==="15.792"||it.number==="15.794"||/THG/.test(it.number)) return true;
-  return false;
-}
 const TAGS=["MBA Core","LGO Required MBA","MBA Elective","LGO Required Eng","Eng Elective","Thesis","Python","LGO Design"];
 const TAGCLASS={"MBA Core":"t-core","LGO Required MBA":"t-lgo","MBA Elective":"t-elec","LGO Required Eng":"t-lgo","Eng Elective":"t-elec","Thesis":"t-thesis","Python":"t-python","LGO Design":"t-design"};
 const MBA_CORE_SET=["15.010","15.280","15.311","15.515"];
@@ -555,13 +547,14 @@ const PLAN_DEFAULT=[
  ["15.311","Organizational Processes",9,["MBA Core"],"Fall 2026"],
  ["15.515","Financial Accounting",9,["MBA Core"],"Fall 2026"],
  ["15.792","Global Operations Leadership Seminar",2,["LGO Required MBA"],"Fall 2026"],
+ ["15.002","Leadership Challenges for an Inclusive World",1,["MBA Elective"],"Fall 2026"],
  // IAP 2027
  ["15.766","Domestic Plant Trek & Partner Integration",9,["LGO Required MBA"],"IAP 2027"],
  // Spring 2027
  // Required, flexible-term courses: start in Unassigned, locked (can't be removed), and can only be
  // scheduled in their allowed terms.
  ["15.769","Operations Strategy",9,["LGO Required MBA"],"Unassigned",{required:true,allowedTerms:["Spring 2027","Spring 2028"]}],
- ["15.792","Global Operations Leadership Seminar",2,["LGO Required MBA"],"Unassigned",{required:true,allowedTerms:["Spring 2027","Fall 2027","Spring 2028"]}],
+ ["15.792","Global Operations Leadership Seminar",2,["LGO Required MBA"],"Unassigned",{required:true,allowedTerms:["Spring 2027","Spring 2028"]}],
  // Summer 2027
  ["15.794","Research Project in Operations",1,["LGO Required MBA"],"Summer 2027"],
  // Fall 2027
@@ -571,7 +564,7 @@ const PLAN_DEFAULT=[
  ["15.THG","Graduate Thesis",15,["Thesis"],"Spring 2028"],
  ["15.317","Organizational Leadership & Change",6,["LGO Required MBA"],"Spring 2028"],
  ["15.794","Research Project in Operations",5,["LGO Required MBA"],"Spring 2028"],
-].map((a,i)=>({id:"p"+i,number:a[0],title:a[1],units:a[2],tags:a[3],term:migTerm(a[4]),audit:false,...(a[5]||{})}));
+].map((a,i)=>({id:"p"+i,number:a[0],title:a[1],units:a[2],tags:a[3],term:migTerm(a[4]),audit:false,base:true,...(a[5]||{})}));
 
 const REQ_DEFAULT=[
  {key:"mba_core",group:"MBA",name:"MBA Core",target:36,type:"units",tags:["MBA Core"]},
@@ -720,17 +713,16 @@ function renderTerms(){
     const items=planItems.filter(it=>it.term===term && (!hideAudit||!it.audit));
     items.sort((a,b)=>(a.audit-b.audit) || ((+b.units||0)-(+a.units||0)));  // size desc; audits last
     if(term==="Unassigned" && items.length===0) continue;
-    const tot=items.filter(it=>!it.audit && !excludedFromCap(it)).reduce((s,it)=>s+(+it.units||0),0);
-    const excl=items.filter(it=>!it.audit && excludedFromCap(it)).reduce((s,it)=>s+(+it.units||0),0);
+    const tot=items.filter(it=>!it.audit).reduce((s,it)=>s+(+it.units||0),0);  // every unit counts
     const cap=term==="Unassigned"?Infinity:TERM_LIMIT;
     h+=`<div class="term ${term==='Unassigned'?'unassigned':''}"><div class="term-h">${esc(term)}${term==='Unassigned'?' <span class="hint" style="font-weight:400">· not counted toward requirements</span>':''}
-        <span class="tu ${tot>cap?'over':''}" ${tot>cap?`title="Over the limit of ${TERM_LIMIT} units per term (15.792, 15.794, thesis and 6.S090 don't count toward it)"`:''}>${term==='Unassigned'?'':`${tot}u${tot>cap?` · over ${TERM_LIMIT}u limit`:''}${excl?` <span class="hint" style="font-weight:400">+${excl} excl</span>`:''}`}</span></div><div class="term-body">`;
+        <span class="tu ${tot>cap?'over':''}" ${tot>cap?`title="Over the limit of ${TERM_LIMIT} units per term"`:''}>${term==='Unassigned'?'':`${tot}u${tot>cap?` · over ${TERM_LIMIT}u limit`:''}`}</span></div><div class="term-body">`;
     for(const it of items){
-      const req=!!it.required;
-      const tagChips=(it.tags||[]).map(t=>req?`<span class="tagchip ${TAGCLASS[t]||''}">${esc(t)}</span>`
+      const req=!!it.required, lockTags=!!(it.base||it.required);  // base-plan designations are fixed
+      const tagChips=(it.tags||[]).map(t=>lockTags?`<span class="tagchip ${TAGCLASS[t]||''}">${esc(t)}</span>`
           :`<span class="tagchip ${TAGCLASS[t]||''}" data-act="rmtag" data-id="${it.id}" data-tag="${esc(t)}" title="click to remove">${esc(t)} ✕</span>`).join("");
       const avail=TAGS.filter(t=>!(it.tags||[]).includes(t));
-      const addsel=req?'':`<select data-act="addtag" data-id="${it.id}"><option value="">+tag</option>${avail.map(t=>`<option>${esc(t)}</option>`).join("")}</select>`;
+      const addsel=lockTags?'':`<select data-act="addtag" data-id="${it.id}"><option value="">+tag</option>${avail.map(t=>`<option>${esc(t)}</option>`).join("")}</select>`;
       const termOpts=req?["Unassigned",...(it.allowedTerms||[])]:order;
       const termsel=`<select data-act="term" data-id="${it.id}">${termOpts.map(t=>`<option ${t===it.term?'selected':''}>${esc(t)}</option>`).join("")}</select>`;
       h+=`<div class="pitem ${it.audit?'audit':''}">
@@ -738,8 +730,7 @@ function renderTerms(){
           ${(courseByNum[it.number]||{}).design_approved?`<span class="dz" title="Pre-approved design class">🎨</span>`:''}
           <span class="pi-title" title="${esc(it.title)}">${esc(it.title)}</span>
           <input class="pi-u" type="number" min="0" value="${it.units}" data-act="units" data-id="${it.id}">
-          ${req?`<span class="lockbadge" title="Required — must be scheduled in ${esc(fmtTerms(it.allowedTerms||[]))}. Can't be removed.">🔒 Required</span>`
-               :`<span class="pi-x" data-act="rm" data-id="${it.id}" title="remove">✕</span>`}</div>
+          ${req?'':`<span class="pi-x" data-act="rm" data-id="${it.id}" title="remove">✕</span>`}</div>
         <div class="pi-tags">${tagChips}${addsel}</div>
         <div class="pi-controls">${termsel}
           ${req?'':`<label><input type="checkbox" data-act="audit" data-id="${it.id}" ${it.audit?'checked':''}> audit</label>`}</div>
@@ -765,6 +756,7 @@ document.getElementById("termgrid").addEventListener("change",e=>{
   const t=e.target, id=t.getAttribute("data-id"), act=t.getAttribute("data-act"); if(!id)return;
   const it=itemById(id); if(!it)return;
   if(act==="term"){ if(it.required && t.value!=="Unassigned" && !(it.allowedTerms||[]).includes(t.value)) return; it.term=t.value; }
+  else if(act==="addtag" && (it.base||it.required)) return;   // designation locked
   else if(it.required && act!=="units") return;
   else if(act==="units"){ it.units=+t.value||0; }
   else if(act==="audit"){ it.audit=t.checked; }
@@ -775,8 +767,8 @@ document.getElementById("termgrid").addEventListener("change",e=>{
 document.getElementById("termgrid").addEventListener("click",e=>{
   const t=e.target.closest("[data-act]"); if(!t)return;
   const act=t.getAttribute("data-act"), id=t.getAttribute("data-id"), it=itemById(id); if(!it)return;
-  if(it.required) return;  // locked
-  if(act==="rm"){ planItems=planItems.filter(x=>x.id!==id); }
+  if(act==="rm"){ if(it.required) return; planItems=planItems.filter(x=>x.id!==id); }
+  else if(act==="rmtag" && (it.base||it.required)) return;   // designation locked
   else if(act==="rmtag"){ const tg=t.getAttribute("data-tag"); it.tags=it.tags.filter(x=>x!==tg); }
   else return;
   planSave(); renderPlan();

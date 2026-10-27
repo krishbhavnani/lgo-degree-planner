@@ -35,10 +35,10 @@ any column; show/hide columns.
 - An 8-term grid (Summer → Spring across two years) plus an "Unassigned" holding area. Courses in
   Unassigned don't count toward requirements until you place them in a term.
 - Starts from a **base plan of LGO-required courses**. Required courses with a flexible term
-  (15.769 Operations Strategy; the second 15.792 seminar) start in Unassigned, locked 🔒: they
-  can't be removed, and can only be scheduled in their allowed terms.
-- Each term shows its unit load and flags anything over **72 units** (15.792, 15.794, thesis and
-  6.S090 don't count toward the limit).
+  (15.769 Operations Strategy; the second 15.792 seminar — both Spring 2027 or Spring 2028) start in Unassigned: they
+  can't be removed, and can only be scheduled in their allowed terms. Base-plan courses keep their
+  requirement designation (tags can't be changed); courses you add are fully editable.
+- Each term shows its total units (every course counts) and flags anything over **72 units**.
 - Add any catalog course (or a custom one), move it between terms, set units, add tags, or mark it
   as **audit** (shown but not counted toward credit).
 - A live **requirements tracker** for the LGO dual degree:
