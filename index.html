@@ -578,16 +578,16 @@ const REQ_DEFAULT=[
  {key:"mba_lgo",group:"MBA",name:"LGO Required MBA",target:71,type:"units",tags:["LGO Required MBA"]},
  {key:"mba_elec",group:"MBA",name:"MBA Free Electives",target:49,type:"units",tags:["MBA Elective"]},
  {key:"mba_total",group:"MBA",name:"MBA Total Coursework",target:156,type:"units",tags:["MBA Core","LGO Required MBA","MBA Elective"],headline:true},
+ {key:"aags",group:"EECS",name:"AAGS Core (3 AAGS courses)",target:36,minCourses:3,type:"aags",tags:["Eng Elective","LGO Required Eng"]},
  {key:"eng_lgo",group:"EECS",name:"LGO Required Eng",target:24,type:"units",tags:["LGO Required Eng"]},
- {key:"eng_elec",group:"EECS",name:"Engineering Electives",target:42,type:"units",tags:["Eng Elective"]},
+ {key:"eng_elec",group:"EECS",name:"Eng Electives (beyond AAGS core)",target:6,type:"elec_beyond_aags",tags:["Eng Elective"]},
  {key:"eng_total",group:"EECS",name:"EECS Total Coursework",target:66,type:"units",tags:["LGO Required Eng","Eng Elective"],headline:true},
- {key:"aags",group:"EECS",name:"AAGS-approved eng (≥3 courses)",target:36,type:"aags",tags:["Eng Elective","LGO Required Eng"]},
  {key:"thesis",group:"Thesis & extras",name:"SM Thesis",target:24,type:"units",tags:["Thesis"]},
  {key:"python",group:"Thesis & extras",name:"Python (6.S090)",target:1,type:"count",tags:["Python"]},
  {key:"design",group:"Thesis & extras",name:"LGO Design",target:1,type:"count",tags:["LGO Design"]},
 ];
 
-const PLS={plan:"mitdash.plan",reqs:"mitdash.reqs",view:"mitdash.view"};
+const PLS={plan:"mitdash.plan",reqs:"mitdash.reqs.v2",view:"mitdash.view"};
 const newId=()=>"p"+Date.now().toString(36)+Math.random().toString(36).slice(2,7);
 let planItems=(load(PLS.plan,null)||PLAN_DEFAULT).map(x=>({...x,tags:[...x.tags],term:migTerm(x.term)}));
 // Repair any historical duplicate ids (older builds reused a counter that reset on reload).
@@ -603,6 +603,7 @@ function defaultTagsFor(number,dept){
   if(number==="15.066"||number==="15.087") return ["LGO Required Eng"];
   if(number.indexOf("6.S090")===0) return ["Python"];
   if(/THG/.test(number)) return ["Thesis"];
+  if(C51_MODULES.includes(number)) return ["Eng Elective"];  // pairs with 6.C51 → counts toward EECS
   const d=dept||"";
   if(d.includes("Course 15")) return ["MBA Elective"];
   if(d.includes("Course 6")||d.includes("Course 2")) return ["Eng Elective"];  // non-EECS eng also = Eng Elective
@@ -617,7 +618,39 @@ function addPlanItem(number,title,units,term){
 }
 
 // ---- requirement computation ----
+// LGO EECS handbook: 6.C51 (6u) taken with exactly one 6u co-req module counts as ONE 12u AAGS course.
+const C51_MODULES=["1.C51","2.C51","3.C51","6.C511","7.C51","10.C51","11.C51","15.C51","20.C51","22.C51","SCM.C51"];
+function aagsCore(b){
+  const items=planItems.filter(it=>!it.audit && (it.tags||[]).some(t=>b.tags.includes(t)));
+  const isAags=it=>((courseByNum[it.number]||{}).aags||"").startsWith("Approved");
+  let units=0, courses=0; const notes=[];
+  for(const it of items){
+    if(it.number==="6.C51" || C51_MODULES.includes(it.number)) continue;  // handled as a pair below
+    if(isAags(it)){ units+=(+it.units||0); courses++; }
+  }
+  const c51=items.find(it=>it.number==="6.C51");
+  const mods=items.filter(it=>C51_MODULES.includes(it.number));
+  if(c51){
+    const mod=mods[0];
+    units+=(+c51.units||0)+(mod?(+mod.units||0):0); courses++;
+    if(!mod && (+c51.units||0)<12) notes.push("6.C51 needs a 6u co-req module (e.g. 15.C51 or SCM.C51) to count as a full 12u AAGS course.");
+    if(mods.length>1) notes.push("Only one co-req module pairs with 6.C51; "+mods.slice(1).map(m=>m.number).join(", ")+" not counted toward AAGS.");
+  } else if(mods.length){
+    notes.push(mods.map(m=>m.number).join(", ")+" only counts toward AAGS when paired with 6.C51.");
+  }
+  return {n:units, courses, notes};
+}
 function reqEarned(b){
+  if(b.type==="aags") return aagsCore(b);
+  if(b.type==="elec_beyond_aags"){
+    // engineering-elective units left over after the AAGS core takes its 36u
+    const elec=planItems.filter(it=>!it.audit && (it.tags||[]).some(t=>b.tags.includes(t)))
+                        .reduce((s,it)=>s+(+it.units||0),0);
+    const core=reqs.find(x=>x.type==="aags");
+    const used=core?Math.min(aagsCore(core).n, core.target):0;
+    const n=Math.max(0, elec-used);
+    return {n, courses:0};
+  }
   // Design is satisfied by any planned pre-approved design course OR a manual "LGO Design" tag.
   if(b.key==="design"){
     const items=planItems.filter(it=>!it.audit && ((it.tags||[]).includes("LGO Design") ||
@@ -626,10 +659,6 @@ function reqEarned(b){
   }
   const items=planItems.filter(it=>!it.audit && (it.tags||[]).some(t=>b.tags.includes(t)));
   if(b.type==="count") return {n:items.length, courses:items.length};
-  if(b.type==="aags"){
-    const ag=items.filter(it=>{const c=courseByNum[it.number]; return c && (c.aags||"").startsWith("Approved");});
-    return {n:ag.reduce((s,it)=>s+(+it.units||0),0), courses:ag.length};
-  }
   return {n:items.reduce((s,it)=>s+(+it.units||0),0), courses:items.length};
 }
 function renderReqPanel(){
@@ -640,7 +669,7 @@ function renderReqPanel(){
     for(const b of groups[g]){
       const e=reqEarned(b);
       let met, label, pct;
-      if(b.type==="aags"){ met=e.n>=b.target && e.courses>=3; label=`${e.n} / ${b.target}u · ${e.courses}/3 courses`; pct=Math.min(100,100*e.n/b.target);}
+      if(b.type==="aags"){ const mc=b.minCourses||3; met=e.n>=b.target && e.courses>=mc; label=`${e.n} / ${b.target}u · ${e.courses}/${mc} courses`; pct=Math.min(100,100*e.n/b.target);}
       else if(b.type==="count"){ met=e.n>=b.target; label=`${e.n} / ${b.target}`; pct=Math.min(100,100*e.n/(b.target||1));}
       else { met=e.n>=b.target; label=`${e.n} / ${b.target}u`; pct=Math.min(100,100*e.n/(b.target||1));}
       if(b.headline){
@@ -652,7 +681,8 @@ function renderReqPanel(){
       h+=`<div class="reqrow ${met?'met':''}">
         <div class="rl"><span class="rn">${esc(b.name)}</span>
         <span class="rv ${met?'':'short'}">${met?'✓ ':''}${label}</span></div>
-        <div class="bar ${met?'done':''}"><i style="width:${pct}%"></i></div></div>`;
+        <div class="bar ${met?'done':''}"><i style="width:${pct}%"></i></div>
+        ${(e.notes||[]).map(n=>`<div class="hint" style="margin-top:3px">⚠ ${esc(n)}</div>`).join("")}</div>`;
     }
     h+="</div>";
   }

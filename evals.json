@@ -1,0 +1,4148 @@
+{
+  "6.5060": {
+    "eval_status": "ok",
+    "eval_hours_in": 3.5,
+    "eval_hours_out": 10,
+    "eval_responses": 2,
+    "eval_term": "Fall 2025",
+    "eval_instructor_match": true,
+    "eval_instructor": null
+  },
+  "6.5080": {
+    "eval_status": "ok",
+    "eval_hours_in": 3.4,
+    "eval_hours_out": 11,
+    "eval_responses": 11,
+    "eval_term": "Spring 2024",
+    "eval_instructor_match": true,
+    "eval_instructor": null
+  },
+  "6.5110": {
+    "eval_status": "none"
+  },
+  "6.5120": {
+    "eval_status": "ok",
+    "eval_hours_in": 2.4,
+    "eval_hours_out": 8.5,
+    "eval_responses": 17,
+    "eval_term": "Fall 2025",
+    "eval_instructor_match": null,
+    "eval_instructor": null
+  },
+  "6.5130": {
+    "eval_status": "ok",
+    "eval_hours_in": 3.1,
+    "eval_hours_out": 6.4,
+    "eval_responses": 10,
+    "eval_term": "Fall 2025",
+    "eval_instructor_match": null,
+    "eval_instructor": null
+  },
+  "6.5150": {
+    "eval_status": "ok",
+    "eval_hours_in": 2.8,
+    "eval_hours_out": 9,
+    "eval_responses": 6,
+    "eval_term": "Spring 2025",
+    "eval_instructor_match": true,
+    "eval_instructor": null
+  },
+  "6.5160": {
+    "eval_status": "ok",
+    "eval_hours_in": 5.8,
+    "eval_hours_out": 5.7,
+    "eval_responses": 6,
+    "eval_term": "Fall 2024",
+    "eval_instructor_match": true,
+    "eval_instructor": null
+  },
+  "6.5210": {
+    "eval_status": "ok",
+    "eval_hours_in": 4.1,
+    "eval_hours_out": 12.1,
+    "eval_responses": 39,
+    "eval_term": "Fall 2024",
+    "eval_instructor_match": true,
+    "eval_instructor": null
+  },
+  "6.5220": {
+    "eval_status": "ok",
+    "eval_hours_in": 4,
+    "eval_hours_out": 9.5,
+    "eval_responses": 14,
+    "eval_term": "Fall 2025",
+    "eval_instructor_match": null,
+    "eval_instructor": null
+  },
+  "6.5230": {
+    "eval_status": "none"
+  },
+  "6.5240": {
+    "eval_status": "ok",
+    "eval_hours_in": 3,
+    "eval_hours_out": 6.9,
+    "eval_responses": 8,
+    "eval_term": "Fall 2024",
+    "eval_instructor_match": true,
+    "eval_instructor": null
+  },
+  "6.5250": {
+    "eval_status": "ok",
+    "eval_hours_in": 2.9,
+    "eval_hours_out": 8.5,
+    "eval_responses": 23,
+    "eval_term": "Fall 2025",
+    "eval_instructor_match": null,
+    "eval_instructor": null
+  },
+  "6.5310": {
+    "eval_status": "ok",
+    "eval_hours_in": 3.3,
+    "eval_hours_out": 4.6,
+    "eval_responses": 23,
+    "eval_term": "Spring 2025",
+    "eval_instructor_match": null,
+    "eval_instructor": null
+  },
+  "6.5320": {
+    "eval_status": "ok",
+    "eval_hours_in": 2.8,
+    "eval_hours_out": 5,
+    "eval_responses": 9,
+    "eval_term": "Spring 2026",
+    "eval_instructor_match": null,
+    "eval_instructor": null
+  },
+  "6.5340": {
+    "eval_status": "none"
+  },
+  "6.5350": {
+    "eval_status": "ok",
+    "eval_hours_in": 3.2,
+    "eval_hours_out": 5.5,
+    "eval_responses": 5,
+    "eval_term": "Spring 2026",
+    "eval_instructor_match": null,
+    "eval_instructor": null
+  },
+  "6.5360": {
+    "eval_status": "none"
+  },
+  "6.5400": {
+    "eval_status": "ok",
+    "eval_hours_in": 2.6,
+    "eval_hours_out": 5.7,
+    "eval_responses": 54,
+    "eval_term": "Fall 2025",
+    "eval_instructor_match": true,
+    "eval_instructor": null
+  },
+  "6.5410": {
+    "eval_status": "ok",
+    "eval_hours_in": 3.3,
+    "eval_hours_out": 6.6,
+    "eval_responses": 11,
+    "eval_term": "Spring 2026",
+    "eval_instructor_match": null,
+    "eval_instructor": null
+  },
+  "6.5420": {
+    "eval_status": "ok",
+    "eval_hours_in": 2.7,
+    "eval_hours_out": 8.7,
+    "eval_responses": 5,
+    "eval_term": "Spring 2026",
+    "eval_instructor_match": true,
+    "eval_instructor": null
+  },
+  "6.5430": {
+    "eval_status": "ok",
+    "eval_hours_in": 3,
+    "eval_hours_out": 6,
+    "eval_responses": 2,
+    "eval_term": "Fall 2025",
+    "eval_instructor_match": true,
+    "eval_instructor": null
+  },
+  "6.5440": {
+    "eval_status": "none"
+  },
+  "6.5610": {
+    "eval_status": "ok",
+    "eval_hours_in": 3,
+    "eval_hours_out": 6.6,
+    "eval_responses": 14,
+    "eval_term": "Spring 2026",
+    "eval_instructor_match": null,
+    "eval_instructor": null
+  },
+  "6.5620": {
+    "eval_status": "ok",
+    "eval_hours_in": 3,
+    "eval_hours_out": 10.4,
+    "eval_responses": 12,
+    "eval_term": "Fall 2025",
+    "eval_instructor_match": false,
+    "eval_instructor": "Kalai, Yael T"
+  },
+  "6.5630": {
+    "eval_status": "ok",
+    "eval_hours_in": 3.1,
+    "eval_hours_out": 2.3,
+    "eval_responses": 8,
+    "eval_term": "Fall 2024",
+    "eval_instructor_match": null,
+    "eval_instructor": null
+  },
+  "6.5660": {
+    "eval_status": "ok",
+    "eval_hours_in": 3.1,
+    "eval_hours_out": 7.9,
+    "eval_responses": 17,
+    "eval_term": "Spring 2026",
+    "eval_instructor_match": null,
+    "eval_instructor": null
+  },
+  "6.1852": {
+    "eval_status": "ok",
+    "eval_hours_in": 3,
+    "eval_hours_out": 5.8,
+    "eval_responses": 24,
+    "eval_term": "Fall 2025",
+    "eval_instructor_match": true,
+    "eval_instructor": null
+  },
+  "6.5810": {
+    "eval_status": "ok",
+    "eval_hours_in": 3.2,
+    "eval_hours_out": 7.6,
+    "eval_responses": 12,
+    "eval_term": "Fall 2023",
+    "eval_instructor_match": false,
+    "eval_instructor": "Kaashoek, M. Frans"
+  },
+  "6.5820": {
+    "eval_status": "ok",
+    "eval_hours_in": 3.1,
+    "eval_hours_out": 6.8,
+    "eval_responses": 11,
+    "eval_term": "Fall 2025",
+    "eval_instructor_match": true,
+    "eval_instructor": null
+  },
+  "6.5830": {
+    "eval_status": "ok",
+    "eval_hours_in": 2.9,
+    "eval_hours_out": 10.1,
+    "eval_responses": 15,
+    "eval_term": "Spring 2026",
+    "eval_instructor_match": true,
+    "eval_instructor": null
+  },
+  "6.5840": {
+    "eval_status": "ok",
+    "eval_hours_in": 2.7,
+    "eval_hours_out": 9.4,
+    "eval_responses": 32,
+    "eval_term": "Spring 2026",
+    "eval_instructor_match": null,
+    "eval_instructor": null
+  },
+  "6.5850": {
+    "eval_status": "none"
+  },
+  "6.5900": {
+    "eval_status": "ok",
+    "eval_hours_in": 3.8,
+    "eval_hours_out": 8,
+    "eval_responses": 8,
+    "eval_term": "Fall 2024",
+    "eval_instructor_match": false,
+    "eval_instructor": "Emer, Joel S."
+  },
+  "6.5910": {
+    "eval_status": "none"
+  },
+  "6.5920": {
+    "eval_status": "none"
+  },
+  "6.5930": {
+    "eval_status": "ok",
+    "eval_hours_in": 3.6,
+    "eval_hours_out": 7.9,
+    "eval_responses": 15,
+    "eval_term": "Spring 2026",
+    "eval_instructor_match": true,
+    "eval_instructor": null
+  },
+  "6.5940": {
+    "eval_status": "ok",
+    "eval_hours_in": 3,
+    "eval_hours_out": 4.4,
+    "eval_responses": 153,
+    "eval_term": "Fall 2024",
+    "eval_instructor_match": true,
+    "eval_instructor": null
+  },
+  "6.5950": {
+    "eval_status": "ok",
+    "eval_hours_in": 2.9,
+    "eval_hours_out": 7,
+    "eval_responses": 76,
+    "eval_term": "Spring 2026",
+    "eval_instructor_match": true,
+    "eval_instructor": null
+  },
+  "6.2092": {
+    "eval_status": "ok",
+    "eval_hours_in": 3,
+    "eval_hours_out": 9.1,
+    "eval_responses": 14,
+    "eval_term": "Fall 2025",
+    "eval_instructor_match": false,
+    "eval_instructor": "Reiskarimian, Negar"
+  },
+  "6.6000": {
+    "eval_status": "ok",
+    "eval_hours_in": 4.8,
+    "eval_hours_out": 8.6,
+    "eval_responses": 23,
+    "eval_term": "Spring 2026",
+    "eval_instructor_match": null,
+    "eval_instructor": null
+  },
+  "6.6010": {
+    "eval_status": "ok",
+    "eval_hours_in": 3.6,
+    "eval_hours_out": 16.6,
+    "eval_responses": 16,
+    "eval_term": "Fall 2025",
+    "eval_instructor_match": true,
+    "eval_instructor": null
+  },
+  "6.6020": {
+    "eval_status": "ok",
+    "eval_hours_in": 3.2,
+    "eval_hours_out": 9,
+    "eval_responses": 8,
+    "eval_term": "Fall 2025",
+    "eval_instructor_match": true,
+    "eval_instructor": null
+  },
+  "6.6040": {
+    "eval_status": "none"
+  },
+  "6.2202": {
+    "eval_status": "none"
+  },
+  "6.2222": {
+    "eval_status": "ok",
+    "eval_hours_in": 8.6,
+    "eval_hours_out": 15.4,
+    "eval_responses": 20,
+    "eval_term": "Fall 2025",
+    "eval_instructor_match": true,
+    "eval_instructor": null
+  },
+  "6.6210": {
+    "eval_status": "ok",
+    "eval_hours_in": 4.7,
+    "eval_hours_out": 7.6,
+    "eval_responses": 11,
+    "eval_term": "Fall 2025",
+    "eval_instructor_match": true,
+    "eval_instructor": null
+  },
+  "6.6220": {
+    "eval_status": "ok",
+    "eval_hours_in": 3.3,
+    "eval_hours_out": 7.1,
+    "eval_responses": 14,
+    "eval_term": "Spring 2026",
+    "eval_instructor_match": null,
+    "eval_instructor": null
+  },
+  "6.6230": {
+    "eval_status": "none"
+  },
+  "6.6280": {
+    "eval_status": "none"
+  },
+  "6.6300": {
+    "eval_status": "ok",
+    "eval_hours_in": 4.3,
+    "eval_hours_out": 10.9,
+    "eval_responses": 8,
+    "eval_term": "Fall 2025",
+    "eval_instructor_match": true,
+    "eval_instructor": null
+  },
+  "6.6310": {
+    "eval_status": "ok",
+    "eval_hours_in": 3.5,
+    "eval_hours_out": 20.3,
+    "eval_responses": 4,
+    "eval_term": "Fall 2025",
+    "eval_instructor_match": true,
+    "eval_instructor": null
+  },
+  "6.6320": {
+    "eval_status": "ok",
+    "eval_hours_in": 4.4,
+    "eval_hours_out": 7.4,
+    "eval_responses": 17,
+    "eval_term": "Spring 2025",
+    "eval_instructor_match": true,
+    "eval_instructor": null
+  },
+  "6.6330": {
+    "eval_status": "none"
+  },
+  "6.6340": {
+    "eval_status": "ok",
+    "eval_hours_in": 3.2,
+    "eval_hours_out": 14.4,
+    "eval_responses": 5,
+    "eval_term": "Spring 2026",
+    "eval_instructor_match": null,
+    "eval_instructor": null
+  },
+  "6.6370": {
+    "eval_status": "ok",
+    "eval_hours_in": null,
+    "eval_hours_out": null,
+    "eval_responses": 0,
+    "eval_term": "Fall 2024",
+    "eval_instructor_match": true,
+    "eval_instructor": null
+  },
+  "6.6400": {
+    "eval_status": "ok",
+    "eval_hours_in": 5.2,
+    "eval_hours_out": 14.4,
+    "eval_responses": 5,
+    "eval_term": "Fall 2025",
+    "eval_instructor_match": true,
+    "eval_instructor": null
+  },
+  "6.6410": {
+    "eval_status": "ok",
+    "eval_hours_in": 2.7,
+    "eval_hours_out": 4.4,
+    "eval_responses": 22,
+    "eval_term": "Fall 2025",
+    "eval_instructor_match": true,
+    "eval_instructor": null
+  },
+  "6.6420": {
+    "eval_status": "ok",
+    "eval_hours_in": 3,
+    "eval_hours_out": 7.7,
+    "eval_responses": 18,
+    "eval_term": "Spring 2026",
+    "eval_instructor_match": null,
+    "eval_instructor": null
+  },
+  "6.6450": {
+    "eval_status": "none"
+  },
+  "6.6460": {
+    "eval_status": "ok",
+    "eval_hours_in": 2,
+    "eval_hours_out": 2.3,
+    "eval_responses": 13,
+    "eval_term": "Spring 2026 Half Term",
+    "eval_instructor_match": true,
+    "eval_instructor": null
+  },
+  "6.2532": {
+    "eval_status": "none"
+  },
+  "6.6500": {
+    "eval_status": "ok",
+    "eval_hours_in": 4.3,
+    "eval_hours_out": 9,
+    "eval_responses": 11,
+    "eval_term": "Fall 2025",
+    "eval_instructor_match": false,
+    "eval_instructor": "Del Alamo, Jesus A."
+  },
+  "6.6510": {
+    "eval_status": "ok",
+    "eval_hours_in": 6,
+    "eval_hours_out": 10,
+    "eval_responses": 2,
+    "eval_term": "Spring 2026",
+    "eval_instructor_match": null,
+    "eval_instructor": null
+  },
+  "6.6520": {
+    "eval_status": "ok",
+    "eval_hours_in": 3.7,
+    "eval_hours_out": 10.2,
+    "eval_responses": 6,
+    "eval_term": "Spring 2025",
+    "eval_instructor_match": null,
+    "eval_instructor": null
+  },
+  "6.6530": {
+    "eval_status": "none"
+  },
+  "6.6630": {
+    "eval_status": "ok",
+    "eval_hours_in": 3.5,
+    "eval_hours_out": 9.5,
+    "eval_responses": 13,
+    "eval_term": "Fall 2025",
+    "eval_instructor_match": true,
+    "eval_instructor": null
+  },
+  "6.7000": {
+    "eval_status": "ok",
+    "eval_hours_in": 4.1,
+    "eval_hours_out": 6.7,
+    "eval_responses": 9,
+    "eval_term": "Fall 2024",
+    "eval_instructor_match": false,
+    "eval_instructor": "Ward, Jim"
+  },
+  "6.7010": {
+    "eval_status": "ok",
+    "eval_hours_in": 3,
+    "eval_hours_out": 4.4,
+    "eval_responses": 6,
+    "eval_term": "Spring 2026",
+    "eval_instructor_match": null,
+    "eval_instructor": null
+  },
+  "6.7020": {
+    "eval_status": "ok",
+    "eval_hours_in": 3.3,
+    "eval_hours_out": 6.3,
+    "eval_responses": 4,
+    "eval_term": "Spring 2026",
+    "eval_instructor_match": true,
+    "eval_instructor": null
+  },
+  "6.3102": {
+    "eval_status": "ok",
+    "eval_hours_in": 4.8,
+    "eval_hours_out": 3,
+    "eval_responses": 24,
+    "eval_term": "Spring 2026",
+    "eval_instructor_match": true,
+    "eval_instructor": null
+  },
+  "6.7100": {
+    "eval_status": "ok",
+    "eval_hours_in": 5,
+    "eval_hours_out": 30,
+    "eval_responses": 2,
+    "eval_term": "Spring 2023",
+    "eval_instructor_match": false,
+    "eval_instructor": "Megretski, Alexandre"
+  },
+  "6.7110": {
+    "eval_status": "none"
+  },
+  "6.7121": {
+    "eval_status": "ok",
+    "eval_hours_in": 4.2,
+    "eval_hours_out": 6.8,
+    "eval_responses": 9,
+    "eval_term": "Spring 2026",
+    "eval_instructor_match": null,
+    "eval_instructor": null
+  },
+  "6.7210": {
+    "eval_status": "ok",
+    "eval_hours_in": 3.9,
+    "eval_hours_out": 9.4,
+    "eval_responses": 18,
+    "eval_term": "Fall 2025",
+    "eval_instructor_match": false,
+    "eval_instructor": "Li, Tianjiao"
+  },
+  "6.7220": {
+    "eval_status": "ok",
+    "eval_hours_in": 3.4,
+    "eval_hours_out": 8.7,
+    "eval_responses": 27,
+    "eval_term": "Spring 2026",
+    "eval_instructor_match": null,
+    "eval_instructor": null
+  },
+  "6.7230": {
+    "eval_status": "ok",
+    "eval_hours_in": 3,
+    "eval_hours_out": 12.8,
+    "eval_responses": 6,
+    "eval_term": "Spring 2026",
+    "eval_instructor_match": null,
+    "eval_instructor": null
+  },
+  "6.7240": {
+    "eval_status": "none"
+  },
+  "6.7250": {
+    "eval_status": "none"
+  },
+  "6.7260": {
+    "eval_status": "ok",
+    "eval_hours_in": 3,
+    "eval_hours_out": 6.5,
+    "eval_responses": 4,
+    "eval_term": "Spring 2026",
+    "eval_instructor_match": true,
+    "eval_instructor": null
+  },
+  "6.7300": {
+    "eval_status": "ok",
+    "eval_hours_in": 3.3,
+    "eval_hours_out": 9.8,
+    "eval_responses": 14,
+    "eval_term": "Fall 2025",
+    "eval_instructor_match": true,
+    "eval_instructor": null
+  },
+  "6.7310": {
+    "eval_status": "ok",
+    "eval_hours_in": 2.6,
+    "eval_hours_out": 5.4,
+    "eval_responses": 14,
+    "eval_term": "Fall 2025",
+    "eval_instructor_match": false,
+    "eval_instructor": "Chen, Shi"
+  },
+  "6.7320": {
+    "eval_status": "ok",
+    "eval_hours_in": 2.8,
+    "eval_hours_out": 7.9,
+    "eval_responses": 23,
+    "eval_term": "Spring 2026",
+    "eval_instructor_match": null,
+    "eval_instructor": null
+  },
+  "6.7330": {
+    "eval_status": "ok",
+    "eval_hours_in": 4.8,
+    "eval_hours_out": 11.2,
+    "eval_responses": 10,
+    "eval_term": "Fall 2025",
+    "eval_instructor_match": true,
+    "eval_instructor": null
+  },
+  "6.7340": {
+    "eval_status": "ok",
+    "eval_hours_in": 3,
+    "eval_hours_out": 7.5,
+    "eval_responses": 17,
+    "eval_term": "Spring 2026",
+    "eval_instructor_match": null,
+    "eval_instructor": null
+  },
+  "6.7350": {
+    "eval_status": "ok",
+    "eval_hours_in": 3.1,
+    "eval_hours_out": 8.1,
+    "eval_responses": 12,
+    "eval_term": "Fall 2025",
+    "eval_instructor_match": null,
+    "eval_instructor": null
+  },
+  "6.7410": {
+    "eval_status": "ok",
+    "eval_hours_in": 3.3,
+    "eval_hours_out": 10,
+    "eval_responses": 5,
+    "eval_term": "Fall 2023",
+    "eval_instructor_match": false,
+    "eval_instructor": "Chan, Vincent W. S."
+  },
+  "6.7420": {
+    "eval_status": "ok",
+    "eval_hours_in": 3,
+    "eval_hours_out": 10,
+    "eval_responses": 1,
+    "eval_term": "Fall 2022",
+    "eval_instructor_match": true,
+    "eval_instructor": null
+  },
+  "6.7430": {
+    "eval_status": "none"
+  },
+  "6.7440": {
+    "eval_status": "none"
+  },
+  "6.7450": {
+    "eval_status": "ok",
+    "eval_hours_in": 3.5,
+    "eval_hours_out": 3.2,
+    "eval_responses": 7,
+    "eval_term": "Fall 2022",
+    "eval_instructor_match": true,
+    "eval_instructor": null
+  },
+  "6.7460": {
+    "eval_status": "none"
+  },
+  "6.7470": {
+    "eval_status": "none"
+  },
+  "6.7480": {
+    "eval_status": "ok",
+    "eval_hours_in": 3.1,
+    "eval_hours_out": 9.3,
+    "eval_responses": 8,
+    "eval_term": "Fall 2025",
+    "eval_instructor_match": null,
+    "eval_instructor": null
+  },
+  "6.3702": {
+    "eval_status": "ok",
+    "eval_hours_in": 3.3,
+    "eval_hours_out": 6,
+    "eval_responses": 14,
+    "eval_term": "Spring 2026",
+    "eval_instructor_match": false,
+    "eval_instructor": "Bresler, Guy"
+  },
+  "6.3722": {
+    "eval_status": "ok",
+    "eval_hours_in": 3.6,
+    "eval_hours_out": 7,
+    "eval_responses": 29,
+    "eval_term": "Spring 2026",
+    "eval_instructor_match": true,
+    "eval_instructor": null
+  },
+  "6.3732": {
+    "eval_status": "ok",
+    "eval_hours_in": 3.4,
+    "eval_hours_out": 7.6,
+    "eval_responses": 18,
+    "eval_term": "Spring 2025",
+    "eval_instructor_match": null,
+    "eval_instructor": null
+  },
+  "6.7700": {
+    "eval_status": "ok",
+    "eval_hours_in": 3.1,
+    "eval_hours_out": 10.7,
+    "eval_responses": 17,
+    "eval_term": "Fall 2025",
+    "eval_instructor_match": false,
+    "eval_instructor": "Jaillet, Patrick"
+  },
+  "6.7710": {
+    "eval_status": "ok",
+    "eval_hours_in": 3.4,
+    "eval_hours_out": 9.8,
+    "eval_responses": 5,
+    "eval_term": "Spring 2023",
+    "eval_instructor_match": false,
+    "eval_instructor": "Chan, Vincent W. S."
+  },
+  "6.7720": {
+    "eval_status": "ok",
+    "eval_hours_in": 2.5,
+    "eval_hours_out": 7,
+    "eval_responses": 18,
+    "eval_term": "Spring 2026",
+    "eval_instructor_match": null,
+    "eval_instructor": null
+  },
+  "6.7730": {
+    "eval_status": "ok",
+    "eval_hours_in": 2.9,
+    "eval_hours_out": 10,
+    "eval_responses": 10,
+    "eval_term": "Fall 2025",
+    "eval_instructor_match": true,
+    "eval_instructor": null
+  },
+  "6.7740": {
+    "eval_status": "ok",
+    "eval_hours_in": 2.9,
+    "eval_hours_out": 5.7,
+    "eval_responses": 11,
+    "eval_term": "Spring 2026",
+    "eval_instructor_match": true,
+    "eval_instructor": null
+  },
+  "6.7800": {
+    "eval_status": "ok",
+    "eval_hours_in": 3.1,
+    "eval_hours_out": 11,
+    "eval_responses": 26,
+    "eval_term": "Spring 2026",
+    "eval_instructor_match": null,
+    "eval_instructor": null
+  },
+  "6.7810": {
+    "eval_status": "ok",
+    "eval_hours_in": 3.3,
+    "eval_hours_out": 9.5,
+    "eval_responses": 9,
+    "eval_term": "Fall 2025",
+    "eval_instructor_match": true,
+    "eval_instructor": null
+  },
+  "6.7820": {
+    "eval_status": "none"
+  },
+  "6.7830": {
+    "eval_status": "ok",
+    "eval_hours_in": 2.9,
+    "eval_hours_out": 6,
+    "eval_responses": 14,
+    "eval_term": "Spring 2026",
+    "eval_instructor_match": null,
+    "eval_instructor": null
+  },
+  "6.3932": {
+    "eval_status": "none"
+  },
+  "6.3952": {
+    "eval_status": "ok",
+    "eval_hours_in": 3.6,
+    "eval_hours_out": 4.9,
+    "eval_responses": 18,
+    "eval_term": "Fall 2025",
+    "eval_instructor_match": false,
+    "eval_instructor": "Ghassemi, Marzyeh"
+  },
+  "6.7900": {
+    "eval_status": "ok",
+    "eval_hours_in": 3.5,
+    "eval_hours_out": 7.5,
+    "eval_responses": 26,
+    "eval_term": "Fall 2025",
+    "eval_instructor_match": true,
+    "eval_instructor": null
+  },
+  "6.7910": {
+    "eval_status": "ok",
+    "eval_hours_in": 3.2,
+    "eval_hours_out": 8.1,
+    "eval_responses": 19,
+    "eval_term": "Fall 2025",
+    "eval_instructor_match": true,
+    "eval_instructor": null
+  },
+  "6.7920": {
+    "eval_status": "ok",
+    "eval_hours_in": 3.4,
+    "eval_hours_out": 11.2,
+    "eval_responses": 46,
+    "eval_term": "Fall 2025",
+    "eval_instructor_match": true,
+    "eval_instructor": null
+  },
+  "6.7930": {
+    "eval_status": "ok",
+    "eval_hours_in": 3.7,
+    "eval_hours_out": 7.1,
+    "eval_responses": 18,
+    "eval_term": "Spring 2025",
+    "eval_instructor_match": true,
+    "eval_instructor": null
+  },
+  "6.7940": {
+    "eval_status": "none"
+  },
+  "6.7960": {
+    "eval_status": "ok",
+    "eval_hours_in": 2.7,
+    "eval_hours_out": 7.5,
+    "eval_responses": 110,
+    "eval_term": "Fall 2025",
+    "eval_instructor_match": false,
+    "eval_instructor": "Beery, Sara"
+  },
+  "6.7970": {
+    "eval_status": "ok",
+    "eval_hours_in": 2.9,
+    "eval_hours_out": 5.2,
+    "eval_responses": 21,
+    "eval_term": "Spring 2026",
+    "eval_instructor_match": null,
+    "eval_instructor": null
+  },
+  "6.7980": {
+    "eval_status": "none"
+  },
+  "6.4132": {
+    "eval_status": "ok",
+    "eval_hours_in": 3.7,
+    "eval_hours_out": 9.3,
+    "eval_responses": 10,
+    "eval_term": "Fall 2025",
+    "eval_instructor_match": null,
+    "eval_instructor": null
+  },
+  "6.4150": {
+    "eval_status": "ok",
+    "eval_hours_in": 3.2,
+    "eval_hours_out": 3.1,
+    "eval_responses": 43,
+    "eval_term": "Spring 2026",
+    "eval_instructor_match": true,
+    "eval_instructor": null
+  },
+  "6.8110": {
+    "eval_status": "ok",
+    "eval_hours_in": 3,
+    "eval_hours_out": 5.5,
+    "eval_responses": 4,
+    "eval_term": "Spring 2024",
+    "eval_instructor_match": null,
+    "eval_instructor": null
+  },
+  "6.8120": {
+    "eval_status": "ok",
+    "eval_hours_in": 3,
+    "eval_hours_out": 1,
+    "eval_responses": 1,
+    "eval_term": "Spring 2025",
+    "eval_instructor_match": null,
+    "eval_instructor": null
+  },
+  "6.8130": {
+    "eval_status": "none"
+  },
+  "6.4212": {
+    "eval_status": "ok",
+    "eval_hours_in": 3.7,
+    "eval_hours_out": 9,
+    "eval_responses": 29,
+    "eval_term": "Fall 2025",
+    "eval_instructor_match": false,
+    "eval_instructor": "Lozano-Perez, Tomas"
+  },
+  "6.8200": {
+    "eval_status": "ok",
+    "eval_hours_in": 3,
+    "eval_hours_out": 7.6,
+    "eval_responses": 88,
+    "eval_term": "Spring 2024",
+    "eval_instructor_match": null,
+    "eval_instructor": null
+  },
+  "6.8210": {
+    "eval_status": "ok",
+    "eval_hours_in": 3,
+    "eval_hours_out": 9,
+    "eval_responses": 41,
+    "eval_term": "Spring 2024",
+    "eval_instructor_match": true,
+    "eval_instructor": null
+  },
+  "6.8410": {
+    "eval_status": "ok",
+    "eval_hours_in": 2.9,
+    "eval_hours_out": 11.3,
+    "eval_responses": 9,
+    "eval_term": "Spring 2023",
+    "eval_instructor_match": true,
+    "eval_instructor": null
+  },
+  "6.8420": {
+    "eval_status": "ok",
+    "eval_hours_in": 3.8,
+    "eval_hours_out": 8,
+    "eval_responses": 6,
+    "eval_term": "Spring 2024",
+    "eval_instructor_match": true,
+    "eval_instructor": null
+  },
+  "6.8510": {
+    "eval_status": "ok",
+    "eval_hours_in": 3.1,
+    "eval_hours_out": 7.8,
+    "eval_responses": 23,
+    "eval_term": "Spring 2025",
+    "eval_instructor_match": true,
+    "eval_instructor": null
+  },
+  "6.8530": {
+    "eval_status": "none"
+  },
+  "6.8700": {
+    "eval_status": "ok",
+    "eval_hours_in": 3.3,
+    "eval_hours_out": 8.4,
+    "eval_responses": 17,
+    "eval_term": "Fall 2025",
+    "eval_instructor_match": true,
+    "eval_instructor": null
+  },
+  "6.8710": {
+    "eval_status": "ok",
+    "eval_hours_in": 3.2,
+    "eval_hours_out": 4.7,
+    "eval_responses": 17,
+    "eval_term": "Spring 2026",
+    "eval_instructor_match": false,
+    "eval_instructor": "Berger, Bonnie"
+  },
+  "6.8720": {
+    "eval_status": "ok",
+    "eval_hours_in": 3.1,
+    "eval_hours_out": 4.9,
+    "eval_responses": 10,
+    "eval_term": "Fall 2025",
+    "eval_instructor_match": true,
+    "eval_instructor": null
+  },
+  "6.4812": {
+    "eval_status": "none"
+  },
+  "6.4822": {
+    "eval_status": "ok",
+    "eval_hours_in": 4.2,
+    "eval_hours_out": 7.2,
+    "eval_responses": 13,
+    "eval_term": "Fall 2025",
+    "eval_instructor_match": true,
+    "eval_instructor": null
+  },
+  "6.4832": {
+    "eval_status": "ok",
+    "eval_hours_in": 2.9,
+    "eval_hours_out": 7,
+    "eval_responses": 11,
+    "eval_term": "Fall 2025",
+    "eval_instructor_match": true,
+    "eval_instructor": null
+  },
+  "6.4842": {
+    "eval_status": "ok",
+    "eval_hours_in": 3,
+    "eval_hours_out": 5.2,
+    "eval_responses": 10,
+    "eval_term": "Spring 2025",
+    "eval_instructor_match": true,
+    "eval_instructor": null
+  },
+  "6.4852": {
+    "eval_status": "ok",
+    "eval_hours_in": 3,
+    "eval_hours_out": 10.3,
+    "eval_responses": 14,
+    "eval_term": "Fall 2025",
+    "eval_instructor_match": true,
+    "eval_instructor": null
+  },
+  "6.4861": {
+    "eval_status": "ok",
+    "eval_hours_in": 3.3,
+    "eval_hours_out": 8.1,
+    "eval_responses": 19,
+    "eval_term": "Spring 2026",
+    "eval_instructor_match": false,
+    "eval_instructor": "Hanumara, Nevan Clancy"
+  },
+  "6.8800": {
+    "eval_status": "ok",
+    "eval_hours_in": 3.9,
+    "eval_hours_out": 10.9,
+    "eval_responses": 13,
+    "eval_term": "Spring 2025",
+    "eval_instructor_match": null,
+    "eval_instructor": null
+  },
+  "6.8810": {
+    "eval_status": "ok",
+    "eval_hours_in": 5.9,
+    "eval_hours_out": 4,
+    "eval_responses": 11,
+    "eval_term": "Spring 2026",
+    "eval_instructor_match": true,
+    "eval_instructor": null
+  },
+  "6.8830": {
+    "eval_status": "none"
+  },
+  "6.8850": {
+    "eval_status": "ok",
+    "eval_hours_in": 6.1,
+    "eval_hours_out": 4.3,
+    "eval_responses": 13,
+    "eval_term": "Fall 2024",
+    "eval_instructor_match": true,
+    "eval_instructor": null
+  },
+  "6.8300": {
+    "eval_status": "ok",
+    "eval_hours_in": 2.8,
+    "eval_hours_out": 8.4,
+    "eval_responses": 18,
+    "eval_term": "Spring 2026",
+    "eval_instructor_match": null,
+    "eval_instructor": null
+  },
+  "6.8370": {
+    "eval_status": "ok",
+    "eval_hours_in": 2.8,
+    "eval_hours_out": 6.9,
+    "eval_responses": 20,
+    "eval_term": "Fall 2025",
+    "eval_instructor_match": false,
+    "eval_instructor": "Biscarrat, Camille Jeannette Mei"
+  },
+  "6.8610": {
+    "eval_status": "ok",
+    "eval_hours_in": 3,
+    "eval_hours_out": 6.6,
+    "eval_responses": 21,
+    "eval_term": "Spring 2026",
+    "eval_instructor_match": null,
+    "eval_instructor": null
+  },
+  "6.8620": {
+    "eval_status": "ok",
+    "eval_hours_in": 3.1,
+    "eval_hours_out": 6.1,
+    "eval_responses": 11,
+    "eval_term": "Spring 2024",
+    "eval_instructor_match": true,
+    "eval_instructor": null
+  },
+  "6.8630": {
+    "eval_status": "ok",
+    "eval_hours_in": 3.2,
+    "eval_hours_out": 7.8,
+    "eval_responses": 7,
+    "eval_term": "Spring 2023",
+    "eval_instructor_match": null,
+    "eval_instructor": null
+  },
+  "15.761": {
+    "eval_status": "ok",
+    "eval_hours_in": 3.1,
+    "eval_hours_out": 2.7,
+    "eval_responses": 91,
+    "eval_term": "Spring 2026 End of Term",
+    "eval_instructor_match": false,
+    "eval_instructor": "Aouad, Ali"
+  },
+  "15.066": {
+    "eval_status": "none"
+  },
+  "15.773": {
+    "eval_status": "ok",
+    "eval_hours_in": 3.2,
+    "eval_hours_out": 4.1,
+    "eval_responses": 44,
+    "eval_term": "Spring 2026 Half Term",
+    "eval_instructor_match": true,
+    "eval_instructor": null
+  },
+  "15.S04": {
+    "eval_status": "ok",
+    "eval_hours_in": 3.3,
+    "eval_hours_out": 6.7,
+    "eval_responses": 11,
+    "eval_term": "Spring 2026 End of Term",
+    "eval_instructor_match": true,
+    "eval_instructor": null
+  },
+  "15.002": {
+    "eval_status": "none"
+  },
+  "15.003": {
+    "eval_status": "ok",
+    "eval_hours_in": null,
+    "eval_hours_out": null,
+    "eval_responses": 1,
+    "eval_term": "IAP 2026",
+    "eval_instructor_match": true,
+    "eval_instructor": null
+  },
+  "15.004": {
+    "eval_status": "none"
+  },
+  "15.005": {
+    "eval_status": "none"
+  },
+  "15.010": {
+    "eval_status": "ok",
+    "eval_hours_in": 3.4,
+    "eval_hours_out": 2.5,
+    "eval_responses": 215,
+    "eval_term": "Fall 2025 End of Term",
+    "eval_instructor_match": true,
+    "eval_instructor": null
+  },
+  "15.011": {
+    "eval_status": "ok",
+    "eval_hours_in": 3.3,
+    "eval_hours_out": 3,
+    "eval_responses": 25,
+    "eval_term": "Fall 2025 End of Term",
+    "eval_instructor_match": true,
+    "eval_instructor": null
+  },
+  "15.012": {
+    "eval_status": "ok",
+    "eval_hours_in": 3,
+    "eval_hours_out": 2.4,
+    "eval_responses": 37,
+    "eval_term": "Fall 2024 End of Term",
+    "eval_instructor_match": true,
+    "eval_instructor": null
+  },
+  "15.013": {
+    "eval_status": "ok",
+    "eval_hours_in": 3.2,
+    "eval_hours_out": 4.2,
+    "eval_responses": 14,
+    "eval_term": "Fall 2024 End of Term",
+    "eval_instructor_match": true,
+    "eval_instructor": null
+  },
+  "15.014": {
+    "eval_status": "ok",
+    "eval_hours_in": 3,
+    "eval_hours_out": 3,
+    "eval_responses": 4,
+    "eval_term": "Spring 2026 Half Term",
+    "eval_instructor_match": null,
+    "eval_instructor": null
+  },
+  "15.015": {
+    "eval_status": "ok",
+    "eval_hours_in": 3,
+    "eval_hours_out": 2.6,
+    "eval_responses": 6,
+    "eval_term": "Spring 2024 Half Term",
+    "eval_instructor_match": null,
+    "eval_instructor": null
+  },
+  "15.016": {
+    "eval_status": "ok",
+    "eval_hours_in": 3.3,
+    "eval_hours_out": 2.3,
+    "eval_responses": 27,
+    "eval_term": "Fall 2025 End of Term",
+    "eval_instructor_match": true,
+    "eval_instructor": null
+  },
+  "15.018": {
+    "eval_status": "ok",
+    "eval_hours_in": 3.1,
+    "eval_hours_out": 1.7,
+    "eval_responses": 12,
+    "eval_term": "Spring 2026 End of Term",
+    "eval_instructor_match": true,
+    "eval_instructor": null
+  },
+  "15.020": {
+    "eval_status": "ok",
+    "eval_hours_in": 3.1,
+    "eval_hours_out": 5.7,
+    "eval_responses": 25,
+    "eval_term": "Fall 2022 End of Term",
+    "eval_instructor_match": null,
+    "eval_instructor": null
+  },
+  "15.021": {
+    "eval_status": "ok",
+    "eval_hours_in": 4,
+    "eval_hours_out": 4.1,
+    "eval_responses": 19,
+    "eval_term": "Fall 2025 End of Term",
+    "eval_instructor_match": false,
+    "eval_instructor": "Saiz, Albert"
+  },
+  "15.022": {
+    "eval_status": "ok",
+    "eval_hours_in": 3,
+    "eval_hours_out": 3.4,
+    "eval_responses": 6,
+    "eval_term": "Spring 2026 Half Term",
+    "eval_instructor_match": true,
+    "eval_instructor": null
+  },
+  "15.024": {
+    "eval_status": "none"
+  },
+  "15.025": {
+    "eval_status": "ok",
+    "eval_hours_in": 3.3,
+    "eval_hours_out": 2.9,
+    "eval_responses": 23,
+    "eval_term": "Spring 2026 End of Term",
+    "eval_instructor_match": true,
+    "eval_instructor": null
+  },
+  "15.027": {
+    "eval_status": "ok",
+    "eval_hours_in": 3,
+    "eval_hours_out": 2.1,
+    "eval_responses": 12,
+    "eval_term": "Spring 2026 End of Term",
+    "eval_instructor_match": true,
+    "eval_instructor": null
+  },
+  "15.029": {
+    "eval_status": "ok",
+    "eval_hours_in": 3.2,
+    "eval_hours_out": 3.1,
+    "eval_responses": 19,
+    "eval_term": "Fall 2023 End of Term",
+    "eval_instructor_match": true,
+    "eval_instructor": null
+  },
+  "15.034": {
+    "eval_status": "ok",
+    "eval_hours_in": 3.1,
+    "eval_hours_out": 2.6,
+    "eval_responses": 17,
+    "eval_term": "Spring 2024 End of Term",
+    "eval_instructor_match": true,
+    "eval_instructor": null
+  },
+  "15.035": {
+    "eval_status": "ok",
+    "eval_hours_in": 3.2,
+    "eval_hours_out": 4,
+    "eval_responses": 24,
+    "eval_term": "Spring 2025 End of Term",
+    "eval_instructor_match": null,
+    "eval_instructor": null
+  },
+  "15.036": {
+    "eval_status": "ok",
+    "eval_hours_in": null,
+    "eval_hours_out": null,
+    "eval_responses": 8,
+    "eval_term": "Fall 2020 Half Term",
+    "eval_instructor_match": true,
+    "eval_instructor": null
+  },
+  "15.038": {
+    "eval_status": "ok",
+    "eval_hours_in": 3.1,
+    "eval_hours_out": 4.4,
+    "eval_responses": 17,
+    "eval_term": "Spring 2026 End of Term",
+    "eval_instructor_match": true,
+    "eval_instructor": null
+  },
+  "15.054": {
+    "eval_status": "ok",
+    "eval_hours_in": 3,
+    "eval_hours_out": 5.1,
+    "eval_responses": 24,
+    "eval_term": "Fall 2025 End of Term",
+    "eval_instructor_match": true,
+    "eval_instructor": null
+  },
+  "15.060": {
+    "eval_status": "ok",
+    "eval_hours_in": 3.3,
+    "eval_hours_out": 3.2,
+    "eval_responses": 145,
+    "eval_term": "Fall 2025 End of Term",
+    "eval_instructor_match": true,
+    "eval_instructor": null
+  },
+  "15.071": {
+    "eval_status": "ok",
+    "eval_hours_in": 3.3,
+    "eval_hours_out": 3.2,
+    "eval_responses": 46,
+    "eval_term": "Spring 2026 End of Term",
+    "eval_instructor_match": false,
+    "eval_instructor": "Lu, Haihao"
+  },
+  "15.062": {
+    "eval_status": "ok",
+    "eval_hours_in": 3.4,
+    "eval_hours_out": 5.6,
+    "eval_responses": 10,
+    "eval_term": "Spring 2025 End of Term",
+    "eval_instructor_match": true,
+    "eval_instructor": null
+  },
+  "15.070": {
+    "eval_status": "ok",
+    "eval_hours_in": 2.5,
+    "eval_hours_out": 7,
+    "eval_responses": 18,
+    "eval_term": "Spring 2026 End of Term",
+    "eval_instructor_match": null,
+    "eval_instructor": null
+  },
+  "15.068": {
+    "eval_status": "ok",
+    "eval_hours_in": 3.1,
+    "eval_hours_out": 3.8,
+    "eval_responses": 17,
+    "eval_term": "Spring 2024 End of Term",
+    "eval_instructor_match": null,
+    "eval_instructor": null
+  },
+  "15.072": {
+    "eval_status": "ok",
+    "eval_hours_in": 4,
+    "eval_hours_out": 5.9,
+    "eval_responses": 10,
+    "eval_term": "Fall 2025 Half Term",
+    "eval_instructor_match": true,
+    "eval_instructor": null
+  },
+  "15.077": {
+    "eval_status": "ok",
+    "eval_hours_in": 3.7,
+    "eval_hours_out": 8.6,
+    "eval_responses": 11,
+    "eval_term": "Spring 2022 End of Term",
+    "eval_instructor_match": true,
+    "eval_instructor": null
+  },
+  "15.073": {
+    "eval_status": "ok",
+    "eval_hours_in": null,
+    "eval_hours_out": null,
+    "eval_responses": 7,
+    "eval_term": "Spring 2021 End of Term",
+    "eval_instructor_match": null,
+    "eval_instructor": null
+  },
+  "15.086": {
+    "eval_status": "none"
+  },
+  "15.087": {
+    "eval_status": "none"
+  },
+  "15.090": {
+    "eval_status": "none"
+  },
+  "15.083": {
+    "eval_status": "ok",
+    "eval_hours_in": 3.3,
+    "eval_hours_out": 7.8,
+    "eval_responses": 19,
+    "eval_term": "Spring 2025 End of Term",
+    "eval_instructor_match": true,
+    "eval_instructor": null
+  },
+  "15.081": {
+    "eval_status": "ok",
+    "eval_hours_in": 3.9,
+    "eval_hours_out": 9.4,
+    "eval_responses": 18,
+    "eval_term": "Fall 2025 End of Term",
+    "eval_instructor_match": false,
+    "eval_instructor": "Li, Tianjiao"
+  },
+  "15.085": {
+    "eval_status": "ok",
+    "eval_hours_in": 3.1,
+    "eval_hours_out": 10.7,
+    "eval_responses": 17,
+    "eval_term": "Fall 2025 End of Term",
+    "eval_instructor_match": false,
+    "eval_instructor": "Jaillet, Patrick"
+  },
+  "15.089": {
+    "eval_status": "ok",
+    "eval_hours_in": 3,
+    "eval_hours_out": 5,
+    "eval_responses": 10,
+    "eval_term": "Spring 2023 End of Term",
+    "eval_instructor_match": false,
+    "eval_instructor": "Learson, Mingzhou"
+  },
+  "15.084": {
+    "eval_status": "ok",
+    "eval_hours_in": 3.4,
+    "eval_hours_out": 8.7,
+    "eval_responses": 27,
+    "eval_term": "Spring 2026 End of Term",
+    "eval_instructor_match": null,
+    "eval_instructor": null
+  },
+  "15.110": {
+    "eval_status": "none"
+  },
+  "15.097": {
+    "eval_status": "ok",
+    "eval_hours_in": 2.3,
+    "eval_hours_out": 3.8,
+    "eval_responses": 4,
+    "eval_term": "Fall 2019 End of Term",
+    "eval_instructor_match": null,
+    "eval_instructor": null
+  },
+  "15.095": {
+    "eval_status": "ok",
+    "eval_hours_in": 4.3,
+    "eval_hours_out": 11.3,
+    "eval_responses": 40,
+    "eval_term": "Fall 2025 End of Term",
+    "eval_instructor_match": true,
+    "eval_instructor": null
+  },
+  "15.099": {
+    "eval_status": "ok",
+    "eval_hours_in": 4,
+    "eval_hours_out": 5.8,
+    "eval_responses": 5,
+    "eval_term": "Fall 2025 End of Term",
+    "eval_instructor_match": true,
+    "eval_instructor": null
+  },
+  "15.098": {
+    "eval_status": "ok",
+    "eval_hours_in": 2,
+    "eval_hours_out": 2.3,
+    "eval_responses": 13,
+    "eval_term": "Fall 2014 End of Term",
+    "eval_instructor_match": null,
+    "eval_instructor": null
+  },
+  "15.094": {
+    "eval_status": "ok",
+    "eval_hours_in": 4,
+    "eval_hours_out": 7.7,
+    "eval_responses": 10,
+    "eval_term": "Spring 2026 End of Term",
+    "eval_instructor_match": null,
+    "eval_instructor": null
+  },
+  "15.128": {
+    "eval_status": "ok",
+    "eval_hours_in": 2,
+    "eval_hours_out": 3.4,
+    "eval_responses": 6,
+    "eval_term": "Fall 2025 End of Term",
+    "eval_instructor_match": true,
+    "eval_instructor": null
+  },
+  "15.136": {
+    "eval_status": "ok",
+    "eval_hours_in": 3,
+    "eval_hours_out": 4.5,
+    "eval_responses": 5,
+    "eval_term": "Fall 2025 End of Term",
+    "eval_instructor_match": true,
+    "eval_instructor": null
+  },
+  "15.215": {
+    "eval_status": "none"
+  },
+  "15.222": {
+    "eval_status": "none"
+  },
+  "15.216": {
+    "eval_status": "ok",
+    "eval_hours_in": 5.8,
+    "eval_hours_out": 3.7,
+    "eval_responses": 13,
+    "eval_term": "Spring 2026 End of Term",
+    "eval_instructor_match": true,
+    "eval_instructor": null
+  },
+  "15.137": {
+    "eval_status": "ok",
+    "eval_hours_in": 2.2,
+    "eval_hours_out": 4,
+    "eval_responses": 14,
+    "eval_term": "Spring 2019 End of Term",
+    "eval_instructor_match": true,
+    "eval_instructor": null
+  },
+  "15.219": {
+    "eval_status": "ok",
+    "eval_hours_in": 3,
+    "eval_hours_out": 3.6,
+    "eval_responses": 8,
+    "eval_term": "Spring 2019 End of Term",
+    "eval_instructor_match": null,
+    "eval_instructor": null
+  },
+  "15.218": {
+    "eval_status": "ok",
+    "eval_hours_in": 3,
+    "eval_hours_out": 3.3,
+    "eval_responses": 45,
+    "eval_term": "Spring 2026 End of Term",
+    "eval_instructor_match": null,
+    "eval_instructor": null
+  },
+  "15.141": {
+    "eval_status": "ok",
+    "eval_hours_in": 3.1,
+    "eval_hours_out": 1.9,
+    "eval_responses": 35,
+    "eval_term": "Spring 2026 End of Term",
+    "eval_instructor_match": null,
+    "eval_instructor": null
+  },
+  "15.223": {
+    "eval_status": "ok",
+    "eval_hours_in": 3,
+    "eval_hours_out": 3.4,
+    "eval_responses": 58,
+    "eval_term": "Fall 2025 End of Term",
+    "eval_instructor_match": true,
+    "eval_instructor": null
+  },
+  "15.227": {
+    "eval_status": "none"
+  },
+  "15.230": {
+    "eval_status": "ok",
+    "eval_hours_in": 3.1,
+    "eval_hours_out": 4.4,
+    "eval_responses": 21,
+    "eval_term": "Spring 2026 End of Term",
+    "eval_instructor_match": true,
+    "eval_instructor": null
+  },
+  "15.225": {
+    "eval_status": "ok",
+    "eval_hours_in": 3.1,
+    "eval_hours_out": 2,
+    "eval_responses": 24,
+    "eval_term": "Spring 2026 End of Term",
+    "eval_instructor_match": true,
+    "eval_instructor": null
+  },
+  "15.232": {
+    "eval_status": "ok",
+    "eval_hours_in": null,
+    "eval_hours_out": null,
+    "eval_responses": 0,
+    "eval_term": "Spring 2026 Half Term",
+    "eval_instructor_match": null,
+    "eval_instructor": null
+  },
+  "15.226": {
+    "eval_status": "ok",
+    "eval_hours_in": 3.1,
+    "eval_hours_out": 4.8,
+    "eval_responses": 10,
+    "eval_term": "Spring 2026 End of Term",
+    "eval_instructor_match": true,
+    "eval_instructor": null
+  },
+  "15.224": {
+    "eval_status": "ok",
+    "eval_hours_in": 2,
+    "eval_hours_out": 2.3,
+    "eval_responses": 13,
+    "eval_term": "Spring 2026 Half Term",
+    "eval_instructor_match": true,
+    "eval_instructor": null
+  },
+  "15.236": {
+    "eval_status": "ok",
+    "eval_hours_in": 3.3,
+    "eval_hours_out": 3.5,
+    "eval_responses": 20,
+    "eval_term": "Spring 2026 Half Term",
+    "eval_instructor_match": true,
+    "eval_instructor": null
+  },
+  "15.235": {
+    "eval_status": "ok",
+    "eval_hours_in": 3,
+    "eval_hours_out": 4,
+    "eval_responses": 8,
+    "eval_term": "Fall 2024 Half Term",
+    "eval_instructor_match": null,
+    "eval_instructor": null
+  },
+  "15.273": {
+    "eval_status": "none"
+  },
+  "15.277": {
+    "eval_status": "none"
+  },
+  "15.269": {
+    "eval_status": "ok",
+    "eval_hours_in": 2.9,
+    "eval_hours_out": 3.7,
+    "eval_responses": 11,
+    "eval_term": "Fall 2025 End of Term",
+    "eval_instructor_match": true,
+    "eval_instructor": null
+  },
+  "15.248": {
+    "eval_status": "ok",
+    "eval_hours_in": null,
+    "eval_hours_out": null,
+    "eval_responses": 1,
+    "eval_term": "IAP 2026",
+    "eval_instructor_match": null,
+    "eval_instructor": null
+  },
+  "15.268": {
+    "eval_status": "ok",
+    "eval_hours_in": 2.6,
+    "eval_hours_out": 5,
+    "eval_responses": 20,
+    "eval_term": "Spring 2026 End of Term",
+    "eval_instructor_match": null,
+    "eval_instructor": null
+  },
+  "15.270": {
+    "eval_status": "ok",
+    "eval_hours_in": 3,
+    "eval_hours_out": 3.4,
+    "eval_responses": 8,
+    "eval_term": "Spring 2026 End of Term",
+    "eval_instructor_match": null,
+    "eval_instructor": null
+  },
+  "15.274": {
+    "eval_status": "ok",
+    "eval_hours_in": 3,
+    "eval_hours_out": 3.2,
+    "eval_responses": 23,
+    "eval_term": "Spring 2026 End of Term",
+    "eval_instructor_match": null,
+    "eval_instructor": null
+  },
+  "15.275": {
+    "eval_status": "ok",
+    "eval_hours_in": 3,
+    "eval_hours_out": 3.1,
+    "eval_responses": 18,
+    "eval_term": "Fall 2025 End of Term",
+    "eval_instructor_match": true,
+    "eval_instructor": null
+  },
+  "15.278": {
+    "eval_status": "none"
+  },
+  "15.284": {
+    "eval_status": "ok",
+    "eval_hours_in": 3.3,
+    "eval_hours_out": 2.9,
+    "eval_responses": 32,
+    "eval_term": "Fall 2025 Half Term",
+    "eval_instructor_match": true,
+    "eval_instructor": null
+  },
+  "15.283": {
+    "eval_status": "ok",
+    "eval_hours_in": 3,
+    "eval_hours_out": 4.1,
+    "eval_responses": 13,
+    "eval_term": "Spring 2026 End of Term",
+    "eval_instructor_match": null,
+    "eval_instructor": null
+  },
+  "15.285": {
+    "eval_status": "ok",
+    "eval_hours_in": 2.9,
+    "eval_hours_out": 2,
+    "eval_responses": 16,
+    "eval_term": "Spring 2026 End of Term",
+    "eval_instructor_match": null,
+    "eval_instructor": null
+  },
+  "15.281": {
+    "eval_status": "ok",
+    "eval_hours_in": 3.2,
+    "eval_hours_out": 2.2,
+    "eval_responses": 76,
+    "eval_term": "Spring 2026 End of Term",
+    "eval_instructor_match": true,
+    "eval_instructor": null
+  },
+  "15.287": {
+    "eval_status": "ok",
+    "eval_hours_in": 3,
+    "eval_hours_out": 1.4,
+    "eval_responses": 5,
+    "eval_term": "IAP 2023",
+    "eval_instructor_match": true,
+    "eval_instructor": null
+  },
+  "15.286": {
+    "eval_status": "ok",
+    "eval_hours_in": 3.2,
+    "eval_hours_out": 3,
+    "eval_responses": 121,
+    "eval_term": "Spring 2026 End of Term",
+    "eval_instructor_match": true,
+    "eval_instructor": null
+  },
+  "15.280": {
+    "eval_status": "ok",
+    "eval_hours_in": 2.9,
+    "eval_hours_out": 1.9,
+    "eval_responses": 359,
+    "eval_term": "Fall 2025 End of Term",
+    "eval_instructor_match": true,
+    "eval_instructor": null
+  },
+  "15.316": {
+    "eval_status": "none"
+  },
+  "15.288": {
+    "eval_status": "ok",
+    "eval_hours_in": 3,
+    "eval_hours_out": 3,
+    "eval_responses": 23,
+    "eval_term": "Fall 2025 Half Term",
+    "eval_instructor_match": true,
+    "eval_instructor": null
+  },
+  "15.309": {
+    "eval_status": "ok",
+    "eval_hours_in": 16.8,
+    "eval_hours_out": 2.8,
+    "eval_responses": 39,
+    "eval_term": "IAP 2026",
+    "eval_instructor_match": true,
+    "eval_instructor": null
+  },
+  "15.308": {
+    "eval_status": "ok",
+    "eval_hours_in": 3,
+    "eval_hours_out": 2.6,
+    "eval_responses": 22,
+    "eval_term": "Spring 2023 End of Term",
+    "eval_instructor_match": true,
+    "eval_instructor": null
+  },
+  "15.304": {
+    "eval_status": "ok",
+    "eval_hours_in": null,
+    "eval_hours_out": null,
+    "eval_responses": 4,
+    "eval_term": "Spring 2021 End of Term",
+    "eval_instructor_match": null,
+    "eval_instructor": null
+  },
+  "15.289": {
+    "eval_status": "ok",
+    "eval_hours_in": 2,
+    "eval_hours_out": 1,
+    "eval_responses": 1,
+    "eval_term": "Fall 2025 End of Term",
+    "eval_instructor_match": null,
+    "eval_instructor": null
+  },
+  "15.317": {
+    "eval_status": "ok",
+    "eval_hours_in": 2.1,
+    "eval_hours_out": 1.2,
+    "eval_responses": 21,
+    "eval_term": "Spring 2026 End of Term",
+    "eval_instructor_match": null,
+    "eval_instructor": null
+  },
+  "15.311": {
+    "eval_status": "ok",
+    "eval_hours_in": 2.4,
+    "eval_hours_out": 2.3,
+    "eval_responses": 365,
+    "eval_term": "Fall 2025 End of Term",
+    "eval_instructor_match": false,
+    "eval_instructor": "Lide, Chelsea"
+  },
+  "15.328": {
+    "eval_status": "none"
+  },
+  "15.329": {
+    "eval_status": "none"
+  },
+  "15.318": {
+    "eval_status": "ok",
+    "eval_hours_in": 3.1,
+    "eval_hours_out": 3.4,
+    "eval_responses": 25,
+    "eval_term": "Fall 2025 End of Term",
+    "eval_instructor_match": true,
+    "eval_instructor": null
+  },
+  "15.320": {
+    "eval_status": "ok",
+    "eval_hours_in": 3.8,
+    "eval_hours_out": 3.4,
+    "eval_responses": 13,
+    "eval_term": "Fall 2024 End of Term",
+    "eval_instructor_match": null,
+    "eval_instructor": null
+  },
+  "15.322": {
+    "eval_status": "ok",
+    "eval_hours_in": 4,
+    "eval_hours_out": 2.3,
+    "eval_responses": 42,
+    "eval_term": "Fall 2017 Half Term",
+    "eval_instructor_match": null,
+    "eval_instructor": null
+  },
+  "15.323": {
+    "eval_status": "ok",
+    "eval_hours_in": 1.3,
+    "eval_hours_out": 0.7,
+    "eval_responses": 3,
+    "eval_term": "Spring 2026 Half Term",
+    "eval_instructor_match": null,
+    "eval_instructor": null
+  },
+  "15.321": {
+    "eval_status": "ok",
+    "eval_hours_in": 3,
+    "eval_hours_out": 4.9,
+    "eval_responses": 14,
+    "eval_term": "Spring 2026 End of Term",
+    "eval_instructor_match": true,
+    "eval_instructor": null
+  },
+  "15.325": {
+    "eval_status": "ok",
+    "eval_hours_in": 2.4,
+    "eval_hours_out": 1.2,
+    "eval_responses": 21,
+    "eval_term": "Fall 2025 End of Term",
+    "eval_instructor_match": true,
+    "eval_instructor": null
+  },
+  "15.330": {
+    "eval_status": "none"
+  },
+  "15.338": {
+    "eval_status": "none"
+  },
+  "15.335": {
+    "eval_status": "ok",
+    "eval_hours_in": 3,
+    "eval_hours_out": 2.8,
+    "eval_responses": 5,
+    "eval_term": "Spring 2024 End of Term",
+    "eval_instructor_match": true,
+    "eval_instructor": null
+  },
+  "15.339": {
+    "eval_status": "ok",
+    "eval_hours_in": 18.9,
+    "eval_hours_out": 5.3,
+    "eval_responses": 10,
+    "eval_term": "IAP 2026",
+    "eval_instructor_match": true,
+    "eval_instructor": null
+  },
+  "15.337": {
+    "eval_status": "ok",
+    "eval_hours_in": 3,
+    "eval_hours_out": 2,
+    "eval_responses": 6,
+    "eval_term": "Fall 2025 End of Term",
+    "eval_instructor_match": true,
+    "eval_instructor": null
+  },
+  "15.341": {
+    "eval_status": "ok",
+    "eval_hours_in": 3,
+    "eval_hours_out": 4.4,
+    "eval_responses": 5,
+    "eval_term": "Fall 2024 End of Term",
+    "eval_instructor_match": null,
+    "eval_instructor": null
+  },
+  "15.342": {
+    "eval_status": "ok",
+    "eval_hours_in": 3,
+    "eval_hours_out": 8.8,
+    "eval_responses": 4,
+    "eval_term": "Fall 2025 End of Term",
+    "eval_instructor_match": false,
+    "eval_instructor": "Silbey, Susan S"
+  },
+  "15.336": {
+    "eval_status": "ok",
+    "eval_hours_in": 3.1,
+    "eval_hours_out": 2.6,
+    "eval_responses": 82,
+    "eval_term": "Spring 2026 End of Term",
+    "eval_instructor_match": true,
+    "eval_instructor": null
+  },
+  "15.350": {
+    "eval_status": "none"
+  },
+  "15.355": {
+    "eval_status": "ok",
+    "eval_hours_in": 3,
+    "eval_hours_out": 2.8,
+    "eval_responses": 14,
+    "eval_term": "Spring 2026 End of Term",
+    "eval_instructor_match": null,
+    "eval_instructor": null
+  },
+  "15.345": {
+    "eval_status": "ok",
+    "eval_hours_in": 2,
+    "eval_hours_out": 2.5,
+    "eval_responses": 2,
+    "eval_term": "Spring 2019 End of Term",
+    "eval_instructor_match": null,
+    "eval_instructor": null
+  },
+  "15.352": {
+    "eval_status": "ok",
+    "eval_hours_in": 23.6,
+    "eval_hours_out": 5.8,
+    "eval_responses": 6,
+    "eval_term": "IAP 2026",
+    "eval_instructor_match": null,
+    "eval_instructor": null
+  },
+  "15.347": {
+    "eval_status": "ok",
+    "eval_hours_in": 3,
+    "eval_hours_out": 5.6,
+    "eval_responses": 5,
+    "eval_term": "Spring 2026 End of Term",
+    "eval_instructor_match": null,
+    "eval_instructor": null
+  },
+  "15.356": {
+    "eval_status": "ok",
+    "eval_hours_in": null,
+    "eval_hours_out": null,
+    "eval_responses": 0,
+    "eval_term": "Spring 2024 End of Term",
+    "eval_instructor_match": null,
+    "eval_instructor": null
+  },
+  "15.357": {
+    "eval_status": "ok",
+    "eval_hours_in": 5.2,
+    "eval_hours_out": 5.4,
+    "eval_responses": 5,
+    "eval_term": "Fall 2025 End of Term",
+    "eval_instructor_match": true,
+    "eval_instructor": null
+  },
+  "15.351": {
+    "eval_status": "ok",
+    "eval_hours_in": 3,
+    "eval_hours_out": 3.8,
+    "eval_responses": 6,
+    "eval_term": "Spring 2023 End of Term",
+    "eval_instructor_match": true,
+    "eval_instructor": null
+  },
+  "15.360": {
+    "eval_status": "ok",
+    "eval_hours_in": 3.2,
+    "eval_hours_out": 1.1,
+    "eval_responses": 161,
+    "eval_term": "Fall 2025 Half Term",
+    "eval_instructor_match": true,
+    "eval_instructor": null
+  },
+  "15.358": {
+    "eval_status": "ok",
+    "eval_hours_in": 3,
+    "eval_hours_out": 3.3,
+    "eval_responses": 14,
+    "eval_term": "Spring 2026 End of Term",
+    "eval_instructor_match": true,
+    "eval_instructor": null
+  },
+  "15.364": {
+    "eval_status": "ok",
+    "eval_hours_in": 4.6,
+    "eval_hours_out": 5.7,
+    "eval_responses": 24,
+    "eval_term": "Spring 2026 End of Term",
+    "eval_instructor_match": null,
+    "eval_instructor": null
+  },
+  "15.361": {
+    "eval_status": "ok",
+    "eval_hours_in": 3,
+    "eval_hours_out": 1.8,
+    "eval_responses": 6,
+    "eval_term": "Fall 2017 Half Term",
+    "eval_instructor_match": null,
+    "eval_instructor": null
+  },
+  "15.363": {
+    "eval_status": "ok",
+    "eval_hours_in": 3,
+    "eval_hours_out": 4.2,
+    "eval_responses": 11,
+    "eval_term": "Spring 2026 End of Term",
+    "eval_instructor_match": true,
+    "eval_instructor": null
+  },
+  "15.365": {
+    "eval_status": "ok",
+    "eval_hours_in": 3.2,
+    "eval_hours_out": 2,
+    "eval_responses": 60,
+    "eval_term": "Fall 2024 End of Term",
+    "eval_instructor_match": true,
+    "eval_instructor": null
+  },
+  "15.366": {
+    "eval_status": "ok",
+    "eval_hours_in": 3.1,
+    "eval_hours_out": 5.3,
+    "eval_responses": 10,
+    "eval_term": "Fall 2025 End of Term",
+    "eval_instructor_match": true,
+    "eval_instructor": null
+  },
+  "15.362": {
+    "eval_status": "ok",
+    "eval_hours_in": 3.1,
+    "eval_hours_out": 6.8,
+    "eval_responses": 8,
+    "eval_term": "Spring 2026 End of Term",
+    "eval_instructor_match": true,
+    "eval_instructor": null
+  },
+  "15.374": {
+    "eval_status": "ok",
+    "eval_hours_in": 3.2,
+    "eval_hours_out": 3.8,
+    "eval_responses": 5,
+    "eval_term": "Spring 2026 Half Term",
+    "eval_instructor_match": true,
+    "eval_instructor": null
+  },
+  "15.371": {
+    "eval_status": "ok",
+    "eval_hours_in": 5.9,
+    "eval_hours_out": 5.3,
+    "eval_responses": 16,
+    "eval_term": "Spring 2026 End of Term",
+    "eval_instructor_match": true,
+    "eval_instructor": null
+  },
+  "15.369": {
+    "eval_status": "ok",
+    "eval_hours_in": 2.6,
+    "eval_hours_out": 4.8,
+    "eval_responses": 14,
+    "eval_term": "Spring 2026 End of Term",
+    "eval_instructor_match": true,
+    "eval_instructor": null
+  },
+  "15.367": {
+    "eval_status": "ok",
+    "eval_hours_in": 3.2,
+    "eval_hours_out": 4.8,
+    "eval_responses": 5,
+    "eval_term": "Spring 2026 End of Term",
+    "eval_instructor_match": true,
+    "eval_instructor": null
+  },
+  "15.378": {
+    "eval_status": "ok",
+    "eval_hours_in": 3.3,
+    "eval_hours_out": 19.3,
+    "eval_responses": 3,
+    "eval_term": "Spring 2026 End of Term",
+    "eval_instructor_match": false,
+    "eval_instructor": "Green, Emily"
+  },
+  "15.368": {
+    "eval_status": "ok",
+    "eval_hours_in": 1,
+    "eval_hours_out": 40,
+    "eval_responses": 3,
+    "eval_term": "IAP 2026",
+    "eval_instructor_match": true,
+    "eval_instructor": null
+  },
+  "15.382": {
+    "eval_status": "ok",
+    "eval_hours_in": 3,
+    "eval_hours_out": 3.4,
+    "eval_responses": 36,
+    "eval_term": "Fall 2025 End of Term",
+    "eval_instructor_match": true,
+    "eval_instructor": null
+  },
+  "15.379": {
+    "eval_status": "ok",
+    "eval_hours_in": 3,
+    "eval_hours_out": 3.4,
+    "eval_responses": 9,
+    "eval_term": "Fall 2025 End of Term",
+    "eval_instructor_match": true,
+    "eval_instructor": null
+  },
+  "15.385": {
+    "eval_status": "ok",
+    "eval_hours_in": 3.6,
+    "eval_hours_out": 3,
+    "eval_responses": 14,
+    "eval_term": "Fall 2025 Half Term",
+    "eval_instructor_match": true,
+    "eval_instructor": null
+  },
+  "15.388": {
+    "eval_status": "ok",
+    "eval_hours_in": 2.9,
+    "eval_hours_out": 6.8,
+    "eval_responses": 28,
+    "eval_term": "Fall 2025 End of Term",
+    "eval_instructor_match": true,
+    "eval_instructor": null
+  },
+  "15.389": {
+    "eval_status": "ok",
+    "eval_hours_in": 3.1,
+    "eval_hours_out": 5.8,
+    "eval_responses": 17,
+    "eval_term": "Fall 2021 End of Term",
+    "eval_instructor_match": true,
+    "eval_instructor": null
+  },
+  "15.383": {
+    "eval_status": "ok",
+    "eval_hours_in": 3.3,
+    "eval_hours_out": 4.1,
+    "eval_responses": 33,
+    "eval_term": "Spring 2026 End of Term",
+    "eval_instructor_match": null,
+    "eval_instructor": null
+  },
+  "15.386": {
+    "eval_status": "ok",
+    "eval_hours_in": 3.1,
+    "eval_hours_out": 2.1,
+    "eval_responses": 19,
+    "eval_term": "Spring 2025 End of Term",
+    "eval_instructor_match": null,
+    "eval_instructor": null
+  },
+  "15.392": {
+    "eval_status": "ok",
+    "eval_hours_in": 3.5,
+    "eval_hours_out": 1.9,
+    "eval_responses": 20,
+    "eval_term": "Spring 2026 Half Term",
+    "eval_instructor_match": true,
+    "eval_instructor": null
+  },
+  "15.387": {
+    "eval_status": "ok",
+    "eval_hours_in": 3.1,
+    "eval_hours_out": 2.9,
+    "eval_responses": 33,
+    "eval_term": "Spring 2026 End of Term",
+    "eval_instructor_match": true,
+    "eval_instructor": null
+  },
+  "15.390": {
+    "eval_status": "ok",
+    "eval_hours_in": 3.1,
+    "eval_hours_out": 5.2,
+    "eval_responses": 30,
+    "eval_term": "Spring 2026 End of Term",
+    "eval_instructor_match": true,
+    "eval_instructor": null
+  },
+  "15.397": {
+    "eval_status": "none"
+  },
+  "15.396": {
+    "eval_status": "none"
+  },
+  "15.394": {
+    "eval_status": "ok",
+    "eval_hours_in": 3.1,
+    "eval_hours_out": 3,
+    "eval_responses": 18,
+    "eval_term": "Fall 2025 End of Term",
+    "eval_instructor_match": true,
+    "eval_instructor": null
+  },
+  "15.399": {
+    "eval_status": "ok",
+    "eval_hours_in": 3,
+    "eval_hours_out": 5.4,
+    "eval_responses": 17,
+    "eval_term": "Spring 2026 End of Term",
+    "eval_instructor_match": true,
+    "eval_instructor": null
+  },
+  "15.393": {
+    "eval_status": "ok",
+    "eval_hours_in": 9,
+    "eval_hours_out": 1,
+    "eval_responses": 3,
+    "eval_term": "IAP 2026",
+    "eval_instructor_match": null,
+    "eval_instructor": null
+  },
+  "15.403": {
+    "eval_status": "ok",
+    "eval_hours_in": 2,
+    "eval_hours_out": 1,
+    "eval_responses": 54,
+    "eval_term": "Spring 2026 End of Term",
+    "eval_instructor_match": true,
+    "eval_instructor": null
+  },
+  "15.401": {
+    "eval_status": "ok",
+    "eval_hours_in": 3.4,
+    "eval_hours_out": 3.4,
+    "eval_responses": 113,
+    "eval_term": "Spring 2026 End of Term",
+    "eval_instructor_match": true,
+    "eval_instructor": null
+  },
+  "15.398": {
+    "eval_status": "ok",
+    "eval_hours_in": 2.6,
+    "eval_hours_out": 1.3,
+    "eval_responses": 19,
+    "eval_term": "Spring 2025 End of Term",
+    "eval_instructor_match": true,
+    "eval_instructor": null
+  },
+  "15.415": {
+    "eval_status": "none"
+  },
+  "15.410": {
+    "eval_status": "ok",
+    "eval_hours_in": 1.8,
+    "eval_hours_out": 1.1,
+    "eval_responses": 26,
+    "eval_term": "Fall 2025 End of Term",
+    "eval_instructor_match": null,
+    "eval_instructor": null
+  },
+  "15.429": {
+    "eval_status": "ok",
+    "eval_hours_in": 3,
+    "eval_hours_out": 2.5,
+    "eval_responses": 2,
+    "eval_term": "Spring 2024 End of Term",
+    "eval_instructor_match": true,
+    "eval_instructor": null
+  },
+  "15.426": {
+    "eval_status": "ok",
+    "eval_hours_in": 3.8,
+    "eval_hours_out": 3.9,
+    "eval_responses": 17,
+    "eval_term": "Fall 2025 End of Term",
+    "eval_instructor_match": true,
+    "eval_instructor": null
+  },
+  "15.414": {
+    "eval_status": "ok",
+    "eval_hours_in": 3.3,
+    "eval_hours_out": 4.1,
+    "eval_responses": 66,
+    "eval_term": "Fall 2025 End of Term",
+    "eval_instructor_match": false,
+    "eval_instructor": "Aydin, Deniz"
+  },
+  "15.425": {
+    "eval_status": "ok",
+    "eval_hours_in": 3.2,
+    "eval_hours_out": 3.6,
+    "eval_responses": 63,
+    "eval_term": "Fall 2025 End of Term",
+    "eval_instructor_match": true,
+    "eval_instructor": null
+  },
+  "15.431": {
+    "eval_status": "ok",
+    "eval_hours_in": 3.1,
+    "eval_hours_out": 3.8,
+    "eval_responses": 46,
+    "eval_term": "Fall 2025 End of Term",
+    "eval_instructor_match": true,
+    "eval_instructor": null
+  },
+  "15.433": {
+    "eval_status": "ok",
+    "eval_hours_in": 3.3,
+    "eval_hours_out": 4.1,
+    "eval_responses": 41,
+    "eval_term": "Fall 2025 End of Term",
+    "eval_instructor_match": true,
+    "eval_instructor": null
+  },
+  "15.448": {
+    "eval_status": "none"
+  },
+  "15.437": {
+    "eval_status": "ok",
+    "eval_hours_in": 3.1,
+    "eval_hours_out": 6,
+    "eval_responses": 10,
+    "eval_term": "Spring 2026 End of Term",
+    "eval_instructor_match": null,
+    "eval_instructor": null
+  },
+  "15.438": {
+    "eval_status": "ok",
+    "eval_hours_in": 3.2,
+    "eval_hours_out": 5.7,
+    "eval_responses": 10,
+    "eval_term": "Spring 2026 End of Term",
+    "eval_instructor_match": null,
+    "eval_instructor": null
+  },
+  "15.434": {
+    "eval_status": "ok",
+    "eval_hours_in": 3.2,
+    "eval_hours_out": 4.1,
+    "eval_responses": 27,
+    "eval_term": "Fall 2025 End of Term",
+    "eval_instructor_match": false,
+    "eval_instructor": "Gregory, Nathaniel Alexander"
+  },
+  "15.446": {
+    "eval_status": "ok",
+    "eval_hours_in": 3,
+    "eval_hours_out": 4.2,
+    "eval_responses": 33,
+    "eval_term": "Spring 2026 End of Term",
+    "eval_instructor_match": null,
+    "eval_instructor": null
+  },
+  "15.439": {
+    "eval_status": "ok",
+    "eval_hours_in": 3,
+    "eval_hours_out": 5.4,
+    "eval_responses": 16,
+    "eval_term": "Spring 2026 End of Term",
+    "eval_instructor_match": true,
+    "eval_instructor": null
+  },
+  "15.447": {
+    "eval_status": "ok",
+    "eval_hours_in": 3,
+    "eval_hours_out": 3.3,
+    "eval_responses": 4,
+    "eval_term": "Fall 2025 Half Term",
+    "eval_instructor_match": null,
+    "eval_instructor": null
+  },
+  "15.445": {
+    "eval_status": "ok",
+    "eval_hours_in": 3.1,
+    "eval_hours_out": 6.5,
+    "eval_responses": 85,
+    "eval_term": "Spring 2026 End of Term",
+    "eval_instructor_match": null,
+    "eval_instructor": null
+  },
+  "15.454": {
+    "eval_status": "none"
+  },
+  "15.455": {
+    "eval_status": "none"
+  },
+  "15.451": {
+    "eval_status": "ok",
+    "eval_hours_in": 2.4,
+    "eval_hours_out": 5,
+    "eval_responses": 16,
+    "eval_term": "Fall 2025 End of Term",
+    "eval_instructor_match": true,
+    "eval_instructor": null
+  },
+  "15.450": {
+    "eval_status": "ok",
+    "eval_hours_in": 3.1,
+    "eval_hours_out": 4.6,
+    "eval_responses": 18,
+    "eval_term": "Fall 2025 End of Term",
+    "eval_instructor_match": true,
+    "eval_instructor": null
+  },
+  "15.452": {
+    "eval_status": "ok",
+    "eval_hours_in": 2.2,
+    "eval_hours_out": 6.3,
+    "eval_responses": 33,
+    "eval_term": "Spring 2026 End of Term",
+    "eval_instructor_match": null,
+    "eval_instructor": null
+  },
+  "15.456": {
+    "eval_status": "ok",
+    "eval_hours_in": 3.9,
+    "eval_hours_out": 8.6,
+    "eval_responses": 10,
+    "eval_term": "Fall 2025 End of Term",
+    "eval_instructor_match": true,
+    "eval_instructor": null
+  },
+  "15.457": {
+    "eval_status": "ok",
+    "eval_hours_in": 5.1,
+    "eval_hours_out": 5.8,
+    "eval_responses": 26,
+    "eval_term": "Fall 2025 End of Term",
+    "eval_instructor_match": true,
+    "eval_instructor": null
+  },
+  "15.453": {
+    "eval_status": "ok",
+    "eval_hours_in": 2.5,
+    "eval_hours_out": 20,
+    "eval_responses": 18,
+    "eval_term": "Spring 2026 Half Term",
+    "eval_instructor_match": true,
+    "eval_instructor": null
+  },
+  "15.458": {
+    "eval_status": "ok",
+    "eval_hours_in": 3.1,
+    "eval_hours_out": 7.3,
+    "eval_responses": 23,
+    "eval_term": "Spring 2026 End of Term",
+    "eval_instructor_match": null,
+    "eval_instructor": null
+  },
+  "15.465": {
+    "eval_status": "ok",
+    "eval_hours_in": 3,
+    "eval_hours_out": 3.2,
+    "eval_responses": 60,
+    "eval_term": "Spring 2026 End of Term",
+    "eval_instructor_match": null,
+    "eval_instructor": null
+  },
+  "15.471": {
+    "eval_status": "ok",
+    "eval_hours_in": null,
+    "eval_hours_out": null,
+    "eval_responses": 4,
+    "eval_term": "Spring 2026 End of Term",
+    "eval_instructor_match": true,
+    "eval_instructor": null
+  },
+  "15.470": {
+    "eval_status": "ok",
+    "eval_hours_in": 4,
+    "eval_hours_out": 10.3,
+    "eval_responses": 7,
+    "eval_term": "Fall 2025 End of Term",
+    "eval_instructor_match": true,
+    "eval_instructor": null
+  },
+  "15.466": {
+    "eval_status": "ok",
+    "eval_hours_in": 3,
+    "eval_hours_out": 3,
+    "eval_responses": 9,
+    "eval_term": "Spring 2025 End of Term",
+    "eval_instructor_match": null,
+    "eval_instructor": null
+  },
+  "15.467": {
+    "eval_status": "ok",
+    "eval_hours_in": 3,
+    "eval_hours_out": 3.8,
+    "eval_responses": 10,
+    "eval_term": "Spring 2025 End of Term",
+    "eval_instructor_match": null,
+    "eval_instructor": null
+  },
+  "15.472": {
+    "eval_status": "ok",
+    "eval_hours_in": 3,
+    "eval_hours_out": 10,
+    "eval_responses": 4,
+    "eval_term": "Fall 2025 End of Term",
+    "eval_instructor_match": true,
+    "eval_instructor": null
+  },
+  "15.473": {
+    "eval_status": "ok",
+    "eval_hours_in": 3,
+    "eval_hours_out": 3,
+    "eval_responses": 3,
+    "eval_term": "Spring 2026 End of Term",
+    "eval_instructor_match": true,
+    "eval_instructor": null
+  },
+  "15.482": {
+    "eval_status": "ok",
+    "eval_hours_in": 3,
+    "eval_hours_out": 3.7,
+    "eval_responses": 41,
+    "eval_term": "Spring 2026 End of Term",
+    "eval_instructor_match": null,
+    "eval_instructor": null
+  },
+  "15.481": {
+    "eval_status": "ok",
+    "eval_hours_in": 3.2,
+    "eval_hours_out": 3.4,
+    "eval_responses": 34,
+    "eval_term": "Spring 2025 End of Term",
+    "eval_instructor_match": null,
+    "eval_instructor": null
+  },
+  "15.483": {
+    "eval_status": "ok",
+    "eval_hours_in": 3.1,
+    "eval_hours_out": 3.7,
+    "eval_responses": 26,
+    "eval_term": "Fall 2025 End of Term",
+    "eval_instructor_match": false,
+    "eval_instructor": "Parker, Jonathan A."
+  },
+  "15.475": {
+    "eval_status": "ok",
+    "eval_hours_in": 2,
+    "eval_hours_out": 2.5,
+    "eval_responses": 3,
+    "eval_term": "Fall 2025 End of Term",
+    "eval_instructor_match": false,
+    "eval_instructor": "Thesmar, David"
+  },
+  "15.492": {
+    "eval_status": "ok",
+    "eval_hours_in": 3,
+    "eval_hours_out": 3.9,
+    "eval_responses": 21,
+    "eval_term": "Spring 2026 End of Term",
+    "eval_instructor_match": true,
+    "eval_instructor": null
+  },
+  "15.474": {
+    "eval_status": "ok",
+    "eval_hours_in": 3,
+    "eval_hours_out": 2,
+    "eval_responses": 1,
+    "eval_term": "Spring 2026 End of Term",
+    "eval_instructor_match": false,
+    "eval_instructor": "Antolin-Diaz, Juan"
+  },
+  "15.497": {
+    "eval_status": "ok",
+    "eval_hours_in": 2.9,
+    "eval_hours_out": 4.7,
+    "eval_responses": 9,
+    "eval_term": "Fall 2025 End of Term",
+    "eval_instructor_match": true,
+    "eval_instructor": null
+  },
+  "15.480": {
+    "eval_status": "ok",
+    "eval_hours_in": 2.9,
+    "eval_hours_out": 3.4,
+    "eval_responses": 9,
+    "eval_term": "Spring 2026 End of Term",
+    "eval_instructor_match": true,
+    "eval_instructor": null
+  },
+  "15.511": {
+    "eval_status": "none"
+  },
+  "15.518": {
+    "eval_status": "ok",
+    "eval_hours_in": 3,
+    "eval_hours_out": 2,
+    "eval_responses": 30,
+    "eval_term": "Spring 2026 End of Term",
+    "eval_instructor_match": null,
+    "eval_instructor": null
+  },
+  "15.521": {
+    "eval_status": "ok",
+    "eval_hours_in": 4.2,
+    "eval_hours_out": 8.6,
+    "eval_responses": 13,
+    "eval_term": "Spring 2026 Half Term",
+    "eval_instructor_match": true,
+    "eval_instructor": null
+  },
+  "15.499": {
+    "eval_status": "ok",
+    "eval_hours_in": 3,
+    "eval_hours_out": 2.6,
+    "eval_responses": 13,
+    "eval_term": "Spring 2026 Half Term",
+    "eval_instructor_match": null,
+    "eval_instructor": null
+  },
+  "15.539": {
+    "eval_status": "ok",
+    "eval_hours_in": null,
+    "eval_hours_out": null,
+    "eval_responses": 1,
+    "eval_term": "Spring 2026 End of Term",
+    "eval_instructor_match": false,
+    "eval_instructor": "Shroff, Nemit"
+  },
+  "15.515": {
+    "eval_status": "ok",
+    "eval_hours_in": 3.4,
+    "eval_hours_out": 2.2,
+    "eval_responses": 333,
+    "eval_term": "Fall 2025 End of Term",
+    "eval_instructor_match": true,
+    "eval_instructor": null
+  },
+  "15.516": {
+    "eval_status": "ok",
+    "eval_hours_in": 2.8,
+    "eval_hours_out": 3,
+    "eval_responses": 5,
+    "eval_term": "Spring 2026 End of Term",
+    "eval_instructor_match": false,
+    "eval_instructor": "Moran, Joseph"
+  },
+  "15.535": {
+    "eval_status": "ok",
+    "eval_hours_in": 3,
+    "eval_hours_out": 3.6,
+    "eval_responses": 46,
+    "eval_term": "Spring 2026 End of Term",
+    "eval_instructor_match": true,
+    "eval_instructor": null
+  },
+  "15.540": {
+    "eval_status": "ok",
+    "eval_hours_in": null,
+    "eval_hours_out": null,
+    "eval_responses": 0,
+    "eval_term": "Spring 2026 End of Term",
+    "eval_instructor_match": true,
+    "eval_instructor": null
+  },
+  "15.568": {
+    "eval_status": "ok",
+    "eval_hours_in": 3,
+    "eval_hours_out": 2.7,
+    "eval_responses": 7,
+    "eval_term": "Spring 2026 End of Term",
+    "eval_instructor_match": null,
+    "eval_instructor": null
+  },
+  "15.567": {
+    "eval_status": "ok",
+    "eval_hours_in": 3,
+    "eval_hours_out": 2.3,
+    "eval_responses": 11,
+    "eval_term": "Spring 2026 End of Term",
+    "eval_instructor_match": true,
+    "eval_instructor": null
+  },
+  "15.562": {
+    "eval_status": "ok",
+    "eval_hours_in": 2,
+    "eval_hours_out": 1.4,
+    "eval_responses": 7,
+    "eval_term": "Fall 2024 End of Term",
+    "eval_instructor_match": null,
+    "eval_instructor": null
+  },
+  "15.561": {
+    "eval_status": "ok",
+    "eval_hours_in": 3,
+    "eval_hours_out": 3.8,
+    "eval_responses": 30,
+    "eval_term": "Fall 2025 End of Term",
+    "eval_instructor_match": true,
+    "eval_instructor": null
+  },
+  "15.563": {
+    "eval_status": "ok",
+    "eval_hours_in": 3.2,
+    "eval_hours_out": 3.1,
+    "eval_responses": 43,
+    "eval_term": "Spring 2026 End of Term",
+    "eval_instructor_match": true,
+    "eval_instructor": null
+  },
+  "15.570": {
+    "eval_status": "ok",
+    "eval_hours_in": 2.1,
+    "eval_hours_out": 2.2,
+    "eval_responses": 21,
+    "eval_term": "Fall 2024 End of Term",
+    "eval_instructor_match": null,
+    "eval_instructor": null
+  },
+  "15.572": {
+    "eval_status": "ok",
+    "eval_hours_in": 2.3,
+    "eval_hours_out": 5.4,
+    "eval_responses": 18,
+    "eval_term": "Fall 2025 End of Term",
+    "eval_instructor_match": true,
+    "eval_instructor": null
+  },
+  "15.574": {
+    "eval_status": "none"
+  },
+  "15.575": {
+    "eval_status": "ok",
+    "eval_hours_in": 3,
+    "eval_hours_out": null,
+    "eval_responses": 1,
+    "eval_term": "Spring 2026 End of Term",
+    "eval_instructor_match": true,
+    "eval_instructor": null
+  },
+  "15.580": {
+    "eval_status": "ok",
+    "eval_hours_in": 2,
+    "eval_hours_out": 4,
+    "eval_responses": 2,
+    "eval_term": "Spring 2025 End of Term",
+    "eval_instructor_match": null,
+    "eval_instructor": null
+  },
+  "15.576": {
+    "eval_status": "ok",
+    "eval_hours_in": 3,
+    "eval_hours_out": 7.2,
+    "eval_responses": 8,
+    "eval_term": "Spring 2025 End of Term",
+    "eval_instructor_match": true,
+    "eval_instructor": null
+  },
+  "15.579": {
+    "eval_status": "ok",
+    "eval_hours_in": 3,
+    "eval_hours_out": 4,
+    "eval_responses": 3,
+    "eval_term": "Fall 2023 End of Term",
+    "eval_instructor_match": null,
+    "eval_instructor": null
+  },
+  "15.617": {
+    "eval_status": "ok",
+    "eval_hours_in": 3,
+    "eval_hours_out": 2.7,
+    "eval_responses": 28,
+    "eval_term": "Spring 2016 End of Term",
+    "eval_instructor_match": null,
+    "eval_instructor": null
+  },
+  "15.615": {
+    "eval_status": "ok",
+    "eval_hours_in": 3.1,
+    "eval_hours_out": 2.3,
+    "eval_responses": 24,
+    "eval_term": "Spring 2026 End of Term",
+    "eval_instructor_match": true,
+    "eval_instructor": null
+  },
+  "15.573": {
+    "eval_status": "ok",
+    "eval_hours_in": 3.2,
+    "eval_hours_out": 4.3,
+    "eval_responses": 35,
+    "eval_term": "Spring 2026 End of Term",
+    "eval_instructor_match": true,
+    "eval_instructor": null
+  },
+  "15.630": {
+    "eval_status": "ok",
+    "eval_hours_in": 3.3,
+    "eval_hours_out": 1.7,
+    "eval_responses": 4,
+    "eval_term": "IAP 2026",
+    "eval_instructor_match": null,
+    "eval_instructor": null
+  },
+  "15.647": {
+    "eval_status": "ok",
+    "eval_hours_in": 3.6,
+    "eval_hours_out": 4.2,
+    "eval_responses": 6,
+    "eval_term": "Spring 2014 Half Term",
+    "eval_instructor_match": null,
+    "eval_instructor": null
+  },
+  "15.621": {
+    "eval_status": "ok",
+    "eval_hours_in": 3,
+    "eval_hours_out": 0.7,
+    "eval_responses": 8,
+    "eval_term": "Fall 2025 End of Term",
+    "eval_instructor_match": true,
+    "eval_instructor": null
+  },
+  "15.620": {
+    "eval_status": "ok",
+    "eval_hours_in": 1.8,
+    "eval_hours_out": 2.2,
+    "eval_responses": 6,
+    "eval_term": "Spring 2026 End of Term",
+    "eval_instructor_match": true,
+    "eval_instructor": null
+  },
+  "15.618": {
+    "eval_status": "ok",
+    "eval_hours_in": 2.3,
+    "eval_hours_out": 1.9,
+    "eval_responses": 19,
+    "eval_term": "Spring 2026 End of Term",
+    "eval_instructor_match": true,
+    "eval_instructor": null
+  },
+  "15.622": {
+    "eval_status": "ok",
+    "eval_hours_in": 2,
+    "eval_hours_out": 1.6,
+    "eval_responses": 34,
+    "eval_term": "Spring 2026 End of Term",
+    "eval_instructor_match": true,
+    "eval_instructor": null
+  },
+  "15.657": {
+    "eval_status": "ok",
+    "eval_hours_in": 2.5,
+    "eval_hours_out": 4.8,
+    "eval_responses": 6,
+    "eval_term": "Fall 2025 End of Term",
+    "eval_instructor_match": true,
+    "eval_instructor": null
+  },
+  "15.655": {
+    "eval_status": "ok",
+    "eval_hours_in": 3.4,
+    "eval_hours_out": 6.7,
+    "eval_responses": 7,
+    "eval_term": "Fall 2025 End of Term",
+    "eval_instructor_match": true,
+    "eval_instructor": null
+  },
+  "15.661": {
+    "eval_status": "ok",
+    "eval_hours_in": 3,
+    "eval_hours_out": 2.9,
+    "eval_responses": 46,
+    "eval_term": "Fall 2025 End of Term",
+    "eval_instructor_match": null,
+    "eval_instructor": null
+  },
+  "15.671": {
+    "eval_status": "ok",
+    "eval_hours_in": 4,
+    "eval_hours_out": 3.2,
+    "eval_responses": 30,
+    "eval_term": "Fall 2025 Half Term",
+    "eval_instructor_match": true,
+    "eval_instructor": null
+  },
+  "15.669": {
+    "eval_status": "ok",
+    "eval_hours_in": 3.1,
+    "eval_hours_out": 2.8,
+    "eval_responses": 17,
+    "eval_term": "Fall 2025 Half Term",
+    "eval_instructor_match": null,
+    "eval_instructor": null
+  },
+  "15.662": {
+    "eval_status": "ok",
+    "eval_hours_in": 3,
+    "eval_hours_out": 2.9,
+    "eval_responses": 61,
+    "eval_term": "Spring 2024 End of Term",
+    "eval_instructor_match": true,
+    "eval_instructor": null
+  },
+  "15.665": {
+    "eval_status": "ok",
+    "eval_hours_in": 3,
+    "eval_hours_out": 1.7,
+    "eval_responses": 126,
+    "eval_term": "Spring 2026 End of Term",
+    "eval_instructor_match": false,
+    "eval_instructor": "Lu, Jackson"
+  },
+  "15.672": {
+    "eval_status": "ok",
+    "eval_hours_in": 22.5,
+    "eval_hours_out": 4.6,
+    "eval_responses": 28,
+    "eval_term": "IAP 2026",
+    "eval_instructor_match": true,
+    "eval_instructor": null
+  },
+  "15.673": {
+    "eval_status": "ok",
+    "eval_hours_in": 22.5,
+    "eval_hours_out": 4.6,
+    "eval_responses": 28,
+    "eval_term": "IAP 2026",
+    "eval_instructor_match": true,
+    "eval_instructor": null
+  },
+  "15.663": {
+    "eval_status": "ok",
+    "eval_hours_in": 3.4,
+    "eval_hours_out": 6,
+    "eval_responses": 6,
+    "eval_term": "Spring 2026 End of Term",
+    "eval_instructor_match": true,
+    "eval_instructor": null
+  },
+  "15.691": {
+    "eval_status": "none"
+  },
+  "15.676": {
+    "eval_status": "ok",
+    "eval_hours_in": 3,
+    "eval_hours_out": 4,
+    "eval_responses": 1,
+    "eval_term": "Spring 2025 End of Term",
+    "eval_instructor_match": true,
+    "eval_instructor": null
+  },
+  "15.675": {
+    "eval_status": "ok",
+    "eval_hours_in": 18.5,
+    "eval_hours_out": 5.3,
+    "eval_responses": 25,
+    "eval_term": "IAP 2025",
+    "eval_instructor_match": true,
+    "eval_instructor": null
+  },
+  "15.681": {
+    "eval_status": "ok",
+    "eval_hours_in": 2.1,
+    "eval_hours_out": 1.6,
+    "eval_responses": 10,
+    "eval_term": "Fall 2025 End of Term",
+    "eval_instructor_match": true,
+    "eval_instructor": null
+  },
+  "15.679": {
+    "eval_status": "ok",
+    "eval_hours_in": 3,
+    "eval_hours_out": 2.8,
+    "eval_responses": 4,
+    "eval_term": "Spring 2026 Half Term",
+    "eval_instructor_match": true,
+    "eval_instructor": null
+  },
+  "15.677": {
+    "eval_status": "ok",
+    "eval_hours_in": 3,
+    "eval_hours_out": 6.3,
+    "eval_responses": 6,
+    "eval_term": "Spring 2026 End of Term",
+    "eval_instructor_match": true,
+    "eval_instructor": null
+  },
+  "15.698": {
+    "eval_status": "ok",
+    "eval_hours_in": 3.2,
+    "eval_hours_out": 3.7,
+    "eval_responses": 111,
+    "eval_term": "Spring 2014 End of Term",
+    "eval_instructor_match": null,
+    "eval_instructor": null
+  },
+  "15.674": {
+    "eval_status": "ok",
+    "eval_hours_in": 3.1,
+    "eval_hours_out": 5.2,
+    "eval_responses": 10,
+    "eval_term": "Spring 2026 End of Term",
+    "eval_instructor_match": true,
+    "eval_instructor": null
+  },
+  "15.700": {
+    "eval_status": "none"
+  },
+  "15.703": {
+    "eval_status": "none"
+  },
+  "15.702": {
+    "eval_status": "none"
+  },
+  "15.705": {
+    "eval_status": "none"
+  },
+  "15.704": {
+    "eval_status": "none"
+  },
+  "15.701": {
+    "eval_status": "none"
+  },
+  "15.708": {
+    "eval_status": "none"
+  },
+  "15.707": {
+    "eval_status": "none"
+  },
+  "15.709": {
+    "eval_status": "none"
+  },
+  "15.712": {
+    "eval_status": "none"
+  },
+  "15.714": {
+    "eval_status": "none"
+  },
+  "15.711": {
+    "eval_status": "none"
+  },
+  "15.715": {
+    "eval_status": "none"
+  },
+  "15.716": {
+    "eval_status": "none"
+  },
+  "15.718": {
+    "eval_status": "none"
+  },
+  "15.717": {
+    "eval_status": "none"
+  },
+  "15.721": {
+    "eval_status": "none"
+  },
+  "15.720": {
+    "eval_status": "none"
+  },
+  "15.722": {
+    "eval_status": "none"
+  },
+  "15.726": {
+    "eval_status": "none"
+  },
+  "15.723": {
+    "eval_status": "none"
+  },
+  "15.724": {
+    "eval_status": "none"
+  },
+  "15.729": {
+    "eval_status": "none"
+  },
+  "15.727": {
+    "eval_status": "none"
+  },
+  "15.734": {
+    "eval_status": "none"
+  },
+  "15.731": {
+    "eval_status": "none"
+  },
+  "15.730": {
+    "eval_status": "none"
+  },
+  "15.733": {
+    "eval_status": "none"
+  },
+  "15.736": {
+    "eval_status": "none"
+  },
+  "15.732": {
+    "eval_status": "none"
+  },
+  "15.737": {
+    "eval_status": "none"
+  },
+  "15.738": {
+    "eval_status": "none"
+  },
+  "15.741": {
+    "eval_status": "none"
+  },
+  "15.742": {
+    "eval_status": "none"
+  },
+  "15.740": {
+    "eval_status": "none"
+  },
+  "15.739": {
+    "eval_status": "ok",
+    "eval_hours_in": 2.8,
+    "eval_hours_out": 3.8,
+    "eval_responses": 21,
+    "eval_term": "Fall 2023 End of Term",
+    "eval_instructor_match": true,
+    "eval_instructor": null
+  },
+  "15.763": {
+    "eval_status": "ok",
+    "eval_hours_in": 3,
+    "eval_hours_out": 3,
+    "eval_responses": 5,
+    "eval_term": "Spring 2023 End of Term",
+    "eval_instructor_match": null,
+    "eval_instructor": null
+  },
+  "15.762": {
+    "eval_status": "ok",
+    "eval_hours_in": 3.1,
+    "eval_hours_out": 5,
+    "eval_responses": 34,
+    "eval_term": "Spring 2024 End of Term",
+    "eval_instructor_match": null,
+    "eval_instructor": null
+  },
+  "15.764": {
+    "eval_status": "ok",
+    "eval_hours_in": 3,
+    "eval_hours_out": 4.3,
+    "eval_responses": 9,
+    "eval_term": "Spring 2026 End of Term",
+    "eval_instructor_match": null,
+    "eval_instructor": null
+  },
+  "15.765": {
+    "eval_status": "ok",
+    "eval_hours_in": 3.1,
+    "eval_hours_out": 4.8,
+    "eval_responses": 15,
+    "eval_term": "Spring 2026 Half Term",
+    "eval_instructor_match": true,
+    "eval_instructor": null
+  },
+  "15.766": {
+    "eval_status": "ok",
+    "eval_hours_in": 24,
+    "eval_hours_out": 18.8,
+    "eval_responses": 6,
+    "eval_term": "IAP 2026",
+    "eval_instructor_match": null,
+    "eval_instructor": null
+  },
+  "15.769": {
+    "eval_status": "ok",
+    "eval_hours_in": 3.1,
+    "eval_hours_out": 4.2,
+    "eval_responses": 79,
+    "eval_term": "Spring 2026 End of Term",
+    "eval_instructor_match": true,
+    "eval_instructor": null
+  },
+  "15.767": {
+    "eval_status": "ok",
+    "eval_hours_in": 3,
+    "eval_hours_out": 5.3,
+    "eval_responses": 10,
+    "eval_term": "IAP 2017",
+    "eval_instructor_match": null,
+    "eval_instructor": null
+  },
+  "15.768": {
+    "eval_status": "ok",
+    "eval_hours_in": 2.9,
+    "eval_hours_out": 4.1,
+    "eval_responses": 70,
+    "eval_term": "Fall 2025 End of Term",
+    "eval_instructor_match": true,
+    "eval_instructor": null
+  },
+  "15.775": {
+    "eval_status": "ok",
+    "eval_hours_in": 2,
+    "eval_hours_out": 1.7,
+    "eval_responses": 30,
+    "eval_term": "Spring 2024 Half Term",
+    "eval_instructor_match": null,
+    "eval_instructor": null
+  },
+  "15.774": {
+    "eval_status": "ok",
+    "eval_hours_in": 3.6,
+    "eval_hours_out": 4.4,
+    "eval_responses": 58,
+    "eval_term": "Fall 2025 End of Term",
+    "eval_instructor_match": false,
+    "eval_instructor": "Fazel Zarandi, Mohammad"
+  },
+  "15.771": {
+    "eval_status": "ok",
+    "eval_hours_in": 2.9,
+    "eval_hours_out": 3.7,
+    "eval_responses": 7,
+    "eval_term": "Spring 2026 Half Term",
+    "eval_instructor_match": true,
+    "eval_instructor": null
+  },
+  "15.770": {
+    "eval_status": "ok",
+    "eval_hours_in": 3.3,
+    "eval_hours_out": 7.1,
+    "eval_responses": 23,
+    "eval_term": "Fall 2025 End of Term",
+    "eval_instructor_match": true,
+    "eval_instructor": null
+  },
+  "15.778": {
+    "eval_status": "none"
+  },
+  "15.776": {
+    "eval_status": "ok",
+    "eval_hours_in": 3.5,
+    "eval_hours_out": 3.7,
+    "eval_responses": 32,
+    "eval_term": "Fall 2025 End of Term",
+    "eval_instructor_match": true,
+    "eval_instructor": null
+  },
+  "15.777": {
+    "eval_status": "ok",
+    "eval_hours_in": 4.9,
+    "eval_hours_out": 9.2,
+    "eval_responses": 10,
+    "eval_term": "Fall 2025 End of Term",
+    "eval_instructor_match": true,
+    "eval_instructor": null
+  },
+  "15.782": {
+    "eval_status": "ok",
+    "eval_hours_in": 3,
+    "eval_hours_out": 0.5,
+    "eval_responses": 5,
+    "eval_term": "Spring 2026 End of Term",
+    "eval_instructor_match": null,
+    "eval_instructor": null
+  },
+  "15.781": {
+    "eval_status": "ok",
+    "eval_hours_in": 2.7,
+    "eval_hours_out": 2.9,
+    "eval_responses": 10,
+    "eval_term": "Spring 2019 End of Term",
+    "eval_instructor_match": true,
+    "eval_instructor": null
+  },
+  "15.779": {
+    "eval_status": "ok",
+    "eval_hours_in": 2.7,
+    "eval_hours_out": 2.9,
+    "eval_responses": 10,
+    "eval_term": "Spring 2019 End of Term",
+    "eval_instructor_match": true,
+    "eval_instructor": null
+  },
+  "15.783": {
+    "eval_status": "ok",
+    "eval_hours_in": 6.4,
+    "eval_hours_out": 6.1,
+    "eval_responses": 23,
+    "eval_term": "Spring 2026 End of Term",
+    "eval_instructor_match": true,
+    "eval_instructor": null
+  },
+  "15.784": {
+    "eval_status": "ok",
+    "eval_hours_in": 2.3,
+    "eval_hours_out": 5.1,
+    "eval_responses": 21,
+    "eval_term": "Spring 2026 End of Term",
+    "eval_instructor_match": null,
+    "eval_instructor": null
+  },
+  "15.809": {
+    "eval_status": "none"
+  },
+  "15.794": {
+    "eval_status": "ok",
+    "eval_hours_in": 0,
+    "eval_hours_out": 6.8,
+    "eval_responses": 4,
+    "eval_term": "Spring 2023 End of Term",
+    "eval_instructor_match": null,
+    "eval_instructor": null
+  },
+  "15.799": {
+    "eval_status": "ok",
+    "eval_hours_in": null,
+    "eval_hours_out": null,
+    "eval_responses": 0,
+    "eval_term": "Spring 2024 End of Term",
+    "eval_instructor_match": false,
+    "eval_instructor": "Jonasson, Jonas O."
+  },
+  "15.786": {
+    "eval_status": "ok",
+    "eval_hours_in": 2.9,
+    "eval_hours_out": 3.5,
+    "eval_responses": 32,
+    "eval_term": "Spring 2026 Half Term",
+    "eval_instructor_match": null,
+    "eval_instructor": null
+  },
+  "15.785": {
+    "eval_status": "ok",
+    "eval_hours_in": 3.2,
+    "eval_hours_out": 3.1,
+    "eval_responses": 59,
+    "eval_term": "Spring 2026 Half Term",
+    "eval_instructor_match": null,
+    "eval_instructor": null
+  },
+  "15.792": {
+    "eval_status": "ok",
+    "eval_hours_in": 1.8,
+    "eval_hours_out": 0.2,
+    "eval_responses": 8,
+    "eval_term": "Spring 2026 End of Term",
+    "eval_instructor_match": true,
+    "eval_instructor": null
+  },
+  "15.814": {
+    "eval_status": "ok",
+    "eval_hours_in": 3,
+    "eval_hours_out": 2.8,
+    "eval_responses": 14,
+    "eval_term": "Spring 2026 End of Term",
+    "eval_instructor_match": false,
+    "eval_instructor": "Bhui, Rahul"
+  },
+  "15.815": {
+    "eval_status": "ok",
+    "eval_hours_in": 3,
+    "eval_hours_out": 2,
+    "eval_responses": 8,
+    "eval_term": "Spring 2026 End of Term",
+    "eval_instructor_match": true,
+    "eval_instructor": null
+  },
+  "15.830": {
+    "eval_status": "none"
+  },
+  "15.833": {
+    "eval_status": "ok",
+    "eval_hours_in": 3,
+    "eval_hours_out": 4.4,
+    "eval_responses": 11,
+    "eval_term": "Fall 2025 End of Term",
+    "eval_instructor_match": true,
+    "eval_instructor": null
+  },
+  "15.821": {
+    "eval_status": "ok",
+    "eval_hours_in": 3,
+    "eval_hours_out": 2,
+    "eval_responses": 6,
+    "eval_term": "Spring 2026 Half Term",
+    "eval_instructor_match": null,
+    "eval_instructor": null
+  },
+  "15.819": {
+    "eval_status": "ok",
+    "eval_hours_in": 3,
+    "eval_hours_out": 2.8,
+    "eval_responses": 14,
+    "eval_term": "Spring 2026 End of Term",
+    "eval_instructor_match": null,
+    "eval_instructor": null
+  },
+  "15.822": {
+    "eval_status": "ok",
+    "eval_hours_in": 3,
+    "eval_hours_out": 3.4,
+    "eval_responses": 14,
+    "eval_term": "Spring 2017 End of Term",
+    "eval_instructor_match": null,
+    "eval_instructor": null
+  },
+  "15.834": {
+    "eval_status": "ok",
+    "eval_hours_in": 3.7,
+    "eval_hours_out": 3.3,
+    "eval_responses": 10,
+    "eval_term": "Spring 2023 Half Term",
+    "eval_instructor_match": null,
+    "eval_instructor": null
+  },
+  "15.818": {
+    "eval_status": "ok",
+    "eval_hours_in": 3.1,
+    "eval_hours_out": 3.2,
+    "eval_responses": 36,
+    "eval_term": "Fall 2024 Half Term",
+    "eval_instructor_match": null,
+    "eval_instructor": null
+  },
+  "15.835": {
+    "eval_status": "ok",
+    "eval_hours_in": 3,
+    "eval_hours_out": 2.5,
+    "eval_responses": 9,
+    "eval_term": "Spring 2016 End of Term",
+    "eval_instructor_match": null,
+    "eval_instructor": null
+  },
+  "15.870": {
+    "eval_status": "none"
+  },
+  "15.838": {
+    "eval_status": "ok",
+    "eval_hours_in": 3,
+    "eval_hours_out": 2,
+    "eval_responses": 1,
+    "eval_term": "Spring 2026 End of Term",
+    "eval_instructor_match": null,
+    "eval_instructor": null
+  },
+  "15.839": {
+    "eval_status": "ok",
+    "eval_hours_in": 1,
+    "eval_hours_out": 0,
+    "eval_responses": 1,
+    "eval_term": "Spring 2026 End of Term",
+    "eval_instructor_match": false,
+    "eval_instructor": "Nam, Jimin"
+  },
+  "15.840": {
+    "eval_status": "ok",
+    "eval_hours_in": 3,
+    "eval_hours_out": 5.7,
+    "eval_responses": 5,
+    "eval_term": "Spring 2018 End of Term",
+    "eval_instructor_match": null,
+    "eval_instructor": null
+  },
+  "15.847": {
+    "eval_status": "ok",
+    "eval_hours_in": 3.1,
+    "eval_hours_out": 1.9,
+    "eval_responses": 34,
+    "eval_term": "Fall 2023 End of Term",
+    "eval_instructor_match": null,
+    "eval_instructor": null
+  },
+  "15.846": {
+    "eval_status": "ok",
+    "eval_hours_in": 3,
+    "eval_hours_out": 2,
+    "eval_responses": 35,
+    "eval_term": "Spring 2026 End of Term",
+    "eval_instructor_match": null,
+    "eval_instructor": null
+  },
+  "15.872": {
+    "eval_status": "ok",
+    "eval_hours_in": 3.2,
+    "eval_hours_out": 9.7,
+    "eval_responses": 7,
+    "eval_term": "Spring 2019 End of Term",
+    "eval_instructor_match": null,
+    "eval_instructor": null
+  },
+  "15.871": {
+    "eval_status": "ok",
+    "eval_hours_in": 3.3,
+    "eval_hours_out": 7.3,
+    "eval_responses": 49,
+    "eval_term": "Spring 2026 Half Term",
+    "eval_instructor_match": true,
+    "eval_instructor": null
+  },
+  "15.876": {
+    "eval_status": "none"
+  },
+  "15.878": {
+    "eval_status": "ok",
+    "eval_hours_in": 2.3,
+    "eval_hours_out": 6.4,
+    "eval_responses": 11,
+    "eval_term": "Spring 2026 End of Term",
+    "eval_instructor_match": null,
+    "eval_instructor": null
+  },
+  "15.879": {
+    "eval_status": "ok",
+    "eval_hours_in": null,
+    "eval_hours_out": null,
+    "eval_responses": 1,
+    "eval_term": "Spring 2026 End of Term",
+    "eval_instructor_match": false,
+    "eval_instructor": "Chu, Johan"
+  },
+  "15.873": {
+    "eval_status": "ok",
+    "eval_hours_in": 3.4,
+    "eval_hours_out": 7.5,
+    "eval_responses": 13,
+    "eval_term": "Spring 2026 End of Term",
+    "eval_instructor_match": false,
+    "eval_instructor": "Chu, Johan"
+  },
+  "15.902": {
+    "eval_status": "ok",
+    "eval_hours_in": 3.5,
+    "eval_hours_out": 4.1,
+    "eval_responses": 50,
+    "eval_term": "Spring 2017 Half Term",
+    "eval_instructor_match": null,
+    "eval_instructor": null
+  },
+  "15.900": {
+    "eval_status": "ok",
+    "eval_hours_in": 4.9,
+    "eval_hours_out": 5.6,
+    "eval_responses": 10,
+    "eval_term": "Spring 2026 Half Term",
+    "eval_instructor_match": false,
+    "eval_instructor": "Rilinger, Georg"
+  },
+  "15.904": {
+    "eval_status": "ok",
+    "eval_hours_in": 3,
+    "eval_hours_out": 4.2,
+    "eval_responses": 27,
+    "eval_term": "Spring 2019 End of Term",
+    "eval_instructor_match": null,
+    "eval_instructor": null
+  },
+  "15.903": {
+    "eval_status": "ok",
+    "eval_hours_in": 3.9,
+    "eval_hours_out": 2.7,
+    "eval_responses": 18,
+    "eval_term": "Spring 2025 Half Term",
+    "eval_instructor_match": null,
+    "eval_instructor": null
+  },
+  "15.906": {
+    "eval_status": "ok",
+    "eval_hours_in": 9.2,
+    "eval_hours_out": 4,
+    "eval_responses": 20,
+    "eval_term": "Fall 2023 Half Term",
+    "eval_instructor_match": true,
+    "eval_instructor": null
+  },
+  "15.910": {
+    "eval_status": "ok",
+    "eval_hours_in": 3.1,
+    "eval_hours_out": 3.1,
+    "eval_responses": 25,
+    "eval_term": "Fall 2024 End of Term",
+    "eval_instructor_match": null,
+    "eval_instructor": null
+  },
+  "15.913": {
+    "eval_status": "ok",
+    "eval_hours_in": 4.6,
+    "eval_hours_out": 6.4,
+    "eval_responses": 16,
+    "eval_term": "Spring 2018 Half Term",
+    "eval_instructor_match": null,
+    "eval_instructor": null
+  },
+  "15.912": {
+    "eval_status": "ok",
+    "eval_hours_in": null,
+    "eval_hours_out": null,
+    "eval_responses": 18,
+    "eval_term": "Sloan H1",
+    "eval_instructor_match": null,
+    "eval_instructor": null
+  },
+  "15.914": {
+    "eval_status": "ok",
+    "eval_hours_in": 2,
+    "eval_hours_out": 3.9,
+    "eval_responses": 12,
+    "eval_term": "Spring 2018 End of Term",
+    "eval_instructor_match": null,
+    "eval_instructor": null
+  },
+  "15.928": {
+    "eval_status": "ok",
+    "eval_hours_in": 3,
+    "eval_hours_out": 8,
+    "eval_responses": 3,
+    "eval_term": "Spring 2025 End of Term",
+    "eval_instructor_match": null,
+    "eval_instructor": null
+  },
+  "15.911": {
+    "eval_status": "ok",
+    "eval_hours_in": 2.9,
+    "eval_hours_out": 2.9,
+    "eval_responses": 36,
+    "eval_term": "Spring 2026 End of Term",
+    "eval_instructor_match": false,
+    "eval_instructor": "Scott, Erin"
+  },
+  "15.915": {
+    "eval_status": "ok",
+    "eval_hours_in": 3.3,
+    "eval_hours_out": 4.8,
+    "eval_responses": 32,
+    "eval_term": "Spring 2026 End of Term",
+    "eval_instructor_match": true,
+    "eval_instructor": null
+  },
+  "15.949": {
+    "eval_status": "none"
+  },
+  "15.C51": {
+    "eval_status": "ok",
+    "eval_hours_in": 3.2,
+    "eval_hours_out": 4.9,
+    "eval_responses": 20,
+    "eval_term": "Spring 2026 End of Term",
+    "eval_instructor_match": true,
+    "eval_instructor": null
+  },
+  "15.929": {
+    "eval_status": "ok",
+    "eval_hours_in": 3,
+    "eval_hours_out": 14.5,
+    "eval_responses": 3,
+    "eval_term": "Spring 2026 End of Term",
+    "eval_instructor_match": null,
+    "eval_instructor": null
+  },
+  "15.941": {
+    "eval_status": "ok",
+    "eval_hours_in": 3,
+    "eval_hours_out": 5,
+    "eval_responses": 9,
+    "eval_term": "Fall 2023 Half Term",
+    "eval_instructor_match": null,
+    "eval_instructor": null
+  },
+  "15.933": {
+    "eval_status": "ok",
+    "eval_hours_in": 4.5,
+    "eval_hours_out": 4.5,
+    "eval_responses": 2,
+    "eval_term": "Fall 2017 Half Term",
+    "eval_instructor_match": null,
+    "eval_instructor": null
+  },
+  "15.S01": {
+    "eval_status": "ok",
+    "eval_hours_in": 3,
+    "eval_hours_out": 1,
+    "eval_responses": 2,
+    "eval_term": "Spring 2019 Half Term",
+    "eval_instructor_match": null,
+    "eval_instructor": null
+  },
+  "15.S02": {
+    "eval_status": "ok",
+    "eval_hours_in": 3.1,
+    "eval_hours_out": 3.3,
+    "eval_responses": 12,
+    "eval_term": "Spring 2026 End of Term",
+    "eval_instructor_match": null,
+    "eval_instructor": null
+  },
+  "15.C57": {
+    "eval_status": "ok",
+    "eval_hours_in": 3.8,
+    "eval_hours_out": 7.8,
+    "eval_responses": 79,
+    "eval_term": "Fall 2025 End of Term",
+    "eval_instructor_match": false,
+    "eval_instructor": "Amin, Saurabh"
+  },
+  "15.S08": {
+    "eval_status": "ok",
+    "eval_hours_in": 3,
+    "eval_hours_out": 4.7,
+    "eval_responses": 19,
+    "eval_term": "Fall 2025 End of Term",
+    "eval_instructor_match": false,
+    "eval_instructor": "Chen, Mike"
+  },
+  "15.S07": {
+    "eval_status": "ok",
+    "eval_hours_in": 3,
+    "eval_hours_out": 2.9,
+    "eval_responses": 22,
+    "eval_term": "Fall 2025 End of Term",
+    "eval_instructor_match": true,
+    "eval_instructor": null
+  },
+  "15.S06": {
+    "eval_status": "ok",
+    "eval_hours_in": 3,
+    "eval_hours_out": 8.5,
+    "eval_responses": 3,
+    "eval_term": "Fall 2025 End of Term",
+    "eval_instructor_match": true,
+    "eval_instructor": null
+  },
+  "15.S05": {
+    "eval_status": "ok",
+    "eval_hours_in": 2.7,
+    "eval_hours_out": 2.7,
+    "eval_responses": 13,
+    "eval_term": "Spring 2026 End of Term",
+    "eval_instructor_match": false,
+    "eval_instructor": "Michaels, Harvey G."
+  },
+  "15.S09": {
+    "eval_status": "ok",
+    "eval_hours_in": 3,
+    "eval_hours_out": 4.5,
+    "eval_responses": 5,
+    "eval_term": "Spring 2026 Half Term",
+    "eval_instructor_match": false,
+    "eval_instructor": "Acquisti, Alessandro"
+  },
+  "15.S03": {
+    "eval_status": "ok",
+    "eval_hours_in": 3,
+    "eval_hours_out": 2.8,
+    "eval_responses": 54,
+    "eval_term": "Fall 2025 End of Term",
+    "eval_instructor_match": true,
+    "eval_instructor": null
+  },
+  "15.S10": {
+    "eval_status": "ok",
+    "eval_hours_in": 3,
+    "eval_hours_out": 5,
+    "eval_responses": 10,
+    "eval_term": "Spring 2026 End of Term",
+    "eval_instructor_match": null,
+    "eval_instructor": null
+  },
+  "15.S13": {
+    "eval_status": "ok",
+    "eval_hours_in": 2.9,
+    "eval_hours_out": 1.8,
+    "eval_responses": 10,
+    "eval_term": "Spring 2026 End of Term",
+    "eval_instructor_match": false,
+    "eval_instructor": "Pisini, Victoria"
+  },
+  "15.S14": {
+    "eval_status": "ok",
+    "eval_hours_in": 3,
+    "eval_hours_out": 4.8,
+    "eval_responses": 5,
+    "eval_term": "Fall 2025 End of Term",
+    "eval_instructor_match": null,
+    "eval_instructor": null
+  },
+  "15.S15": {
+    "eval_status": "ok",
+    "eval_hours_in": 3,
+    "eval_hours_out": 2.6,
+    "eval_responses": 14,
+    "eval_term": "Spring 2025 End of Term",
+    "eval_instructor_match": null,
+    "eval_instructor": null
+  },
+  "15.S17": {
+    "eval_status": "ok",
+    "eval_hours_in": 3,
+    "eval_hours_out": 2.8,
+    "eval_responses": 20,
+    "eval_term": "Spring 2025 End of Term",
+    "eval_instructor_match": false,
+    "eval_instructor": "Kazakoff, Miro"
+  },
+  "15.S18": {
+    "eval_status": "ok",
+    "eval_hours_in": 3.1,
+    "eval_hours_out": 3.3,
+    "eval_responses": 12,
+    "eval_term": "Spring 2024 End of Term",
+    "eval_instructor_match": false,
+    "eval_instructor": "Zuckerman Sivan, Ezra W."
+  },
+  "15.S16": {
+    "eval_status": "ok",
+    "eval_hours_in": 2.9,
+    "eval_hours_out": 3.1,
+    "eval_responses": 40,
+    "eval_term": "Spring 2026 Half Term",
+    "eval_instructor_match": false,
+    "eval_instructor": "Gensler, Gary"
+  },
+  "15.S20": {
+    "eval_status": "ok",
+    "eval_hours_in": 19.7,
+    "eval_hours_out": 0.7,
+    "eval_responses": 6,
+    "eval_term": "IAP 2026",
+    "eval_instructor_match": null,
+    "eval_instructor": null
+  },
+  "15.S30": {
+    "eval_status": "ok",
+    "eval_hours_in": 3,
+    "eval_hours_out": 3.3,
+    "eval_responses": 20,
+    "eval_term": "Spring 2014 End of Term",
+    "eval_instructor_match": null,
+    "eval_instructor": null
+  },
+  "15.S19": {
+    "eval_status": "ok",
+    "eval_hours_in": 3,
+    "eval_hours_out": 1.8,
+    "eval_responses": 26,
+    "eval_term": "Spring 2026 End of Term",
+    "eval_instructor_match": null,
+    "eval_instructor": null
+  },
+  "15.S31": {
+    "eval_status": "none"
+  },
+  "15.S32": {
+    "eval_status": "none"
+  },
+  "15.S33": {
+    "eval_status": "none"
+  },
+  "15.S35": {
+    "eval_status": "none"
+  },
+  "15.S50": {
+    "eval_status": "ok",
+    "eval_hours_in": 3.3,
+    "eval_hours_out": 3.8,
+    "eval_responses": 7,
+    "eval_term": "IAP 2026",
+    "eval_instructor_match": null,
+    "eval_instructor": null
+  },
+  "15.S52": {
+    "eval_status": "ok",
+    "eval_hours_in": 3,
+    "eval_hours_out": 4,
+    "eval_responses": 4,
+    "eval_term": "Spring 2022 End of Term",
+    "eval_instructor_match": null,
+    "eval_instructor": null
+  },
+  "15.S53": {
+    "eval_status": "ok",
+    "eval_hours_in": 3.5,
+    "eval_hours_out": 2.3,
+    "eval_responses": 8,
+    "eval_term": "Spring 2017 End of Term",
+    "eval_instructor_match": null,
+    "eval_instructor": null
+  },
+  "15.S51": {
+    "eval_status": "ok",
+    "eval_hours_in": 3,
+    "eval_hours_out": 0,
+    "eval_responses": 3,
+    "eval_term": "Spring 2022 End of Term",
+    "eval_instructor_match": false,
+    "eval_instructor": "Eppinger, Steven D."
+  },
+  "15.S58": {
+    "eval_status": "none"
+  },
+  "15.S61": {
+    "eval_status": "none"
+  },
+  "15.S55": {
+    "eval_status": "ok",
+    "eval_hours_in": 2,
+    "eval_hours_out": 3,
+    "eval_responses": 2,
+    "eval_term": "Spring 2019 End of Term",
+    "eval_instructor_match": null,
+    "eval_instructor": null
+  },
+  "15.S54": {
+    "eval_status": "ok",
+    "eval_hours_in": 3.5,
+    "eval_hours_out": 2.6,
+    "eval_responses": 17,
+    "eval_term": "Spring 2024 End of Term",
+    "eval_instructor_match": null,
+    "eval_instructor": null
+  },
+  "15.S56": {
+    "eval_status": "ok",
+    "eval_hours_in": null,
+    "eval_hours_out": null,
+    "eval_responses": 1,
+    "eval_term": "IAP 2017",
+    "eval_instructor_match": null,
+    "eval_instructor": null
+  },
+  "15.S57": {
+    "eval_status": "ok",
+    "eval_hours_in": 2.5,
+    "eval_hours_out": 0.3,
+    "eval_responses": 6,
+    "eval_term": "Fall 2021 End of Term",
+    "eval_instructor_match": null,
+    "eval_instructor": null
+  },
+  "15.S60": {
+    "eval_status": "ok",
+    "eval_hours_in": 6,
+    "eval_hours_out": 2,
+    "eval_responses": 1,
+    "eval_term": "IAP 2026",
+    "eval_instructor_match": null,
+    "eval_instructor": null
+  },
+  "15.S59": {
+    "eval_status": "ok",
+    "eval_hours_in": 3,
+    "eval_hours_out": 1.5,
+    "eval_responses": 45,
+    "eval_term": "Spring 2026 End of Term",
+    "eval_instructor_match": null,
+    "eval_instructor": null
+  },
+  "15.S64": {
+    "eval_status": "ok",
+    "eval_hours_in": null,
+    "eval_hours_out": null,
+    "eval_responses": 24,
+    "eval_term": "Fall 2020 End of Term",
+    "eval_instructor_match": null,
+    "eval_instructor": null
+  },
+  "15.S66": {
+    "eval_status": "ok",
+    "eval_hours_in": null,
+    "eval_hours_out": null,
+    "eval_responses": 0,
+    "eval_term": "Spring 2023 End of Term",
+    "eval_instructor_match": null,
+    "eval_instructor": null
+  },
+  "15.S63": {
+    "eval_status": "ok",
+    "eval_hours_in": 16.3,
+    "eval_hours_out": 3,
+    "eval_responses": 10,
+    "eval_term": "IAP 2018",
+    "eval_instructor_match": null,
+    "eval_instructor": null
+  },
+  "15.S62": {
+    "eval_status": "ok",
+    "eval_hours_in": 12.1,
+    "eval_hours_out": 7.5,
+    "eval_responses": 8,
+    "eval_term": "IAP 2022",
+    "eval_instructor_match": null,
+    "eval_instructor": null
+  },
+  "15.S67": {
+    "eval_status": "ok",
+    "eval_hours_in": 3.3,
+    "eval_hours_out": 4.5,
+    "eval_responses": 9,
+    "eval_term": "Spring 2026 End of Term",
+    "eval_instructor_match": true,
+    "eval_instructor": null
+  },
+  "15.S69": {
+    "eval_status": "ok",
+    "eval_hours_in": 3.1,
+    "eval_hours_out": 3.3,
+    "eval_responses": 16,
+    "eval_term": "Spring 2018 End of Term",
+    "eval_instructor_match": null,
+    "eval_instructor": null
+  },
+  "15.S65": {
+    "eval_status": "ok",
+    "eval_hours_in": 9.5,
+    "eval_hours_out": 4.5,
+    "eval_responses": 2,
+    "eval_term": "Spring 2026 End of Term",
+    "eval_instructor_match": null,
+    "eval_instructor": null
+  },
+  "15.S68": {
+    "eval_status": "ok",
+    "eval_hours_in": 2.9,
+    "eval_hours_out": 2.4,
+    "eval_responses": 11,
+    "eval_term": "Spring 2025 End of Term",
+    "eval_instructor_match": null,
+    "eval_instructor": null
+  },
+  "15.960": {
+    "eval_status": "none"
+  },
+  "15.961": {
+    "eval_status": "none"
+  },
+  "15.S70": {
+    "eval_status": "ok",
+    "eval_hours_in": null,
+    "eval_hours_out": null,
+    "eval_responses": 0,
+    "eval_term": "Fall 2022 End of Term",
+    "eval_instructor_match": false,
+    "eval_instructor": "Mitchell, Megan"
+  },
+  "15.S75": {
+    "eval_status": "ok",
+    "eval_hours_in": 3,
+    "eval_hours_out": 6.3,
+    "eval_responses": 4,
+    "eval_term": "Spring 2026 End of Term",
+    "eval_instructor_match": false,
+    "eval_instructor": "Turco, Catherine"
+  },
+  "15.S73": {
+    "eval_status": "ok",
+    "eval_hours_in": 3.2,
+    "eval_hours_out": 3.7,
+    "eval_responses": 8,
+    "eval_term": "Spring 2024 End of Term",
+    "eval_instructor_match": null,
+    "eval_instructor": null
+  },
+  "15.S71": {
+    "eval_status": "ok",
+    "eval_hours_in": null,
+    "eval_hours_out": null,
+    "eval_responses": 2,
+    "eval_term": "Spring 2025 End of Term",
+    "eval_instructor_match": null,
+    "eval_instructor": null
+  },
+  "15.S74": {
+    "eval_status": "ok",
+    "eval_hours_in": 4.3,
+    "eval_hours_out": 3.7,
+    "eval_responses": 11,
+    "eval_term": "Spring 2025 Half Term",
+    "eval_instructor_match": null,
+    "eval_instructor": null
+  },
+  "15.S72": {
+    "eval_status": "ok",
+    "eval_hours_in": 3,
+    "eval_hours_out": 4,
+    "eval_responses": 5,
+    "eval_term": "Fall 2023 Half Term",
+    "eval_instructor_match": null,
+    "eval_instructor": null
+  },
+  "15.THG": {
+    "eval_status": "none"
+  },
+  "15.999": {
+    "eval_status": "none"
+  },
+  "15.998": {
+    "eval_status": "none"
+  }
+}

@@ -1,12 +1,11 @@
-# Personal overlay (ratings/evals/notes that stay on Krish's machine)
+# Personal overlay (ratings/notes that stay on Krish's machine)
 personal/
 
 # Working/scratch data (raw scrapes, helper scripts, cached HTML)
 .scratch/
 
-# Personal data layers — never publish
+# Personal data layer — never publish (eval hours are public as of 2026-10-26)
 ratings.json
-evals.json
 
 # Planning brief — internal only, never commit
 PLAN_public_launch.md

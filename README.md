@@ -13,17 +13,20 @@ browse graduate courses, plan a two-year schedule term by term, and track progre
 
 ## What it does
 
-**Browse** — 713 graduate subjects across the departments LGO students most commonly draw from:
+**Browse** — 730 graduate subjects across the departments LGO students most commonly draw from:
 
 | Dept | Courses | Covers |
 |------|--------:|--------|
-| Course 6 — EECS | 151 | engineering electives, AAGS core |
-| Course 15 — Management (Sloan) | 392 | MBA core, LGO-required, MBA electives |
+| Course 6 — EECS | 158 | engineering electives, AAGS core |
+| Course 15 — Management (Sloan) | 396 | MBA core, LGO-required, MBA electives |
 | Course 2 — MechE | 170 | non-EECS engineering electives |
+| Common Ground for Computing (other depts) | 6 | 6.C51 co-requisite modules and similar |
 
 For each course: number, title, category, term offered, offering status (e.g. *not offered this
 year*), units (and total), prerequisites (resolved to names), parsed schedule, description,
-instructor, and **AAGS** approval status. Filter by department, term, offering, category, AAGS,
+instructor, **AAGS** approval status (taken only from the EECS AAGS page), and **workload** —
+average weekly hours in and out of class from MIT subject evaluations, with a Light → Very Heavy
+difficulty label (about 400 EECS and Sloan courses have evaluation data). Filter by department, term, offering, category, AAGS,
 unit range, **🎨 pre-approved design classes**, and **🧪 Action Learning labs**; search and sort on
 any column; show/hide columns.
 
@@ -34,7 +37,9 @@ any column; show/hide columns.
   as **audit** (shown but not counted toward credit).
 - A live **requirements tracker** for the LGO dual degree:
   - **MBA** — core (36u) + LGO-required (71u) + free electives (≥49u) = **156u**
-  - **EECS SM** — AAGS core (3 courses / 36u) + LGO-required eng (24u) + eng electives = **≥66u**
+  - **EECS SM** (mirrors the LGO handbook, Appendix 5A) — AAGS core (3 AAGS-approved courses / 36u)
+    + LGO-required eng (24u) + eng electives beyond the AAGS core (≥6u) = **≥66u**. 6.C51 taken with
+    a 6u co-requisite module (e.g. 15.C51) counts as one 12u AAGS course.
   - **SM thesis** (24u), **Python** (6.S090), and the **LGO Design** requirement
   - Pre-approved design courses satisfy the Design requirement automatically.
 - Requirement targets are **editable** (and resettable to defaults), so the model isn't locked in.
@@ -75,6 +80,7 @@ merges in the small public data files below, and writes `data.js`.
 | `al.json` | MIT Sloan Action Learning labs (lab codes, terms) |
 | `design.json` | LGO pre-approved design classes (approved / conditional) |
 | `extra.json` | hand-added special subjects not in the main catalog pages |
+| `evals.json` | workload hours from MIT subject evaluations (most recent report per course) |
 
 To add a department, add an entry to the `DEPARTMENTS` list at the top of `scrape.py` and re-run it.
 
@@ -86,10 +92,12 @@ To add a department, add an entry to the `DEPARTMENTS` list at the top of `scrap
   degree. Courses from other departments are browsable and plannable as electives, but per-major
   requirement models for other engineering programs aren't built in yet.
 - **Term labels** currently span a fixed two-year window and fit one cohort at a time.
-- **No ratings or workload data.** This public build intentionally ships **without** subjective
-  "worth-taking" ratings or course-evaluation workload hours. (Evaluation data comes from a
-  login-gated MIT site, and ratings are inherently personal.) The Rating / Difficulty / Hours
-  columns are present but empty. Letting users import their own ratings/notes is on the roadmap.
+- **Workload data coverage.** Hours come from the most recent MIT subject-evaluation report for each
+  course, which may reflect a different instructor or year (the *Eval match* column flags this; a `*`
+  marks small response counts). MechE, Common Ground and brand-new special subjects have no
+  evaluation data yet.
+- **No ratings.** Subjective "worth-taking" ratings are personal and are not included; the Rating
+  columns are empty. Letting users import their own ratings/notes is on the roadmap.
 
 ---
 

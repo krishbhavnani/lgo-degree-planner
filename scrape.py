@@ -323,10 +323,71 @@ def parse_catalog(refresh=False):
 
 
 # ---------------------------------------------------------------------------
+# Common Ground for Computing Education (cross-department "X.C##" subjects)
+# ---------------------------------------------------------------------------
+# These live on their own catalog page (mCGa) under CG.### anchors, plus a
+# "Common Ground" section of m6e. Each block names its real subject number in
+# the <h3>. A class can be jointly listed under several departments ("Same
+# subject as ..."). Like other joint classes in this dataset, we keep one row per
+# covered department; a class with no covered-department number gets one row.
+CG_SOURCES = [("mCGa", None), ("m6e", "Common Ground for Computing Education")]
+CG_OTHER_DEPT = "Common Ground — other depts"
+CG_NUM_RE = re.compile(r"\b[0-9A-Z]+\.[0-9A-Z]+\b")
+
+
+def parse_common_ground(existing_numbers, refresh=False):
+    covered = {d["code"]: d["name"] for d in DEPARTMENTS}
+    seen = set(existing_numbers)
+    out, page_dates = [], {}
+    for page, section in CG_SOURCES:
+        page_html = fetch(CATALOG_URL.format(page), "%s.html" % page, refresh)
+        md = re.search(r"Produced:\s*([^<]+)", page_html)
+        if md:
+            page_dates[page] = md.group(1).strip()
+        cats = categories_by_pos(page_html)
+        for m in re.finditer(r'<a name="([^"]+)"></a>(.*?)<!--end-->', page_html, re.I | re.S):
+            anchor, body = m.group(1), m.group(2)
+            cat = category_for(cats, m.start())
+            if section and cat != section:
+                continue
+            mh = re.search(r"<h3[^>]*>\s*([0-9A-Z]+\.[0-9A-Z]+)", body)
+            if not mh or ".C" not in mh.group(1):
+                continue
+            num = mh.group(1)
+            ms = re.search(r"\(Same subject as(.*?)\)", body, re.S)
+            joint = CG_NUM_RE.findall(strip_tags(ms.group(1))) if ms else []
+            prefix = num.split(".")[0]
+            if prefix in covered:
+                if num in seen:
+                    continue
+                dept = covered[prefix]
+            else:
+                if any(j.split(".")[0] in covered for j in joint) or \
+                   any(x in seen for x in [num] + joint):
+                    # mark only non-covered numbers; covered ones get their own row
+                    seen.update(x for x in [num] + joint if x.split(".")[0] not in covered)
+                    continue
+                dept = CG_OTHER_DEPT
+            category = "Common Ground: " + cat if (page == "mCGa" and cat) else "Common Ground"
+            rec = parse_block(num, body, category, page, dept)
+            seen.add(num)
+            if prefix not in covered:
+                seen.update(joint)
+            if not rec:
+                continue  # undergraduate
+            rec["url"] = CATALOG_URL.format(page) + "#" + anchor
+            rec["common_ground"] = True
+            out.append(rec)
+    return out, page_dates
+
+
+# ---------------------------------------------------------------------------
 # AAGS approval status
 # ---------------------------------------------------------------------------
 def parse_aags(refresh=False):
-    """Return {course_number: status} from color coding.
+    """Return {course_number: status} from color coding, for EVERY subject on the
+    AAGS page (any department — e.g. the 6.C51 co-requisite modules like 15.C51).
+    The AAGS page is the only source of truth for AAGS status.
 
     blue  -> Approved-Offered, grey -> Approved-NotThisYear,
     black -> Approved-NotInCatalog (in AAGS list but absent from catalog).
@@ -334,12 +395,12 @@ def parse_aags(refresh=False):
     page = fetch(AAGS_URL, "aags.html", refresh)
     status = {}
     # Each course link carries an inline color style and a search=NUMBER href.
-    for m in re.finditer(r'style="[^"]*color:(blue|grey|black)[^"]*"[^>]*href="[^"]*search=(6\.[A-Za-z0-9]+)"',
+    for m in re.finditer(r'style="[^"]*color:(blue|grey|black)[^"]*"[^>]*href="[^"]*search=([A-Za-z0-9]+\.[A-Za-z0-9]+)"',
                          page):
         color, num = m.group(1), m.group(2)
         status[num] = color
     # Some pages place href before style; try the reverse order too.
-    for m in re.finditer(r'href="[^"]*search=(6\.[A-Za-z0-9]+)"[^>]*style="[^"]*color:(blue|grey|black)',
+    for m in re.finditer(r'href="[^"]*search=([A-Za-z0-9]+\.[A-Za-z0-9]+)"[^>]*style="[^"]*color:(blue|grey|black)',
                          page):
         num, color = m.group(1), m.group(2)
         status.setdefault(num, color)
@@ -437,6 +498,11 @@ def main():
     courses, page_dates, all_titles = parse_catalog(refresh)
     print("  parsed %d graduate courses" % len(courses))
 
+    cg, cg_dates = parse_common_ground({c["number"] for c in courses}, refresh)
+    courses.extend(cg)
+    page_dates.update(cg_dates)
+    print("  added %d Common Ground graduate courses" % len(cg))
+
     # Resolve prereq names from the full catalog (grad + undergrad subjects).
     # Append hand-added courses (special subjects, etc.) before downstream processing.
     extra = load_extra()
@@ -450,16 +516,17 @@ def main():
         c["prereqs"] = [{"number": n, "name": name_by_num.get(n, "")}
                         for n in c["prereq_numbers"]]
 
+    # AAGS status comes ONLY from the AAGS page (never from extra.json or elsewhere).
     aags_depts = {d["name"] for d in DEPARTMENTS if d["aags"]}
-    aags = {}
-    if aags_depts:
-        print("Fetching AAGS approvals...")
-        aags = parse_aags(refresh)
+    print("Fetching AAGS approvals...")
+    aags = parse_aags(refresh)
     for c in courses:
-        if c["department"] not in aags_depts:
-            c["aags"] = "N/A"  # AAGS is an EECS requirement; not applicable
-        elif c["number"] in aags:
+        if c["number"] in aags:
             c["aags"] = aags[c["number"]]
+        elif c["department"] in aags_depts:
+            c["aags"] = "Not approved"
+        else:
+            c["aags"] = "N/A"  # non-EECS course not on the AAGS page
 
     # Apply evaluation data (authoritative) from evals.json.
     evals = load_evals()
