@@ -1,0 +1,2 @@
+# Only needed to read the MIT Sloan Action Learning booklet (PDF). Everything else is stdlib.
+pypdf==6.14.2

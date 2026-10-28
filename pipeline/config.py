@@ -11,6 +11,12 @@ ARCHIVE_DIR = os.path.join(ROOT, ".data")
 
 CATALOG_URL = "https://student.mit.edu/catalog/{}.html"
 AAGS_URL = "https://eecsis.mit.edu/degree_requirements.pcgi?program=AAGS"
+CATALOG_INDEX_URL = "https://student.mit.edu/catalog/index.cgi"
+EECS_UPDATES_URL = "https://www.eecs.mit.edu/academics/subject-updates/"
+DESIGN_URL = ("https://lgo-handbook.mit.edu/students/academic-guide/"
+              "overview-of-academic-requirements/appendix-2-preapproved-design-classes/")
+AL_URL = "https://mitsloan.mit.edu/action-learning"
+AL_LABS_URL = "https://mitsloan.mit.edu/action-learning/explore-our-labs"
 
 # Departments to scrape. `code` is the subject-number prefix and the OSE department id;
 # `aags` flags the EECS AAGS approved-subject list (only meaningful for Course 6).
@@ -54,13 +60,26 @@ LOGIN_MARKERS = ('type="password"', "type='password'", "samlrequest", "touchston
 
 
 class Source:
-    """One fetchable page. `kind` groups snapshots on the data branch (snapshots/<kind>/<page>/)."""
+    """One fetchable page. `kind` groups snapshots on the data branch (snapshots/<kind>/<page>/)
+    and names the extract it feeds (extracts/<kind>.json).
 
-    def __init__(self, kind, page, url, cache_name):
+    secondary  if True, a failure keeps that source's last good extract (run still publishes,
+               but exits non-zero); catalog and AAGS failures block publishing.
+    normalize  "catalog": ignore the daily Produced stamp / expires tag when detecting changes;
+               "html": also ignore scripts, comments and whitespace (WordPress timing comments);
+               "none": compare raw bytes (PDFs).
+    """
+
+    def __init__(self, kind, page, url, cache_name=None, ext=".html", min_bytes=None,
+                 normalize="catalog", secondary=False):
         self.kind = kind
         self.page = page
         self.url = url
-        self.cache_name = cache_name
+        self.ext = ext
+        self.cache_name = cache_name or "%s__%s%s" % (kind, page, ext)
+        self.min_bytes = MIN_PAGE_BYTES if min_bytes is None else min_bytes
+        self.normalize = normalize
+        self.secondary = secondary
 
     @property
     def key(self):
@@ -69,6 +88,12 @@ class Source:
     def __repr__(self):
         return "Source(%s)" % self.key
 
+    def __eq__(self, other):
+        return isinstance(other, Source) and other.key == self.key
+
+    def __hash__(self):
+        return hash(self.key)
+
 
 def catalog_source(page):
     return Source("catalog", page, CATALOG_URL.format(page), "%s.html" % page)
@@ -76,13 +101,28 @@ def catalog_source(page):
 
 AAGS_SOURCE = Source("aags", "aags", AAGS_URL, "aags.html")
 
+# Secondary sources (B30 ticket 2b). Pages found by following links are added at run time
+# by each source module's discover() (EECS semester pages + fragments, the AL booklet PDF).
+CATALOG_INDEX_SOURCE = Source("catalog-index", "index", CATALOG_INDEX_URL, min_bytes=5 * 1024,
+                              secondary=True)
+EECS_UPDATES_SOURCE = Source("eecs-updates", "index", EECS_UPDATES_URL, normalize="html",
+                             secondary=True)
+DESIGN_SOURCE = Source("design", "appendix-2", DESIGN_URL, normalize="html", secondary=True)
+AL_PAGE_SOURCE = Source("action-learning", "index", AL_URL, normalize="html", secondary=True)
+AL_LABS_SOURCE = Source("action-learning", "labs", AL_LABS_URL, normalize="html",
+                        secondary=True)
 
-def build_sources(catalog_pages):
-    """Registry for a run: every catalog page (in order, de-duplicated) plus the AAGS page."""
+
+def build_sources(catalog_pages, secondary=True):
+    """Static registry for a run: catalog pages (in order, de-duplicated), the AAGS page, and
+    (unless secondary=False) the secondary sources."""
     seen, out = set(), []
     for p in catalog_pages:
         if p not in seen:
             seen.add(p)
             out.append(catalog_source(p))
     out.append(AAGS_SOURCE)
+    if secondary:
+        out += [CATALOG_INDEX_SOURCE, EECS_UPDATES_SOURCE, DESIGN_SOURCE, AL_PAGE_SOURCE,
+                AL_LABS_SOURCE]
     return out

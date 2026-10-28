@@ -65,30 +65,42 @@ over `http://` if you prefer). It loads `data.js` and runs entirely client-side.
 
 ## How the data is built
 
-Course data is scraped once into `data.js` / `courses.json` by `scrape.py` (Python 3, standard
-library only). The snapshot in this repo was pulled **2026-07-30**.
+Course data is built into `data.js` / `courses.json` by `scrape.py` (Python 3; standard library
+plus `pypdf` for one PDF, see `requirements.txt`). Nothing is maintained by hand: every source has
+a fetcher in `pipeline/sources/`.
 
 ```bash
-python3 scrape.py              # uses cached catalog HTML if present in .scratch/
-python3 scrape.py --refresh    # re-download the catalog + AAGS list from MIT
+pip install -r requirements.txt
+python3 scrape.py --refresh    # fetch everything live from MIT, check, publish
+python3 scrape.py              # rebuild from the locally cached pages
+python3 -m unittest discover -s tests -t .
 ```
 
-The scraper pulls the public [MIT Course Catalog](https://student.mit.edu/catalog/) pages and the
-EECS [AAGS](https://eecsis.mit.edu/degree_requirements.pcgi?program=AAGS) approved-subject list,
-merges in the small public data files below, and writes `data.js`.
+| Source | What it provides |
+|--------|------------------|
+| [MIT Subject Listing](https://student.mit.edu/catalog/) | every graduate subject, terms, units, schedule, offering status; the academic year is read from the pages |
+| MIT Subject Listing index | department names for subjects outside the scraped departments |
+| EECS [AAGS](https://eecsis.mit.edu/degree_requirements.pcgi?program=AAGS) list | AAGS approval (the only source for it) |
+| EECS [subject updates](https://www.eecs.mit.edu/academics/subject-updates/) | this and next term's EECS special subjects (all graduate ones) |
+| LGO handbook, Appendix 2 | pre-approved and conditionally approved design classes |
+| MIT Sloan [Action Learning](https://mitsloan.mit.edu/action-learning) course booklet | which courses are Action Learning labs |
+| `evals.json` | workload hours from MIT subject evaluations (refreshed once per term by a logged-in run; only the extracted hours are published) |
 
-| File | What it is |
-|------|------------|
-| `index.html` | the app (UI + logic) |
-| `data.js` | generated: `window.COURSE_DATA`, loaded by the page |
-| `courses.json` | the same data as JSON, for inspection |
-| `scrape.py` | the catalog + AAGS scraper |
-| `al.json` | MIT Sloan Action Learning labs (lab codes, terms) |
-| `design.json` | LGO pre-approved design classes (approved / conditional) |
-| `extra.json` | hand-added special subjects not in the main catalog pages |
-| `evals.json` | workload hours from MIT subject evaluations (most recent report per course) |
+**Guardrails.** Every run checks what it fetched before publishing anything: pages returned and
+complete, no login pages, catalog pages from the same day, course counts not down more than 30%
+from the last good run, required fields present. If the catalog or AAGS checks fail, nothing is
+written. If one of the other sources breaks (a page redesign, a late booklet), the run keeps that
+source's last good data, still publishes, and exits with a warning.
 
-To add a department, add an entry to the `DEPARTMENTS` list at the top of `scrape.py` and re-run it.
+**History.** Raw copies of every page are archived on the
+[`data` branch](https://github.com/krishbhavnani/lgo-degree-planner/tree/data) (saved only when
+they change), along with the parsed data per source.
+
+**Known limitation.** The Action Learning booklet is the only source that marks courses as labs.
+Regular-numbered labs stay labs from year to year without it, but a brand-new lab, or a lab that
+runs under a special-subject number (15.Sxx), is only picked up once Sloan publishes the booklet.
+
+To add a department, add it to `CATALOG_DEPARTMENTS` in `pipeline/config.py` and re-run.
 
 ---
 
@@ -109,12 +121,7 @@ To add a department, add an entry to the `DEPARTMENTS` list at the top of `scrap
 
 ## Data sources
 
-- MIT Course Catalog — `student.mit.edu/catalog`
-- EECS AAGS approved-subject list — `eecsis.mit.edu`
-- LGO Online Handbook (degree requirements, pre-approved design classes)
-- MIT Sloan Action Learning booklet
-
-All course content belongs to MIT and its departments; this tool only reorganizes publicly listed
+See [How the data is built](#how-the-data-is-built). All course content belongs to MIT and its departments; this tool only reorganizes publicly listed
 information for planning convenience.
 
 ---

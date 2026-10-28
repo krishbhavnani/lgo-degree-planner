@@ -22,6 +22,8 @@ from datetime import datetime, timezone
 
 _PRODUCED_RE = re.compile(rb"Produced:\s*[^<\r\n]*", re.I)
 _EXPIRES_RE = re.compile(rb"<meta\s+http-equiv\s*=\s*[\"']?expires[\"']?[^>]*>", re.I)
+_SCRIPT_RE = re.compile(rb"<script\b.*?</script>|<style\b.*?</style>|<!--.*?-->", re.I | re.S)
+_SPACE_RE = re.compile(rb"\s+")
 _PRODUCED_TEXT_RE = re.compile(r"Produced:\s*([^<\r\n]+)", re.I)
 
 README = """# `data` branch — raw source snapshots
@@ -30,18 +32,21 @@ This branch is the raw-data archive for
 [lgo-degree-planner](https://github.com/krishbhavnani/lgo-degree-planner). It is never merged
 into `main`; the app does not read it.
 
-Every scrape fetches the public source pages (MIT Subject Listing catalog pages and the EECS
-AAGS approved-subject list) and saves a page **only when its content changed** since the last
-saved copy, gzipped, exactly as served.
+Every scrape fetches the public source pages (MIT Subject Listing catalog pages and index, the
+EECS AAGS approved-subject list, EECS subject updates, the LGO handbook's pre-approved design
+classes, MIT Sloan Action Learning pages and course booklet) and saves a page **only when its
+content changed** since the last saved copy, gzipped, exactly as served.
 
 | Path | What it is |
 |------|------------|
-| `snapshots/<kind>/<page>/<UTC time>.html.gz` | raw page as fetched (`gunzip -c` to read) |
+| `snapshots/<kind>/<page>/<UTC time>.html.gz` | raw page as fetched (`gunzip -c` to read); the Action Learning booklet is `.pdf.gz` |
+| `extracts/<source>.json` | the latest good parse of each source; each record names the snapshot it came from |
 | `manifest.jsonl` | one line per page fetch: when, HTTP status, size, the page's `Produced:` stamp, content hash, and either the file saved or the earlier file it is unchanged from |
 | `runs.jsonl` | one line per scrape run: pass/fail, every guardrail check, per-page counts |
 
 Change detection ignores the daily `Produced:` stamp and the `<meta http-equiv="expires">`
-tag, which change every day without any content change.
+tag on catalog pages, and scripts, comments and whitespace on the other web pages; these change
+without any content change.
 
 Snapshots from runs that failed a guardrail are kept too (marked `fail`) so a bad fetch can be
 inspected. Entries marked `seed` were imported from earlier local caches when the archive
@@ -54,14 +59,24 @@ All course content belongs to MIT and its departments.
 """
 
 
-def normalize(body):
-    """Bytes with the volatile daily stamp/expiry removed (used only for change detection)."""
+def normalize(body, mode="catalog"):
+    """Bytes with volatile parts removed (used only for change detection).
+
+    catalog: the daily Produced stamp and expires tag.
+    html:    also scripts, styles, comments (e.g. WordPress timing comments) and whitespace.
+    none:    raw bytes (PDFs).
+    """
+    if mode == "none":
+        return body
     body = _PRODUCED_RE.sub(b"Produced:", body)
-    return _EXPIRES_RE.sub(b"", body)
+    body = _EXPIRES_RE.sub(b"", body)
+    if mode == "html":
+        body = _SPACE_RE.sub(b" ", _SCRIPT_RE.sub(b"", body)).strip()
+    return body
 
 
-def content_hash(body):
-    return hashlib.sha256(normalize(body)).hexdigest()
+def content_hash(body, mode="catalog"):
+    return hashlib.sha256(normalize(body, mode)).hexdigest()
 
 
 def produced_stamp(text):
@@ -167,7 +182,7 @@ class Archive:
         if seed:
             entry["seed"] = True
         if body and not login:
-            h = content_hash(body)
+            h = content_hash(body, getattr(source, "normalize", "catalog"))
             entry["hash"] = h
             prev = self.latest().get(source.key)
             if prev and prev["hash"] == h:
@@ -188,11 +203,12 @@ class Archive:
         folder = os.path.join("snapshots", source.kind, source.page)
         os.makedirs(os.path.join(self.root, folder), exist_ok=True)
         name = stamp(when)
-        rel = os.path.join(folder, name + ".html.gz")
+        ext = getattr(source, "ext", ".html")
+        rel = os.path.join(folder, name + ext + ".gz")
         n = 1
         while os.path.exists(os.path.join(self.root, rel)):
             n += 1
-            rel = os.path.join(folder, "%s-%d.html.gz" % (name, n))
+            rel = os.path.join(folder, "%s-%d%s.gz" % (name, n, ext))
         # mtime=0 keeps the gzip bytes deterministic for identical input.
         with open(os.path.join(self.root, rel), "wb") as f:
             f.write(gzip.compress(body, compresslevel=9, mtime=0))

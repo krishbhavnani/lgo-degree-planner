@@ -18,8 +18,8 @@ Checks
   <source>       problems a source parser reports itself (e.g. catalog: academic year can't be
                  determined, duplicate course numbers)
 
-Each check has a level. "fail" blocks publishing. "warn" still publishes but makes the run
-exit non-zero so it gets noticed (e.g. the catalog title term doesn't match the academic year,
+Each check has a level. "fail" blocks publishing. "info" is a note only. "warn" still publishes
+but makes the run exit non-zero so it gets noticed (e.g. the catalog title term doesn't match the academic year,
 which is expected around the annual rollover).
 """
 
@@ -55,6 +55,8 @@ def is_login_page(result):
     host = (urlparse(result.final_url or "").hostname or "").lower()
     if host in config.LOGIN_HOSTS or "touchstone" in host:
         return True
+    if result.body[:5] == b"%PDF-":
+        return False
     head = result.body[:200000].decode("utf-8", errors="replace").lower()
     return any(m in head for m in config.LOGIN_MARKERS)
 
@@ -125,16 +127,18 @@ def evaluate(sources, results, pages, courses_info, baseline, parse_error=None):
         if r is None:
             checks.append(Check("fetch", s.key, False, "not fetched"))
             continue
-        fetched = r.status == 200 and len(r.body) >= config.MIN_PAGE_BYTES
+        level = "warn" if getattr(s, "secondary", False) else "fail"
+        min_bytes = getattr(s, "min_bytes", config.MIN_PAGE_BYTES)
+        fetched = r.status == 200 and len(r.body) >= min_bytes
         detail = "HTTP %s, %.0f KB" % (r.status, len(r.body) / 1024)
         if r.error and r.status != 200:
             detail += " (%s)" % r.error
         elif r.status == 200 and not fetched:
-            detail += " (under %d KB)" % (config.MIN_PAGE_BYTES // 1024)
-        checks.append(Check("fetch", s.key, fetched, detail))
+            detail += " (under %d KB)" % (min_bytes // 1024)
+        checks.append(Check("fetch", s.key, fetched, detail, level))
         if m.get("login"):
             checks.append(Check("login", s.key, False,
-                                "returned a login page (%s)" % r.final_url))
+                                "returned a login page (%s)" % r.final_url, level))
             continue
         if not fetched:
             continue
@@ -194,8 +198,9 @@ def evaluate(sources, results, pages, courses_info, baseline, parse_error=None):
 
 
 def problem_checks(source, problems):
-    """Turn a source parser's (level, message) problems into checks."""
-    return [Check(source, "run", False, msg, level=level) for level, msg in problems]
+    """Turn a source parser's (level, message) problems into checks. "info" notes are shown in
+    the summary but never affect the result or exit code."""
+    return [Check(source, "run", level == "info", msg, level=level) for level, msg in problems]
 
 
 def passed(checks):
@@ -233,21 +238,23 @@ def summary_table(sources, pages, checks, baseline):
     by_scope = {}
     for c in checks:
         by_scope.setdefault(c.scope, []).append(c)
-    lines = ["", "%-14s %5s %7s  %-22s %9s  %s" %
+    lines = ["", "%-26s %5s %7s  %-22s %9s  %s" %
              ("PAGE", "HTTP", "KB", "PRODUCED", "SUBJECTS", "RESULT")]
     for s in sources:
         m = pages.get(s.key, {})
         subj = m.get("subjects")
         base = base_pages.get(s.key, {}).get("subjects")
         subj_txt = "" if subj is None else ("%d" % subj if not base else "%d/%d" % (subj, base))
-        fails = [c for c in by_scope.get(s.key, []) if not c.ok and c.level == "fail"]
-        lines.append("%-14s %5s %7.0f  %-22s %9s  %s" % (
+        fails = [c for c in by_scope.get(s.key, []) if not c.ok]
+        lines.append("%-26s %5s %7.0f  %-22s %9s  %s" % (
             s.key, m.get("http_status", "-"), m.get("bytes", 0) / 1024,
             (m.get("produced") or "")[:22], subj_txt,
-            "FAIL " + ", ".join(c.name for c in fails) if fails else "ok"))
+            ("FAIL " if any(c.level == "fail" for c in fails) else "WARN ") +
+            ", ".join(c.name for c in fails) if fails else "ok"))
     lines.append("")
     for c in by_scope.get("run", []):
-        mark = "ok" if c.ok else ("WARN" if c.level == "warn" else "FAIL")
+        mark = "info" if c.level == "info" else (
+            "ok" if c.ok else ("WARN" if c.level == "warn" else "FAIL"))
         lines.append("%-4s %-14s %s" % (mark, c.name, c.detail))
     for label, level in (("FAILED CHECKS", "fail"), ("WARNINGS", "warn")):
         bad = [c for c in checks if not c.ok and c.level == level]
