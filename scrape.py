@@ -8,10 +8,9 @@ degree-requirements page, parses GRADUATE subjects only, and writes:
     courses.json   - structured data (for inspection / portability)
     data.js        - `window.COURSE_DATA = {...}` (loaded by index.html offline)
 
-Course-evaluation hours and the subjective rating are filled in by separate
-steps (Chrome-driven eval scrape + Claude-authored ratings). This script
-MERGES those values from the previous data.js on rerun so a catalog refresh
-does not wipe them. Browser flags live in localStorage and are untouched.
+Course-evaluation hours come from evals.json and are merged in on every run.
+Personal ratings are never merged into data.js (it is public); they load at
+runtime from the gitignored personal/ratings.js overlay. Browser flags live in localStorage and are untouched.
 
 Stdlib only (urllib, re, html, json) - no third-party packages required.
 Run:  python3 scrape.py
@@ -433,11 +432,6 @@ def load_evals():
     return _load_json("evals.json")
 
 
-def load_ratings():
-    """ratings.json (Claude-authored) is authoritative for rating + rationale."""
-    return _load_json("ratings.json")
-
-
 def load_design():
     """design.json: LGO pre-approved design classes (approved / conditional)."""
     return _load_json("design.json")
@@ -540,17 +534,8 @@ def main():
         print("  applied evaluation data for %d courses" %
               sum(1 for c in courses if c["eval_status"]))
 
-    # Apply Claude-authored ratings (authoritative) from ratings.json.
-    ratings = load_ratings()
-    for c in courses:
-        rt = ratings.get(c["number"])
-        if rt:
-            for k in ("rating", "rating_rationale"):
-                if k in rt:
-                    c[k] = rt[k]
-    if ratings:
-        print("  applied ratings for %d courses" %
-              sum(1 for c in courses if c["rating"] is not None))
+    # Personal ratings are NOT merged here: data.js is public. They load at runtime from the
+    # gitignored personal/ratings.js overlay (see index.html), so they can never be published.
 
     # Apply LGO pre-approved design-class designation.
     design = load_design()

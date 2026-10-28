@@ -247,9 +247,15 @@
 <div id="modal" hidden><div class="modal-card"><div class="modal-head"><b id="modal-title"></b><button id="modal-x">✕</button></div><div id="modal-body"></div></div></div>
 
 <script src="data.js"></script>
+<!-- Optional personal overlay (gitignored personal/ folder). Missing on the public site, which is fine. -->
+<script src="personal/ratings.js" onerror="this.remove()"></script>
 <script>
 const DATA = (window.COURSE_DATA || {meta:{},courses:[]});
 const COURSES = DATA.courses;
+// Personal overlay: personal/ratings.js (gitignored) sets window.PERSONAL_RATINGS = {number: {rating, rating_rationale}}.
+// Present only on Krish's machine, so the public site never shows Rating/Why columns.
+if(window.PERSONAL_RATINGS) COURSES.forEach(c=>{const r=window.PERSONAL_RATINGS[c.number];
+  if(r){c.rating=r.rating??null; c.rating_rationale=r.rating_rationale??null;}});
 
 // ---- column definitions -------------------------------------------------
 const HAS_RATINGS = COURSES.some(c=>c.rating!=null);
