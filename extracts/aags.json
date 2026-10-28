@@ -1,0 +1,1753 @@
+{
+ "format": 1,
+ "source": "aags",
+ "run_id": "2026-10-28T031421Z",
+ "records": [
+  {
+   "number": "1.C51",
+   "status": "Approved-Offered",
+   "_src": {
+    "page": "aags/aags",
+    "snapshot": "snapshots/aags/aags/2026-10-28T024205Z.html.gz",
+    "fetched_at": "2026-10-28T03:14:39Z"
+   }
+  },
+  {
+   "number": "10.C51",
+   "status": "Approved-NotInCatalog",
+   "_src": {
+    "page": "aags/aags",
+    "snapshot": "snapshots/aags/aags/2026-10-28T024205Z.html.gz",
+    "fetched_at": "2026-10-28T03:14:39Z"
+   }
+  },
+  {
+   "number": "15.C51",
+   "status": "Approved-Offered",
+   "_src": {
+    "page": "aags/aags",
+    "snapshot": "snapshots/aags/aags/2026-10-28T024205Z.html.gz",
+    "fetched_at": "2026-10-28T03:14:39Z"
+   }
+  },
+  {
+   "number": "16.420",
+   "status": "Approved-Offered",
+   "_src": {
+    "page": "aags/aags",
+    "snapshot": "snapshots/aags/aags/2026-10-28T024205Z.html.gz",
+    "fetched_at": "2026-10-28T03:14:39Z"
+   }
+  },
+  {
+   "number": "18.S995",
+   "status": "Approved-Offered",
+   "_src": {
+    "page": "aags/aags",
+    "snapshot": "snapshots/aags/aags/2026-10-28T024205Z.html.gz",
+    "fetched_at": "2026-10-28T03:14:39Z"
+   }
+  },
+  {
+   "number": "2.C51",
+   "status": "Approved-Offered",
+   "_src": {
+    "page": "aags/aags",
+    "snapshot": "snapshots/aags/aags/2026-10-28T024205Z.html.gz",
+    "fetched_at": "2026-10-28T03:14:39Z"
+   }
+  },
+  {
+   "number": "20.C51",
+   "status": "Approved-Offered",
+   "_src": {
+    "page": "aags/aags",
+    "snapshot": "snapshots/aags/aags/2026-10-28T024205Z.html.gz",
+    "fetched_at": "2026-10-28T03:14:39Z"
+   }
+  },
+  {
+   "number": "21M.569",
+   "status": "Approved-NotInCatalog",
+   "_src": {
+    "page": "aags/aags",
+    "snapshot": "snapshots/aags/aags/2026-10-28T024205Z.html.gz",
+    "fetched_at": "2026-10-28T03:14:39Z"
+   }
+  },
+  {
+   "number": "21M.589",
+   "status": "Approved-NotInCatalog",
+   "_src": {
+    "page": "aags/aags",
+    "snapshot": "snapshots/aags/aags/2026-10-28T024205Z.html.gz",
+    "fetched_at": "2026-10-28T03:14:39Z"
+   }
+  },
+  {
+   "number": "22.C51",
+   "status": "Approved-NotInCatalog",
+   "_src": {
+    "page": "aags/aags",
+    "snapshot": "snapshots/aags/aags/2026-10-28T024205Z.html.gz",
+    "fetched_at": "2026-10-28T03:14:39Z"
+   }
+  },
+  {
+   "number": "3.C51",
+   "status": "Approved-NotInCatalog",
+   "_src": {
+    "page": "aags/aags",
+    "snapshot": "snapshots/aags/aags/2026-10-28T024205Z.html.gz",
+    "fetched_at": "2026-10-28T03:14:39Z"
+   }
+  },
+  {
+   "number": "6.1852",
+   "status": "Approved-Offered",
+   "_src": {
+    "page": "aags/aags",
+    "snapshot": "snapshots/aags/aags/2026-10-28T024205Z.html.gz",
+    "fetched_at": "2026-10-28T03:14:39Z"
+   }
+  },
+  {
+   "number": "6.2092",
+   "status": "Approved-Offered",
+   "_src": {
+    "page": "aags/aags",
+    "snapshot": "snapshots/aags/aags/2026-10-28T024205Z.html.gz",
+    "fetched_at": "2026-10-28T03:14:39Z"
+   }
+  },
+  {
+   "number": "6.2202",
+   "status": "Approved-Offered",
+   "_src": {
+    "page": "aags/aags",
+    "snapshot": "snapshots/aags/aags/2026-10-28T024205Z.html.gz",
+    "fetched_at": "2026-10-28T03:14:39Z"
+   }
+  },
+  {
+   "number": "6.2222",
+   "status": "Approved-Offered",
+   "_src": {
+    "page": "aags/aags",
+    "snapshot": "snapshots/aags/aags/2026-10-28T024205Z.html.gz",
+    "fetched_at": "2026-10-28T03:14:39Z"
+   }
+  },
+  {
+   "number": "6.2532",
+   "status": "Approved-NotThisYear",
+   "_src": {
+    "page": "aags/aags",
+    "snapshot": "snapshots/aags/aags/2026-10-28T024205Z.html.gz",
+    "fetched_at": "2026-10-28T03:14:39Z"
+   }
+  },
+  {
+   "number": "6.3102",
+   "status": "Approved-Offered",
+   "_src": {
+    "page": "aags/aags",
+    "snapshot": "snapshots/aags/aags/2026-10-28T024205Z.html.gz",
+    "fetched_at": "2026-10-28T03:14:39Z"
+   }
+  },
+  {
+   "number": "6.3702",
+   "status": "Approved-Offered",
+   "_src": {
+    "page": "aags/aags",
+    "snapshot": "snapshots/aags/aags/2026-10-28T024205Z.html.gz",
+    "fetched_at": "2026-10-28T03:14:39Z"
+   }
+  },
+  {
+   "number": "6.3722",
+   "status": "Approved-Offered",
+   "_src": {
+    "page": "aags/aags",
+    "snapshot": "snapshots/aags/aags/2026-10-28T024205Z.html.gz",
+    "fetched_at": "2026-10-28T03:14:39Z"
+   }
+  },
+  {
+   "number": "6.3732",
+   "status": "Approved-NotThisYear",
+   "_src": {
+    "page": "aags/aags",
+    "snapshot": "snapshots/aags/aags/2026-10-28T024205Z.html.gz",
+    "fetched_at": "2026-10-28T03:14:39Z"
+   }
+  },
+  {
+   "number": "6.3932",
+   "status": "Approved-Offered",
+   "_src": {
+    "page": "aags/aags",
+    "snapshot": "snapshots/aags/aags/2026-10-28T024205Z.html.gz",
+    "fetched_at": "2026-10-28T03:14:39Z"
+   }
+  },
+  {
+   "number": "6.3952",
+   "status": "Approved-Offered",
+   "_src": {
+    "page": "aags/aags",
+    "snapshot": "snapshots/aags/aags/2026-10-28T024205Z.html.gz",
+    "fetched_at": "2026-10-28T03:14:39Z"
+   }
+  },
+  {
+   "number": "6.4132",
+   "status": "Approved-Offered",
+   "_src": {
+    "page": "aags/aags",
+    "snapshot": "snapshots/aags/aags/2026-10-28T024205Z.html.gz",
+    "fetched_at": "2026-10-28T03:14:39Z"
+   }
+  },
+  {
+   "number": "6.4212",
+   "status": "Approved-Offered",
+   "_src": {
+    "page": "aags/aags",
+    "snapshot": "snapshots/aags/aags/2026-10-28T024205Z.html.gz",
+    "fetched_at": "2026-10-28T03:14:39Z"
+   }
+  },
+  {
+   "number": "6.4812",
+   "status": "Approved-NotThisYear",
+   "_src": {
+    "page": "aags/aags",
+    "snapshot": "snapshots/aags/aags/2026-10-28T024205Z.html.gz",
+    "fetched_at": "2026-10-28T03:14:39Z"
+   }
+  },
+  {
+   "number": "6.4822",
+   "status": "Approved-Offered",
+   "_src": {
+    "page": "aags/aags",
+    "snapshot": "snapshots/aags/aags/2026-10-28T024205Z.html.gz",
+    "fetched_at": "2026-10-28T03:14:39Z"
+   }
+  },
+  {
+   "number": "6.4832",
+   "status": "Approved-Offered",
+   "_src": {
+    "page": "aags/aags",
+    "snapshot": "snapshots/aags/aags/2026-10-28T024205Z.html.gz",
+    "fetched_at": "2026-10-28T03:14:39Z"
+   }
+  },
+  {
+   "number": "6.4842",
+   "status": "Approved-Offered",
+   "_src": {
+    "page": "aags/aags",
+    "snapshot": "snapshots/aags/aags/2026-10-28T024205Z.html.gz",
+    "fetched_at": "2026-10-28T03:14:39Z"
+   }
+  },
+  {
+   "number": "6.4861",
+   "status": "Approved-Offered",
+   "_src": {
+    "page": "aags/aags",
+    "snapshot": "snapshots/aags/aags/2026-10-28T024205Z.html.gz",
+    "fetched_at": "2026-10-28T03:14:39Z"
+   }
+  },
+  {
+   "number": "6.5060",
+   "status": "Approved-Offered",
+   "_src": {
+    "page": "aags/aags",
+    "snapshot": "snapshots/aags/aags/2026-10-28T024205Z.html.gz",
+    "fetched_at": "2026-10-28T03:14:39Z"
+   }
+  },
+  {
+   "number": "6.5080",
+   "status": "Approved-NotThisYear",
+   "_src": {
+    "page": "aags/aags",
+    "snapshot": "snapshots/aags/aags/2026-10-28T024205Z.html.gz",
+    "fetched_at": "2026-10-28T03:14:39Z"
+   }
+  },
+  {
+   "number": "6.5110",
+   "status": "Approved-NotThisYear",
+   "_src": {
+    "page": "aags/aags",
+    "snapshot": "snapshots/aags/aags/2026-10-28T024205Z.html.gz",
+    "fetched_at": "2026-10-28T03:14:39Z"
+   }
+  },
+  {
+   "number": "6.5120",
+   "status": "Approved-NotThisYear",
+   "_src": {
+    "page": "aags/aags",
+    "snapshot": "snapshots/aags/aags/2026-10-28T024205Z.html.gz",
+    "fetched_at": "2026-10-28T03:14:39Z"
+   }
+  },
+  {
+   "number": "6.5150",
+   "status": "Approved-NotThisYear",
+   "_src": {
+    "page": "aags/aags",
+    "snapshot": "snapshots/aags/aags/2026-10-28T024205Z.html.gz",
+    "fetched_at": "2026-10-28T03:14:39Z"
+   }
+  },
+  {
+   "number": "6.5160",
+   "status": "Approved-NotThisYear",
+   "_src": {
+    "page": "aags/aags",
+    "snapshot": "snapshots/aags/aags/2026-10-28T024205Z.html.gz",
+    "fetched_at": "2026-10-28T03:14:39Z"
+   }
+  },
+  {
+   "number": "6.5210",
+   "status": "Approved-Offered",
+   "_src": {
+    "page": "aags/aags",
+    "snapshot": "snapshots/aags/aags/2026-10-28T024205Z.html.gz",
+    "fetched_at": "2026-10-28T03:14:39Z"
+   }
+  },
+  {
+   "number": "6.5220",
+   "status": "Approved-NotThisYear",
+   "_src": {
+    "page": "aags/aags",
+    "snapshot": "snapshots/aags/aags/2026-10-28T024205Z.html.gz",
+    "fetched_at": "2026-10-28T03:14:39Z"
+   }
+  },
+  {
+   "number": "6.5230",
+   "status": "Approved-Offered",
+   "_src": {
+    "page": "aags/aags",
+    "snapshot": "snapshots/aags/aags/2026-10-28T024205Z.html.gz",
+    "fetched_at": "2026-10-28T03:14:39Z"
+   }
+  },
+  {
+   "number": "6.5240",
+   "status": "Approved-Offered",
+   "_src": {
+    "page": "aags/aags",
+    "snapshot": "snapshots/aags/aags/2026-10-28T024205Z.html.gz",
+    "fetched_at": "2026-10-28T03:14:39Z"
+   }
+  },
+  {
+   "number": "6.5250",
+   "status": "Approved-NotThisYear",
+   "_src": {
+    "page": "aags/aags",
+    "snapshot": "snapshots/aags/aags/2026-10-28T024205Z.html.gz",
+    "fetched_at": "2026-10-28T03:14:39Z"
+   }
+  },
+  {
+   "number": "6.5310",
+   "status": "Approved-Offered",
+   "_src": {
+    "page": "aags/aags",
+    "snapshot": "snapshots/aags/aags/2026-10-28T024205Z.html.gz",
+    "fetched_at": "2026-10-28T03:14:39Z"
+   }
+  },
+  {
+   "number": "6.5320",
+   "status": "Approved-NotThisYear",
+   "_src": {
+    "page": "aags/aags",
+    "snapshot": "snapshots/aags/aags/2026-10-28T024205Z.html.gz",
+    "fetched_at": "2026-10-28T03:14:39Z"
+   }
+  },
+  {
+   "number": "6.5340",
+   "status": "Approved-NotThisYear",
+   "_src": {
+    "page": "aags/aags",
+    "snapshot": "snapshots/aags/aags/2026-10-28T024205Z.html.gz",
+    "fetched_at": "2026-10-28T03:14:39Z"
+   }
+  },
+  {
+   "number": "6.5350",
+   "status": "Approved-NotThisYear",
+   "_src": {
+    "page": "aags/aags",
+    "snapshot": "snapshots/aags/aags/2026-10-28T024205Z.html.gz",
+    "fetched_at": "2026-10-28T03:14:39Z"
+   }
+  },
+  {
+   "number": "6.5360",
+   "status": "Approved-NotThisYear",
+   "_src": {
+    "page": "aags/aags",
+    "snapshot": "snapshots/aags/aags/2026-10-28T024205Z.html.gz",
+    "fetched_at": "2026-10-28T03:14:39Z"
+   }
+  },
+  {
+   "number": "6.5370",
+   "status": "Approved-NotInCatalog",
+   "_src": {
+    "page": "aags/aags",
+    "snapshot": "snapshots/aags/aags/2026-10-28T024205Z.html.gz",
+    "fetched_at": "2026-10-28T03:14:39Z"
+   }
+  },
+  {
+   "number": "6.5380",
+   "status": "Approved-NotInCatalog",
+   "_src": {
+    "page": "aags/aags",
+    "snapshot": "snapshots/aags/aags/2026-10-28T024205Z.html.gz",
+    "fetched_at": "2026-10-28T03:14:39Z"
+   }
+  },
+  {
+   "number": "6.5390",
+   "status": "Approved-NotInCatalog",
+   "_src": {
+    "page": "aags/aags",
+    "snapshot": "snapshots/aags/aags/2026-10-28T024205Z.html.gz",
+    "fetched_at": "2026-10-28T03:14:39Z"
+   }
+  },
+  {
+   "number": "6.5400",
+   "status": "Approved-Offered",
+   "_src": {
+    "page": "aags/aags",
+    "snapshot": "snapshots/aags/aags/2026-10-28T024205Z.html.gz",
+    "fetched_at": "2026-10-28T03:14:39Z"
+   }
+  },
+  {
+   "number": "6.5410",
+   "status": "Approved-Offered",
+   "_src": {
+    "page": "aags/aags",
+    "snapshot": "snapshots/aags/aags/2026-10-28T024205Z.html.gz",
+    "fetched_at": "2026-10-28T03:14:39Z"
+   }
+  },
+  {
+   "number": "6.5420",
+   "status": "Approved-NotThisYear",
+   "_src": {
+    "page": "aags/aags",
+    "snapshot": "snapshots/aags/aags/2026-10-28T024205Z.html.gz",
+    "fetched_at": "2026-10-28T03:14:39Z"
+   }
+  },
+  {
+   "number": "6.5430",
+   "status": "Approved-Offered",
+   "_src": {
+    "page": "aags/aags",
+    "snapshot": "snapshots/aags/aags/2026-10-28T024205Z.html.gz",
+    "fetched_at": "2026-10-28T03:14:39Z"
+   }
+  },
+  {
+   "number": "6.5480",
+   "status": "Approved-NotInCatalog",
+   "_src": {
+    "page": "aags/aags",
+    "snapshot": "snapshots/aags/aags/2026-10-28T024205Z.html.gz",
+    "fetched_at": "2026-10-28T03:14:39Z"
+   }
+  },
+  {
+   "number": "6.5490",
+   "status": "Approved-NotInCatalog",
+   "_src": {
+    "page": "aags/aags",
+    "snapshot": "snapshots/aags/aags/2026-10-28T024205Z.html.gz",
+    "fetched_at": "2026-10-28T03:14:39Z"
+   }
+  },
+  {
+   "number": "6.5610",
+   "status": "Approved-Offered",
+   "_src": {
+    "page": "aags/aags",
+    "snapshot": "snapshots/aags/aags/2026-10-28T024205Z.html.gz",
+    "fetched_at": "2026-10-28T03:14:39Z"
+   }
+  },
+  {
+   "number": "6.5620",
+   "status": "Approved-Offered",
+   "_src": {
+    "page": "aags/aags",
+    "snapshot": "snapshots/aags/aags/2026-10-28T024205Z.html.gz",
+    "fetched_at": "2026-10-28T03:14:39Z"
+   }
+  },
+  {
+   "number": "6.5630",
+   "status": "Approved-Offered",
+   "_src": {
+    "page": "aags/aags",
+    "snapshot": "snapshots/aags/aags/2026-10-28T024205Z.html.gz",
+    "fetched_at": "2026-10-28T03:14:39Z"
+   }
+  },
+  {
+   "number": "6.5660",
+   "status": "Approved-Offered",
+   "_src": {
+    "page": "aags/aags",
+    "snapshot": "snapshots/aags/aags/2026-10-28T024205Z.html.gz",
+    "fetched_at": "2026-10-28T03:14:39Z"
+   }
+  },
+  {
+   "number": "6.5690",
+   "status": "Approved-NotInCatalog",
+   "_src": {
+    "page": "aags/aags",
+    "snapshot": "snapshots/aags/aags/2026-10-28T024205Z.html.gz",
+    "fetched_at": "2026-10-28T03:14:39Z"
+   }
+  },
+  {
+   "number": "6.5810",
+   "status": "Approved-NotThisYear",
+   "_src": {
+    "page": "aags/aags",
+    "snapshot": "snapshots/aags/aags/2026-10-28T024205Z.html.gz",
+    "fetched_at": "2026-10-28T03:14:39Z"
+   }
+  },
+  {
+   "number": "6.5820",
+   "status": "Approved-Offered",
+   "_src": {
+    "page": "aags/aags",
+    "snapshot": "snapshots/aags/aags/2026-10-28T024205Z.html.gz",
+    "fetched_at": "2026-10-28T03:14:39Z"
+   }
+  },
+  {
+   "number": "6.5830",
+   "status": "Approved-NotThisYear",
+   "_src": {
+    "page": "aags/aags",
+    "snapshot": "snapshots/aags/aags/2026-10-28T024205Z.html.gz",
+    "fetched_at": "2026-10-28T03:14:39Z"
+   }
+  },
+  {
+   "number": "6.5840",
+   "status": "Approved-Offered",
+   "_src": {
+    "page": "aags/aags",
+    "snapshot": "snapshots/aags/aags/2026-10-28T024205Z.html.gz",
+    "fetched_at": "2026-10-28T03:14:39Z"
+   }
+  },
+  {
+   "number": "6.5850",
+   "status": "Approved-NotThisYear",
+   "_src": {
+    "page": "aags/aags",
+    "snapshot": "snapshots/aags/aags/2026-10-28T024205Z.html.gz",
+    "fetched_at": "2026-10-28T03:14:39Z"
+   }
+  },
+  {
+   "number": "6.5880",
+   "status": "Approved-NotInCatalog",
+   "_src": {
+    "page": "aags/aags",
+    "snapshot": "snapshots/aags/aags/2026-10-28T024205Z.html.gz",
+    "fetched_at": "2026-10-28T03:14:39Z"
+   }
+  },
+  {
+   "number": "6.5890",
+   "status": "Approved-NotInCatalog",
+   "_src": {
+    "page": "aags/aags",
+    "snapshot": "snapshots/aags/aags/2026-10-28T024205Z.html.gz",
+    "fetched_at": "2026-10-28T03:14:39Z"
+   }
+  },
+  {
+   "number": "6.5900",
+   "status": "Approved-Offered",
+   "_src": {
+    "page": "aags/aags",
+    "snapshot": "snapshots/aags/aags/2026-10-28T024205Z.html.gz",
+    "fetched_at": "2026-10-28T03:14:39Z"
+   }
+  },
+  {
+   "number": "6.5910",
+   "status": "Approved-NotThisYear",
+   "_src": {
+    "page": "aags/aags",
+    "snapshot": "snapshots/aags/aags/2026-10-28T024205Z.html.gz",
+    "fetched_at": "2026-10-28T03:14:39Z"
+   }
+  },
+  {
+   "number": "6.5920",
+   "status": "Approved-NotThisYear",
+   "_src": {
+    "page": "aags/aags",
+    "snapshot": "snapshots/aags/aags/2026-10-28T024205Z.html.gz",
+    "fetched_at": "2026-10-28T03:14:39Z"
+   }
+  },
+  {
+   "number": "6.5930",
+   "status": "Approved-Offered",
+   "_src": {
+    "page": "aags/aags",
+    "snapshot": "snapshots/aags/aags/2026-10-28T024205Z.html.gz",
+    "fetched_at": "2026-10-28T03:14:39Z"
+   }
+  },
+  {
+   "number": "6.5940",
+   "status": "Approved-Offered",
+   "_src": {
+    "page": "aags/aags",
+    "snapshot": "snapshots/aags/aags/2026-10-28T024205Z.html.gz",
+    "fetched_at": "2026-10-28T03:14:39Z"
+   }
+  },
+  {
+   "number": "6.5950",
+   "status": "Approved-NotThisYear",
+   "_src": {
+    "page": "aags/aags",
+    "snapshot": "snapshots/aags/aags/2026-10-28T024205Z.html.gz",
+    "fetched_at": "2026-10-28T03:14:39Z"
+   }
+  },
+  {
+   "number": "6.5990",
+   "status": "Approved-NotInCatalog",
+   "_src": {
+    "page": "aags/aags",
+    "snapshot": "snapshots/aags/aags/2026-10-28T024205Z.html.gz",
+    "fetched_at": "2026-10-28T03:14:39Z"
+   }
+  },
+  {
+   "number": "6.6000",
+   "status": "Approved-Offered",
+   "_src": {
+    "page": "aags/aags",
+    "snapshot": "snapshots/aags/aags/2026-10-28T024205Z.html.gz",
+    "fetched_at": "2026-10-28T03:14:39Z"
+   }
+  },
+  {
+   "number": "6.6010",
+   "status": "Approved-Offered",
+   "_src": {
+    "page": "aags/aags",
+    "snapshot": "snapshots/aags/aags/2026-10-28T024205Z.html.gz",
+    "fetched_at": "2026-10-28T03:14:39Z"
+   }
+  },
+  {
+   "number": "6.6020",
+   "status": "Approved-Offered",
+   "_src": {
+    "page": "aags/aags",
+    "snapshot": "snapshots/aags/aags/2026-10-28T024205Z.html.gz",
+    "fetched_at": "2026-10-28T03:14:39Z"
+   }
+  },
+  {
+   "number": "6.6030",
+   "status": "Approved-NotInCatalog",
+   "_src": {
+    "page": "aags/aags",
+    "snapshot": "snapshots/aags/aags/2026-10-28T024205Z.html.gz",
+    "fetched_at": "2026-10-28T03:14:39Z"
+   }
+  },
+  {
+   "number": "6.6040",
+   "status": "Approved-Offered",
+   "_src": {
+    "page": "aags/aags",
+    "snapshot": "snapshots/aags/aags/2026-10-28T024205Z.html.gz",
+    "fetched_at": "2026-10-28T03:14:39Z"
+   }
+  },
+  {
+   "number": "6.6210",
+   "status": "Approved-Offered",
+   "_src": {
+    "page": "aags/aags",
+    "snapshot": "snapshots/aags/aags/2026-10-28T024205Z.html.gz",
+    "fetched_at": "2026-10-28T03:14:39Z"
+   }
+  },
+  {
+   "number": "6.6220",
+   "status": "Approved-Offered",
+   "_src": {
+    "page": "aags/aags",
+    "snapshot": "snapshots/aags/aags/2026-10-28T024205Z.html.gz",
+    "fetched_at": "2026-10-28T03:14:39Z"
+   }
+  },
+  {
+   "number": "6.6230",
+   "status": "Approved-NotThisYear",
+   "_src": {
+    "page": "aags/aags",
+    "snapshot": "snapshots/aags/aags/2026-10-28T024205Z.html.gz",
+    "fetched_at": "2026-10-28T03:14:39Z"
+   }
+  },
+  {
+   "number": "6.6270",
+   "status": "Approved-NotInCatalog",
+   "_src": {
+    "page": "aags/aags",
+    "snapshot": "snapshots/aags/aags/2026-10-28T024205Z.html.gz",
+    "fetched_at": "2026-10-28T03:14:39Z"
+   }
+  },
+  {
+   "number": "6.6280",
+   "status": "Approved-NotThisYear",
+   "_src": {
+    "page": "aags/aags",
+    "snapshot": "snapshots/aags/aags/2026-10-28T024205Z.html.gz",
+    "fetched_at": "2026-10-28T03:14:39Z"
+   }
+  },
+  {
+   "number": "6.6300",
+   "status": "Approved-Offered",
+   "_src": {
+    "page": "aags/aags",
+    "snapshot": "snapshots/aags/aags/2026-10-28T024205Z.html.gz",
+    "fetched_at": "2026-10-28T03:14:39Z"
+   }
+  },
+  {
+   "number": "6.6310",
+   "status": "Approved-Offered",
+   "_src": {
+    "page": "aags/aags",
+    "snapshot": "snapshots/aags/aags/2026-10-28T024205Z.html.gz",
+    "fetched_at": "2026-10-28T03:14:39Z"
+   }
+  },
+  {
+   "number": "6.6320",
+   "status": "Approved-Offered",
+   "_src": {
+    "page": "aags/aags",
+    "snapshot": "snapshots/aags/aags/2026-10-28T024205Z.html.gz",
+    "fetched_at": "2026-10-28T03:14:39Z"
+   }
+  },
+  {
+   "number": "6.6330",
+   "status": "Approved-NotThisYear",
+   "_src": {
+    "page": "aags/aags",
+    "snapshot": "snapshots/aags/aags/2026-10-28T024205Z.html.gz",
+    "fetched_at": "2026-10-28T03:14:39Z"
+   }
+  },
+  {
+   "number": "6.6340",
+   "status": "Approved-Offered",
+   "_src": {
+    "page": "aags/aags",
+    "snapshot": "snapshots/aags/aags/2026-10-28T024205Z.html.gz",
+    "fetched_at": "2026-10-28T03:14:39Z"
+   }
+  },
+  {
+   "number": "6.6370",
+   "status": "Approved-NotThisYear",
+   "_src": {
+    "page": "aags/aags",
+    "snapshot": "snapshots/aags/aags/2026-10-28T024205Z.html.gz",
+    "fetched_at": "2026-10-28T03:14:39Z"
+   }
+  },
+  {
+   "number": "6.6400",
+   "status": "Approved-Offered",
+   "_src": {
+    "page": "aags/aags",
+    "snapshot": "snapshots/aags/aags/2026-10-28T024205Z.html.gz",
+    "fetched_at": "2026-10-28T03:14:39Z"
+   }
+  },
+  {
+   "number": "6.6410",
+   "status": "Approved-Offered",
+   "_src": {
+    "page": "aags/aags",
+    "snapshot": "snapshots/aags/aags/2026-10-28T024205Z.html.gz",
+    "fetched_at": "2026-10-28T03:14:39Z"
+   }
+  },
+  {
+   "number": "6.6420",
+   "status": "Approved-Offered",
+   "_src": {
+    "page": "aags/aags",
+    "snapshot": "snapshots/aags/aags/2026-10-28T024205Z.html.gz",
+    "fetched_at": "2026-10-28T03:14:39Z"
+   }
+  },
+  {
+   "number": "6.6440",
+   "status": "Approved-NotInCatalog",
+   "_src": {
+    "page": "aags/aags",
+    "snapshot": "snapshots/aags/aags/2026-10-28T024205Z.html.gz",
+    "fetched_at": "2026-10-28T03:14:39Z"
+   }
+  },
+  {
+   "number": "6.6450",
+   "status": "Approved-Offered",
+   "_src": {
+    "page": "aags/aags",
+    "snapshot": "snapshots/aags/aags/2026-10-28T024205Z.html.gz",
+    "fetched_at": "2026-10-28T03:14:39Z"
+   }
+  },
+  {
+   "number": "6.6500",
+   "status": "Approved-Offered",
+   "_src": {
+    "page": "aags/aags",
+    "snapshot": "snapshots/aags/aags/2026-10-28T024205Z.html.gz",
+    "fetched_at": "2026-10-28T03:14:39Z"
+   }
+  },
+  {
+   "number": "6.6510",
+   "status": "Approved-Offered",
+   "_src": {
+    "page": "aags/aags",
+    "snapshot": "snapshots/aags/aags/2026-10-28T024205Z.html.gz",
+    "fetched_at": "2026-10-28T03:14:39Z"
+   }
+  },
+  {
+   "number": "6.6520",
+   "status": "Approved-Offered",
+   "_src": {
+    "page": "aags/aags",
+    "snapshot": "snapshots/aags/aags/2026-10-28T024205Z.html.gz",
+    "fetched_at": "2026-10-28T03:14:39Z"
+   }
+  },
+  {
+   "number": "6.6530",
+   "status": "Approved-NotThisYear",
+   "_src": {
+    "page": "aags/aags",
+    "snapshot": "snapshots/aags/aags/2026-10-28T024205Z.html.gz",
+    "fetched_at": "2026-10-28T03:14:39Z"
+   }
+  },
+  {
+   "number": "6.6540",
+   "status": "Approved-NotInCatalog",
+   "_src": {
+    "page": "aags/aags",
+    "snapshot": "snapshots/aags/aags/2026-10-28T024205Z.html.gz",
+    "fetched_at": "2026-10-28T03:14:39Z"
+   }
+  },
+  {
+   "number": "6.6550",
+   "status": "Approved-NotInCatalog",
+   "_src": {
+    "page": "aags/aags",
+    "snapshot": "snapshots/aags/aags/2026-10-28T024205Z.html.gz",
+    "fetched_at": "2026-10-28T03:14:39Z"
+   }
+  },
+  {
+   "number": "6.6600",
+   "status": "Approved-NotInCatalog",
+   "_src": {
+    "page": "aags/aags",
+    "snapshot": "snapshots/aags/aags/2026-10-28T024205Z.html.gz",
+    "fetched_at": "2026-10-28T03:14:39Z"
+   }
+  },
+  {
+   "number": "6.6630",
+   "status": "Approved-Offered",
+   "_src": {
+    "page": "aags/aags",
+    "snapshot": "snapshots/aags/aags/2026-10-28T024205Z.html.gz",
+    "fetched_at": "2026-10-28T03:14:39Z"
+   }
+  },
+  {
+   "number": "6.7000",
+   "status": "Approved-NotThisYear",
+   "_src": {
+    "page": "aags/aags",
+    "snapshot": "snapshots/aags/aags/2026-10-28T024205Z.html.gz",
+    "fetched_at": "2026-10-28T03:14:39Z"
+   }
+  },
+  {
+   "number": "6.7010",
+   "status": "Approved-Offered",
+   "_src": {
+    "page": "aags/aags",
+    "snapshot": "snapshots/aags/aags/2026-10-28T024205Z.html.gz",
+    "fetched_at": "2026-10-28T03:14:39Z"
+   }
+  },
+  {
+   "number": "6.7020",
+   "status": "Approved-NotThisYear",
+   "_src": {
+    "page": "aags/aags",
+    "snapshot": "snapshots/aags/aags/2026-10-28T024205Z.html.gz",
+    "fetched_at": "2026-10-28T03:14:39Z"
+   }
+  },
+  {
+   "number": "6.7050",
+   "status": "Approved-NotInCatalog",
+   "_src": {
+    "page": "aags/aags",
+    "snapshot": "snapshots/aags/aags/2026-10-28T024205Z.html.gz",
+    "fetched_at": "2026-10-28T03:14:39Z"
+   }
+  },
+  {
+   "number": "6.7060",
+   "status": "Approved-NotInCatalog",
+   "_src": {
+    "page": "aags/aags",
+    "snapshot": "snapshots/aags/aags/2026-10-28T024205Z.html.gz",
+    "fetched_at": "2026-10-28T03:14:39Z"
+   }
+  },
+  {
+   "number": "6.7100",
+   "status": "Approved-NotThisYear",
+   "_src": {
+    "page": "aags/aags",
+    "snapshot": "snapshots/aags/aags/2026-10-28T024205Z.html.gz",
+    "fetched_at": "2026-10-28T03:14:39Z"
+   }
+  },
+  {
+   "number": "6.7121",
+   "status": "Approved-Offered",
+   "_src": {
+    "page": "aags/aags",
+    "snapshot": "snapshots/aags/aags/2026-10-28T024205Z.html.gz",
+    "fetched_at": "2026-10-28T03:14:39Z"
+   }
+  },
+  {
+   "number": "6.7200",
+   "status": "Approved-NotInCatalog",
+   "_src": {
+    "page": "aags/aags",
+    "snapshot": "snapshots/aags/aags/2026-10-28T024205Z.html.gz",
+    "fetched_at": "2026-10-28T03:14:39Z"
+   }
+  },
+  {
+   "number": "6.7210",
+   "status": "Approved-Offered",
+   "_src": {
+    "page": "aags/aags",
+    "snapshot": "snapshots/aags/aags/2026-10-28T024205Z.html.gz",
+    "fetched_at": "2026-10-28T03:14:39Z"
+   }
+  },
+  {
+   "number": "6.7220",
+   "status": "Approved-Offered",
+   "_src": {
+    "page": "aags/aags",
+    "snapshot": "snapshots/aags/aags/2026-10-28T024205Z.html.gz",
+    "fetched_at": "2026-10-28T03:14:39Z"
+   }
+  },
+  {
+   "number": "6.7230",
+   "status": "Approved-NotThisYear",
+   "_src": {
+    "page": "aags/aags",
+    "snapshot": "snapshots/aags/aags/2026-10-28T024205Z.html.gz",
+    "fetched_at": "2026-10-28T03:14:39Z"
+   }
+  },
+  {
+   "number": "6.7240",
+   "status": "Approved-NotThisYear",
+   "_src": {
+    "page": "aags/aags",
+    "snapshot": "snapshots/aags/aags/2026-10-28T024205Z.html.gz",
+    "fetched_at": "2026-10-28T03:14:39Z"
+   }
+  },
+  {
+   "number": "6.7260",
+   "status": "Approved-NotThisYear",
+   "_src": {
+    "page": "aags/aags",
+    "snapshot": "snapshots/aags/aags/2026-10-28T024205Z.html.gz",
+    "fetched_at": "2026-10-28T03:14:39Z"
+   }
+  },
+  {
+   "number": "6.7300",
+   "status": "Approved-Offered",
+   "_src": {
+    "page": "aags/aags",
+    "snapshot": "snapshots/aags/aags/2026-10-28T024205Z.html.gz",
+    "fetched_at": "2026-10-28T03:14:39Z"
+   }
+  },
+  {
+   "number": "6.7310",
+   "status": "Approved-Offered",
+   "_src": {
+    "page": "aags/aags",
+    "snapshot": "snapshots/aags/aags/2026-10-28T024205Z.html.gz",
+    "fetched_at": "2026-10-28T03:14:39Z"
+   }
+  },
+  {
+   "number": "6.7320",
+   "status": "Approved-Offered",
+   "_src": {
+    "page": "aags/aags",
+    "snapshot": "snapshots/aags/aags/2026-10-28T024205Z.html.gz",
+    "fetched_at": "2026-10-28T03:14:39Z"
+   }
+  },
+  {
+   "number": "6.7330",
+   "status": "Approved-Offered",
+   "_src": {
+    "page": "aags/aags",
+    "snapshot": "snapshots/aags/aags/2026-10-28T024205Z.html.gz",
+    "fetched_at": "2026-10-28T03:14:39Z"
+   }
+  },
+  {
+   "number": "6.7340",
+   "status": "Approved-Offered",
+   "_src": {
+    "page": "aags/aags",
+    "snapshot": "snapshots/aags/aags/2026-10-28T024205Z.html.gz",
+    "fetched_at": "2026-10-28T03:14:39Z"
+   }
+  },
+  {
+   "number": "6.7350",
+   "status": "Approved-NotThisYear",
+   "_src": {
+    "page": "aags/aags",
+    "snapshot": "snapshots/aags/aags/2026-10-28T024205Z.html.gz",
+    "fetched_at": "2026-10-28T03:14:39Z"
+   }
+  },
+  {
+   "number": "6.7380",
+   "status": "Approved-NotInCatalog",
+   "_src": {
+    "page": "aags/aags",
+    "snapshot": "snapshots/aags/aags/2026-10-28T024205Z.html.gz",
+    "fetched_at": "2026-10-28T03:14:39Z"
+   }
+  },
+  {
+   "number": "6.7410",
+   "status": "Approved-Offered",
+   "_src": {
+    "page": "aags/aags",
+    "snapshot": "snapshots/aags/aags/2026-10-28T024205Z.html.gz",
+    "fetched_at": "2026-10-28T03:14:39Z"
+   }
+  },
+  {
+   "number": "6.7420",
+   "status": "Approved-NotThisYear",
+   "_src": {
+    "page": "aags/aags",
+    "snapshot": "snapshots/aags/aags/2026-10-28T024205Z.html.gz",
+    "fetched_at": "2026-10-28T03:14:39Z"
+   }
+  },
+  {
+   "number": "6.7430",
+   "status": "Approved-NotThisYear",
+   "_src": {
+    "page": "aags/aags",
+    "snapshot": "snapshots/aags/aags/2026-10-28T024205Z.html.gz",
+    "fetched_at": "2026-10-28T03:14:39Z"
+   }
+  },
+  {
+   "number": "6.7440",
+   "status": "Approved-NotThisYear",
+   "_src": {
+    "page": "aags/aags",
+    "snapshot": "snapshots/aags/aags/2026-10-28T024205Z.html.gz",
+    "fetched_at": "2026-10-28T03:14:39Z"
+   }
+  },
+  {
+   "number": "6.7450",
+   "status": "Approved-NotThisYear",
+   "_src": {
+    "page": "aags/aags",
+    "snapshot": "snapshots/aags/aags/2026-10-28T024205Z.html.gz",
+    "fetched_at": "2026-10-28T03:14:39Z"
+   }
+  },
+  {
+   "number": "6.7460",
+   "status": "Approved-NotThisYear",
+   "_src": {
+    "page": "aags/aags",
+    "snapshot": "snapshots/aags/aags/2026-10-28T024205Z.html.gz",
+    "fetched_at": "2026-10-28T03:14:39Z"
+   }
+  },
+  {
+   "number": "6.7470",
+   "status": "Approved-NotThisYear",
+   "_src": {
+    "page": "aags/aags",
+    "snapshot": "snapshots/aags/aags/2026-10-28T024205Z.html.gz",
+    "fetched_at": "2026-10-28T03:14:39Z"
+   }
+  },
+  {
+   "number": "6.7480",
+   "status": "Approved-NotThisYear",
+   "_src": {
+    "page": "aags/aags",
+    "snapshot": "snapshots/aags/aags/2026-10-28T024205Z.html.gz",
+    "fetched_at": "2026-10-28T03:14:39Z"
+   }
+  },
+  {
+   "number": "6.7490",
+   "status": "Approved-NotInCatalog",
+   "_src": {
+    "page": "aags/aags",
+    "snapshot": "snapshots/aags/aags/2026-10-28T024205Z.html.gz",
+    "fetched_at": "2026-10-28T03:14:39Z"
+   }
+  },
+  {
+   "number": "6.7700",
+   "status": "Approved-Offered",
+   "_src": {
+    "page": "aags/aags",
+    "snapshot": "snapshots/aags/aags/2026-10-28T024205Z.html.gz",
+    "fetched_at": "2026-10-28T03:14:39Z"
+   }
+  },
+  {
+   "number": "6.7710",
+   "status": "Approved-NotThisYear",
+   "_src": {
+    "page": "aags/aags",
+    "snapshot": "snapshots/aags/aags/2026-10-28T024205Z.html.gz",
+    "fetched_at": "2026-10-28T03:14:39Z"
+   }
+  },
+  {
+   "number": "6.7720",
+   "status": "Approved-Offered",
+   "_src": {
+    "page": "aags/aags",
+    "snapshot": "snapshots/aags/aags/2026-10-28T024205Z.html.gz",
+    "fetched_at": "2026-10-28T03:14:39Z"
+   }
+  },
+  {
+   "number": "6.7730",
+   "status": "Approved-Offered",
+   "_src": {
+    "page": "aags/aags",
+    "snapshot": "snapshots/aags/aags/2026-10-28T024205Z.html.gz",
+    "fetched_at": "2026-10-28T03:14:39Z"
+   }
+  },
+  {
+   "number": "6.7800",
+   "status": "Approved-Offered",
+   "_src": {
+    "page": "aags/aags",
+    "snapshot": "snapshots/aags/aags/2026-10-28T024205Z.html.gz",
+    "fetched_at": "2026-10-28T03:14:39Z"
+   }
+  },
+  {
+   "number": "6.7810",
+   "status": "Approved-Offered",
+   "_src": {
+    "page": "aags/aags",
+    "snapshot": "snapshots/aags/aags/2026-10-28T024205Z.html.gz",
+    "fetched_at": "2026-10-28T03:14:39Z"
+   }
+  },
+  {
+   "number": "6.7830",
+   "status": "Approved-Offered",
+   "_src": {
+    "page": "aags/aags",
+    "snapshot": "snapshots/aags/aags/2026-10-28T024205Z.html.gz",
+    "fetched_at": "2026-10-28T03:14:39Z"
+   }
+  },
+  {
+   "number": "6.7900",
+   "status": "Approved-Offered",
+   "_src": {
+    "page": "aags/aags",
+    "snapshot": "snapshots/aags/aags/2026-10-28T024205Z.html.gz",
+    "fetched_at": "2026-10-28T03:14:39Z"
+   }
+  },
+  {
+   "number": "6.7910",
+   "status": "Approved-Offered",
+   "_src": {
+    "page": "aags/aags",
+    "snapshot": "snapshots/aags/aags/2026-10-28T024205Z.html.gz",
+    "fetched_at": "2026-10-28T03:14:39Z"
+   }
+  },
+  {
+   "number": "6.7920",
+   "status": "Approved-Offered",
+   "_src": {
+    "page": "aags/aags",
+    "snapshot": "snapshots/aags/aags/2026-10-28T024205Z.html.gz",
+    "fetched_at": "2026-10-28T03:14:39Z"
+   }
+  },
+  {
+   "number": "6.7930",
+   "status": "Approved-NotThisYear",
+   "_src": {
+    "page": "aags/aags",
+    "snapshot": "snapshots/aags/aags/2026-10-28T024205Z.html.gz",
+    "fetched_at": "2026-10-28T03:14:39Z"
+   }
+  },
+  {
+   "number": "6.7940",
+   "status": "Approved-NotThisYear",
+   "_src": {
+    "page": "aags/aags",
+    "snapshot": "snapshots/aags/aags/2026-10-28T024205Z.html.gz",
+    "fetched_at": "2026-10-28T03:14:39Z"
+   }
+  },
+  {
+   "number": "6.7950",
+   "status": "Approved-NotInCatalog",
+   "_src": {
+    "page": "aags/aags",
+    "snapshot": "snapshots/aags/aags/2026-10-28T024205Z.html.gz",
+    "fetched_at": "2026-10-28T03:14:39Z"
+   }
+  },
+  {
+   "number": "6.7960",
+   "status": "Approved-Offered",
+   "_src": {
+    "page": "aags/aags",
+    "snapshot": "snapshots/aags/aags/2026-10-28T024205Z.html.gz",
+    "fetched_at": "2026-10-28T03:14:39Z"
+   }
+  },
+  {
+   "number": "6.7970",
+   "status": "Approved-NotThisYear",
+   "_src": {
+    "page": "aags/aags",
+    "snapshot": "snapshots/aags/aags/2026-10-28T024205Z.html.gz",
+    "fetched_at": "2026-10-28T03:14:39Z"
+   }
+  },
+  {
+   "number": "6.7980",
+   "status": "Approved-Offered",
+   "_src": {
+    "page": "aags/aags",
+    "snapshot": "snapshots/aags/aags/2026-10-28T024205Z.html.gz",
+    "fetched_at": "2026-10-28T03:14:39Z"
+   }
+  },
+  {
+   "number": "6.8110",
+   "status": "Approved-NotThisYear",
+   "_src": {
+    "page": "aags/aags",
+    "snapshot": "snapshots/aags/aags/2026-10-28T024205Z.html.gz",
+    "fetched_at": "2026-10-28T03:14:39Z"
+   }
+  },
+  {
+   "number": "6.8130",
+   "status": "Approved-NotThisYear",
+   "_src": {
+    "page": "aags/aags",
+    "snapshot": "snapshots/aags/aags/2026-10-28T024205Z.html.gz",
+    "fetched_at": "2026-10-28T03:14:39Z"
+   }
+  },
+  {
+   "number": "6.8160",
+   "status": "Approved-NotInCatalog",
+   "_src": {
+    "page": "aags/aags",
+    "snapshot": "snapshots/aags/aags/2026-10-28T024205Z.html.gz",
+    "fetched_at": "2026-10-28T03:14:39Z"
+   }
+  },
+  {
+   "number": "6.8170",
+   "status": "Approved-NotInCatalog",
+   "_src": {
+    "page": "aags/aags",
+    "snapshot": "snapshots/aags/aags/2026-10-28T024205Z.html.gz",
+    "fetched_at": "2026-10-28T03:14:39Z"
+   }
+  },
+  {
+   "number": "6.8180",
+   "status": "Approved-NotInCatalog",
+   "_src": {
+    "page": "aags/aags",
+    "snapshot": "snapshots/aags/aags/2026-10-28T024205Z.html.gz",
+    "fetched_at": "2026-10-28T03:14:39Z"
+   }
+  },
+  {
+   "number": "6.8190",
+   "status": "Approved-NotInCatalog",
+   "_src": {
+    "page": "aags/aags",
+    "snapshot": "snapshots/aags/aags/2026-10-28T024205Z.html.gz",
+    "fetched_at": "2026-10-28T03:14:39Z"
+   }
+  },
+  {
+   "number": "6.8200",
+   "status": "Approved-Offered",
+   "_src": {
+    "page": "aags/aags",
+    "snapshot": "snapshots/aags/aags/2026-10-28T024205Z.html.gz",
+    "fetched_at": "2026-10-28T03:14:39Z"
+   }
+  },
+  {
+   "number": "6.8210",
+   "status": "Approved-NotThisYear",
+   "_src": {
+    "page": "aags/aags",
+    "snapshot": "snapshots/aags/aags/2026-10-28T024205Z.html.gz",
+    "fetched_at": "2026-10-28T03:14:39Z"
+   }
+  },
+  {
+   "number": "6.8300",
+   "status": "Approved-Offered",
+   "_src": {
+    "page": "aags/aags",
+    "snapshot": "snapshots/aags/aags/2026-10-28T024205Z.html.gz",
+    "fetched_at": "2026-10-28T03:14:39Z"
+   }
+  },
+  {
+   "number": "6.8320",
+   "status": "Approved-NotInCatalog",
+   "_src": {
+    "page": "aags/aags",
+    "snapshot": "snapshots/aags/aags/2026-10-28T024205Z.html.gz",
+    "fetched_at": "2026-10-28T03:14:39Z"
+   }
+  },
+  {
+   "number": "6.8370",
+   "status": "Approved-Offered",
+   "_src": {
+    "page": "aags/aags",
+    "snapshot": "snapshots/aags/aags/2026-10-28T024205Z.html.gz",
+    "fetched_at": "2026-10-28T03:14:39Z"
+   }
+  },
+  {
+   "number": "6.8410",
+   "status": "Approved-Offered",
+   "_src": {
+    "page": "aags/aags",
+    "snapshot": "snapshots/aags/aags/2026-10-28T024205Z.html.gz",
+    "fetched_at": "2026-10-28T03:14:39Z"
+   }
+  },
+  {
+   "number": "6.8420",
+   "status": "Approved-Offered",
+   "_src": {
+    "page": "aags/aags",
+    "snapshot": "snapshots/aags/aags/2026-10-28T024205Z.html.gz",
+    "fetched_at": "2026-10-28T03:14:39Z"
+   }
+  },
+  {
+   "number": "6.8480",
+   "status": "Approved-NotInCatalog",
+   "_src": {
+    "page": "aags/aags",
+    "snapshot": "snapshots/aags/aags/2026-10-28T024205Z.html.gz",
+    "fetched_at": "2026-10-28T03:14:39Z"
+   }
+  },
+  {
+   "number": "6.8510",
+   "status": "Approved-NotThisYear",
+   "_src": {
+    "page": "aags/aags",
+    "snapshot": "snapshots/aags/aags/2026-10-28T024205Z.html.gz",
+    "fetched_at": "2026-10-28T03:14:39Z"
+   }
+  },
+  {
+   "number": "6.8530",
+   "status": "Approved-NotThisYear",
+   "_src": {
+    "page": "aags/aags",
+    "snapshot": "snapshots/aags/aags/2026-10-28T024205Z.html.gz",
+    "fetched_at": "2026-10-28T03:14:39Z"
+   }
+  },
+  {
+   "number": "6.8580",
+   "status": "Approved-NotInCatalog",
+   "_src": {
+    "page": "aags/aags",
+    "snapshot": "snapshots/aags/aags/2026-10-28T024205Z.html.gz",
+    "fetched_at": "2026-10-28T03:14:39Z"
+   }
+  },
+  {
+   "number": "6.8590",
+   "status": "Approved-NotInCatalog",
+   "_src": {
+    "page": "aags/aags",
+    "snapshot": "snapshots/aags/aags/2026-10-28T024205Z.html.gz",
+    "fetched_at": "2026-10-28T03:14:39Z"
+   }
+  },
+  {
+   "number": "6.8610",
+   "status": "Approved-Offered",
+   "_src": {
+    "page": "aags/aags",
+    "snapshot": "snapshots/aags/aags/2026-10-28T024205Z.html.gz",
+    "fetched_at": "2026-10-28T03:14:39Z"
+   }
+  },
+  {
+   "number": "6.8620",
+   "status": "Approved-NotThisYear",
+   "_src": {
+    "page": "aags/aags",
+    "snapshot": "snapshots/aags/aags/2026-10-28T024205Z.html.gz",
+    "fetched_at": "2026-10-28T03:14:39Z"
+   }
+  },
+  {
+   "number": "6.8630",
+   "status": "Approved-NotThisYear",
+   "_src": {
+    "page": "aags/aags",
+    "snapshot": "snapshots/aags/aags/2026-10-28T024205Z.html.gz",
+    "fetched_at": "2026-10-28T03:14:39Z"
+   }
+  },
+  {
+   "number": "6.8700",
+   "status": "Approved-NotThisYear",
+   "_src": {
+    "page": "aags/aags",
+    "snapshot": "snapshots/aags/aags/2026-10-28T024205Z.html.gz",
+    "fetched_at": "2026-10-28T03:14:39Z"
+   }
+  },
+  {
+   "number": "6.8710",
+   "status": "Approved-Offered",
+   "_src": {
+    "page": "aags/aags",
+    "snapshot": "snapshots/aags/aags/2026-10-28T024205Z.html.gz",
+    "fetched_at": "2026-10-28T03:14:39Z"
+   }
+  },
+  {
+   "number": "6.8720",
+   "status": "Approved-Offered",
+   "_src": {
+    "page": "aags/aags",
+    "snapshot": "snapshots/aags/aags/2026-10-28T024205Z.html.gz",
+    "fetched_at": "2026-10-28T03:14:39Z"
+   }
+  },
+  {
+   "number": "6.8800",
+   "status": "Approved-Offered",
+   "_src": {
+    "page": "aags/aags",
+    "snapshot": "snapshots/aags/aags/2026-10-28T024205Z.html.gz",
+    "fetched_at": "2026-10-28T03:14:39Z"
+   }
+  },
+  {
+   "number": "6.8810",
+   "status": "Approved-Offered",
+   "_src": {
+    "page": "aags/aags",
+    "snapshot": "snapshots/aags/aags/2026-10-28T024205Z.html.gz",
+    "fetched_at": "2026-10-28T03:14:39Z"
+   }
+  },
+  {
+   "number": "6.8830",
+   "status": "Approved-NotThisYear",
+   "_src": {
+    "page": "aags/aags",
+    "snapshot": "snapshots/aags/aags/2026-10-28T024205Z.html.gz",
+    "fetched_at": "2026-10-28T03:14:39Z"
+   }
+  },
+  {
+   "number": "6.8850",
+   "status": "Approved-NotThisYear",
+   "_src": {
+    "page": "aags/aags",
+    "snapshot": "snapshots/aags/aags/2026-10-28T024205Z.html.gz",
+    "fetched_at": "2026-10-28T03:14:39Z"
+   }
+  },
+  {
+   "number": "6.8880",
+   "status": "Approved-NotInCatalog",
+   "_src": {
+    "page": "aags/aags",
+    "snapshot": "snapshots/aags/aags/2026-10-28T024205Z.html.gz",
+    "fetched_at": "2026-10-28T03:14:39Z"
+   }
+  },
+  {
+   "number": "6.8890",
+   "status": "Approved-NotInCatalog",
+   "_src": {
+    "page": "aags/aags",
+    "snapshot": "snapshots/aags/aags/2026-10-28T024205Z.html.gz",
+    "fetched_at": "2026-10-28T03:14:39Z"
+   }
+  },
+  {
+   "number": "6.9350",
+   "status": "Approved-NotThisYear",
+   "_src": {
+    "page": "aags/aags",
+    "snapshot": "snapshots/aags/aags/2026-10-28T024205Z.html.gz",
+    "fetched_at": "2026-10-28T03:14:39Z"
+   }
+  },
+  {
+   "number": "6.C51",
+   "status": "Approved-Offered",
+   "_src": {
+    "page": "aags/aags",
+    "snapshot": "snapshots/aags/aags/2026-10-28T024205Z.html.gz",
+    "fetched_at": "2026-10-28T03:14:39Z"
+   }
+  },
+  {
+   "number": "6.C511",
+   "status": "Approved-Offered",
+   "_src": {
+    "page": "aags/aags",
+    "snapshot": "snapshots/aags/aags/2026-10-28T024205Z.html.gz",
+    "fetched_at": "2026-10-28T03:14:39Z"
+   }
+  },
+  {
+   "number": "6.C57",
+   "status": "Approved-Offered",
+   "_src": {
+    "page": "aags/aags",
+    "snapshot": "snapshots/aags/aags/2026-10-28T024205Z.html.gz",
+    "fetched_at": "2026-10-28T03:14:39Z"
+   }
+  },
+  {
+   "number": "6.C67",
+   "status": "Approved-Offered",
+   "_src": {
+    "page": "aags/aags",
+    "snapshot": "snapshots/aags/aags/2026-10-28T024205Z.html.gz",
+    "fetched_at": "2026-10-28T03:14:39Z"
+   }
+  },
+  {
+   "number": "6.C85",
+   "status": "Approved-Offered",
+   "_src": {
+    "page": "aags/aags",
+    "snapshot": "snapshots/aags/aags/2026-10-28T024205Z.html.gz",
+    "fetched_at": "2026-10-28T03:14:39Z"
+   }
+  },
+  {
+   "number": "6.C895",
+   "status": "Approved-Offered",
+   "_src": {
+    "page": "aags/aags",
+    "snapshot": "snapshots/aags/aags/2026-10-28T024205Z.html.gz",
+    "fetched_at": "2026-10-28T03:14:39Z"
+   }
+  },
+  {
+   "number": "6.S951",
+   "status": "Approved-Offered",
+   "_src": {
+    "page": "aags/aags",
+    "snapshot": "snapshots/aags/aags/2026-10-28T024205Z.html.gz",
+    "fetched_at": "2026-10-28T03:14:39Z"
+   }
+  },
+  {
+   "number": "6.S953",
+   "status": "Approved-Offered",
+   "_src": {
+    "page": "aags/aags",
+    "snapshot": "snapshots/aags/aags/2026-10-28T024205Z.html.gz",
+    "fetched_at": "2026-10-28T03:14:39Z"
+   }
+  },
+  {
+   "number": "6.S964",
+   "status": "Approved-Offered",
+   "_src": {
+    "page": "aags/aags",
+    "snapshot": "snapshots/aags/aags/2026-10-28T024205Z.html.gz",
+    "fetched_at": "2026-10-28T03:14:39Z"
+   }
+  },
+  {
+   "number": "6.S974",
+   "status": "Approved-Offered",
+   "_src": {
+    "page": "aags/aags",
+    "snapshot": "snapshots/aags/aags/2026-10-28T024205Z.html.gz",
+    "fetched_at": "2026-10-28T03:14:39Z"
+   }
+  },
+  {
+   "number": "6.S978",
+   "status": "Approved-Offered",
+   "_src": {
+    "page": "aags/aags",
+    "snapshot": "snapshots/aags/aags/2026-10-28T024205Z.html.gz",
+    "fetched_at": "2026-10-28T03:14:39Z"
+   }
+  },
+  {
+   "number": "6.S979",
+   "status": "Approved-Offered",
+   "_src": {
+    "page": "aags/aags",
+    "snapshot": "snapshots/aags/aags/2026-10-28T024205Z.html.gz",
+    "fetched_at": "2026-10-28T03:14:39Z"
+   }
+  },
+  {
+   "number": "6.S980",
+   "status": "Approved-Offered",
+   "_src": {
+    "page": "aags/aags",
+    "snapshot": "snapshots/aags/aags/2026-10-28T024205Z.html.gz",
+    "fetched_at": "2026-10-28T03:14:39Z"
+   }
+  },
+  {
+   "number": "7.C51",
+   "status": "Approved-Offered",
+   "_src": {
+    "page": "aags/aags",
+    "snapshot": "snapshots/aags/aags/2026-10-28T024205Z.html.gz",
+    "fetched_at": "2026-10-28T03:14:39Z"
+   }
+  },
+  {
+   "number": "9.660",
+   "status": "Approved-Offered",
+   "_src": {
+    "page": "aags/aags",
+    "snapshot": "snapshots/aags/aags/2026-10-28T024205Z.html.gz",
+    "fetched_at": "2026-10-28T03:14:39Z"
+   }
+  },
+  {
+   "number": "SCM.C51",
+   "status": "Approved-NotInCatalog",
+   "_src": {
+    "page": "aags/aags",
+    "snapshot": "snapshots/aags/aags/2026-10-28T024205Z.html.gz",
+    "fetched_at": "2026-10-28T03:14:39Z"
+   }
+  }
+ ]
+}
