@@ -12,6 +12,23 @@ ARCHIVE_DIR = os.path.join(ROOT, ".data")
 CATALOG_URL = "https://student.mit.edu/catalog/{}.html"
 AAGS_URL = "https://eecsis.mit.edu/degree_requirements.pcgi?program=AAGS"
 
+# Departments to scrape. `code` is the subject-number prefix and the OSE department id;
+# `aags` flags the EECS AAGS approved-subject list (only meaningful for Course 6).
+CATALOG_DEPARTMENTS = [
+    {"code": "6", "name": "Course 6 — EECS", "pages": ["m6a", "m6b", "m6c", "m6d"], "aags": True},
+    {"code": "15", "name": "Course 15 — Management", "pages": ["m15a", "m15b", "m15c"],
+     "aags": False},
+    {"code": "2", "name": "Course 2 — MechE", "pages": ["m2a", "m2b", "m2c"], "aags": False},
+]
+# Common Ground for Computing Education pages: (page, section heading to keep or None = all).
+CG_SOURCES = [("mCGa", None), ("m6e", "Common Ground for Computing Education")]
+
+
+def catalog_pages():
+    pages = [p for d in CATALOG_DEPARTMENTS for p in d["pages"]] + [p for p, _ in CG_SOURCES]
+    return list(dict.fromkeys(pages))
+
+
 # --- Polite fetching -------------------------------------------------------
 MIN_DELAY_PER_HOST = 1.5      # seconds between requests to the same host
 TIMEOUT = 60                  # seconds per request

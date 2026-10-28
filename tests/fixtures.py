@@ -16,7 +16,7 @@ def catalog_html(n_subjects=40, produced="27-OCT-2026 05:10 PM", expires="28 OCT
             '<img alt="Graduate"><img alt="Fall">'
             "<br>Units: 3-0-9<br><img src=hr.gif><img src=hr.gif>"
             "A description of subject %d. <I>A. Teacher</I><!--end-->" % (num, num, i, i))
-    page = ('<html><head><meta http-equiv="expires" content="%s" ><title>Catalog</title>'
+    page = ('<html><head><meta http-equiv="expires" content="%s" ><title>Fall\n2026 Course 6</title>'
             "</head><body>%s%s<p>Produced: %s</p></body></html>"
             % (expires, body_note, "\n".join(blocks), produced))
     if len(page) < pad_to:

@@ -52,9 +52,7 @@ def main():
     if archive.manifest() and "--force" not in sys.argv:
         sys.exit("Archive already has entries; seeding is a one-time step (use --force).")
 
-    catalog_pages = [p for d in scrape.DEPARTMENTS for p in d["pages"]] + \
-                    [p for p, _ in scrape.CG_SOURCES]
-    sources = config.build_sources(catalog_pages)
+    sources = config.build_sources(config.catalog_pages())
 
     # Gather distinct copies per source, oldest first.
     found = []      # (mtime, source, path, body)
@@ -90,14 +88,11 @@ def main():
     missing = [s.key for s in sources if s.key not in newest]
     pages = {s.key: guardrails.page_metrics(s, results[s.key])
              for s in sources if s.key in results}
-    scrape._PAGES.clear()
-    for s in sources:
-        if s.key in results:
-            scrape._PAGES[s.cache_name] = results[s.key]
     courses_info, parse_error = None, None
     if not missing:
-        payload, scraped, aags_count = scrape.build()
-        courses_info = guardrails.course_metrics(scraped, aags_count)
+        payload, ex = scrape.build(sources, results)
+        courses_info = guardrails.course_metrics(ex["catalog"]["records"],
+                                                 len(ex["aags"]["records"]))
     else:
         parse_error = "missing seed pages: %s" % ", ".join(missing)
     checks = guardrails.evaluate(sources, results, pages, courses_info, None, parse_error)

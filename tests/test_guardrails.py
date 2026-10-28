@@ -125,6 +125,19 @@ class GuardrailsTest(unittest.TestCase):
         self.assertEqual(rec["status"], "fail")
         self.assertFalse(rec["published"])
 
+    def test_source_warning_still_passes_but_is_counted(self):
+        checks, pages, info = run()
+        checks += guardrails.problem_checks("catalog", [("warn", "title term outside year")])
+        self.assertTrue(guardrails.passed(checks))
+        rec = guardrails.run_record("r", "", "", fx.SOURCES, pages, info, checks, True)
+        self.assertEqual((rec["status"], rec["warnings"]), ("pass", 1))
+        self.assertIn("WARNINGS (1)", guardrails.summary_table(fx.SOURCES, pages, checks, None))
+
+    def test_source_failure_blocks(self):
+        checks, _, _ = run()
+        checks += guardrails.problem_checks("catalog", [("fail", "duplicate course numbers")])
+        self.assertFalse(guardrails.passed(checks))
+
     def test_summary_table_lists_failures(self):
         checks, pages, _ = run(bodies={M6A.key: fx.catalog_html()[:5000]})
         text = guardrails.summary_table(fx.SOURCES, pages, checks, None)

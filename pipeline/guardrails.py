@@ -15,6 +15,12 @@ Checks
                  shares above calibrated floors
   aags_links     AAGS subject links fell more than MAX_DROP below baseline (or zero)
   parse          the parser crashed
+  <source>       problems a source parser reports itself (e.g. catalog: academic year can't be
+                 determined, duplicate course numbers)
+
+Each check has a level. "fail" blocks publishing. "warn" still publishes but makes the run
+exit non-zero so it gets noticed (e.g. the catalog title term doesn't match the academic year,
+which is expected around the annual rollover).
 """
 
 import re
@@ -27,14 +33,18 @@ _SUBJECT_RE = re.compile(r"<h3[^>]*>\s*\d+\.[A-Za-z0-9]+", re.I)
 
 
 class Check:
-    def __init__(self, name, scope, ok, detail=""):
+    def __init__(self, name, scope, ok, detail="", level="fail"):
         self.name = name
         self.scope = scope      # source key ("catalog/m6a") or "run"
         self.ok = ok
         self.detail = detail
+        self.level = level      # "fail" blocks publishing; "warn" doesn't
 
     def to_dict(self):
-        return {"check": self.name, "scope": self.scope, "ok": self.ok, "detail": self.detail}
+        d = {"check": self.name, "scope": self.scope, "ok": self.ok, "detail": self.detail}
+        if self.level != "fail":
+            d["level"] = self.level
+        return d
 
     def __repr__(self):
         return "Check(%s %s %s %s)" % (self.name, self.scope, "ok" if self.ok else "FAIL",
@@ -183,8 +193,14 @@ def evaluate(sources, results, pages, courses_info, baseline, parse_error=None):
     return checks
 
 
+def problem_checks(source, problems):
+    """Turn a source parser's (level, message) problems into checks."""
+    return [Check(source, "run", False, msg, level=level) for level, msg in problems]
+
+
 def passed(checks):
-    return all(c.ok for c in checks)
+    """True when nothing blocks publishing (warnings allowed)."""
+    return all(c.ok or c.level == "warn" for c in checks)
 
 
 def run_record(run_id, started_at, finished_at, sources, pages, courses_info, checks,
@@ -203,6 +219,7 @@ def run_record(run_id, started_at, finished_at, sources, pages, courses_info, ch
         "mode": mode,
         "status": "seed" if seed else ("pass" if passed(checks) else "fail"),
         "published": published,
+        "warnings": sum(1 for c in checks if not c.ok and c.level == "warn"),
         "totals": (courses_info or {}).get("totals", {}),
         "pages": page_out,
         "checks": [c.to_dict() for c in checks],
@@ -223,18 +240,20 @@ def summary_table(sources, pages, checks, baseline):
         subj = m.get("subjects")
         base = base_pages.get(s.key, {}).get("subjects")
         subj_txt = "" if subj is None else ("%d" % subj if not base else "%d/%d" % (subj, base))
-        fails = [c for c in by_scope.get(s.key, []) if not c.ok]
+        fails = [c for c in by_scope.get(s.key, []) if not c.ok and c.level == "fail"]
         lines.append("%-14s %5s %7.0f  %-22s %9s  %s" % (
             s.key, m.get("http_status", "-"), m.get("bytes", 0) / 1024,
             (m.get("produced") or "")[:22], subj_txt,
             "FAIL " + ", ".join(c.name for c in fails) if fails else "ok"))
     lines.append("")
     for c in by_scope.get("run", []):
-        lines.append("%-4s %-14s %s" % ("ok" if c.ok else "FAIL", c.name, c.detail))
-    fails = [c for c in checks if not c.ok]
-    if fails:
-        lines.append("")
-        lines.append("FAILED CHECKS (%d):" % len(fails))
-        for c in fails:
-            lines.append("  - %s [%s]: %s" % (c.name, c.scope, c.detail))
+        mark = "ok" if c.ok else ("WARN" if c.level == "warn" else "FAIL")
+        lines.append("%-4s %-14s %s" % (mark, c.name, c.detail))
+    for label, level in (("FAILED CHECKS", "fail"), ("WARNINGS", "warn")):
+        bad = [c for c in checks if not c.ok and c.level == level]
+        if bad:
+            lines.append("")
+            lines.append("%s (%d):" % (label, len(bad)))
+            for c in bad:
+                lines.append("  - %s [%s]: %s" % (c.name, c.scope, c.detail))
     return "\n".join(lines)
