@@ -257,6 +257,16 @@ def parse_block(number, body, category, page, department, years, title=None):
                  "prep": int(mu.group(3))}
         units_total = sum(int(g) for g in mu.groups())
 
+    # Variable units ("Units arranged"); half-term ("([Spring]); second half of term");
+    # current-term date notes ("Ends Oct 23.", "Begins Nov 2."); joint numbers.
+    units_kind = "fixed" if units_raw else ("arranged" if "Units arranged" in body else None)
+    mh = re.search(r"\)\s*;\s*(first|second) half of term", body, re.I)
+    half_term = {"first": "H1", "second": "H2"}[mh.group(1).lower()] if mh else None
+    md = re.search(r"\b(?:Begins|Ends) [A-Z][a-z]{2} \d{1,2}\b", body)
+    date_note = md.group(0) if md else None
+    mj = re.search(r"\(Same subject as(.*?)\)", body, re.S)
+    same_as = dedupe(re.findall(r"\b[0-9A-Z]+\.[0-9A-Z]+\b", strip_tags(mj.group(1)))) if mj else []
+
     # Schedule: the segment that contains the component labels, ending at <!--s-->.
     schedule = []
     ms = re.search(r"(<b>\s*(?:Lecture|Lab|Recitation).*?)<!--s-->", body, re.I | re.S)
@@ -295,6 +305,10 @@ def parse_block(number, body, category, page, department, years, title=None):
         "units_raw": units_raw,
         "units": units,
         "units_total": units_total,
+        "units_kind": units_kind,
+        "half_term": half_term,
+        "date_note": date_note,
+        "same_as": same_as,
         "schedule": schedule,
         "schedule_summary": schedule_summary(schedule),
         "description": description,

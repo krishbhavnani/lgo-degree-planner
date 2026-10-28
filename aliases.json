@@ -1,0 +1,4 @@
+{
+  "_how": "Confirmed course renumberings. The scraper flags lookalikes (a course disappears as a new number appears with a near-identical title and description) and prints them; add a confirmed pair here as {\"old\": \"15.335\", \"new\": \"15.703\", \"note\": \"why\"}. EECS '(was X)' notes are applied automatically and don't need an entry.",
+  "aliases": []
+}

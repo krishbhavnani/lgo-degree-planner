@@ -35,10 +35,12 @@ from collections import Counter
 from datetime import datetime, timezone
 
 from pipeline import config as pconfig
-from pipeline import extracts, guardrails, snapshots
+from pipeline import db as course_db
+from pipeline import extracts, guardrails, identity, snapshots
 from pipeline.fetch import Fetcher, FetchResult
 from pipeline.sources import (aags, action_learning, catalog, catalog_index, design,
                               eecs_updates, evals)
+from pipeline import terms
 from pipeline.sources.common import dedupe
 
 HERE = os.path.dirname(os.path.abspath(__file__))
@@ -366,6 +368,7 @@ def build(sources, results, archive_dir=None):
             if d["status"] != "confirmed":
                 c["al_status"] = d["status"]
             if (not c["title"]) or re.search(r"Special (Seminar|Distance)", c["title"]):
+                c["catalog_title"] = c["title"]
                 c["title"] = "%s (%s)" % (d.get("name") or c["title"], lab_code(d))
     print("  tagged %d Action Learning labs" % sum(1 for c in courses if c["action_learning"]))
 
@@ -379,6 +382,9 @@ def build(sources, results, archive_dir=None):
         "departments": dict(Counter(c["department"] for c in courses)),
     }
     payload = {"meta": meta, "courses": courses}
+    # What the course database (pipeline/db.py) needs from this build; not an extract.
+    ex["_context"] = {"rows": courses, "special": special, "eval_records": by_num,
+                      "design_rows": ex["design"]["records"], "years": years}
     return payload, ex
 
 
@@ -395,6 +401,30 @@ def write_outputs(payload):
     offered = sum(1 for c in courses if c["offering_status"] == "Offered")
     print("  offered now: %d  |  AAGS-approved in set: %d" %
           (offered, sum(1 for c in courses if c["aags"] != "Not approved")))
+
+
+def update_db(archive_dir, ctx, run_id, save=True):
+    """Merge this run into the course database on the data branch. Returns the changes."""
+    db = course_db.load(archive_dir)
+    first = not db["courses"]
+    observed = course_db.observe(ctx)
+    aliases = identity.load_aliases(os.path.join(HERE, "aliases.json"))
+    date = "%s-%s-%s" % (run_id[:4], run_id[5:7], run_id[8:10])
+    changes = course_db.merge(db, observed, run_id, date, ctx["years"]["term"], aliases)
+    if save:
+        course_db.save(archive_dir, db)
+    kinds = Counter(c["kind"] for c in changes)
+    if first:
+        print("Course database created: %d courses, %d offerings." %
+              (len(db["courses"]), sum(len(c["offerings"]) for c in db["courses"].values())))
+    else:
+        print("Course database: %s" % (", ".join("%d %s" % (n, k.replace("_", " "))
+                                                 for k, n in kinds.most_common()) or
+                                       "no changes"))
+    for cand in db.get("renumber_candidates", []):
+        print("  possible renumbering (confirm in aliases.json): %s -> %s" %
+              (cand["old"], cand["new"]))
+    return db, changes
 
 
 def _arg_value(flag):
@@ -471,6 +501,7 @@ def main(fetcher=None):
             print("Wrote extracts: %s%s" % (", ".join(written),
                                              "; kept last good: %s" % ", ".join(kept)
                                              if kept else ""))
+            update_db(archive_dir, ex["_context"], run_id)
         archive.record_run(guardrails.run_record(
             run_id, snapshots.iso(started), snapshots.iso(datetime.now(timezone.utc)),
             sources, pages, courses_info, checks, published=ok))
