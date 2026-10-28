@@ -1,0 +1,842 @@
+{
+ "format": 1,
+ "source": "action_learning",
+ "run_id": "2026-10-28T033507Z",
+ "booklets": {
+  "2026-2027": {
+   "url": "https://mitsloan.mit.edu/sites/default/files/inline-files/AL-CourseBooklet%20Fall%202026%20updates.pdf",
+   "labs": [
+    {
+     "number": "15.572",
+     "label": "A-LAB",
+     "code": "A-LAB",
+     "name": "Analytics Lab: Action Learning Seminar on Analytics, Machine Learning & the Digital Economy",
+     "term": "FALL",
+     "page": 3,
+     "_src": {
+      "page": "action-learning/booklet",
+      "snapshot": "snapshots/action-learning/booklet/2026-10-28T033304Z.pdf.gz",
+      "fetched_at": "2026-10-28T03:33:04Z"
+     }
+    },
+    {
+     "number": "15.S17",
+     "label": "DDUV-LAB",
+     "code": "DDUV-LAB",
+     "name": "Defense and Dual-Use Ventures Lab",
+     "term": "FALL",
+     "page": 3,
+     "_src": {
+      "page": "action-learning/booklet",
+      "snapshot": "snapshots/action-learning/booklet/2026-10-28T033304Z.pdf.gz",
+      "fetched_at": "2026-10-28T03:33:04Z"
+     }
+    },
+    {
+     "number": "15.275",
+     "label": "EMS-LAB",
+     "code": "EMS-LAB",
+     "name": "Entertainment, Media, and Sports Lab",
+     "term": "FALL",
+     "page": 4,
+     "_src": {
+      "page": "action-learning/booklet",
+      "snapshot": "snapshots/action-learning/booklet/2026-10-28T033304Z.pdf.gz",
+      "fetched_at": "2026-10-28T03:33:04Z"
+     }
+    },
+    {
+     "number": "15.399",
+     "label": "E-LAB",
+     "code": "E-LAB",
+     "name": "Entrepreneurship Lab",
+     "term": "FALL",
+     "page": 4,
+     "_src": {
+      "page": "action-learning/booklet",
+      "snapshot": "snapshots/action-learning/booklet/2026-10-28T033304Z.pdf.gz",
+      "fetched_at": "2026-10-28T03:33:04Z"
+     }
+    },
+    {
+     "number": "15.451",
+     "label": "INVESTMENT MANAGEMENT LAB",
+     "code": null,
+     "name": "Investment Management Lab",
+     "term": "FALL",
+     "page": 5,
+     "_src": {
+      "page": "action-learning/booklet",
+      "snapshot": "snapshots/action-learning/booklet/2026-10-28T033304Z.pdf.gz",
+      "fetched_at": "2026-10-28T03:33:04Z"
+     }
+    },
+    {
+     "number": "15.830",
+     "label": "EM-LAB",
+     "code": "EM-LAB",
+     "name": "Enterprise Management Lab",
+     "term": "FALL+IAP",
+     "page": 5,
+     "_src": {
+      "page": "action-learning/booklet",
+      "snapshot": "snapshots/action-learning/booklet/2026-10-28T033304Z.pdf.gz",
+      "fetched_at": "2026-10-28T03:33:04Z"
+     }
+    },
+    {
+     "number": "15.389",
+     "label": "G-LAB",
+     "code": "G-LAB",
+     "name": "Global Entrepreneurship Lab",
+     "term": "FALL+IAP",
+     "page": 6,
+     "_src": {
+      "page": "action-learning/booklet",
+      "snapshot": "snapshots/action-learning/booklet/2026-10-28T033304Z.pdf.gz",
+      "fetched_at": "2026-10-28T03:33:04Z"
+     }
+    },
+    {
+     "number": "15.777",
+     "label": "H-LAB",
+     "code": "H-LAB",
+     "name": "Healthcare Lab: Introduction to Healthcare Delivery in the United States",
+     "term": "FALL+IAP",
+     "page": 6,
+     "_src": {
+      "page": "action-learning/booklet",
+      "snapshot": "snapshots/action-learning/booklet/2026-10-28T033304Z.pdf.gz",
+      "fetched_at": "2026-10-28T03:33:04Z"
+     }
+    },
+    {
+     "number": "15.S24",
+     "label": "LWI",
+     "code": null,
+     "name": "Leading with Impact: A Social Impact Lab",
+     "term": "IAP",
+     "page": 7,
+     "_src": {
+      "page": "action-learning/booklet",
+      "snapshot": "snapshots/action-learning/booklet/2026-10-28T033304Z.pdf.gz",
+      "fetched_at": "2026-10-28T03:33:04Z"
+     }
+    },
+    {
+     "number": "15.453",
+     "label": "FIN-LAB",
+     "code": "FIN-LAB",
+     "name": "Finance Lab",
+     "term": "IAP+SPRING",
+     "page": 7,
+     "_src": {
+      "page": "action-learning/booklet",
+      "snapshot": "snapshots/action-learning/booklet/2026-10-28T033304Z.pdf.gz",
+      "fetched_at": "2026-10-28T03:33:04Z"
+     }
+    },
+    {
+     "number": "15.226",
+     "label": "ASEAN LAB",
+     "code": null,
+     "name": "Modern Business in Southeast Asia",
+     "term": "SPRING",
+     "page": 8,
+     "_src": {
+      "page": "action-learning/booklet",
+      "snapshot": "snapshots/action-learning/booklet/2026-10-28T033304Z.pdf.gz",
+      "fetched_at": "2026-10-28T03:33:04Z"
+     }
+    },
+    {
+     "number": "15.786",
+     "label": "PM-LAB",
+     "code": "PM-LAB",
+     "name": "Product Management Lab",
+     "term": "IAP+SPRING",
+     "page": 8,
+     "_src": {
+      "page": "action-learning/booklet",
+      "snapshot": "snapshots/action-learning/booklet/2026-10-28T033304Z.pdf.gz",
+      "fetched_at": "2026-10-28T03:33:04Z"
+     }
+    },
+    {
+     "number": "15.355",
+     "label": "ENGINE LAB",
+     "code": null,
+     "name": "Engine Lab: Building and Scaling Deep Tech Ventures",
+     "term": "SPRING",
+     "page": 9,
+     "_src": {
+      "page": "action-learning/booklet",
+      "snapshot": "snapshots/action-learning/booklet/2026-10-28T033304Z.pdf.gz",
+      "fetched_at": "2026-10-28T03:33:04Z"
+     }
+    },
+    {
+     "number": "15.369",
+     "label": "CE-LAB",
+     "code": "CE-LAB",
+     "name": "Corporate Entrepreneurship Lab",
+     "term": "SPRING",
+     "page": 9,
+     "_src": {
+      "page": "action-learning/booklet",
+      "snapshot": "snapshots/action-learning/booklet/2026-10-28T033304Z.pdf.gz",
+      "fetched_at": "2026-10-28T03:33:04Z"
+     }
+    },
+    {
+     "number": "15.708",
+     "label": "GO-LAB",
+     "code": "GO-LAB",
+     "name": null,
+     "term": null,
+     "page": 10,
+     "_src": {
+      "page": "action-learning/booklet",
+      "snapshot": "snapshots/action-learning/booklet/2026-10-28T033304Z.pdf.gz",
+      "fetched_at": "2026-10-28T03:33:04Z"
+     }
+    },
+    {
+     "number": "15.703",
+     "label": "LWI",
+     "code": null,
+     "name": null,
+     "term": "SPRING",
+     "page": 10,
+     "_src": {
+      "page": "action-learning/booklet",
+      "snapshot": "snapshots/action-learning/booklet/2026-10-28T033304Z.pdf.gz",
+      "fetched_at": "2026-10-28T03:33:04Z"
+     }
+    },
+    {
+     "number": "15.704",
+     "label": "IDEA LAB",
+     "code": null,
+     "name": null,
+     "term": null,
+     "page": 10,
+     "_src": {
+      "page": "action-learning/booklet",
+      "snapshot": "snapshots/action-learning/booklet/2026-10-28T033304Z.pdf.gz",
+      "fetched_at": "2026-10-28T03:33:04Z"
+     }
+    },
+    {
+     "number": "15.S04",
+     "label": "GENAI-LAB",
+     "code": "GENAI-LAB",
+     "name": "Generative AI Lab",
+     "term": "SPRING",
+     "page": 11,
+     "_src": {
+      "page": "action-learning/booklet",
+      "snapshot": "snapshots/action-learning/booklet/2026-10-28T033304Z.pdf.gz",
+      "fetched_at": "2026-10-28T03:33:04Z"
+     }
+    },
+    {
+     "number": "15.784",
+     "label": "OPS-LAB",
+     "code": "OPS-LAB",
+     "name": "Operations Lab",
+     "term": "SPRING",
+     "page": 11,
+     "_src": {
+      "page": "action-learning/booklet",
+      "snapshot": "snapshots/action-learning/booklet/2026-10-28T033304Z.pdf.gz",
+      "fetched_at": "2026-10-28T03:33:04Z"
+     }
+    },
+    {
+     "number": "15.452",
+     "label": "PROSEMINAR IN CORPORATE FINANCE",
+     "code": null,
+     "name": "Proseminar in Corporate Finance, Investment Banking, and Private Equity",
+     "term": "SPRING",
+     "page": 12,
+     "_src": {
+      "page": "action-learning/booklet",
+      "snapshot": "snapshots/action-learning/booklet/2026-10-28T033304Z.pdf.gz",
+      "fetched_at": "2026-10-28T03:33:04Z"
+     }
+    },
+    {
+     "number": "15.S67",
+     "label": "RE-LAB",
+     "code": "RE-LAB",
+     "name": "Real Estate Lab",
+     "term": "SPRING",
+     "page": 12,
+     "_src": {
+      "page": "action-learning/booklet",
+      "snapshot": "snapshots/action-learning/booklet/2026-10-28T033304Z.pdf.gz",
+      "fetched_at": "2026-10-28T03:33:04Z"
+     }
+    },
+    {
+     "number": "15.878",
+     "label": "S-LAB",
+     "code": "S-LAB",
+     "name": "Sustainable Business Lab",
+     "term": "SPRING",
+     "page": 13,
+     "_src": {
+      "page": "action-learning/booklet",
+      "snapshot": "snapshots/action-learning/booklet/2026-10-28T033304Z.pdf.gz",
+      "fetched_at": "2026-10-28T03:33:04Z"
+     }
+    },
+    {
+     "number": "15.679",
+     "label": "WORK LAB",
+     "code": null,
+     "name": "Work Lab",
+     "term": "SPRING",
+     "page": 13,
+     "_src": {
+      "page": "action-learning/booklet",
+      "snapshot": "snapshots/action-learning/booklet/2026-10-28T033304Z.pdf.gz",
+      "fetched_at": "2026-10-28T03:33:04Z"
+     }
+    }
+   ]
+  }
+ },
+ "labs_page_names": [
+  "Analytics Lab",
+  "Asia Lab",
+  "Corporate Finance Lab",
+  "Defense and Dual-Use Ventures Lab",
+  "Engine Lab",
+  "Enterprise Management Lab",
+  "Entertainment, Media, and Sports Lab",
+  "Entrepreneurship Lab",
+  "Finance Lab",
+  "Frontline Lab: Manufacturing",
+  "Global Entrepreneurship Lab",
+  "Healthcare Lab",
+  "Investment Management Lab",
+  "Leading with Impact: A Social Impact Lab",
+  "Operations Lab",
+  "Product Management Lab",
+  "Real Estate Lab",
+  "Sustainable Business Lab"
+ ],
+ "designations": {
+  "15.572": {
+   "code": "A-LAB",
+   "name": "Analytics Lab: Action Learning Seminar on Analytics, Machine Learning & the Digital Economy",
+   "term": "FALL",
+   "booklet_year": "2026-2027",
+   "status": "confirmed",
+   "catalog_title": "Analytics Lab: Action Learning Seminar on Analytics, Machine Learning, and the Digital Economy"
+  },
+  "15.S17": {
+   "code": "DDUV-LAB",
+   "name": "Defense and Dual-Use Ventures Lab",
+   "term": "FALL",
+   "booklet_year": "2026-2027",
+   "status": "confirmed",
+   "catalog_title": "Special Seminar in Management"
+  },
+  "15.275": {
+   "code": "EMS-LAB",
+   "name": "Entertainment, Media, and Sports Lab",
+   "term": "FALL",
+   "booklet_year": "2026-2027",
+   "status": "confirmed",
+   "catalog_title": "Entertainment, Media, and Sports Lab (EMS Lab)"
+  },
+  "15.399": {
+   "code": "E-LAB",
+   "name": "Entrepreneurship Lab",
+   "term": "FALL",
+   "booklet_year": "2026-2027",
+   "status": "confirmed",
+   "catalog_title": "Entrepreneurship Lab"
+  },
+  "15.451": {
+   "code": "INVESTMENT MANAGEMENT LAB",
+   "name": "Investment Management Lab",
+   "term": "FALL",
+   "booklet_year": "2026-2027",
+   "status": "confirmed",
+   "catalog_title": "Investment Management Lab"
+  },
+  "15.830": {
+   "code": "EM-LAB",
+   "name": "Enterprise Management Lab",
+   "term": "FALL+IAP",
+   "booklet_year": "2026-2027",
+   "status": "confirmed",
+   "catalog_title": "Enterprise Management Lab"
+  },
+  "15.389": {
+   "code": "G-LAB",
+   "name": "Global Entrepreneurship Lab",
+   "term": "FALL+IAP",
+   "booklet_year": "2026-2027",
+   "status": "confirmed",
+   "catalog_title": "Global Entrepreneurship Lab"
+  },
+  "15.777": {
+   "code": "H-LAB",
+   "name": "Healthcare Lab: Introduction to Healthcare Delivery in the United States",
+   "term": "FALL+IAP",
+   "booklet_year": "2026-2027",
+   "status": "confirmed",
+   "catalog_title": "Healthcare Lab: Introduction to Healthcare Delivery in the United States"
+  },
+  "15.335": {
+   "code": "LWI",
+   "name": "Leading with Impact: A Social Impact Lab",
+   "term": "IAP",
+   "booklet_year": "2026-2027",
+   "status": "confirmed",
+   "booklet_number": "15.S24",
+   "catalog_title": "Leading with Impact: A Social Impact Lab"
+  },
+  "15.453": {
+   "code": "FIN-LAB",
+   "name": "Finance Lab",
+   "term": "IAP+SPRING",
+   "booklet_year": "2026-2027",
+   "status": "confirmed",
+   "catalog_title": "Finance Lab"
+  },
+  "15.226": {
+   "code": "ASEAN LAB",
+   "name": "Modern Business in Southeast Asia",
+   "term": "SPRING",
+   "booklet_year": "2026-2027",
+   "status": "confirmed",
+   "catalog_title": "Modern Business in Asia: Asia Lab"
+  },
+  "15.786": {
+   "code": "PM-LAB",
+   "name": "Product Management Lab",
+   "term": "IAP+SPRING",
+   "booklet_year": "2026-2027",
+   "status": "confirmed",
+   "catalog_title": "Product Management Lab"
+  },
+  "15.355": {
+   "code": "ENGINE LAB",
+   "name": "Engine Lab: Building and Scaling Deep Tech Ventures",
+   "term": "SPRING",
+   "booklet_year": "2026-2027",
+   "status": "confirmed",
+   "catalog_title": "Engine Lab: Building & Scaling Deep Tech Ventures"
+  },
+  "15.369": {
+   "code": "CE-LAB",
+   "name": "Corporate Entrepreneurship Lab",
+   "term": "SPRING",
+   "booklet_year": "2026-2027",
+   "status": "confirmed",
+   "catalog_title": "Corporate Entrepreneurship"
+  },
+  "15.708": {
+   "code": "GO-LAB",
+   "name": null,
+   "term": null,
+   "booklet_year": "2026-2027",
+   "status": "confirmed",
+   "catalog_title": "Global Organizations Lab"
+  },
+  "15.703": {
+   "code": "LWI",
+   "name": null,
+   "term": "SPRING",
+   "booklet_year": "2026-2027",
+   "status": "confirmed",
+   "catalog_title": "Leading with Impact"
+  },
+  "15.704": {
+   "code": "IDEA LAB",
+   "name": null,
+   "term": null,
+   "booklet_year": "2026-2027",
+   "status": "confirmed",
+   "catalog_title": "IDEA Lab"
+  },
+  "15.S04": {
+   "code": "GENAI-LAB",
+   "name": "Generative AI Lab",
+   "term": "SPRING",
+   "booklet_year": "2026-2027",
+   "status": "confirmed",
+   "catalog_title": "Special Seminar in Management"
+  },
+  "15.784": {
+   "code": "OPS-LAB",
+   "name": "Operations Lab",
+   "term": "SPRING",
+   "booklet_year": "2026-2027",
+   "status": "confirmed",
+   "catalog_title": "Operations Laboratory"
+  },
+  "15.452": {
+   "code": "PROSEMINAR IN CORPORATE FINANCE",
+   "name": "Proseminar in Corporate Finance, Investment Banking, and Private Equity",
+   "term": "SPRING",
+   "booklet_year": "2026-2027",
+   "status": "confirmed",
+   "catalog_title": "Corporate Finance/Investment Banking/Private Equity Lab"
+  },
+  "15.S67": {
+   "code": "RE-LAB",
+   "name": "Real Estate Lab",
+   "term": "SPRING",
+   "booklet_year": "2026-2027",
+   "status": "confirmed",
+   "catalog_title": "Special Seminar in Management"
+  },
+  "15.878": {
+   "code": "S-LAB",
+   "name": "Sustainable Business Lab",
+   "term": "SPRING",
+   "booklet_year": "2026-2027",
+   "status": "confirmed",
+   "catalog_title": "Sustainable Business Lab"
+  },
+  "15.679": {
+   "code": "WORK LAB",
+   "name": "Work Lab",
+   "term": "SPRING",
+   "booklet_year": "2026-2027",
+   "status": "confirmed",
+   "catalog_title": "Frontline Lab: Manufacturing"
+  }
+ },
+ "records": [
+  {
+   "number": "15.572",
+   "label": "A-LAB",
+   "code": "A-LAB",
+   "name": "Analytics Lab: Action Learning Seminar on Analytics, Machine Learning & the Digital Economy",
+   "term": "FALL",
+   "page": 3,
+   "academic_year": "2026-2027",
+   "_src": {
+    "page": "action-learning/booklet",
+    "snapshot": "snapshots/action-learning/booklet/2026-10-28T033304Z.pdf.gz",
+    "fetched_at": "2026-10-28T03:33:04Z"
+   }
+  },
+  {
+   "number": "15.S17",
+   "label": "DDUV-LAB",
+   "code": "DDUV-LAB",
+   "name": "Defense and Dual-Use Ventures Lab",
+   "term": "FALL",
+   "page": 3,
+   "academic_year": "2026-2027",
+   "_src": {
+    "page": "action-learning/booklet",
+    "snapshot": "snapshots/action-learning/booklet/2026-10-28T033304Z.pdf.gz",
+    "fetched_at": "2026-10-28T03:33:04Z"
+   }
+  },
+  {
+   "number": "15.275",
+   "label": "EMS-LAB",
+   "code": "EMS-LAB",
+   "name": "Entertainment, Media, and Sports Lab",
+   "term": "FALL",
+   "page": 4,
+   "academic_year": "2026-2027",
+   "_src": {
+    "page": "action-learning/booklet",
+    "snapshot": "snapshots/action-learning/booklet/2026-10-28T033304Z.pdf.gz",
+    "fetched_at": "2026-10-28T03:33:04Z"
+   }
+  },
+  {
+   "number": "15.399",
+   "label": "E-LAB",
+   "code": "E-LAB",
+   "name": "Entrepreneurship Lab",
+   "term": "FALL",
+   "page": 4,
+   "academic_year": "2026-2027",
+   "_src": {
+    "page": "action-learning/booklet",
+    "snapshot": "snapshots/action-learning/booklet/2026-10-28T033304Z.pdf.gz",
+    "fetched_at": "2026-10-28T03:33:04Z"
+   }
+  },
+  {
+   "number": "15.451",
+   "label": "INVESTMENT MANAGEMENT LAB",
+   "code": null,
+   "name": "Investment Management Lab",
+   "term": "FALL",
+   "page": 5,
+   "academic_year": "2026-2027",
+   "_src": {
+    "page": "action-learning/booklet",
+    "snapshot": "snapshots/action-learning/booklet/2026-10-28T033304Z.pdf.gz",
+    "fetched_at": "2026-10-28T03:33:04Z"
+   }
+  },
+  {
+   "number": "15.830",
+   "label": "EM-LAB",
+   "code": "EM-LAB",
+   "name": "Enterprise Management Lab",
+   "term": "FALL+IAP",
+   "page": 5,
+   "academic_year": "2026-2027",
+   "_src": {
+    "page": "action-learning/booklet",
+    "snapshot": "snapshots/action-learning/booklet/2026-10-28T033304Z.pdf.gz",
+    "fetched_at": "2026-10-28T03:33:04Z"
+   }
+  },
+  {
+   "number": "15.389",
+   "label": "G-LAB",
+   "code": "G-LAB",
+   "name": "Global Entrepreneurship Lab",
+   "term": "FALL+IAP",
+   "page": 6,
+   "academic_year": "2026-2027",
+   "_src": {
+    "page": "action-learning/booklet",
+    "snapshot": "snapshots/action-learning/booklet/2026-10-28T033304Z.pdf.gz",
+    "fetched_at": "2026-10-28T03:33:04Z"
+   }
+  },
+  {
+   "number": "15.777",
+   "label": "H-LAB",
+   "code": "H-LAB",
+   "name": "Healthcare Lab: Introduction to Healthcare Delivery in the United States",
+   "term": "FALL+IAP",
+   "page": 6,
+   "academic_year": "2026-2027",
+   "_src": {
+    "page": "action-learning/booklet",
+    "snapshot": "snapshots/action-learning/booklet/2026-10-28T033304Z.pdf.gz",
+    "fetched_at": "2026-10-28T03:33:04Z"
+   }
+  },
+  {
+   "number": "15.S24",
+   "label": "LWI",
+   "code": null,
+   "name": "Leading with Impact: A Social Impact Lab",
+   "term": "IAP",
+   "page": 7,
+   "academic_year": "2026-2027",
+   "_src": {
+    "page": "action-learning/booklet",
+    "snapshot": "snapshots/action-learning/booklet/2026-10-28T033304Z.pdf.gz",
+    "fetched_at": "2026-10-28T03:33:04Z"
+   }
+  },
+  {
+   "number": "15.453",
+   "label": "FIN-LAB",
+   "code": "FIN-LAB",
+   "name": "Finance Lab",
+   "term": "IAP+SPRING",
+   "page": 7,
+   "academic_year": "2026-2027",
+   "_src": {
+    "page": "action-learning/booklet",
+    "snapshot": "snapshots/action-learning/booklet/2026-10-28T033304Z.pdf.gz",
+    "fetched_at": "2026-10-28T03:33:04Z"
+   }
+  },
+  {
+   "number": "15.226",
+   "label": "ASEAN LAB",
+   "code": null,
+   "name": "Modern Business in Southeast Asia",
+   "term": "SPRING",
+   "page": 8,
+   "academic_year": "2026-2027",
+   "_src": {
+    "page": "action-learning/booklet",
+    "snapshot": "snapshots/action-learning/booklet/2026-10-28T033304Z.pdf.gz",
+    "fetched_at": "2026-10-28T03:33:04Z"
+   }
+  },
+  {
+   "number": "15.786",
+   "label": "PM-LAB",
+   "code": "PM-LAB",
+   "name": "Product Management Lab",
+   "term": "IAP+SPRING",
+   "page": 8,
+   "academic_year": "2026-2027",
+   "_src": {
+    "page": "action-learning/booklet",
+    "snapshot": "snapshots/action-learning/booklet/2026-10-28T033304Z.pdf.gz",
+    "fetched_at": "2026-10-28T03:33:04Z"
+   }
+  },
+  {
+   "number": "15.355",
+   "label": "ENGINE LAB",
+   "code": null,
+   "name": "Engine Lab: Building and Scaling Deep Tech Ventures",
+   "term": "SPRING",
+   "page": 9,
+   "academic_year": "2026-2027",
+   "_src": {
+    "page": "action-learning/booklet",
+    "snapshot": "snapshots/action-learning/booklet/2026-10-28T033304Z.pdf.gz",
+    "fetched_at": "2026-10-28T03:33:04Z"
+   }
+  },
+  {
+   "number": "15.369",
+   "label": "CE-LAB",
+   "code": "CE-LAB",
+   "name": "Corporate Entrepreneurship Lab",
+   "term": "SPRING",
+   "page": 9,
+   "academic_year": "2026-2027",
+   "_src": {
+    "page": "action-learning/booklet",
+    "snapshot": "snapshots/action-learning/booklet/2026-10-28T033304Z.pdf.gz",
+    "fetched_at": "2026-10-28T03:33:04Z"
+   }
+  },
+  {
+   "number": "15.708",
+   "label": "GO-LAB",
+   "code": "GO-LAB",
+   "name": null,
+   "term": null,
+   "page": 10,
+   "academic_year": "2026-2027",
+   "_src": {
+    "page": "action-learning/booklet",
+    "snapshot": "snapshots/action-learning/booklet/2026-10-28T033304Z.pdf.gz",
+    "fetched_at": "2026-10-28T03:33:04Z"
+   }
+  },
+  {
+   "number": "15.703",
+   "label": "LWI",
+   "code": null,
+   "name": null,
+   "term": "SPRING",
+   "page": 10,
+   "academic_year": "2026-2027",
+   "_src": {
+    "page": "action-learning/booklet",
+    "snapshot": "snapshots/action-learning/booklet/2026-10-28T033304Z.pdf.gz",
+    "fetched_at": "2026-10-28T03:33:04Z"
+   }
+  },
+  {
+   "number": "15.704",
+   "label": "IDEA LAB",
+   "code": null,
+   "name": null,
+   "term": null,
+   "page": 10,
+   "academic_year": "2026-2027",
+   "_src": {
+    "page": "action-learning/booklet",
+    "snapshot": "snapshots/action-learning/booklet/2026-10-28T033304Z.pdf.gz",
+    "fetched_at": "2026-10-28T03:33:04Z"
+   }
+  },
+  {
+   "number": "15.S04",
+   "label": "GENAI-LAB",
+   "code": "GENAI-LAB",
+   "name": "Generative AI Lab",
+   "term": "SPRING",
+   "page": 11,
+   "academic_year": "2026-2027",
+   "_src": {
+    "page": "action-learning/booklet",
+    "snapshot": "snapshots/action-learning/booklet/2026-10-28T033304Z.pdf.gz",
+    "fetched_at": "2026-10-28T03:33:04Z"
+   }
+  },
+  {
+   "number": "15.784",
+   "label": "OPS-LAB",
+   "code": "OPS-LAB",
+   "name": "Operations Lab",
+   "term": "SPRING",
+   "page": 11,
+   "academic_year": "2026-2027",
+   "_src": {
+    "page": "action-learning/booklet",
+    "snapshot": "snapshots/action-learning/booklet/2026-10-28T033304Z.pdf.gz",
+    "fetched_at": "2026-10-28T03:33:04Z"
+   }
+  },
+  {
+   "number": "15.452",
+   "label": "PROSEMINAR IN CORPORATE FINANCE",
+   "code": null,
+   "name": "Proseminar in Corporate Finance, Investment Banking, and Private Equity",
+   "term": "SPRING",
+   "page": 12,
+   "academic_year": "2026-2027",
+   "_src": {
+    "page": "action-learning/booklet",
+    "snapshot": "snapshots/action-learning/booklet/2026-10-28T033304Z.pdf.gz",
+    "fetched_at": "2026-10-28T03:33:04Z"
+   }
+  },
+  {
+   "number": "15.S67",
+   "label": "RE-LAB",
+   "code": "RE-LAB",
+   "name": "Real Estate Lab",
+   "term": "SPRING",
+   "page": 12,
+   "academic_year": "2026-2027",
+   "_src": {
+    "page": "action-learning/booklet",
+    "snapshot": "snapshots/action-learning/booklet/2026-10-28T033304Z.pdf.gz",
+    "fetched_at": "2026-10-28T03:33:04Z"
+   }
+  },
+  {
+   "number": "15.878",
+   "label": "S-LAB",
+   "code": "S-LAB",
+   "name": "Sustainable Business Lab",
+   "term": "SPRING",
+   "page": 13,
+   "academic_year": "2026-2027",
+   "_src": {
+    "page": "action-learning/booklet",
+    "snapshot": "snapshots/action-learning/booklet/2026-10-28T033304Z.pdf.gz",
+    "fetched_at": "2026-10-28T03:33:04Z"
+   }
+  },
+  {
+   "number": "15.679",
+   "label": "WORK LAB",
+   "code": null,
+   "name": "Work Lab",
+   "term": "SPRING",
+   "page": 13,
+   "academic_year": "2026-2027",
+   "_src": {
+    "page": "action-learning/booklet",
+    "snapshot": "snapshots/action-learning/booklet/2026-10-28T033304Z.pdf.gz",
+    "fetched_at": "2026-10-28T03:33:04Z"
+   }
+  }
+ ]
+}

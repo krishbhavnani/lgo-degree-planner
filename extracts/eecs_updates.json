@@ -1,0 +1,384 @@
+{
+ "format": 1,
+ "source": "eecs_updates",
+ "run_id": "2026-10-28T033507Z",
+ "records": [
+  {
+   "number": "18.S995",
+   "numbers": [
+    "18.S995"
+   ],
+   "title": "Topics in Deep Learning Theory",
+   "term": "Fall 2026",
+   "level": "Graduate",
+   "units_raw": "3-0-9",
+   "prereq_raw": "by permission of instructor",
+   "satisfies": "AAGS in Artificial Intelligence concentration",
+   "instructors": "Alex Damian (MATH & EECS)",
+   "schedule_raw": "Lecture: TR1-2.30 (24-121)",
+   "description": "Covers selected topics in the mathematical foundations of deep learning. Topics may include scaling limits of wide and deep networks, such as the neural tangent kernel, mean-field dynamics, and the maximal update parameterization (μP); mechanisms of feature learning and separations from kernel methods; and optimization dynamics, including the implicit regularization of stochastic gradient descent, the inductive biases of different optimizers, and the edge-of-stability phenomenon. Mathematical maturity is recommended.",
+   "new": false,
+   "was": [],
+   "also_under": [],
+   "url": "https://www.eecs.mit.edu/academics/subject-updates/subject-updates-fall-2026/#18_S995",
+   "_src": {
+    "page": "eecs-updates/subj_2027FA",
+    "snapshot": "snapshots/eecs-updates/subj_2027FA/2026-10-28T033304Z.html.gz",
+    "fetched_at": "2026-10-28T03:33:04Z"
+   }
+  },
+  {
+   "number": "21M.569",
+   "numbers": [
+    "21M.569"
+   ],
+   "title": "Tuning Attention: Creative Practices in Movement, Sound, and AI",
+   "term": "Fall 2026",
+   "level": "Graduate",
+   "units_raw": "12 units (3-1.5-7.5)",
+   "prereq_raw": "by permission of instructor",
+   "satisfies": "AAGS in Artificial Intelligence or Graphics and HCI",
+   "instructors": "Anna Huang (MTA, EECS), Grisha Coleman (MTA)",
+   "schedule_raw": "Lecture: W1-4, Lab: F12-1.30",
+   "description": "This class proposes that the study of sound and movement practices can inform how we build and envision computational systems, focusing particularly on our relationships to AIs. This course explores computational and humanistic approaches to attention through alignment; tuning AI systems while exploring our capacities for expression. We introduce students to a range of movement and music practices in improvisation and somatics, and include motion capture technologies, critical interaction design, generative modeling, and algorithms for interpretability and learning through human feedback.",
+   "new": false,
+   "was": [],
+   "also_under": [],
+   "url": "https://www.eecs.mit.edu/academics/subject-updates/subject-updates-fall-2026/#21M_569",
+   "_src": {
+    "page": "eecs-updates/subj_2027FA",
+    "snapshot": "snapshots/eecs-updates/subj_2027FA/2026-10-28T033304Z.html.gz",
+    "fetched_at": "2026-10-28T03:33:04Z"
+   }
+  },
+  {
+   "number": "21M.589",
+   "numbers": [
+    "21M.589"
+   ],
+   "title": "Audio Computing: Processing Sound in Engineering, Science, and the Arts",
+   "term": "Fall 2026",
+   "level": "Graduate",
+   "units_raw": "3-0-9",
+   "prereq_raw": "Familiarity with programming, and basic calculus (basic derivatives and integrals).",
+   "satisfies": "AUS, AAGS in Signals & Systems",
+   "instructors": "Paris Smaragdis (MTA), Mark Rau (EECS)",
+   "schedule_raw": "MW 11-12:30, room 4-270",
+   "description": "This class will cover an extensive range of topics that relate to sound and vibration analysis, focusing on computational tools needed to process such data, and exploring applications in various disciplines. Material covered will include basic signal processing, vibration and acoustical simulations and measurements, machine learning audio, microphone and speaker arrays, signal enhancement and restoration, and psychoacoustics. Applications will be drawn from fields including music, phonetics, mechanical and electrical engineering, architecture, medicine, and more. This class will cover applications such as 3D audio, classifiers for sound events, basic speech recognition, auto-tuners and other music production tools, audio compression, modeling of voice, instruments and rooms, real-time audio applications, denoising and source separation, and how to localize and isolate sounds. Students taking the graduate version will complete additional assignments.",
+   "new": false,
+   "was": [],
+   "also_under": [],
+   "url": "https://www.eecs.mit.edu/academics/subject-updates/subject-updates-fall-2026/#21M_589",
+   "_src": {
+    "page": "eecs-updates/subj_2027FA",
+    "snapshot": "snapshots/eecs-updates/subj_2027FA/2026-10-28T033304Z.html.gz",
+    "fetched_at": "2026-10-28T03:33:04Z"
+   }
+  },
+  {
+   "number": "6.S057",
+   "numbers": [
+    "6.S057"
+   ],
+   "title": "Verified Software Engineering",
+   "term": "Fall 2026",
+   "level": "Undergraduate",
+   "units_raw": "3-0-9",
+   "prereq_raw": "6.101 and 6.120",
+   "satisfies": "6.1020 (by substitution petition); 6-3 Track Programming Principles and Tools",
+   "instructors": "Adam Chlipala (EECS) Max Goldman (EECS)",
+   "schedule_raw": "MW11-12:30, room 32-141",
+   "description": "Practical application of formal verification tools to specify and verify the correctness of software. Foundational concepts include pre- and postconditions, loop invariants, ghost state, data abstraction, and specification techniques. Lab assignments give hands-on experience in specifying and verifying a variety of software components.",
+   "new": false,
+   "was": [],
+   "also_under": [],
+   "url": "https://www.eecs.mit.edu/academics/subject-updates/subject-updates-fall-2026/#6_S057",
+   "_src": {
+    "page": "eecs-updates/subj_2027FA",
+    "snapshot": "snapshots/eecs-updates/subj_2027FA/2026-10-28T033304Z.html.gz",
+    "fetched_at": "2026-10-28T03:33:04Z"
+   }
+  },
+  {
+   "number": "6.S950",
+   "numbers": [
+    "6.S950"
+   ],
+   "title": "Agency with AI: Effective AI Use in Applied Machine-Learning Projects",
+   "term": "Fall 2026",
+   "level": "Undergraduate",
+   "units_raw": "2-2-8",
+   "prereq_raw": "6.3900 AND 6.1010 AND 6.1210",
+   "satisfies": "EECS elective",
+   "instructors": "Shen Shen (EECS)",
+   "schedule_raw": "Lecture: Tuesdays 2:30-4, room 37-212 Lab: Thursdays 2:30-4, 32-044",
+   "description": "Examines the effective use of agentic AI tools in applied machine-learning work, such as a UROP or MEng project. Develops both fluency with the tools and agency: the judgment about what to delegate, what to verify, and what to do oneself. Introduces good agentic-AI practices such as spec-driven development, context management, and harness engineering; where and why LLMs fail by construction, through the machinery beyond vanilla transformers; and how to design evaluations to measure those failures. Each idea introduced connects to a long-standing EECS principle, with attention to what is genuinely new. Includes a semester-long project in which AI-assisted reading is checked against sources and compiled into a map of the field, a small ML component is built from scratch with an agent, outsourced datasets are vetted, and artifacts and their judges are audited. A personal portfolio of reusable AI workflows accumulates alongside the project. For more information: https://agencyai.mit.edu/. Enrollment limited to 20.",
+   "new": false,
+   "was": [],
+   "also_under": [],
+   "url": "https://www.eecs.mit.edu/academics/subject-updates/subject-updates-fall-2026/#6_S950",
+   "_src": {
+    "page": "eecs-updates/subj_2027FA",
+    "snapshot": "snapshots/eecs-updates/subj_2027FA/2026-10-28T033304Z.html.gz",
+    "fetched_at": "2026-10-28T03:33:04Z"
+   }
+  },
+  {
+   "number": "6.S951",
+   "numbers": [
+    "6.S951"
+   ],
+   "title": "AI for Science: Generative AI for Scientific Discovery",
+   "term": "Fall 2026",
+   "level": "Graduate",
+   "units_raw": "3-0-9",
+   "prereq_raw": "machine learning such as 6.3900 or 6.7900 or 6.C51+6.C511 or related; probability such as 6.3700 or 6.3800 or related; linear algebra such as 18.06 or 6.C06 or related",
+   "satisfies": "II, AAGS in Artificial Intelligence",
+   "instructors": "Tommi S Jaakkola (EECS)",
+   "schedule_raw": "TR11-12:30, room 37-212",
+   "description": "This project based course focuses on emerging opportunities of generative AI in scientific research. The course draws on recent literature pertaining to representation and grounding of scientific knowledge, generative approaches, inverse design, closed-loop discovery, and agentic approaches to scientific discovery. Students will critically review papers, participate in structured discussion, and complete a substantial class project involving generative AI. The course emphasizes technical understanding, rigorous evaluation, and potential for scientific advances. Enrollment may be limited.",
+   "new": false,
+   "was": [],
+   "also_under": [],
+   "url": "https://www.eecs.mit.edu/academics/subject-updates/subject-updates-fall-2026/#6_S951",
+   "_src": {
+    "page": "eecs-updates/subj_2027FA",
+    "snapshot": "snapshots/eecs-updates/subj_2027FA/2026-10-28T033304Z.html.gz",
+    "fetched_at": "2026-10-28T03:33:04Z"
+   }
+  },
+  {
+   "number": "6.S952",
+   "numbers": [
+    "6.S952"
+   ],
+   "title": "The Lessons of Quantum Mechanics",
+   "term": "Fall 2026",
+   "level": "Graduate",
+   "units_raw": "3-0-3",
+   "prereq_raw": "Permission of instructor",
+   "satisfies": "",
+   "instructors": "Gerald Jay Sussman (EECS)",
+   "schedule_raw": "W7-10pm, room 36-144",
+   "description": "What is Quantum Mechanics trying to teach us? There are no generally agreed upon interpretations of Quantum Mechanics and Quantum Mechanics is incompatible with out best theory of gravity: General Relativity. This is a big problem in the foundations of physics. This seminar is to learn about and discuss ideas about these problems. In each session the leader will introduce a topic and assign readings for the next week. Each participant will prepare a summary of the readings for the next session (on the next week). One participant will be selected, at random at each session to present their summary. The rest of that session will be discussion of the summary presented.",
+   "new": false,
+   "was": [],
+   "also_under": [],
+   "url": "https://www.eecs.mit.edu/academics/subject-updates/subject-updates-fall-2026/#6_S952",
+   "_src": {
+    "page": "eecs-updates/subj_2027FA",
+    "snapshot": "snapshots/eecs-updates/subj_2027FA/2026-10-28T033304Z.html.gz",
+    "fetched_at": "2026-10-28T03:33:04Z"
+   }
+  },
+  {
+   "number": "6.S953",
+   "numbers": [
+    "6.S953"
+   ],
+   "title": "Topics in Error-Correcting Codes for Computer Science",
+   "term": "Fall 2026",
+   "level": "Graduate",
+   "units_raw": "12",
+   "prereq_raw": "6.1200, 6.1210, 18.06",
+   "satisfies": "AAGS in Theoretical Computer Science",
+   "instructors": "Yael T Kalai (EECS)",
+   "schedule_raw": "MW11-12:30, room 36-156",
+   "description": "This course introduces the theory of error-correcting codes to computer scientists. The course will focus on results of asymptotic or algorithmic significance. Principal topics include: Existence results for error-correcting codes and limitations, Constructions and algorithms, interactive coding, and applications in computer science.",
+   "new": false,
+   "was": [],
+   "also_under": [],
+   "url": "https://www.eecs.mit.edu/academics/subject-updates/subject-updates-fall-2026/#6_S953",
+   "_src": {
+    "page": "eecs-updates/subj_2027FA",
+    "snapshot": "snapshots/eecs-updates/subj_2027FA/2026-10-28T033304Z.html.gz",
+    "fetched_at": "2026-10-28T03:33:04Z"
+   }
+  },
+  {
+   "number": "6.S964",
+   "numbers": [
+    "6.S964"
+   ],
+   "title": "Electric Energy Markets: Innovation at Value",
+   "term": "Fall 2026",
+   "level": "Graduate",
+   "units_raw": "12",
+   "prereq_raw": "6.7121; or 6.2200; and Ability to perform college-level mathematical operations; Study of physics, engineering, economics, finance and/or environment science helpful",
+   "satisfies": "AAGS",
+   "instructors": "Marija Ilic (LIDS)",
+   "schedule_raw": "TR 9:30-11, room 4-237; Recitation F11, room 4-265",
+   "description": "Systems approach to designing, modeling, simulating and decision making for electricity markets is introduced. Emphasis on physically implementable markets, with the review of today's electric power systems operations and planning. A home-grown digital platform used to emulate interactions between market, regulatory and engineering signals. Assessment of the evolution of electric energy markets, with a critical overview of methods for managing uncertainties at value. Links with model predictive decision making, arbitrage management and the role of digitization (automation, ML/AI) in enabling future performance of electricity markets. Role of flexibility and its value in managing uncertainties, with use cases (hyperscale data centers, renewable intermittent resources, reliability, resilience). Introduction of unified technology-agnostic modeling in terms of energy, power and rate of change of reactive power in support of protocols for efficient physically implementable market concepts. If you want to learn how to become hardware/software innovative expert in cyber-physical systems for supporting the ongoing revolution in electric power industry! The course bridges EE, economics/finance and CS tools in major ways. We learn what information needs to be sensed, communicated and processed by different embedded cyber systems into physical electric systems and for what purpose. Become a leader in using cyber for sustainable energy systems at value! Exciting term projects (including integration of hyperscale data centers in electricity grids; valuing power electronics for supporting flexibility; integration of storage at value; hybrid use of ML/AI tools for electricity markets.",
+   "new": false,
+   "was": [],
+   "also_under": [],
+   "url": "https://www.eecs.mit.edu/academics/subject-updates/subject-updates-fall-2026/#6_S964",
+   "_src": {
+    "page": "eecs-updates/subj_2027FA",
+    "snapshot": "snapshots/eecs-updates/subj_2027FA/2026-10-28T033304Z.html.gz",
+    "fetched_at": "2026-10-28T03:33:04Z"
+   }
+  },
+  {
+   "number": "6.S974",
+   "numbers": [
+    "6.S974"
+   ],
+   "title": "Games, Learning, and Security",
+   "term": "Fall 2026",
+   "level": "Graduate",
+   "units_raw": "3-0-9 (12 units)",
+   "prereq_raw": "Linear algebra and optimization at the level of 18.C06; probability at the level of 6.3700; programming experience in Python. No prior background in game theory or reinforcement learning is needed; we build those up in the course. Graduate students from other departments may enroll with permission of the instructor.",
+   "satisfies": "AUS, 6-4 AUS, AAGS in Artificial Intelligence concentration",
+   "instructors": "Asu Ozdaglar (EECS) Mathieu Dahan (visiting; Georgia Tech, ISyE) Themistoklis Sapsis (Mechanical Engineering) Saurabh Amin (Civil and Environmental Engineering)",
+   "schedule_raw": "TR11-12:30, room 4-163",
+   "description": "Studies decision-making in systems whose outcomes depend on the actions of other agents, human and artificial. Covers game-theoretic models of strategic interaction and equilibrium; reinforcement learning and multi-agent learning, including when learning agents converge to an equilibrium, cycle, or collude; design of incentives and mechanisms for steering dynamic trajectories towards outcomes with good welfare properties; attacks on learning systems and game-theoretic approaches to defense; and design for resilience against disruption, rare events, and strategic surprise. Introduces the relevant background in game theory, learning theory, and network science. Student teams build a semester-long computational wargame: they implement a simulation of a multi-agent system such as critical infrastructure, an autonomous system, or an algorithmic market, add strategic and learning agents, test attacks and defenses, and design for resilience.",
+   "new": false,
+   "was": [],
+   "also_under": [
+    "2.S988",
+    "1.S980"
+   ],
+   "url": "https://www.eecs.mit.edu/academics/subject-updates/subject-updates-fall-2026/#6_S974_also_under_2_S988_and_1_S980",
+   "_src": {
+    "page": "eecs-updates/subj_2027FA",
+    "snapshot": "snapshots/eecs-updates/subj_2027FA/2026-10-28T033304Z.html.gz",
+    "fetched_at": "2026-10-28T03:33:04Z"
+   }
+  },
+  {
+   "number": "6.S978",
+   "numbers": [
+    "6.S978"
+   ],
+   "title": "Engineering AI Systems and Agents",
+   "term": "Fall 2026",
+   "level": "Graduate",
+   "units_raw": "2-0-10",
+   "prereq_raw": "6.3900 AND (6.1020 OR 6.1800 OR 6.1810); or permission of instructor. Recommended: 6.1210 or equivalent algorithmic maturity.",
+   "satisfies": "AUS, AAGS in Computer Systems and Artificial Intelligence",
+   "instructors": "Omar Khattab (EECS)",
+   "schedule_raw": "W11-1, room 32-144",
+   "description": "Introduces principles, abstractions, algorithms, and processes for building, evaluating, and optimizing stochastic AI software systems that invoke pre-trained foundation models inside computer programs. Topics include programming models for language model systems; structured generation and constrained decoding; evaluation, robustness, and security of agentic AI applications; neural information retrieval and retrieval-augmented generation; tool use and agent harnesses; adaptation of model behavior through prompt optimization, supervised fine-tuning, synthetic data, reinforcement learning, and distillation; and serving and runtime systems for language model applications. Includes a substantial project.",
+   "new": false,
+   "was": [],
+   "also_under": [],
+   "url": "https://www.eecs.mit.edu/academics/subject-updates/subject-updates-fall-2026/#6_S978",
+   "_src": {
+    "page": "eecs-updates/subj_2027FA",
+    "snapshot": "snapshots/eecs-updates/subj_2027FA/2026-10-28T033304Z.html.gz",
+    "fetched_at": "2026-10-28T03:33:04Z"
+   }
+  },
+  {
+   "number": "6.S979",
+   "numbers": [
+    "6.S979"
+   ],
+   "title": "Introduction to LLM Inference Systems",
+   "term": "Fall 2026",
+   "level": "Graduate",
+   "units_raw": "3–0–9",
+   "prereq_raw": "6.1800 (Computer Systems Engineering) or equivalent systems background. Familiarity with parallel or performance-oriented programming (e.g., 6.1060 or equivalent) recommended. Prior exposure to machine learning models (e.g., transformers) helpful but not required. Permission of instructor for graduate students without the listed prerequisites.",
+   "satisfies": "AAGS in Computer Systems concentration and Artificial Intelligence concentration",
+   "instructors": "Nir N. Shavit (EECS) Alex Matveev (Outside lecturer)",
+   "schedule_raw": "W11-2, room 5-134",
+   "description": "This subject examines large language model (LLM) inference as a systems problem, with emphasis on low-latency execution, memory-intensive workloads, and deployment across heterogeneous hardware. Topics include batching and scheduling, KV-cache management, kernel and compiler co-design, distributed and multi-GPU inference, and hardware tradeoffs across GPUs, CPUs, TPUs, and inference accelerators. The course also covers inference-time optimization techniques such as quantization, sparsity, speculative decoding, and multi-model routing. The subject emphasizes analytical understanding and synthesis of recent research and production systems rather than large programming projects, and is intended for graduate students and advanced undergraduates interested in ML systems and infrastructure.",
+   "new": false,
+   "was": [],
+   "also_under": [],
+   "url": "https://www.eecs.mit.edu/academics/subject-updates/subject-updates-fall-2026/#6_S979",
+   "_src": {
+    "page": "eecs-updates/subj_2027FA",
+    "snapshot": "snapshots/eecs-updates/subj_2027FA/2026-10-28T033304Z.html.gz",
+    "fetched_at": "2026-10-28T03:33:04Z"
+   }
+  },
+  {
+   "number": "6.S980",
+   "numbers": [
+    "6.S980"
+   ],
+   "title": "Quantum Error Correction",
+   "term": "Fall 2026",
+   "level": "Graduate",
+   "units_raw": "3 - 0 - 9",
+   "prereq_raw": "6.6410[J] (or 18.435[J] / equivalent quantum computation background)",
+   "satisfies": "AUS, AAGS in Applied Physics",
+   "instructors": "Hengyun Zhou (EECS)",
+   "schedule_raw": "Thursdays/Fridays 1-2:30, room 24-115",
+   "description": "Develops the theory and practice of quantum error correction (QEC) and fault-tolerant quantum computation, with emphasis on recent developments. Begins with stabilizer codes and the Knill-Laflamme error-correction conditions, then outlines the full fault tolerance stack with surface codes, including lattice surgery, transversal gates, non-Clifford gates, and decoding. The second half of the course introduces high-rate quantum low-density parity-check codes and recent progress in logical gate design, concluding with examples of end-to-end fault-tolerant architecture design with resource estimation. Students simulate and benchmark QEC circuits, critique recent literature, and complete a research-style final project. Designed to introduce students to frontiers of QEC developments.",
+   "new": false,
+   "was": [],
+   "also_under": [],
+   "url": "https://www.eecs.mit.edu/academics/subject-updates/subject-updates-fall-2026/#6_S980",
+   "_src": {
+    "page": "eecs-updates/subj_2027FA",
+    "snapshot": "snapshots/eecs-updates/subj_2027FA/2026-10-28T033304Z.html.gz",
+    "fetched_at": "2026-10-28T03:33:04Z"
+   }
+  },
+  {
+   "number": "6.3930/6.3932",
+   "numbers": [
+    "6.3930",
+    "6.3932"
+   ],
+   "title": "AI and Decision Making in Medicine: From Disease to Therapy",
+   "term": "Fall 2026",
+   "level": "Undergraduate and Graduate",
+   "units_raw": "3-0-9",
+   "prereq_raw": "6.100A AND 6.C01 AND 6.C011",
+   "satisfies": "AUS; AAGS; EECS; CI-M; 6-4 Application CI-M; Concentration subjects in BioEE or AI",
+   "instructors": "Regina Barzilay (EECS) Collin Stultz (EECS)",
+   "schedule_raw": "TR11-12.30, room 56-114",
+   "description": "Introduction to fundamental principles and applications of artificial intelligence (AI) in medicine and medical research. Students are introduced to foundational concepts in machine learning as it pertains to clinical decision support systems, personalized medicine, and advanced computational methods for drug optimization and protein folding. The interplay of clinical reasoning, risk stratification, and the design of novel therapeutics is stressed. Problem sets integrate theoretical knowledge and hands-on applications based on concrete problems in both medical and pharmaceutical science.",
+   "new": true,
+   "was": [
+    "6.S043",
+    "6.S983"
+   ],
+   "also_under": [],
+   "url": "https://www.eecs.mit.edu/academics/subject-updates/subject-updates-fall-2026/#NEW_6_3930_2",
+   "_src": {
+    "page": "eecs-updates/subj_2027FA",
+    "snapshot": "snapshots/eecs-updates/subj_2027FA/2026-10-28T033304Z.html.gz",
+    "fetched_at": "2026-10-28T03:33:04Z"
+   }
+  },
+  {
+   "number": "6.7980",
+   "numbers": [
+    "6.7980"
+   ],
+   "title": "Topics in Multiagent Learning",
+   "term": "Fall 2026",
+   "level": "Graduate",
+   "units_raw": "3-0-9",
+   "prereq_raw": "6.1200, 6.1220, or 15.C571",
+   "satisfies": "6-3 Theory Track, Concentration subject in AI or Theory; AUS; II; 6-4 AUS; AAGS",
+   "instructors": "Gabriele Farina, Costis Daskalakis",
+   "schedule_raw": "TR11-12.30, room E25-111",
+   "description": "Examines the foundations of multi-agent systems from a combined game-theoretic, optimization, and learning-theoretic perspective. Studies settings involving multiple learning agents with distinct objectives, where standard training methods may induce nonstationary or unstable behaviors. Introduces fundamental models including matrix games, stochastic games, and imperfect-information games. Studies modern settings deviating from standard models wherein strategies and utilities are represented using deep neural networks. Presents equilibrium concepts, equilibrium computation methods, and equilibrium learning methods. Studies the complexity of solution concepts. Discusses applications in machine learning, including multi-agent reinforcement learning, adversarial learning, AI-AI interactions, and strategic decision-making systems underlying game-playing agents in domains such as Go, poker, Diplomacy, and Stratego.",
+   "new": true,
+   "was": [
+    "6.S890"
+   ],
+   "also_under": [],
+   "url": "https://www.eecs.mit.edu/academics/subject-updates/subject-updates-fall-2026/#NEW_6_7980",
+   "_src": {
+    "page": "eecs-updates/subj_2027FA",
+    "snapshot": "snapshots/eecs-updates/subj_2027FA/2026-10-28T033304Z.html.gz",
+    "fetched_at": "2026-10-28T03:33:04Z"
+   }
+  }
+ ],
+ "terms": [
+  {
+   "term": "Fall 2026",
+   "page": "https://www.eecs.mit.edu/academics/subject-updates/subject-updates-fall-2026/",
+   "fragment": "https://eecsis.mit.edu/plugins/subj_2027FA.html",
+   "subjects": 15
+  }
+ ]
+}

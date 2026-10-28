@@ -1,0 +1,430 @@
+{
+ "format": 1,
+ "source": "catalog_index",
+ "run_id": "2026-10-28T033507Z",
+ "records": [
+  {
+   "prefix": "1",
+   "name": "Civil and Environmental Engineering",
+   "_src": {
+    "page": "catalog-index/index",
+    "snapshot": "snapshots/catalog-index/index/2026-10-28T033300Z.html.gz",
+    "fetched_at": "2026-10-28T03:33:00Z"
+   }
+  },
+  {
+   "prefix": "2",
+   "name": "Mechanical Engineering",
+   "_src": {
+    "page": "catalog-index/index",
+    "snapshot": "snapshots/catalog-index/index/2026-10-28T033300Z.html.gz",
+    "fetched_at": "2026-10-28T03:33:00Z"
+   }
+  },
+  {
+   "prefix": "3",
+   "name": "Materials Science and Engineering",
+   "_src": {
+    "page": "catalog-index/index",
+    "snapshot": "snapshots/catalog-index/index/2026-10-28T033300Z.html.gz",
+    "fetched_at": "2026-10-28T03:33:00Z"
+   }
+  },
+  {
+   "prefix": "4",
+   "name": "Architecture",
+   "_src": {
+    "page": "catalog-index/index",
+    "snapshot": "snapshots/catalog-index/index/2026-10-28T033300Z.html.gz",
+    "fetched_at": "2026-10-28T03:33:00Z"
+   }
+  },
+  {
+   "prefix": "5",
+   "name": "Chemistry",
+   "_src": {
+    "page": "catalog-index/index",
+    "snapshot": "snapshots/catalog-index/index/2026-10-28T033300Z.html.gz",
+    "fetched_at": "2026-10-28T03:33:00Z"
+   }
+  },
+  {
+   "prefix": "6",
+   "name": "Electrical Engineering and Computer Science",
+   "_src": {
+    "page": "catalog-index/index",
+    "snapshot": "snapshots/catalog-index/index/2026-10-28T033300Z.html.gz",
+    "fetched_at": "2026-10-28T03:33:00Z"
+   }
+  },
+  {
+   "prefix": "7",
+   "name": "Biology",
+   "_src": {
+    "page": "catalog-index/index",
+    "snapshot": "snapshots/catalog-index/index/2026-10-28T033300Z.html.gz",
+    "fetched_at": "2026-10-28T03:33:00Z"
+   }
+  },
+  {
+   "prefix": "8",
+   "name": "Physics",
+   "_src": {
+    "page": "catalog-index/index",
+    "snapshot": "snapshots/catalog-index/index/2026-10-28T033300Z.html.gz",
+    "fetched_at": "2026-10-28T03:33:00Z"
+   }
+  },
+  {
+   "prefix": "9",
+   "name": "Brain and Cognitive Sciences",
+   "_src": {
+    "page": "catalog-index/index",
+    "snapshot": "snapshots/catalog-index/index/2026-10-28T033300Z.html.gz",
+    "fetched_at": "2026-10-28T03:33:00Z"
+   }
+  },
+  {
+   "prefix": "10",
+   "name": "Chemical Engineering",
+   "_src": {
+    "page": "catalog-index/index",
+    "snapshot": "snapshots/catalog-index/index/2026-10-28T033300Z.html.gz",
+    "fetched_at": "2026-10-28T03:33:00Z"
+   }
+  },
+  {
+   "prefix": "11",
+   "name": "Urban Studies and Planning",
+   "_src": {
+    "page": "catalog-index/index",
+    "snapshot": "snapshots/catalog-index/index/2026-10-28T033300Z.html.gz",
+    "fetched_at": "2026-10-28T03:33:00Z"
+   }
+  },
+  {
+   "prefix": "12",
+   "name": "Earth, Atmospheric, and Planetary Sciences",
+   "_src": {
+    "page": "catalog-index/index",
+    "snapshot": "snapshots/catalog-index/index/2026-10-28T033300Z.html.gz",
+    "fetched_at": "2026-10-28T03:33:00Z"
+   }
+  },
+  {
+   "prefix": "14",
+   "name": "Economics",
+   "_src": {
+    "page": "catalog-index/index",
+    "snapshot": "snapshots/catalog-index/index/2026-10-28T033300Z.html.gz",
+    "fetched_at": "2026-10-28T03:33:00Z"
+   }
+  },
+  {
+   "prefix": "15",
+   "name": "Management",
+   "_src": {
+    "page": "catalog-index/index",
+    "snapshot": "snapshots/catalog-index/index/2026-10-28T033300Z.html.gz",
+    "fetched_at": "2026-10-28T03:33:00Z"
+   }
+  },
+  {
+   "prefix": "16",
+   "name": "Aeronautics and Astronautics",
+   "_src": {
+    "page": "catalog-index/index",
+    "snapshot": "snapshots/catalog-index/index/2026-10-28T033300Z.html.gz",
+    "fetched_at": "2026-10-28T03:33:00Z"
+   }
+  },
+  {
+   "prefix": "17",
+   "name": "Political Science",
+   "_src": {
+    "page": "catalog-index/index",
+    "snapshot": "snapshots/catalog-index/index/2026-10-28T033300Z.html.gz",
+    "fetched_at": "2026-10-28T03:33:00Z"
+   }
+  },
+  {
+   "prefix": "18",
+   "name": "Mathematics",
+   "_src": {
+    "page": "catalog-index/index",
+    "snapshot": "snapshots/catalog-index/index/2026-10-28T033300Z.html.gz",
+    "fetched_at": "2026-10-28T03:33:00Z"
+   }
+  },
+  {
+   "prefix": "20",
+   "name": "Biological Engineering",
+   "_src": {
+    "page": "catalog-index/index",
+    "snapshot": "snapshots/catalog-index/index/2026-10-28T033300Z.html.gz",
+    "fetched_at": "2026-10-28T03:33:00Z"
+   }
+  },
+  {
+   "prefix": "21",
+   "name": "Humanities",
+   "_src": {
+    "page": "catalog-index/index",
+    "snapshot": "snapshots/catalog-index/index/2026-10-28T033300Z.html.gz",
+    "fetched_at": "2026-10-28T03:33:00Z"
+   }
+  },
+  {
+   "prefix": "21A",
+   "name": "Anthropology",
+   "_src": {
+    "page": "catalog-index/index",
+    "snapshot": "snapshots/catalog-index/index/2026-10-28T033300Z.html.gz",
+    "fetched_at": "2026-10-28T03:33:00Z"
+   }
+  },
+  {
+   "prefix": "CMS",
+   "name": "Comparative Media Studies",
+   "_src": {
+    "page": "catalog-index/index",
+    "snapshot": "snapshots/catalog-index/index/2026-10-28T033300Z.html.gz",
+    "fetched_at": "2026-10-28T03:33:00Z"
+   }
+  },
+  {
+   "prefix": "21W",
+   "name": "Writing",
+   "_src": {
+    "page": "catalog-index/index",
+    "snapshot": "snapshots/catalog-index/index/2026-10-28T033300Z.html.gz",
+    "fetched_at": "2026-10-28T03:33:00Z"
+   }
+  },
+  {
+   "prefix": "21G",
+   "name": "Global Languages",
+   "_src": {
+    "page": "catalog-index/index",
+    "snapshot": "snapshots/catalog-index/index/2026-10-28T033300Z.html.gz",
+    "fetched_at": "2026-10-28T03:33:00Z"
+   }
+  },
+  {
+   "prefix": "21H",
+   "name": "History",
+   "_src": {
+    "page": "catalog-index/index",
+    "snapshot": "snapshots/catalog-index/index/2026-10-28T033300Z.html.gz",
+    "fetched_at": "2026-10-28T03:33:00Z"
+   }
+  },
+  {
+   "prefix": "21L",
+   "name": "Literature",
+   "_src": {
+    "page": "catalog-index/index",
+    "snapshot": "snapshots/catalog-index/index/2026-10-28T033300Z.html.gz",
+    "fetched_at": "2026-10-28T03:33:00Z"
+   }
+  },
+  {
+   "prefix": "21M",
+   "name": "Music",
+   "_src": {
+    "page": "catalog-index/index",
+    "snapshot": "snapshots/catalog-index/index/2026-10-28T033300Z.html.gz",
+    "fetched_at": "2026-10-28T03:33:00Z"
+   }
+  },
+  {
+   "prefix": "21T",
+   "name": "Theater Arts",
+   "_src": {
+    "page": "catalog-index/index",
+    "snapshot": "snapshots/catalog-index/index/2026-10-28T033300Z.html.gz",
+    "fetched_at": "2026-10-28T03:33:00Z"
+   }
+  },
+  {
+   "prefix": "WGS",
+   "name": "Women's and Gender Studies",
+   "_src": {
+    "page": "catalog-index/index",
+    "snapshot": "snapshots/catalog-index/index/2026-10-28T033300Z.html.gz",
+    "fetched_at": "2026-10-28T03:33:00Z"
+   }
+  },
+  {
+   "prefix": "22",
+   "name": "Nuclear Science and Engineering",
+   "_src": {
+    "page": "catalog-index/index",
+    "snapshot": "snapshots/catalog-index/index/2026-10-28T033300Z.html.gz",
+    "fetched_at": "2026-10-28T03:33:00Z"
+   }
+  },
+  {
+   "prefix": "24",
+   "name": "Linguistics and Philosophy",
+   "_src": {
+    "page": "catalog-index/index",
+    "snapshot": "snapshots/catalog-index/index/2026-10-28T033300Z.html.gz",
+    "fetched_at": "2026-10-28T03:33:00Z"
+   }
+  },
+  {
+   "prefix": "CC",
+   "name": "Concourse Program",
+   "_src": {
+    "page": "catalog-index/index",
+    "snapshot": "snapshots/catalog-index/index/2026-10-28T033300Z.html.gz",
+    "fetched_at": "2026-10-28T03:33:00Z"
+   }
+  },
+  {
+   "prefix": "CG",
+   "name": "Common Ground for Computing Education",
+   "_src": {
+    "page": "catalog-index/index",
+    "snapshot": "snapshots/catalog-index/index/2026-10-28T033300Z.html.gz",
+    "fetched_at": "2026-10-28T03:33:00Z"
+   }
+  },
+  {
+   "prefix": "CSB",
+   "name": "Computational and Systems Biology",
+   "_src": {
+    "page": "catalog-index/index",
+    "snapshot": "snapshots/catalog-index/index/2026-10-28T033300Z.html.gz",
+    "fetched_at": "2026-10-28T03:33:00Z"
+   }
+  },
+  {
+   "prefix": "CSE",
+   "name": "Center for Computational Science and Engineering",
+   "_src": {
+    "page": "catalog-index/index",
+    "snapshot": "snapshots/catalog-index/index/2026-10-28T033300Z.html.gz",
+    "fetched_at": "2026-10-28T03:33:00Z"
+   }
+  },
+  {
+   "prefix": "EC",
+   "name": "Edgerton Center",
+   "_src": {
+    "page": "catalog-index/index",
+    "snapshot": "snapshots/catalog-index/index/2026-10-28T033300Z.html.gz",
+    "fetched_at": "2026-10-28T03:33:00Z"
+   }
+  },
+  {
+   "prefix": "EM",
+   "name": "Engineering and Management",
+   "_src": {
+    "page": "catalog-index/index",
+    "snapshot": "snapshots/catalog-index/index/2026-10-28T033300Z.html.gz",
+    "fetched_at": "2026-10-28T03:33:00Z"
+   }
+  },
+  {
+   "prefix": "ES",
+   "name": "Experimental Study Group",
+   "_src": {
+    "page": "catalog-index/index",
+    "snapshot": "snapshots/catalog-index/index/2026-10-28T033300Z.html.gz",
+    "fetched_at": "2026-10-28T03:33:00Z"
+   }
+  },
+  {
+   "prefix": "HST",
+   "name": "Health Sciences and Technology",
+   "_src": {
+    "page": "catalog-index/index",
+    "snapshot": "snapshots/catalog-index/index/2026-10-28T033300Z.html.gz",
+    "fetched_at": "2026-10-28T03:33:00Z"
+   }
+  },
+  {
+   "prefix": "IDS",
+   "name": "Institute for Data, Systems and Society",
+   "_src": {
+    "page": "catalog-index/index",
+    "snapshot": "snapshots/catalog-index/index/2026-10-28T033300Z.html.gz",
+    "fetched_at": "2026-10-28T03:33:00Z"
+   }
+  },
+  {
+   "prefix": "MAD",
+   "name": "Making and Design",
+   "_src": {
+    "page": "catalog-index/index",
+    "snapshot": "snapshots/catalog-index/index/2026-10-28T033300Z.html.gz",
+    "fetched_at": "2026-10-28T03:33:00Z"
+   }
+  },
+  {
+   "prefix": "MAS",
+   "name": "Media Arts and Sciences",
+   "_src": {
+    "page": "catalog-index/index",
+    "snapshot": "snapshots/catalog-index/index/2026-10-28T033300Z.html.gz",
+    "fetched_at": "2026-10-28T03:33:00Z"
+   }
+  },
+  {
+   "prefix": "SCM",
+   "name": "Supply Chain Management",
+   "_src": {
+    "page": "catalog-index/index",
+    "snapshot": "snapshots/catalog-index/index/2026-10-28T033300Z.html.gz",
+    "fetched_at": "2026-10-28T03:33:00Z"
+   }
+  },
+  {
+   "prefix": "AS",
+   "name": "ROTC - Aerospace Studies",
+   "_src": {
+    "page": "catalog-index/index",
+    "snapshot": "snapshots/catalog-index/index/2026-10-28T033300Z.html.gz",
+    "fetched_at": "2026-10-28T03:33:00Z"
+   }
+  },
+  {
+   "prefix": "MS",
+   "name": "Military Science",
+   "_src": {
+    "page": "catalog-index/index",
+    "snapshot": "snapshots/catalog-index/index/2026-10-28T033300Z.html.gz",
+    "fetched_at": "2026-10-28T03:33:00Z"
+   }
+  },
+  {
+   "prefix": "NS",
+   "name": "Naval Science",
+   "_src": {
+    "page": "catalog-index/index",
+    "snapshot": "snapshots/catalog-index/index/2026-10-28T033300Z.html.gz",
+    "fetched_at": "2026-10-28T03:33:00Z"
+   }
+  },
+  {
+   "prefix": "STS",
+   "name": "Science, Technology, and Society",
+   "_src": {
+    "page": "catalog-index/index",
+    "snapshot": "snapshots/catalog-index/index/2026-10-28T033300Z.html.gz",
+    "fetched_at": "2026-10-28T03:33:00Z"
+   }
+  },
+  {
+   "prefix": "SWE",
+   "name": "Engineering School-Wide Electives",
+   "_src": {
+    "page": "catalog-index/index",
+    "snapshot": "snapshots/catalog-index/index/2026-10-28T033300Z.html.gz",
+    "fetched_at": "2026-10-28T03:33:00Z"
+   }
+  }
+ ]
+}
