@@ -12,8 +12,17 @@ Course-evaluation hours come from evals.json and are merged in on every run.
 Personal ratings are never merged into data.js (it is public); they load at
 runtime from the gitignored personal/ratings.js overlay. Browser flags live in localStorage and are untouched.
 
-Stdlib only (urllib, re, html, json) - no third-party packages required.
-Run:  python3 scrape.py
+Every run goes through the pipeline/ package:
+  - polite fetching (identifying user agent, 1.5 s per-host delay, retries, curl fallback)
+  - guardrails: if any sanity check fails, nothing is written and the script exits non-zero
+  - with --refresh, raw pages are archived (change-only, gzipped) into .data/, a local
+    worktree of the public `data` branch. The archive is written but never committed here.
+
+Stdlib only - no third-party packages required.
+Run:  python3 scrape.py              # parse cached pages in .scratch/ (fetches any missing)
+      python3 scrape.py --refresh    # fetch live from MIT, archive, check, publish
+      python3 scrape.py --refresh --archive-dir PATH   # archive somewhere else
+      python3 scrape.py --refresh --no-archive
 """
 
 import html
@@ -21,14 +30,17 @@ import json
 import os
 import re
 import sys
-import urllib.request
-from datetime import datetime
+import traceback
+from datetime import datetime, timezone
+
+from pipeline import config as pconfig
+from pipeline import guardrails, snapshots
+from pipeline.fetch import Fetcher, FetchResult
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 CACHE = os.path.join(HERE, ".scratch")
-CATALOG_URL = "https://student.mit.edu/catalog/{}.html"
-AAGS_URL = "https://eecsis.mit.edu/degree_requirements.pcgi?program=AAGS"
-USER_AGENT = "Mozilla/5.0 (course-dashboard scraper; personal use)"
+CATALOG_URL = pconfig.CATALOG_URL
+AAGS_URL = pconfig.AAGS_URL
 
 # Departments to scrape. `code` is the subject-number prefix and the OSE department id;
 # `aags` flags the EECS AAGS approved-subject list (only meaningful for Course 6).
@@ -42,20 +54,70 @@ DEPARTMENTS = [
 THIS_AY = "2026-2027"
 NEXT_AY = "2027-2028"
 
+# Pages collected for this run (cache_name -> FetchResult), filled by collect().
+_PAGES = {}
+
 
 def fetch(url, cache_name, refresh=False):
-    """Fetch a URL, caching the raw HTML under .scratch/ for cheap reruns."""
-    os.makedirs(CACHE, exist_ok=True)
-    path = os.path.join(CACHE, cache_name)
-    if os.path.exists(path) and not refresh:
-        with open(path, encoding="utf-8", errors="replace") as f:
-            return f.read()
-    req = urllib.request.Request(url, headers={"User-Agent": USER_AGENT})
-    with urllib.request.urlopen(req, timeout=60) as resp:
-        data = resp.read().decode("utf-8", errors="replace")
-    with open(path, "w", encoding="utf-8") as f:
-        f.write(data)
-    return data
+    """Return a page collected for this run (see collect()). Parsers call this."""
+    if cache_name not in _PAGES:
+        raise RuntimeError("%s is not in the source registry (pipeline/config.py)" % cache_name)
+    return _PAGES[cache_name].text()
+
+
+def _from_cache(source):
+    path = os.path.join(CACHE, source.cache_name)
+    if not os.path.exists(path):
+        return None
+    with open(path, "rb") as f:
+        body = f.read()
+    when = datetime.fromtimestamp(os.path.getmtime(path), timezone.utc)
+    return FetchResult(source.url, 200, body, via="cache", fetched_at=when)
+
+
+def _save_cache(source, result):
+    if result.ok and result.body:
+        os.makedirs(CACHE, exist_ok=True)
+        with open(os.path.join(CACHE, source.cache_name), "wb") as f:
+            f.write(result.body)
+
+
+def collect(sources, refresh, fetcher=None):
+    """Fetch every source (live with --refresh, else from .scratch/ cache when present).
+
+    Fetched pages are not written to the .scratch/ cache here; main() does that only after
+    the guardrails pass, so a bad fetch never replaces a good cached copy.
+
+    Live catalog pages whose Produced stamp differs from the newest one are refetched once
+    (MIT regenerates the listing daily; a fetch can straddle the regeneration).
+    """
+    fetcher = fetcher or Fetcher()
+    results = {}
+    for s in sources:
+        res = None if refresh else _from_cache(s)
+        if res is None:
+            res = fetcher.get(s.url)
+        results[s.key] = res
+        print("  %-14s %s  %4.0f KB%s" % (s.key, res.status, len(res.body) / 1024,
+                                          "  (%s)" % res.error if res.error else ""))
+    if refresh:
+        stamps = {}
+        for s in sources:
+            if s.kind == "catalog" and results[s.key].ok:
+                raw, dt = snapshots.produced_stamp(results[s.key].text())
+                if dt:
+                    stamps[s.key] = dt
+        if len(set(stamps.values())) > 1:
+            newest = max(stamps.values())
+            stale = [s for s in sources if s.key in stamps and stamps[s.key] != newest]
+            print("  Produced stamps differ; refetching %d page(s) once: %s" %
+                  (len(stale), ", ".join(s.page for s in stale)))
+            for s in stale:
+                results[s.key] = fetcher.get(s.url)
+    _PAGES.clear()
+    for s in sources:
+        _PAGES[s.cache_name] = results[s.key]
+    return results
 
 
 def dedupe(seq):
@@ -486,16 +548,21 @@ def expand_extra(e):
     }
 
 
-def main():
-    refresh = "--refresh" in sys.argv
-    print("Fetching catalog (%s)..." % ("live" if refresh else "cache ok"))
-    courses, page_dates, all_titles = parse_catalog(refresh)
+def build():
+    """Parse the collected pages and merge sidecar data.
+
+    Returns (payload, scraped, aags_count): `scraped` is the catalog + Common Ground courses
+    only (before hand-added extras), which the guardrails check.
+    """
+    print("Parsing catalog...")
+    courses, page_dates, all_titles = parse_catalog()
     print("  parsed %d graduate courses" % len(courses))
 
-    cg, cg_dates = parse_common_ground({c["number"] for c in courses}, refresh)
+    cg, cg_dates = parse_common_ground({c["number"] for c in courses})
     courses.extend(cg)
     page_dates.update(cg_dates)
     print("  added %d Common Ground graduate courses" % len(cg))
+    scraped = list(courses)
 
     # Resolve prereq names from the full catalog (grad + undergrad subjects).
     # Append hand-added courses (special subjects, etc.) before downstream processing.
@@ -512,8 +579,8 @@ def main():
 
     # AAGS status comes ONLY from the AAGS page (never from extra.json or elsewhere).
     aags_depts = {d["name"] for d in DEPARTMENTS if d["aags"]}
-    print("Fetching AAGS approvals...")
-    aags = parse_aags(refresh)
+    print("Parsing AAGS approvals...")
+    aags = parse_aags()
     for c in courses:
         if c["number"] in aags:
             c["aags"] = aags[c["number"]]
@@ -574,7 +641,11 @@ def main():
         "departments": dict(dept_counts),
     }
     payload = {"meta": meta, "courses": courses}
+    return payload, scraped, len(aags)
 
+
+def write_outputs(payload):
+    courses, meta = payload["courses"], payload["meta"]
     with open(os.path.join(HERE, "courses.json"), "w", encoding="utf-8") as f:
         json.dump(payload, f, indent=2, ensure_ascii=False)
     with open(os.path.join(HERE, "data.js"), "w", encoding="utf-8") as f:
@@ -588,5 +659,70 @@ def main():
           (offered, sum(1 for c in courses if c["aags"] != "Not approved")))
 
 
+def _arg_value(flag):
+    if flag in sys.argv:
+        i = sys.argv.index(flag)
+        if i + 1 < len(sys.argv):
+            return sys.argv[i + 1]
+        sys.exit("%s needs a value" % flag)
+    return None
+
+
+def main(fetcher=None):
+    refresh = "--refresh" in sys.argv
+    archive_dir = _arg_value("--archive-dir") or pconfig.ARCHIVE_DIR
+    archive = None
+    if os.path.isdir(archive_dir):
+        archive = snapshots.Archive(archive_dir)
+    elif refresh and "--no-archive" not in sys.argv:
+        print("Note: no archive at %s; snapshots will not be saved." % archive_dir)
+    started = datetime.now(timezone.utc)
+    run_id = snapshots.stamp(started)
+
+    catalog_pages = [p for d in DEPARTMENTS for p in d["pages"]] + [p for p, _ in CG_SOURCES]
+    sources = pconfig.build_sources(catalog_pages)
+    print("Collecting %d pages (%s)..." % (len(sources), "live" if refresh else "cache"))
+    results = collect(sources, refresh, fetcher)
+    pages = {s.key: guardrails.page_metrics(s, results[s.key]) for s in sources}
+    baseline = archive.baseline_run() if archive else None
+
+    payload, courses_info, parse_error = None, None, None
+    try:
+        payload, scraped, aags_count = build()
+        courses_info = guardrails.course_metrics(scraped, aags_count)
+    except Exception as e:  # a page redesign can break the parser; that's a failed run
+        traceback.print_exc()
+        parse_error = "%s: %s" % (type(e).__name__, e)
+
+    checks = guardrails.evaluate(sources, results, pages, courses_info, baseline, parse_error)
+    ok = guardrails.passed(checks)
+    print(guardrails.summary_table(sources, pages, checks, baseline))
+
+    if ok:
+        print("\nAll %d guardrail checks passed." % len(checks))
+        for s in sources:
+            if results[s.key].via != "cache":
+                _save_cache(s, results[s.key])
+        write_outputs(payload)
+    else:
+        print("\nGuardrails FAILED - nothing written (courses.json / data.js unchanged).")
+
+    if archive and refresh and "--no-archive" not in sys.argv:
+        status = "pass" if ok else "fail"
+        stored = unchanged = 0
+        for s in sources:
+            entry = archive.record(run_id, s, results[s.key], status,
+                                   produced=pages[s.key].get("produced"),
+                                   login=pages[s.key].get("login", False))
+            stored += "stored" in entry
+            unchanged += "unchanged_since" in entry
+        archive.record_run(guardrails.run_record(
+            run_id, snapshots.iso(started), snapshots.iso(datetime.now(timezone.utc)),
+            sources, pages, courses_info, checks, published=ok))
+        print("Archived run %s (%s) to %s: %d page(s) saved, %d unchanged." %
+              (run_id, status, archive_dir, stored, unchanged))
+    return 0 if ok else 1
+
+
 if __name__ == "__main__":
-    main()
+    sys.exit(main())

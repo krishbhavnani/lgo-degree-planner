@@ -15,3 +15,6 @@ PLAN_public_launch.md
 
 # Python bytecode
 __pycache__/
+
+# Local worktree of the public `data` branch (raw snapshots; committed separately)
+.data/
