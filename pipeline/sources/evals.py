@@ -39,7 +39,8 @@ def from_legacy(data):
 def load(path):
     """Read evals.json in either format. Returns (extract, problems)."""
     if not os.path.exists(path):
-        return {"format": 1, "records": []}, [("warn", "no evals.json")]
+        # evals.json is committed; losing it would silently drop every course's hours.
+        return {"format": 1, "records": []}, [("fail", "evals.json is missing")]
     with open(path, encoding="utf-8") as f:
         data = json.load(f)
     ex = data if isinstance(data, dict) and data.get("format") == 1 else from_legacy(data)

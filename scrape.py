@@ -14,6 +14,10 @@ Pipeline (see pipeline/):
                committed by this script.
   5. publish   data.js / courses.json, built from the extracts plus evals.json (subject
                evaluation hours, refreshed once per term by a logged-in browser run).
+  6. database  with --refresh: merge the run into the course database (courses x term
+               offerings, pipeline/db.py) on the data branch, append its changes to the feed,
+               and write db.js + changes.js for the site (the planner moves to these in
+               ticket 4; data.js stays until then).
 
 Personal ratings are never merged into data.js (it is public); they load at runtime from the
 gitignored personal/ratings.js overlay.
@@ -36,7 +40,7 @@ from datetime import datetime, timezone
 
 from pipeline import config as pconfig
 from pipeline import db as course_db
-from pipeline import extracts, guardrails, identity, snapshots
+from pipeline import extracts, guardrails, identity, publish, snapshots
 from pipeline.fetch import Fetcher, FetchResult
 from pipeline.sources import (aags, action_learning, catalog, catalog_index, design,
                               eecs_updates, evals)
@@ -413,6 +417,12 @@ def update_db(archive_dir, ctx, run_id, save=True):
     changes = course_db.merge(db, observed, run_id, date, ctx["years"]["term"], aliases)
     if save:
         course_db.save(archive_dir, db)
+        if not first:   # creating the database would log every course as "added"
+            publish.append_feed(archive_dir, changes)
+        publish.write_js(os.path.join(HERE, "db.js"), "COURSE_DB",
+                         publish.db_payload(db, ctx["years"]))
+        publish.write_js(os.path.join(HERE, "changes.js"), "COURSE_CHANGES",
+                         publish.changes_payload(publish.read_feed(archive_dir), date))
     kinds = Counter(c["kind"] for c in changes)
     if first:
         print("Course database created: %d courses, %d offerings." %

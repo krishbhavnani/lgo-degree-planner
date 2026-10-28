@@ -9,6 +9,7 @@ Checks
   produced       catalog page has a parseable "Produced:" stamp
   stamps_match   all catalog pages carry the same Produced stamp
   page_count     subjects on a page fell more than MAX_DROP below baseline
+  page_courses   graduate courses parsed from a page fell more than MAX_DROP below baseline
   page_fields    title/units/description share on a page fell sharply below baseline
   total_courses  parsed graduate courses fell more than MAX_DROP below baseline
   fields         run-wide required fields: every course has a number; title/units/description
@@ -181,6 +182,14 @@ def evaluate(sources, results, pages, courses_info, baseline, parse_error=None):
                             "title %.0f%%, units %.0f%%, description %.0f%%" %
                             (t["title_share"] * 100, t["units_share"] * 100,
                              t["desc_share"] * 100)))
+        # Parsed graduate courses per page: catches a page whose markup changed so the parser
+        # finds nothing even though the subject headings are still there.
+        for s in sources:
+            base = base_pages.get(s.key, {}).get("grad")
+            if s.kind == "catalog" and base:
+                now = courses_info["pages"].get(s.page, {}).get("grad", 0)
+                checks.append(_drop_check("page_courses", s.key, now, base,
+                                          "graduate courses parsed"))
         for page, cur in sorted(courses_info["pages"].items()):
             key = "catalog/%s" % page
             base = base_pages.get(key, {})
