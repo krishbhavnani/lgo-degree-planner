@@ -14,7 +14,7 @@ Pipeline (see pipeline/):
                committed by this script.
   5. publish   data.js / courses.json, built from the extracts plus the evaluation hours
                (extracts/evals.json on the data branch, refreshed once per term by a
-               logged-in browser run).
+               logged-in browser run); programs.js, the degree rules from programs/*.json.
   6. database  with --refresh: merge the run into the course database (courses x term
                offerings, pipeline/db.py) on the data branch, append its changes to the feed,
                and write db.js + changes.js for the site (the planner moves to these in
@@ -29,7 +29,8 @@ Run:  python3 scrape.py --from-archive   # rebuild the site files from the data 
                                        # fetching nothing (CI, deploys, fresh clones)
       python3 scrape.py              # parse cached pages in .scratch/ (fetches any missing)
       python3 scrape.py --refresh    # fetch live from MIT, check, archive, publish
-      python3 scrape.py ... --out DIR   # write data.js / courses.json / db.js / changes.js there
+      python3 scrape.py ... --out DIR   # write the site files (data.js, courses.json, db.js,
+                                        # changes.js, programs.js) there
       python3 scrape.py --refresh --archive-dir PATH   # archive somewhere else
       python3 scrape.py --refresh --no-archive
 """
@@ -52,6 +53,7 @@ from pipeline import terms
 from pipeline.sources.common import dedupe
 
 HERE = os.path.dirname(os.path.abspath(__file__))
+PROGRAMS_DIR = os.path.join(HERE, "programs")
 CACHE = os.path.join(HERE, ".scratch")
 
 
@@ -408,10 +410,24 @@ def write_outputs(payload, out_dir=HERE):
         json.dump(payload, f, ensure_ascii=False)
         f.write(";\n")
 
-    print("Wrote courses.json and data.js  (pulled_at %s)" % meta["pulled_at"])
+    write_programs_js(out_dir)
+    print("Wrote courses.json, data.js and programs.js  (pulled_at %s)" % meta["pulled_at"])
     offered = sum(1 for c in courses if c["offering_status"] == "Offered")
     print("  offered now: %d  |  AAGS-approved in set: %d" %
           (offered, sum(1 for c in courses if c["aags"] != "Not approved")))
+
+
+def write_programs_js(out_dir=HERE):
+    """programs.js: every programs/*.json keyed by its id, as window.PROGRAMS (the degree rules).
+
+    The app loads it with a <script> tag, which works over Pages and file:// alike."""
+    programs = {}
+    for name in sorted(os.listdir(PROGRAMS_DIR)):
+        if name.endswith(".json"):
+            with open(os.path.join(PROGRAMS_DIR, name), encoding="utf-8") as f:
+                program = json.load(f)
+            programs[program["id"]] = program
+    publish.write_js(os.path.join(out_dir, "programs.js"), "PROGRAMS", programs)
 
 
 def write_db_js(archive_dir, years, out_dir=HERE, db=None):

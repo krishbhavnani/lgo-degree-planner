@@ -77,8 +77,9 @@ python3 scrape.py --from-archive
 
 Course data is built into `data.js`, `courses.json`, `db.js` and `changes.js` by `scrape.py` (Python 3; standard library
 plus `pypdf` for one PDF, see `requirements.txt`). Nothing is maintained by hand: every source has
-a fetcher in `pipeline/sources/`. The generated files are never committed to `main`: GitHub
-Actions builds them from the `data` branch on every deploy and refreshes that branch weekly.
+a fetcher in `pipeline/sources/`. The same run turns the degree rules in `programs/*.json` into
+`programs.js`. The generated files are never committed to `main`: GitHub Actions builds them from
+the `data` branch on every deploy and refreshes that branch weekly.
 
 ```bash
 pip install -r requirements.txt
@@ -119,7 +120,7 @@ To add a department, add it to `CATALOG_DEPARTMENTS` in `pipeline/config.py` and
 ## Notes & limitations
 
 - **Requirement model.** The built-in requirement tracker reflects the **LGO EECS SM + MBA** dual
-  degree. Courses from other departments are browsable and plannable as electives, but per-major
+  degree; its rules live in `programs/lgo.json` and `programs/eecs.json`. Courses from other departments are browsable and plannable as electives, but per-major
   requirement models for other engineering programs aren't built in yet.
 - **Term labels** currently span a fixed two-year window and fit one cohort at a time.
 - **Workload data coverage.** Hours come from the most recent MIT subject-evaluation report for each

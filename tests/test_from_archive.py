@@ -50,7 +50,7 @@ class FromArchiveTest(unittest.TestCase):
         finally:
             scrape.Fetcher = real_fetcher
         self.assertIn(code, (0, 2))
-        for name in ("data.js", "courses.json", "db.js", "changes.js"):
+        for name in ("data.js", "courses.json", "db.js", "changes.js", "programs.js"):
             self.assertTrue(os.path.exists(os.path.join(self.out, name)), name)
         data = read_js(os.path.join(self.out, "data.js"), "COURSE_DATA")
         replay = snapshots.Replay(snapshots.Archive(ARCHIVE))
@@ -58,6 +58,9 @@ class FromArchiveTest(unittest.TestCase):
         db = read_js(os.path.join(self.out, "db.js"), "COURSE_DB")
         self.assertGreater(db["meta"]["course_count"], 500)
         self.assertEqual(db["meta"]["current_term"], data["meta"]["catalog_term"])
+        programs = read_js(os.path.join(self.out, "programs.js"), "PROGRAMS")
+        self.assertIn("lgo", programs)
+        self.assertTrue(all(p.get("extends") == "lgo" for k, p in programs.items() if k != "lgo"))
 
     def test_archive_unchanged(self):
         before = {f: os.path.getmtime(os.path.join(ARCHIVE, f))

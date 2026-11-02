@@ -1,0 +1,90 @@
+{
+  "id": "lgo",
+  "name": "LGO dual degree: MBA side and rules shared by every major",
+  "source": "LGO sample 2-year schedule and degree requirements (Krish's Excel models, 2026-06); LGO handbook",
+  "status": "draft",
+  "verified_by": null,
+
+  "terms": [
+    {"slot": "Y1 Summer", "season": "Summer", "year_offset": 0},
+    {"slot": "Y1 Fall",   "season": "Fall",   "year_offset": 0},
+    {"slot": "Y1 IAP",    "season": "IAP",    "year_offset": 1},
+    {"slot": "Y1 Spring", "season": "Spring", "year_offset": 1},
+    {"slot": "Y2 Summer", "season": "Summer", "year_offset": 1},
+    {"slot": "Y2 Fall",   "season": "Fall",   "year_offset": 1},
+    {"slot": "Y2 IAP",    "season": "IAP",    "year_offset": 2},
+    {"slot": "Y2 Spring", "season": "Spring", "year_offset": 2}
+  ],
+  "term_unit_limit": 72,
+
+  "not_in_catalog": {
+    "6.S090": "LGO summer Python workshop; not in the MIT Subject Listing",
+    "15.S21": "On the LGO Required MBA list; not in the current Subject Listing",
+    "15.S23": "On the LGO Required MBA list; not in the current Subject Listing"
+  },
+
+  "categories": [
+    {"id": "MBA Core",         "kind": "primary", "style": "core"},
+    {"id": "LGO Required MBA", "kind": "primary", "style": "lgo"},
+    {"id": "MBA Elective",     "kind": "primary", "style": "elec"},
+    {"program": true},
+    {"id": "Thesis",           "kind": "special", "style": "thesis"},
+    {"id": "Python",           "kind": "special", "style": "python"},
+    {"id": "LGO Design",       "kind": "addon",   "style": "design"}
+  ],
+
+  "lists": {
+    "mba_core": ["15.010", "15.280", "15.311", "15.515"],
+    "lgo_required_mba": ["15.316", "15.317", "15.761", "15.876", "15.S21", "15.086", "15.792", "15.766", "15.S23", "15.794", "15.769"],
+    "python": {"pattern": "^6\\.S090"},
+    "thesis": {"pattern": "THG"},
+    "design_approved": {"designation": "design", "value": "approved"}
+  },
+
+  "classify": [
+    {"if": {"in": "mba_core"},         "then": "MBA Core"},
+    {"if": {"in": "lgo_required_mba"}, "then": "LGO Required MBA"},
+    {"if": {"in": "python"},           "then": "Python"},
+    {"if": {"in": "thesis"},           "then": "Thesis"},
+    {"program": true},
+    {"if": {"dept": ["Course 15"]},    "then": "MBA Elective"}
+  ],
+
+  "requirements": [
+    {"id": "mba_core",  "group": "MBA", "label": "MBA Core",             "type": "sum", "pool": ["MBA Core"],         "min_units": 36},
+    {"id": "mba_lgo",   "group": "MBA", "label": "LGO Required MBA",     "type": "sum", "pool": ["LGO Required MBA"], "min_units": 71},
+    {"id": "mba_elec",  "group": "MBA", "label": "MBA Free Electives",   "type": "sum", "pool": ["MBA Elective"],     "min_units": 49},
+    {"id": "mba_total", "group": "MBA", "label": "MBA Total Coursework", "type": "sum", "pool": ["MBA Core", "LGO Required MBA", "MBA Elective"],
+     "min_units": 156, "headline": true, "summary": "MBA"},
+    {"program": true},
+    {"id": "thesis", "group": "Thesis & extras", "label": "SM Thesis",       "type": "sum",   "pool": ["Thesis"], "min_units": 24, "summary": "Thesis"},
+    {"id": "python", "group": "Thesis & extras", "label": "Python (6.S090)", "type": "count", "pool": ["Python"], "min_courses": 1},
+    {"id": "design", "group": "Thesis & extras", "label": "LGO Design",      "type": "count", "pool": ["LGO Design"], "or_in": "design_approved", "min_courses": 1}
+  ],
+
+  "base_plan": [
+    {"course": "15.316", "title": "Building & Leading Effective Teams",          "units": 4,  "category": "LGO Required MBA", "slot": "Y1 Summer"},
+    {"course": "15.317", "title": "Organizational Leadership & Change",          "units": 6,  "category": "LGO Required MBA", "slot": "Y1 Summer"},
+    {"course": "15.761", "title": "Intro to Operations Management",              "units": 9,  "category": "LGO Required MBA", "slot": "Y1 Summer"},
+    {"course": "15.876", "title": "Lean Operations",                             "units": 3,  "category": "LGO Required MBA", "slot": "Y1 Summer"},
+    {"course": "15.086", "title": "Engineering Probability",                     "units": 3,  "category": "LGO Required MBA", "slot": "Y1 Summer"},
+    {"course": "6.S090", "title": "Python Workshop",                             "units": 3,  "category": "Python",           "slot": "Y1 Summer"},
+    {"course": "15.066", "title": "Systems Optimization & Analysis for Ops",     "units": 12, "category": "LGO Required Eng", "slot": "Y1 Summer"},
+    {"course": "15.087", "title": "Engineering Statistics & Data Science",       "units": 12, "category": "LGO Required Eng", "slot": "Y1 Summer"},
+    {"course": "15.010", "title": "Economic Analysis for Business Decisions",    "units": 9,  "category": "MBA Core",         "slot": "Y1 Fall"},
+    {"course": "15.280", "title": "Communication for Leaders",                   "units": 9,  "category": "MBA Core",         "slot": "Y1 Fall"},
+    {"course": "15.311", "title": "Organizational Processes",                    "units": 9,  "category": "MBA Core",         "slot": "Y1 Fall"},
+    {"course": "15.515", "title": "Financial Accounting",                        "units": 9,  "category": "MBA Core",         "slot": "Y1 Fall"},
+    {"course": "15.792", "title": "Global Operations Leadership Seminar",        "units": 2,  "category": "LGO Required MBA", "slot": "Y1 Fall"},
+    {"course": "15.002", "title": "Leadership Challenges for an Inclusive World","units": 1,  "category": "MBA Elective",     "slot": "Y1 Fall"},
+    {"course": "15.766", "title": "Domestic Plant Trek & Partner Integration",   "units": 9,  "category": "LGO Required MBA", "slot": "Y1 IAP"},
+    {"course": "15.769", "title": "Operations Strategy",                         "units": 9,  "category": "LGO Required MBA", "required": true, "allowed_slots": ["Y1 Spring", "Y2 Spring"]},
+    {"course": "15.792", "title": "Global Operations Leadership Seminar",        "units": 2,  "category": "LGO Required MBA", "required": true, "allowed_slots": ["Y1 Spring", "Y2 Spring"]},
+    {"course": "15.794", "title": "Research Project in Operations",              "units": 1,  "category": "LGO Required MBA", "slot": "Y2 Summer"},
+    {"course": "15.794", "title": "Research Project in Operations",              "units": 12, "category": "LGO Required MBA", "slot": "Y2 Fall"},
+    {"course": "15.THG", "title": "Graduate Thesis",                             "units": 9,  "category": "Thesis",           "slot": "Y2 Fall"},
+    {"course": "15.THG", "title": "Graduate Thesis",                             "units": 15, "category": "Thesis",           "slot": "Y2 Spring"},
+    {"course": "15.317", "title": "Organizational Leadership & Change",          "units": 6,  "category": "LGO Required MBA", "slot": "Y2 Spring"},
+    {"course": "15.794", "title": "Research Project in Operations",              "units": 5,  "category": "LGO Required MBA", "slot": "Y2 Spring"}
+  ]
+}

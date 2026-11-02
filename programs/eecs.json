@@ -1,0 +1,45 @@
+{
+  "id": "eecs",
+  "extends": "lgo",
+  "name": "EECS SM (LGO)",
+  "source": "LGO EECS handbook section and EECS AAGS list; Krish's Excel model (2026-06)",
+  "status": "draft",
+  "verified_by": null,
+
+  "categories": [
+    {"id": "LGO Required Eng", "kind": "primary", "style": "lgo"},
+    {"id": "Eng Elective",     "kind": "primary", "style": "elec"}
+  ],
+
+  "lists": {
+    "aags": {"designation": "aags", "prefix": "Approved"},
+    "c51_modules": {"pattern": "^[0-9A-Z]+\\.C51\\d*$", "except": ["6.C51"]},
+    "lgo_required_eng": ["15.066", "15.087"]
+  },
+
+  "classify": [
+    {"if": {"in": "lgo_required_eng"},        "then": "LGO Required Eng"},
+    {"if": {"in": "c51_modules"},             "then": "Eng Elective"},
+    {"if": {"dept": ["Course 6", "Course 2"]}, "then": "Eng Elective"}
+  ],
+
+  "bundles": [
+    {"id": "c51", "lead": "6.C51", "partners": "c51_modules", "max_partners": 1, "full_units": 12,
+     "notes": {
+       "no_partner": "6.C51 needs a 6u co-req module (e.g. 15.C51 or SCM.C51) to count as a full 12u AAGS course.",
+       "extra_partners": "Only one co-req module pairs with 6.C51; {extra} counted as eng electives instead.",
+       "partner_alone": "{partners} only counts toward AAGS when paired with 6.C51."
+     }}
+  ],
+
+  "requirements": [
+    {"id": "aags", "group": "EECS", "label": "AAGS Core (3 AAGS courses)", "type": "from_set",
+     "pool": ["Eng Elective", "LGO Required Eng"], "exclude": ["LGO Required Eng"], "list": "aags", "bundles": ["c51"],
+     "min_units": 36, "min_courses": 3},
+    {"id": "eng_lgo",   "group": "EECS", "label": "LGO Required Eng", "type": "sum", "pool": ["LGO Required Eng"], "min_units": 24},
+    {"id": "eng_elec",  "group": "EECS", "label": "Eng Electives (beyond AAGS core)", "type": "sum", "pool": ["Eng Elective"],
+     "exclude_claimed": "aags", "min_units": 6},
+    {"id": "eng_total", "group": "EECS", "label": "EECS Total Coursework", "type": "sum", "pool": ["LGO Required Eng", "Eng Elective"],
+     "min_units": 66, "headline": true, "summary": "EECS"}
+  ]
+}
