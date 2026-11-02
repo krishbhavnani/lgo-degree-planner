@@ -14,7 +14,7 @@ import json
 import os
 from datetime import date, timedelta
 
-from . import terms
+from . import config, terms
 
 FEED_PATH = os.path.join("db", "changes.jsonl")
 RECENT_DAYS = 180
@@ -60,7 +60,9 @@ def db_payload(db, years):
         courses.append(out)
     meta = {"run_id": db.get("run_id"), "updated": db.get("updated"),
             "current_term": years.get("term"), "academic_year": years.get("this"),
-            "terms": sorted(all_terms, key=terms.key), "course_count": len(courses)}
+            "terms": sorted(all_terms, key=terms.key), "course_count": len(courses),
+            # Where a course missing from the AAGS list reads "Not approved" (elsewhere: N/A).
+            "aags_departments": [d["name"] for d in config.CATALOG_DEPARTMENTS if d["aags"]]}
     return {"meta": meta, "courses": courses}
 
 
