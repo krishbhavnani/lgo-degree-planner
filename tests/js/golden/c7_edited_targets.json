@@ -1,0 +1,249 @@
+{
+ "description": "c5's courses with edited targets: AAGS 24u, MBA total 150u, Python 2, EECS total 60u.",
+ "targets": {
+  "aags": 24,
+  "mba_total": 150,
+  "python": 2,
+  "eng_total": 60
+ },
+ "plan": [
+  {
+   "id": "g1",
+   "number": "6.5210",
+   "title": "Advanced Algorithms",
+   "units": 15,
+   "tags": [
+    "Eng Elective"
+   ],
+   "term": "Fall 2026",
+   "audit": false
+  },
+  {
+   "id": "g2",
+   "number": "6.C51",
+   "title": "Modeling with ML",
+   "units": 6,
+   "tags": [
+    "Eng Elective"
+   ],
+   "term": "Spring 2027",
+   "audit": false
+  },
+  {
+   "id": "g3",
+   "number": "15.C51",
+   "title": "ML: FinTech",
+   "units": 6,
+   "tags": [
+    "Eng Elective"
+   ],
+   "term": "Spring 2027",
+   "audit": false
+  },
+  {
+   "id": "g4",
+   "number": "6.5060",
+   "title": "Algorithm Engineering",
+   "units": 12,
+   "tags": [
+    "Eng Elective"
+   ],
+   "term": "Fall 2026",
+   "audit": false
+  },
+  {
+   "id": "g5",
+   "number": "6.5080",
+   "title": "Multicore Programming",
+   "units": 12,
+   "tags": [
+    "Eng Elective"
+   ],
+   "term": "Spring 2027",
+   "audit": false
+  },
+  {
+   "id": "g6",
+   "number": "6.5110",
+   "title": "Program Analysis",
+   "units": 12,
+   "tags": [
+    "Eng Elective"
+   ],
+   "term": "Fall 2027",
+   "audit": false
+  },
+  {
+   "id": "g7",
+   "number": "6.5120",
+   "title": "Formal Reasoning",
+   "units": 12,
+   "tags": [
+    "LGO Required Eng"
+   ],
+   "term": "Fall 2027",
+   "audit": false
+  },
+  {
+   "id": "g8",
+   "number": "15.066",
+   "title": "System Optimization",
+   "units": 12,
+   "tags": [
+    "LGO Required Eng"
+   ],
+   "term": "Summer 2026",
+   "audit": false
+  }
+ ],
+ "expected": {
+  "requirements": [
+   {
+    "id": "mba_core",
+    "n": 0,
+    "courses": 0,
+    "target": 36,
+    "met": false,
+    "info": [],
+    "notes": []
+   },
+   {
+    "id": "mba_lgo",
+    "n": 0,
+    "courses": 0,
+    "target": 71,
+    "met": false,
+    "info": [],
+    "notes": []
+   },
+   {
+    "id": "mba_elec",
+    "n": 0,
+    "courses": 0,
+    "target": 49,
+    "met": false,
+    "info": [],
+    "notes": []
+   },
+   {
+    "id": "mba_total",
+    "n": 0,
+    "courses": 0,
+    "target": 150,
+    "met": false,
+    "info": [],
+    "notes": []
+   },
+   {
+    "id": "aags",
+    "n": 39,
+    "courses": 3,
+    "target": 24,
+    "met": true,
+    "info": [
+     "Counted: 6.5210, 6.C51+15.C51, 6.5060"
+    ],
+    "notes": []
+   },
+   {
+    "id": "eng_lgo",
+    "n": 24,
+    "courses": 2,
+    "target": 24,
+    "met": true,
+    "info": [],
+    "notes": []
+   },
+   {
+    "id": "eng_elec",
+    "n": 24,
+    "courses": 2,
+    "target": 6,
+    "met": true,
+    "info": [
+     "Counted: 6.5080, 6.5110"
+    ],
+    "notes": []
+   },
+   {
+    "id": "eng_total",
+    "n": 87,
+    "courses": 8,
+    "target": 60,
+    "met": true,
+    "info": [],
+    "notes": []
+   },
+   {
+    "id": "thesis",
+    "n": 0,
+    "courses": 0,
+    "target": 24,
+    "met": false,
+    "info": [],
+    "notes": []
+   },
+   {
+    "id": "python",
+    "n": 0,
+    "courses": 0,
+    "target": 2,
+    "met": false,
+    "info": [],
+    "notes": []
+   },
+   {
+    "id": "design",
+    "n": 1,
+    "courses": 1,
+    "target": 1,
+    "met": true,
+    "info": [],
+    "notes": []
+   }
+  ],
+  "summary": "8 courses scheduled · MBA 0/156u · EECS 87/66u · Thesis 0/24u",
+  "terms": [
+   {
+    "term": "Summer 2026",
+    "units": 12,
+    "over": false
+   },
+   {
+    "term": "Fall 2026",
+    "units": 27,
+    "over": false
+   },
+   {
+    "term": "IAP 2027",
+    "units": 0,
+    "over": false
+   },
+   {
+    "term": "Spring 2027",
+    "units": 24,
+    "over": false
+   },
+   {
+    "term": "Summer 2027",
+    "units": 0,
+    "over": false
+   },
+   {
+    "term": "Fall 2027",
+    "units": 24,
+    "over": false
+   },
+   {
+    "term": "IAP 2028",
+    "units": 0,
+    "over": false
+   },
+   {
+    "term": "Spring 2028",
+    "units": 0,
+    "over": false
+   }
+  ]
+ }
+}

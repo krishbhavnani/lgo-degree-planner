@@ -1,0 +1,195 @@
+{
+ "_how": "Frozen copy of the course fields the requirement rules read (from data.js, 2026-11-02), so the weekly refresh can't change golden results. Courses missing here are not in the catalog.",
+ "courses": {
+  "15.002": {
+   "aags": "N/A",
+   "design_approved": null,
+   "department": "Course 15 — Management"
+  },
+  "15.010": {
+   "aags": "N/A",
+   "design_approved": null,
+   "department": "Course 15 — Management"
+  },
+  "15.011": {
+   "aags": "N/A",
+   "design_approved": null,
+   "department": "Course 15 — Management"
+  },
+  "15.012": {
+   "aags": "N/A",
+   "design_approved": null,
+   "department": "Course 15 — Management"
+  },
+  "15.013": {
+   "aags": "N/A",
+   "design_approved": null,
+   "department": "Course 15 — Management"
+  },
+  "15.016": {
+   "aags": "N/A",
+   "design_approved": null,
+   "department": "Course 15 — Management"
+  },
+  "15.020": {
+   "aags": "N/A",
+   "design_approved": null,
+   "department": "Course 15 — Management"
+  },
+  "15.021": {
+   "aags": "N/A",
+   "design_approved": null,
+   "department": "Course 15 — Management"
+  },
+  "15.022": {
+   "aags": "N/A",
+   "design_approved": null,
+   "department": "Course 15 — Management"
+  },
+  "15.038": {
+   "aags": "N/A",
+   "design_approved": null,
+   "department": "Course 15 — Management"
+  },
+  "15.066": {
+   "aags": "N/A",
+   "design_approved": null,
+   "department": "Course 15 — Management"
+  },
+  "15.086": {
+   "aags": "N/A",
+   "design_approved": null,
+   "department": "Course 15 — Management"
+  },
+  "15.087": {
+   "aags": "N/A",
+   "design_approved": null,
+   "department": "Course 15 — Management"
+  },
+  "15.128": {
+   "aags": "N/A",
+   "design_approved": "conditional",
+   "department": "Course 15 — Management"
+  },
+  "15.280": {
+   "aags": "N/A",
+   "design_approved": null,
+   "department": "Course 15 — Management"
+  },
+  "15.311": {
+   "aags": "N/A",
+   "design_approved": null,
+   "department": "Course 15 — Management"
+  },
+  "15.316": {
+   "aags": "N/A",
+   "design_approved": null,
+   "department": "Course 15 — Management"
+  },
+  "15.317": {
+   "aags": "N/A",
+   "design_approved": null,
+   "department": "Course 15 — Management"
+  },
+  "15.515": {
+   "aags": "N/A",
+   "design_approved": null,
+   "department": "Course 15 — Management"
+  },
+  "15.761": {
+   "aags": "N/A",
+   "design_approved": null,
+   "department": "Course 15 — Management"
+  },
+  "15.766": {
+   "aags": "N/A",
+   "design_approved": null,
+   "department": "Course 15 — Management"
+  },
+  "15.769": {
+   "aags": "N/A",
+   "design_approved": null,
+   "department": "Course 15 — Management"
+  },
+  "15.792": {
+   "aags": "N/A",
+   "design_approved": null,
+   "department": "Course 15 — Management"
+  },
+  "15.794": {
+   "aags": "N/A",
+   "design_approved": null,
+   "department": "Course 15 — Management"
+  },
+  "15.876": {
+   "aags": "N/A",
+   "design_approved": null,
+   "department": "Course 15 — Management"
+  },
+  "15.C51": {
+   "aags": "Approved-Offered",
+   "design_approved": null,
+   "department": "Course 15 — Management"
+  },
+  "15.THG": {
+   "aags": "N/A",
+   "design_approved": null,
+   "department": "Course 15 — Management"
+  },
+  "2.032": {
+   "aags": "N/A",
+   "design_approved": null,
+   "department": "Course 2 — MechE"
+  },
+  "6.5060": {
+   "aags": "Approved-Offered",
+   "design_approved": null,
+   "department": "Course 6 — EECS"
+  },
+  "6.5080": {
+   "aags": "Approved-NotThisYear",
+   "design_approved": null,
+   "department": "Course 6 — EECS"
+  },
+  "6.5110": {
+   "aags": "Approved-NotThisYear",
+   "design_approved": null,
+   "department": "Course 6 — EECS"
+  },
+  "6.5120": {
+   "aags": "Approved-NotThisYear",
+   "design_approved": null,
+   "department": "Course 6 — EECS"
+  },
+  "6.5130": {
+   "aags": "Not approved",
+   "design_approved": null,
+   "department": "Course 6 — EECS"
+  },
+  "6.5210": {
+   "aags": "Approved-Offered",
+   "design_approved": null,
+   "department": "Course 6 — EECS"
+  },
+  "6.5440": {
+   "aags": "Not approved",
+   "design_approved": null,
+   "department": "Course 6 — EECS"
+  },
+  "6.5900": {
+   "aags": "Approved-Offered",
+   "design_approved": "approved",
+   "department": "Course 6 — EECS"
+  },
+  "6.C51": {
+   "aags": "Approved-Offered",
+   "design_approved": "approved",
+   "department": "Course 6 — EECS"
+  },
+  "SCM.C51": {
+   "aags": "Approved-NotInCatalog",
+   "design_approved": "conditional",
+   "department": "Common Ground — other depts"
+  }
+ }
+}

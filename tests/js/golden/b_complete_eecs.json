@@ -1,0 +1,530 @@
+{
+ "description": "Base plan with the two flexible required courses scheduled, plus MBA electives, three AAGS courses (one design-approved) and a MechE elective: every requirement met.",
+ "targets": {},
+ "plan": [
+  {
+   "id": "p0",
+   "number": "15.316",
+   "title": "Building & Leading Effective Teams",
+   "units": 4,
+   "tags": [
+    "LGO Required MBA"
+   ],
+   "term": "Summer 2026",
+   "audit": false,
+   "base": true
+  },
+  {
+   "id": "p1",
+   "number": "15.317",
+   "title": "Organizational Leadership & Change",
+   "units": 6,
+   "tags": [
+    "LGO Required MBA"
+   ],
+   "term": "Summer 2026",
+   "audit": false,
+   "base": true
+  },
+  {
+   "id": "p2",
+   "number": "15.761",
+   "title": "Intro to Operations Management",
+   "units": 9,
+   "tags": [
+    "LGO Required MBA"
+   ],
+   "term": "Summer 2026",
+   "audit": false,
+   "base": true
+  },
+  {
+   "id": "p3",
+   "number": "15.876",
+   "title": "Lean Operations",
+   "units": 3,
+   "tags": [
+    "LGO Required MBA"
+   ],
+   "term": "Summer 2026",
+   "audit": false,
+   "base": true
+  },
+  {
+   "id": "p4",
+   "number": "15.086",
+   "title": "Engineering Probability",
+   "units": 3,
+   "tags": [
+    "LGO Required MBA"
+   ],
+   "term": "Summer 2026",
+   "audit": false,
+   "base": true
+  },
+  {
+   "id": "p5",
+   "number": "6.S090",
+   "title": "Python Workshop",
+   "units": 3,
+   "tags": [
+    "Python"
+   ],
+   "term": "Summer 2026",
+   "audit": false,
+   "base": true
+  },
+  {
+   "id": "p6",
+   "number": "15.066",
+   "title": "Systems Optimization & Analysis for Ops",
+   "units": 12,
+   "tags": [
+    "LGO Required Eng"
+   ],
+   "term": "Summer 2026",
+   "audit": false,
+   "base": true
+  },
+  {
+   "id": "p7",
+   "number": "15.087",
+   "title": "Engineering Statistics & Data Science",
+   "units": 12,
+   "tags": [
+    "LGO Required Eng"
+   ],
+   "term": "Summer 2026",
+   "audit": false,
+   "base": true
+  },
+  {
+   "id": "p8",
+   "number": "15.010",
+   "title": "Economic Analysis for Business Decisions",
+   "units": 9,
+   "tags": [
+    "MBA Core"
+   ],
+   "term": "Fall 2026",
+   "audit": false,
+   "base": true
+  },
+  {
+   "id": "p9",
+   "number": "15.280",
+   "title": "Communication for Leaders",
+   "units": 9,
+   "tags": [
+    "MBA Core"
+   ],
+   "term": "Fall 2026",
+   "audit": false,
+   "base": true
+  },
+  {
+   "id": "p10",
+   "number": "15.311",
+   "title": "Organizational Processes",
+   "units": 9,
+   "tags": [
+    "MBA Core"
+   ],
+   "term": "Fall 2026",
+   "audit": false,
+   "base": true
+  },
+  {
+   "id": "p11",
+   "number": "15.515",
+   "title": "Financial Accounting",
+   "units": 9,
+   "tags": [
+    "MBA Core"
+   ],
+   "term": "Fall 2026",
+   "audit": false,
+   "base": true
+  },
+  {
+   "id": "p12",
+   "number": "15.792",
+   "title": "Global Operations Leadership Seminar",
+   "units": 2,
+   "tags": [
+    "LGO Required MBA"
+   ],
+   "term": "Fall 2026",
+   "audit": false,
+   "base": true
+  },
+  {
+   "id": "p13",
+   "number": "15.002",
+   "title": "Leadership Challenges for an Inclusive World",
+   "units": 1,
+   "tags": [
+    "MBA Elective"
+   ],
+   "term": "Fall 2026",
+   "audit": false,
+   "base": true
+  },
+  {
+   "id": "p14",
+   "number": "15.766",
+   "title": "Domestic Plant Trek & Partner Integration",
+   "units": 9,
+   "tags": [
+    "LGO Required MBA"
+   ],
+   "term": "IAP 2027",
+   "audit": false,
+   "base": true
+  },
+  {
+   "id": "p15",
+   "number": "15.769",
+   "title": "Operations Strategy",
+   "units": 9,
+   "tags": [
+    "LGO Required MBA"
+   ],
+   "term": "Spring 2027",
+   "audit": false,
+   "base": true,
+   "required": true,
+   "allowedTerms": [
+    "Spring 2027",
+    "Spring 2028"
+   ]
+  },
+  {
+   "id": "p16",
+   "number": "15.792",
+   "title": "Global Operations Leadership Seminar",
+   "units": 2,
+   "tags": [
+    "LGO Required MBA"
+   ],
+   "term": "Spring 2027",
+   "audit": false,
+   "base": true,
+   "required": true,
+   "allowedTerms": [
+    "Spring 2027",
+    "Spring 2028"
+   ]
+  },
+  {
+   "id": "p17",
+   "number": "15.794",
+   "title": "Research Project in Operations",
+   "units": 1,
+   "tags": [
+    "LGO Required MBA"
+   ],
+   "term": "Summer 2027",
+   "audit": false,
+   "base": true
+  },
+  {
+   "id": "p18",
+   "number": "15.794",
+   "title": "Research Project in Operations",
+   "units": 12,
+   "tags": [
+    "LGO Required MBA"
+   ],
+   "term": "Fall 2027",
+   "audit": false,
+   "base": true
+  },
+  {
+   "id": "p19",
+   "number": "15.THG",
+   "title": "Graduate Thesis",
+   "units": 9,
+   "tags": [
+    "Thesis"
+   ],
+   "term": "Fall 2027",
+   "audit": false,
+   "base": true
+  },
+  {
+   "id": "p20",
+   "number": "15.THG",
+   "title": "Graduate Thesis",
+   "units": 15,
+   "tags": [
+    "Thesis"
+   ],
+   "term": "Spring 2028",
+   "audit": false,
+   "base": true
+  },
+  {
+   "id": "p21",
+   "number": "15.317",
+   "title": "Organizational Leadership & Change",
+   "units": 6,
+   "tags": [
+    "LGO Required MBA"
+   ],
+   "term": "Spring 2028",
+   "audit": false,
+   "base": true
+  },
+  {
+   "id": "p22",
+   "number": "15.794",
+   "title": "Research Project in Operations",
+   "units": 5,
+   "tags": [
+    "LGO Required MBA"
+   ],
+   "term": "Spring 2028",
+   "audit": false,
+   "base": true
+  },
+  {
+   "id": "g1",
+   "number": "15.016",
+   "title": "MBA elective",
+   "units": 12,
+   "tags": [
+    "MBA Elective"
+   ],
+   "term": "Fall 2027",
+   "audit": false
+  },
+  {
+   "id": "g2",
+   "number": "15.020",
+   "title": "MBA elective",
+   "units": 12,
+   "tags": [
+    "MBA Elective"
+   ],
+   "term": "Spring 2027",
+   "audit": false
+  },
+  {
+   "id": "g3",
+   "number": "15.021",
+   "title": "MBA elective",
+   "units": 12,
+   "tags": [
+    "MBA Elective"
+   ],
+   "term": "Spring 2028",
+   "audit": false
+  },
+  {
+   "id": "g4",
+   "number": "15.038",
+   "title": "MBA elective",
+   "units": 12,
+   "tags": [
+    "MBA Elective"
+   ],
+   "term": "Fall 2027",
+   "audit": false
+  },
+  {
+   "id": "g5",
+   "number": "6.5060",
+   "title": "Algorithm Engineering",
+   "units": 12,
+   "tags": [
+    "Eng Elective"
+   ],
+   "term": "Fall 2026",
+   "audit": false
+  },
+  {
+   "id": "g6",
+   "number": "6.5080",
+   "title": "Multicore Programming",
+   "units": 12,
+   "tags": [
+    "Eng Elective"
+   ],
+   "term": "Spring 2027",
+   "audit": false
+  },
+  {
+   "id": "g7",
+   "number": "6.5900",
+   "title": "Computer System Architecture",
+   "units": 12,
+   "tags": [
+    "Eng Elective"
+   ],
+   "term": "Fall 2027",
+   "audit": false
+  },
+  {
+   "id": "g8",
+   "number": "2.032",
+   "title": "MechE elective",
+   "units": 12,
+   "tags": [
+    "Eng Elective"
+   ],
+   "term": "Spring 2028",
+   "audit": false
+  }
+ ],
+ "expected": {
+  "requirements": [
+   {
+    "id": "mba_core",
+    "n": 36,
+    "courses": 4,
+    "target": 36,
+    "met": true,
+    "info": [],
+    "notes": []
+   },
+   {
+    "id": "mba_lgo",
+    "n": 71,
+    "courses": 13,
+    "target": 71,
+    "met": true,
+    "info": [],
+    "notes": []
+   },
+   {
+    "id": "mba_elec",
+    "n": 49,
+    "courses": 5,
+    "target": 49,
+    "met": true,
+    "info": [],
+    "notes": []
+   },
+   {
+    "id": "mba_total",
+    "n": 156,
+    "courses": 22,
+    "target": 156,
+    "met": true,
+    "info": [],
+    "notes": []
+   },
+   {
+    "id": "aags",
+    "n": 36,
+    "courses": 3,
+    "target": 36,
+    "met": true,
+    "info": [
+     "Counted: 6.5060, 6.5080, 6.5900"
+    ],
+    "notes": []
+   },
+   {
+    "id": "eng_lgo",
+    "n": 24,
+    "courses": 2,
+    "target": 24,
+    "met": true,
+    "info": [],
+    "notes": []
+   },
+   {
+    "id": "eng_elec",
+    "n": 12,
+    "courses": 1,
+    "target": 6,
+    "met": true,
+    "info": [
+     "Counted: 2.032"
+    ],
+    "notes": []
+   },
+   {
+    "id": "eng_total",
+    "n": 72,
+    "courses": 6,
+    "target": 66,
+    "met": true,
+    "info": [],
+    "notes": []
+   },
+   {
+    "id": "thesis",
+    "n": 24,
+    "courses": 2,
+    "target": 24,
+    "met": true,
+    "info": [],
+    "notes": []
+   },
+   {
+    "id": "python",
+    "n": 1,
+    "courses": 1,
+    "target": 1,
+    "met": true,
+    "info": [],
+    "notes": []
+   },
+   {
+    "id": "design",
+    "n": 1,
+    "courses": 1,
+    "target": 1,
+    "met": true,
+    "info": [],
+    "notes": []
+   }
+  ],
+  "summary": "31 courses scheduled · MBA 156/156u · EECS 72/66u · Thesis 24/24u",
+  "terms": [
+   {
+    "term": "Summer 2026",
+    "units": 52,
+    "over": false
+   },
+   {
+    "term": "Fall 2026",
+    "units": 51,
+    "over": false
+   },
+   {
+    "term": "IAP 2027",
+    "units": 9,
+    "over": false
+   },
+   {
+    "term": "Spring 2027",
+    "units": 35,
+    "over": false
+   },
+   {
+    "term": "Summer 2027",
+    "units": 1,
+    "over": false
+   },
+   {
+    "term": "Fall 2027",
+    "units": 57,
+    "over": false
+   },
+   {
+    "term": "IAP 2028",
+    "units": 0,
+    "over": false
+   },
+   {
+    "term": "Spring 2028",
+    "units": 50,
+    "over": false
+   }
+  ]
+ }
+}

@@ -1,0 +1,176 @@
+{
+ "description": "6.C51 plus one module: one 12u AAGS course.",
+ "targets": {},
+ "plan": [
+  {
+   "id": "g1",
+   "number": "6.C51",
+   "title": "Modeling with ML",
+   "units": 6,
+   "tags": [
+    "Eng Elective"
+   ],
+   "term": "Spring 2027",
+   "audit": false
+  },
+  {
+   "id": "g2",
+   "number": "15.C51",
+   "title": "ML: FinTech",
+   "units": 6,
+   "tags": [
+    "Eng Elective"
+   ],
+   "term": "Spring 2027",
+   "audit": false
+  }
+ ],
+ "expected": {
+  "requirements": [
+   {
+    "id": "mba_core",
+    "n": 0,
+    "courses": 0,
+    "target": 36,
+    "met": false,
+    "info": [],
+    "notes": []
+   },
+   {
+    "id": "mba_lgo",
+    "n": 0,
+    "courses": 0,
+    "target": 71,
+    "met": false,
+    "info": [],
+    "notes": []
+   },
+   {
+    "id": "mba_elec",
+    "n": 0,
+    "courses": 0,
+    "target": 49,
+    "met": false,
+    "info": [],
+    "notes": []
+   },
+   {
+    "id": "mba_total",
+    "n": 0,
+    "courses": 0,
+    "target": 156,
+    "met": false,
+    "info": [],
+    "notes": []
+   },
+   {
+    "id": "aags",
+    "n": 12,
+    "courses": 1,
+    "target": 36,
+    "met": false,
+    "info": [
+     "Counted: 6.C51+15.C51"
+    ],
+    "notes": []
+   },
+   {
+    "id": "eng_lgo",
+    "n": 0,
+    "courses": 0,
+    "target": 24,
+    "met": false,
+    "info": [],
+    "notes": []
+   },
+   {
+    "id": "eng_elec",
+    "n": 0,
+    "courses": 0,
+    "target": 6,
+    "met": false,
+    "info": [],
+    "notes": []
+   },
+   {
+    "id": "eng_total",
+    "n": 12,
+    "courses": 2,
+    "target": 66,
+    "met": false,
+    "info": [],
+    "notes": []
+   },
+   {
+    "id": "thesis",
+    "n": 0,
+    "courses": 0,
+    "target": 24,
+    "met": false,
+    "info": [],
+    "notes": []
+   },
+   {
+    "id": "python",
+    "n": 0,
+    "courses": 0,
+    "target": 1,
+    "met": false,
+    "info": [],
+    "notes": []
+   },
+   {
+    "id": "design",
+    "n": 1,
+    "courses": 1,
+    "target": 1,
+    "met": true,
+    "info": [],
+    "notes": []
+   }
+  ],
+  "summary": "2 courses scheduled · MBA 0/156u · EECS 12/66u · Thesis 0/24u",
+  "terms": [
+   {
+    "term": "Summer 2026",
+    "units": 0,
+    "over": false
+   },
+   {
+    "term": "Fall 2026",
+    "units": 0,
+    "over": false
+   },
+   {
+    "term": "IAP 2027",
+    "units": 0,
+    "over": false
+   },
+   {
+    "term": "Spring 2027",
+    "units": 12,
+    "over": false
+   },
+   {
+    "term": "Summer 2027",
+    "units": 0,
+    "over": false
+   },
+   {
+    "term": "Fall 2027",
+    "units": 0,
+    "over": false
+   },
+   {
+    "term": "IAP 2028",
+    "units": 0,
+    "over": false
+   },
+   {
+    "term": "Spring 2028",
+    "units": 0,
+    "over": false
+   }
+  ]
+ }
+}

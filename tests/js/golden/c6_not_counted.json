@@ -1,0 +1,328 @@
+{
+ "description": "Audits, Unassigned items and an over-limit term; a course with two categories; design by tag vs a conditional design course; Python; a required unscheduled thesis item.",
+ "targets": {},
+ "plan": [
+  {
+   "id": "g1",
+   "number": "15.010",
+   "title": "Econ",
+   "units": 9,
+   "tags": [
+    "MBA Core"
+   ],
+   "term": "Fall 2026",
+   "audit": false
+  },
+  {
+   "id": "g2",
+   "number": "15.011",
+   "title": "x",
+   "units": 9,
+   "tags": [
+    "MBA Elective"
+   ],
+   "term": "Fall 2026",
+   "audit": false
+  },
+  {
+   "id": "g3",
+   "number": "15.012",
+   "title": "x",
+   "units": 9,
+   "tags": [
+    "MBA Elective"
+   ],
+   "term": "Fall 2026",
+   "audit": false
+  },
+  {
+   "id": "g4",
+   "number": "15.013",
+   "title": "x",
+   "units": 9,
+   "tags": [
+    "MBA Elective"
+   ],
+   "term": "Fall 2026",
+   "audit": false
+  },
+  {
+   "id": "g5",
+   "number": "15.016",
+   "title": "x",
+   "units": 12,
+   "tags": [
+    "MBA Elective"
+   ],
+   "term": "Fall 2026",
+   "audit": false
+  },
+  {
+   "id": "g6",
+   "number": "15.020",
+   "title": "x",
+   "units": 12,
+   "tags": [
+    "MBA Elective"
+   ],
+   "term": "Fall 2026",
+   "audit": false
+  },
+  {
+   "id": "g7",
+   "number": "15.021",
+   "title": "x",
+   "units": 12,
+   "tags": [
+    "MBA Elective"
+   ],
+   "term": "Fall 2026",
+   "audit": false
+  },
+  {
+   "id": "g8",
+   "number": "15.022",
+   "title": "x",
+   "units": 6,
+   "tags": [
+    "MBA Elective"
+   ],
+   "term": "Fall 2026",
+   "audit": false
+  },
+  {
+   "id": "g9",
+   "number": "6.5060",
+   "title": "audited",
+   "units": 12,
+   "tags": [
+    "Eng Elective"
+   ],
+   "term": "Fall 2026",
+   "audit": true
+  },
+  {
+   "id": "g10",
+   "number": "15.038",
+   "title": "unassigned",
+   "units": 12,
+   "tags": [
+    "MBA Elective"
+   ],
+   "term": "Unassigned",
+   "audit": false
+  },
+  {
+   "id": "g11",
+   "number": "6.5130",
+   "title": "two categories",
+   "units": 12,
+   "tags": [
+    "MBA Elective",
+    "Eng Elective"
+   ],
+   "term": "Spring 2027",
+   "audit": false
+  },
+  {
+   "id": "g12",
+   "number": "15.128",
+   "title": "conditional design",
+   "units": 9,
+   "tags": [
+    "MBA Elective"
+   ],
+   "term": "Spring 2027",
+   "audit": false
+  },
+  {
+   "id": "g13",
+   "number": "6.5440",
+   "title": "design by tag",
+   "units": 12,
+   "tags": [
+    "Eng Elective",
+    "LGO Design"
+   ],
+   "term": "Spring 2027",
+   "audit": false
+  },
+  {
+   "id": "g14",
+   "number": "6.S090",
+   "title": "Python Workshop",
+   "units": 3,
+   "tags": [
+    "Python"
+   ],
+   "term": "Summer 2026",
+   "audit": false
+  },
+  {
+   "id": "g15",
+   "number": "15.THG",
+   "title": "Graduate Thesis",
+   "units": 24,
+   "tags": [
+    "Thesis"
+   ],
+   "term": "Unassigned",
+   "audit": false,
+   "required": true,
+   "allowedTerms": [
+    "Fall 2027",
+    "Spring 2028"
+   ]
+  }
+ ],
+ "expected": {
+  "requirements": [
+   {
+    "id": "mba_core",
+    "n": 9,
+    "courses": 1,
+    "target": 36,
+    "met": false,
+    "info": [],
+    "notes": []
+   },
+   {
+    "id": "mba_lgo",
+    "n": 0,
+    "courses": 0,
+    "target": 71,
+    "met": false,
+    "info": [],
+    "notes": []
+   },
+   {
+    "id": "mba_elec",
+    "n": 90,
+    "courses": 9,
+    "target": 49,
+    "met": true,
+    "info": [],
+    "notes": []
+   },
+   {
+    "id": "mba_total",
+    "n": 99,
+    "courses": 10,
+    "target": 156,
+    "met": false,
+    "info": [],
+    "notes": []
+   },
+   {
+    "id": "aags",
+    "n": 0,
+    "courses": 0,
+    "target": 36,
+    "met": false,
+    "info": [],
+    "notes": []
+   },
+   {
+    "id": "eng_lgo",
+    "n": 0,
+    "courses": 0,
+    "target": 24,
+    "met": false,
+    "info": [],
+    "notes": []
+   },
+   {
+    "id": "eng_elec",
+    "n": 24,
+    "courses": 2,
+    "target": 6,
+    "met": true,
+    "info": [
+     "Counted: 6.5130, 6.5440"
+    ],
+    "notes": []
+   },
+   {
+    "id": "eng_total",
+    "n": 24,
+    "courses": 2,
+    "target": 66,
+    "met": false,
+    "info": [],
+    "notes": []
+   },
+   {
+    "id": "thesis",
+    "n": 0,
+    "courses": 0,
+    "target": 24,
+    "met": false,
+    "info": [],
+    "notes": [
+     "15.THG (24u) is required — schedule it in Fall 2027 or Spring 2028."
+    ]
+   },
+   {
+    "id": "python",
+    "n": 1,
+    "courses": 1,
+    "target": 1,
+    "met": true,
+    "info": [],
+    "notes": []
+   },
+   {
+    "id": "design",
+    "n": 1,
+    "courses": 1,
+    "target": 1,
+    "met": true,
+    "info": [],
+    "notes": []
+   }
+  ],
+  "summary": "12 courses scheduled · MBA 99/156u · EECS 24/66u · Thesis 0/24u",
+  "terms": [
+   {
+    "term": "Summer 2026",
+    "units": 3,
+    "over": false
+   },
+   {
+    "term": "Fall 2026",
+    "units": 78,
+    "over": true
+   },
+   {
+    "term": "IAP 2027",
+    "units": 0,
+    "over": false
+   },
+   {
+    "term": "Spring 2027",
+    "units": 33,
+    "over": false
+   },
+   {
+    "term": "Summer 2027",
+    "units": 0,
+    "over": false
+   },
+   {
+    "term": "Fall 2027",
+    "units": 0,
+    "over": false
+   },
+   {
+    "term": "IAP 2028",
+    "units": 0,
+    "over": false
+   },
+   {
+    "term": "Spring 2028",
+    "units": 0,
+    "over": false
+   }
+  ]
+ }
+}
