@@ -18,6 +18,7 @@
          position:sticky;top:0;z-index:30;display:flex;align-items:center;gap:16px;flex-wrap:wrap}
   header h1{font-size:17px;margin:0;font-weight:700;color:var(--accent)}
   header .meta{font-size:12px;color:var(--muted)}
+  .stale{background:#fdf0db;color:var(--warn);border-bottom:1px solid #f0d9a8;padding:8px 20px;font-size:13px}
   .grow{flex:1}
   button,select,input{font:inherit}
   button{cursor:pointer;border:1px solid var(--line);background:#fff;border-radius:7px;padding:6px 11px}
@@ -162,6 +163,7 @@
   <div class="meta" id="lastpull"></div>
   <button id="export">Export flagged CSV</button>
 </header>
+<div class="stale" id="stale" hidden></div>
 
 <div class="layout" id="view-browse">
   <aside>
@@ -872,12 +874,25 @@ document.getElementById("tab-browse").addEventListener("click",()=>setView("brow
 document.getElementById("tab-plan").addEventListener("click",()=>setView("plan"));
 
 // ---- init ----------------------------------------------------------------
+// The weekly refresh normally keeps the data under a week old. Older than this means the job has
+// stopped (e.g. GitHub disabled the schedule), so say so instead of letting people trust it.
+const STALE_DAYS=21;
+function renderFreshness(m,now){
+  // data_updated = when the data was fetched; pulled_at = when the file was built (older files).
+  const raw=m.data_updated||String(m.pulled_at||'').slice(0,10);
+  const d=raw?new Date(raw+'T12:00:00'):null;
+  const ok=d&&!isNaN(d);
+  const label=ok?d.toLocaleDateString('en-US',{month:'short',day:'numeric',year:'numeric'}):'unknown';
+  document.getElementById('lastpull').innerHTML=
+    `<span title="Course data was fetched from MIT on ${esc(raw||'an unknown date')}">Data updated <b>${esc(label)}</b> · ${COURSES.length} courses</span>`;
+  const stale=document.getElementById('stale');
+  const age=ok?Math.round((now-d)/864e5):Infinity;   // whole days (ignores clock changes)
+  stale.hidden=age<=STALE_DAYS;
+  stale.textContent=`⚠ Course data may be out of date (last updated ${label}). Check the MIT catalog for the latest offerings and schedules.`;
+}
 function init(){
   const m=DATA.meta||{};
-  let updated=m.pulled_at||'unknown';
-  try{ const d=new Date(String(m.pulled_at).replace(' ','T')); if(!isNaN(d)) updated=d.toLocaleDateString('en-US',{month:'short',day:'numeric',year:'numeric'}); }catch(e){}
-  document.getElementById('lastpull').innerHTML=
-    `<span title="Course data was scraped from the MIT catalog on ${esc(m.pulled_at||'')}">Data updated <b>${esc(updated)}</b> · ${COURSES.length} courses</span>`;
+  renderFreshness(m,new Date());
   const haveEval=COURSES.filter(c=>c.eval_hours_in!=null).length;
   const haveRate=COURSES.filter(c=>c.rating!=null).length;
   document.getElementById('evalnote').textContent=
