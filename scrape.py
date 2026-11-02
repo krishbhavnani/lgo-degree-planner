@@ -24,8 +24,11 @@ gitignored personal/ratings.js overlay.
 
 Exit codes: 0 all checks passed; 2 published with warnings; 1 failed, nothing written.
 
-Run:  python3 scrape.py              # parse cached pages in .scratch/ (fetches any missing)
+Run:  python3 scrape.py --from-archive   # rebuild the site files from the data branch (.data/),
+                                       # fetching nothing (CI, deploys, fresh clones)
+      python3 scrape.py              # parse cached pages in .scratch/ (fetches any missing)
       python3 scrape.py --refresh    # fetch live from MIT, check, archive, publish
+      python3 scrape.py ... --out DIR   # write data.js / courses.json / db.js / changes.js there
       python3 scrape.py --refresh --archive-dir PATH   # archive somewhere else
       python3 scrape.py --refresh --no-archive
 """
@@ -392,11 +395,12 @@ def build(sources, results, archive_dir=None):
     return payload, ex
 
 
-def write_outputs(payload):
+def write_outputs(payload, out_dir=HERE):
     courses, meta = payload["courses"], payload["meta"]
-    with open(os.path.join(HERE, "courses.json"), "w", encoding="utf-8") as f:
+    os.makedirs(out_dir, exist_ok=True)
+    with open(os.path.join(out_dir, "courses.json"), "w", encoding="utf-8") as f:
         json.dump(payload, f, indent=2, ensure_ascii=False)
-    with open(os.path.join(HERE, "data.js"), "w", encoding="utf-8") as f:
+    with open(os.path.join(out_dir, "data.js"), "w", encoding="utf-8") as f:
         f.write("window.COURSE_DATA = ")
         json.dump(payload, f, ensure_ascii=False)
         f.write(";\n")
@@ -407,7 +411,16 @@ def write_outputs(payload):
           (offered, sum(1 for c in courses if c["aags"] != "Not approved")))
 
 
-def update_db(archive_dir, ctx, run_id, save=True):
+def write_db_js(archive_dir, years, out_dir=HERE, db=None):
+    """db.js + changes.js for the site, from the stored database and change feed."""
+    db = db or course_db.load(archive_dir)
+    publish.write_js(os.path.join(out_dir, "db.js"), "COURSE_DB", publish.db_payload(db, years))
+    publish.write_js(os.path.join(out_dir, "changes.js"), "COURSE_CHANGES",
+                     publish.changes_payload(publish.read_feed(archive_dir),
+                                             db.get("updated") or years.get("term")))
+
+
+def update_db(archive_dir, ctx, run_id, save=True, out_dir=HERE):
     """Merge this run into the course database on the data branch. Returns the changes."""
     db = course_db.load(archive_dir)
     first = not db["courses"]
@@ -419,10 +432,7 @@ def update_db(archive_dir, ctx, run_id, save=True):
         course_db.save(archive_dir, db)
         if not first:   # creating the database would log every course as "added"
             publish.append_feed(archive_dir, changes)
-        publish.write_js(os.path.join(HERE, "db.js"), "COURSE_DB",
-                         publish.db_payload(db, ctx["years"]))
-        publish.write_js(os.path.join(HERE, "changes.js"), "COURSE_CHANGES",
-                         publish.changes_payload(publish.read_feed(archive_dir), date))
+        write_db_js(archive_dir, ctx["years"], out_dir, db)
     kinds = Counter(c["kind"] for c in changes)
     if first:
         print("Course database created: %d courses, %d offerings." %
@@ -447,20 +457,34 @@ def _arg_value(flag):
 
 
 def main(fetcher=None):
+    from_archive = "--from-archive" in sys.argv
     refresh = "--refresh" in sys.argv
+    if from_archive and refresh:
+        sys.exit("--from-archive and --refresh can't be combined")
+    live = refresh   # a live fetch that gets archived and merged into the database
+    out_dir = _arg_value("--out") or HERE
     archive_dir = _arg_value("--archive-dir") or pconfig.ARCHIVE_DIR
     archive = None
     if os.path.isdir(archive_dir):
         archive = snapshots.Archive(archive_dir)
+    elif from_archive:
+        sys.exit("--from-archive needs the data branch at %s "
+                 "(git worktree add .data data)" % archive_dir)
     elif refresh and "--no-archive" not in sys.argv:
         print("Note: no archive at %s; snapshots will not be saved." % archive_dir)
     started = datetime.now(timezone.utc)
     run_id = snapshots.stamp(started)
+    data_date = started.strftime("%Y-%m-%d")
+    if from_archive:
+        fetcher = snapshots.Replay(archive)
+        data_date = fetcher.date
+        print("Replaying run %s from %s (nothing is fetched)." % (fetcher.run["run_id"],
+                                                                 archive_dir))
 
     sources = pconfig.build_sources(pconfig.catalog_pages())
     print("Collecting %d pages + discovered links (%s)..." %
-          (len(sources), "live" if refresh else "cache"))
-    sources, results = collect(sources, refresh, fetcher)
+          (len(sources), "archive" if from_archive else "live" if refresh else "cache"))
+    sources, results = collect(sources, refresh or from_archive, fetcher)
     pages = {s.key: guardrails.page_metrics(s, results[s.key]) for s in sources}
     baseline = archive.baseline_run() if archive else None
 
@@ -488,13 +512,20 @@ def main(fetcher=None):
         print("\nAll %d guardrail checks passed%s." %
               (len(checks), " (%d warning(s))" % len(warned) if warned else ""))
         for s in sources:
-            if results[s.key].via != "cache":
+            if results[s.key].via not in ("cache", "archive"):
                 _save_cache(s, results[s.key])
-        write_outputs(payload)
+        # When the course data was fetched (not when this file was built): the site's
+        # freshness note and staleness banner use this.
+        if live or from_archive:
+            payload["meta"]["data_updated"] = data_date
+        write_outputs(payload, out_dir)
+        if from_archive:
+            write_db_js(archive_dir, ex["catalog"]["years"], out_dir)
+            print("Wrote db.js and changes.js from the stored database.")
     else:
         print("\nGuardrails FAILED - nothing written (courses.json / data.js unchanged).")
 
-    if archive and refresh and "--no-archive" not in sys.argv:
+    if archive and live and "--no-archive" not in sys.argv:
         status = "pass" if ok else "fail"
         stored = unchanged = 0
         entries = {}
@@ -511,7 +542,7 @@ def main(fetcher=None):
             print("Wrote extracts: %s%s" % (", ".join(written),
                                              "; kept last good: %s" % ", ".join(kept)
                                              if kept else ""))
-            update_db(archive_dir, ex["_context"], run_id)
+            update_db(archive_dir, ex["_context"], run_id, out_dir=out_dir)
         archive.record_run(guardrails.run_record(
             run_id, snapshots.iso(started), snapshots.iso(datetime.now(timezone.utc)),
             sources, pages, courses_info, checks, published=ok))

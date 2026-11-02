@@ -98,6 +98,33 @@ class ArchiveTest(unittest.TestCase):
         self.archive.ensure_layout()
         self.assertTrue(os.path.exists(os.path.join(self.dir, "README.md")))
 
+    def test_replay_restores_run_stamp_on_unchanged_page(self):
+        # Run 1 stores the page; run 2 sees the same content with a newer Produced stamp, so
+        # nothing new is stored. Replaying run 2 must show run 2's stamp, not the stored one.
+        b1 = fx.catalog_html(produced="26-OCT-2026 05:10 PM")
+        b2 = fx.catalog_html(produced="27-OCT-2026 05:10 PM")
+        self.archive.record("r1", self.src, fx.result(b1, url=self.src.url, when=self.at(26)),
+                            "pass", produced="26-OCT-2026 05:10 PM")
+        self.archive.record_run({"run_id": "r1", "status": "pass"})
+        self.archive.record("r2", self.src, fx.result(b2, url=self.src.url, when=self.at(27)),
+                            "pass", produced="27-OCT-2026 05:10 PM")
+        self.archive.record_run({"run_id": "r2", "status": "pass",
+                                 "finished_at": "2026-10-27T22:00:05Z"})
+        self.archive.record_run({"run_id": "r3", "status": "fail"})
+        replay = snapshots.Replay(snapshots.Archive(self.dir))
+        self.assertEqual(replay.run["run_id"], "r2")          # last *passing* run
+        self.assertEqual(replay.date, "2026-10-27")
+        res = replay.get(self.src.url)
+        self.assertTrue(res.ok)
+        self.assertEqual(res.via, "archive")
+        self.assertEqual(snapshots.produced_stamp(res.text())[0], "27-OCT-2026 05:10 PM")
+        self.assertFalse(replay.get("https://example.org/not-archived").ok)
+
+    def test_replay_needs_a_passing_run(self):
+        self.archive.record_run({"run_id": "r1", "status": "fail"})
+        with self.assertRaises(RuntimeError):
+            snapshots.Replay(self.archive)
+
     def test_baseline_is_last_passing_run(self):
         self.archive.record_run({"run_id": "s", "status": "seed"})
         self.assertEqual(self.archive.baseline_run()["run_id"], "s")

@@ -71,8 +71,9 @@ a fetcher in `pipeline/sources/`.
 
 ```bash
 pip install -r requirements.txt
-python3 scrape.py --refresh    # fetch everything live from MIT, check, publish
-python3 scrape.py              # rebuild from the locally cached pages
+git worktree add .data data      # the data branch: archived pages, extracts, course database
+python3 scrape.py --from-archive # rebuild the site files from .data/ (fetches nothing)
+python3 scrape.py --refresh      # fetch everything live from MIT, check, archive, publish
 python3 -m unittest discover -s tests -t .
 ```
 

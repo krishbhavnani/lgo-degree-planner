@@ -217,3 +217,47 @@ class Archive:
     def _append(self, path, obj):
         with open(path, "a", encoding="utf-8") as f:
             f.write(json.dumps(obj, ensure_ascii=False, sort_keys=False) + "\n")
+
+
+class Replay:
+    """Serves the pages of the last passing run from the archive, for --from-archive.
+
+    Has the same get(url) interface as fetch.Fetcher, so a replayed run goes through exactly the
+    same collect / build / guardrail code as a live one. Unchanged pages are stored under their
+    first (older) file, so the page's "Produced:" stamp is restored from the run's manifest entry;
+    otherwise the replay would see mismatched stamps that the live run never saw.
+    """
+
+    def __init__(self, archive):
+        from .fetch import FetchResult   # local import: fetch is only needed for replays
+        self._result = FetchResult
+        self.archive = archive
+        runs = [r for r in archive.runs() if r.get("status") == "pass"]
+        if not runs:
+            raise RuntimeError("no passing run in the archive at %s" % archive.root)
+        self.run = runs[-1]
+        self.by_url = {e["url"]: e for e in archive.manifest()
+                       if e.get("run_id") == self.run["run_id"]}
+
+    @property
+    def date(self):
+        """The replayed run's date, YYYY-MM-DD (when the data was fetched)."""
+        return (self.run.get("finished_at") or self.run["run_id"])[:10]
+
+    def get(self, url):
+        e = self.by_url.get(url)
+        if e is None:
+            return self._result(url, None, b"", error="not in archived run %s" %
+                                self.run["run_id"], via="archive")
+        when = datetime.strptime(e["fetched_at"], "%Y-%m-%dT%H:%M:%SZ").replace(
+            tzinfo=timezone.utc)
+        snap = e.get("stored") or e.get("unchanged_since")
+        if not snap:
+            return self._result(url, e.get("http_status"), b"", via="archive", fetched_at=when,
+                                error=e.get("error") or "no snapshot in archived run")
+        with open(os.path.join(self.archive.root, snap), "rb") as f:
+            body = gzip.decompress(f.read())
+        if e.get("produced"):
+            body = _PRODUCED_RE.sub(b"Produced: " + e["produced"].encode(), body, count=1)
+        return self._result(url, e.get("http_status") or 200, body, via="archive",
+                            final_url=e.get("final_url") or url, fetched_at=when)
