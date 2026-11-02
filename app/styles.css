@@ -86,7 +86,9 @@ td.hcol,th.hcol{display:none}
 .plan-tools{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:10px}
 .plan-tools button{padding:5px 9px;font-size:12.5px}
 .plan-main{flex:1;min-width:0;padding:12px 16px}
-.plan-headbar{display:flex;align-items:center;gap:14px;margin-bottom:10px;font-size:13px;color:var(--muted)}
+.plan-headbar{display:flex;align-items:center;gap:14px;margin-bottom:10px;font-size:13px;color:var(--muted);flex-wrap:wrap}
+.gradyear{font-weight:600;color:var(--ink);display:flex;gap:6px;align-items:center}
+.gradyear select{font:inherit;padding:2px 4px;border:1px solid var(--line);border-radius:6px}
 #termgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:12px}
 .term{border:1px solid var(--line);border-radius:10px;background:#fff;overflow:hidden}
 .term.unassigned{border-style:dashed;background:#fffdf7}

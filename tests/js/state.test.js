@@ -103,9 +103,8 @@ test("reconciliation adds new base courses and drops retired ones", () => {
   p2.base_plan = p2.base_plan.filter(b => b.id !== "lean-ops-y1summer");
   p2.base_plan.push({ id: "new-course", course: "15.016", title: "A new LGO course", units: 6, category: "LGO Required MBA", slot: "Y1 IAP" });
   const changes = State.reconcile({ ...ctx, program: p2 }, s);
-  assert.equal(changes.length, 2);
-  assert.match(changes[0], /^Removed 15\.876/);
-  assert.match(changes[1], /^Added 15\.016 A new LGO course/);
+  assert.deepEqual(changes, ["No longer in the LGO base plan, so removed from your plan: 15.876.",
+    "Added from the LGO base plan: 15.016 A new LGO course."]);
   assert.ok(s.items.some(it => it.base === "new-course") && !s.items.some(it => it.base === "lean-ops-y1summer"));
   assert.deepEqual(State.reconcile({ ...ctx, program: p2 }, s), []);
 });
@@ -137,4 +136,23 @@ test("an export round-trips exactly", () => {
   State.setTarget(program, s, "aags", 24);
   const back = State.validate(ctx, JSON.parse(JSON.stringify(s)));
   assert.deepEqual(back, s);
+});
+
+test("graduation years on offer: the incoming class back three years, rolling over in June", () => {
+  const at = (y, m) => State.gradYearOptions(program, new Date(y, m - 1, 15));
+  assert.deepEqual(at(2026, 11), [2026, 2027, 2028, 2029]);
+  assert.deepEqual(at(2027, 5), [2026, 2027, 2028, 2029]);
+  assert.deepEqual(at(2027, 6), [2027, 2028, 2029, 2030]);
+  assert.deepEqual(at(2027, 1), [2026, 2027, 2028, 2029]);
+});
+
+test("changing the graduation year moves every course with its slot", () => {
+  const s = State.newState(program, 2028);
+  const it = State.addCourse(s, "6.5060", "Y2 Fall");
+  const termOf = () => State.toItems(ctx, s).find(x => x.id === it.id).term;
+  assert.equal(termOf(), "Fall 2027");
+  s.gradYear = 2026;
+  assert.equal(termOf(), "Fall 2025");
+  assert.deepEqual(Object.values(State.slotLabels(program, 2026)),
+    ["Summer 2024", "Fall 2024", "IAP 2025", "Spring 2025", "Summer 2025", "Fall 2025", "IAP 2026", "Spring 2026"]);
 });

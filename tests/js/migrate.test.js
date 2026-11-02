@@ -29,7 +29,7 @@ for (const [file, g] of goldens) {
     // The synthetic c-plans have no base courses at all; real v1 plans always kept the two
     // required ones (they couldn't be removed), so reconcile puts those back.
     const added = State.reconcile(ctx, clone(state));
-    if (file.startsWith("c")) assert.deepEqual(added.map(a => a.split(" ")[1]), ["15.769", "15.792"]);
+    if (file.startsWith("c")) assert.deepEqual(added, ["Added from the LGO base plan: 15.769 Operations Strategy; 15.792 Global Operations Leadership Seminar."]);
     else assert.deepEqual(added, []);
     if (file.startsWith("c6_")) {
       // 6.5130 had two categories (MBA Elective + Eng Elective); now it counts toward the first only.

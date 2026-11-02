@@ -31,6 +31,16 @@ const State = (() => {
     return Object.fromEntries(program.terms.map((t, i) => [t.slot, labels[i]]));
   }
 
+  // Graduation years to offer on `today`: from the incoming class (the one starting next summer;
+  // from new_class_month on, "next summer" is next year's) back `back` years.
+  function gradYearOptions(program, today) {
+    const o = program.grad_year_options;
+    const last = Math.max(...program.terms.map(t => t.year_offset));
+    const nextStart = today.getFullYear() + (today.getMonth() + 1 >= o.new_class_month ? 1 : 0);
+    const newest = nextStart + last;
+    return Array.from({ length: o.back + 1 }, (_, i) => newest - o.back + i);
+  }
+
   function newState(program, gradYear) {
     return { v: V, program: program.id, gradYear, items: program.base_plan.map(b =>
       ({ id: b.id, course: b.course, slot: b.slot || UNASSIGNED, base: b.id })), removedBase: [], targets: {} };
@@ -122,13 +132,13 @@ const State = (() => {
   }
 
   // Bring a saved plan up to date with the current base plan: add base courses the student hasn't
-  // removed, drop retired ones. Returns a line per change, for the notice.
+  // removed, drop retired ones. Returns at most two lines (removed, added) for the notice.
   function reconcile(ctx, state) {
     const ids = new Set(ctx.program.base_plan.map(b => b.id));
-    const changes = [];
+    const removed = [], added = [];
     state.items = state.items.filter(it => {
       if (!it.base || ids.has(it.base)) return true;
-      changes.push(`Removed ${numberOf(it)}: it is no longer in the LGO base plan.`);
+      removed.push(numberOf(it));
       return false;
     });
     state.removedBase = (state.removedBase || []).filter(id => ids.has(id));
@@ -136,9 +146,10 @@ const State = (() => {
     for (const b of ctx.program.base_plan) {
       if (have.has(b.id) || state.removedBase.includes(b.id)) continue;
       state.items.push({ id: b.id, course: b.course, slot: b.slot || UNASSIGNED, base: b.id });
-      changes.push(`Added ${b.course} ${b.title}: it is new in the LGO base plan.`);
+      added.push(`${b.course} ${b.title}`);
     }
-    return changes;
+    return [...(removed.length ? [`No longer in the LGO base plan, so removed from your plan: ${removed.join("; ")}.`] : []),
+      ...(added.length ? [`Added from the LGO base plan: ${added.join("; ")}.`] : [])];
   }
 
   // Check a saved or imported v2 plan; throws an Error saying what's wrong.
@@ -241,7 +252,7 @@ const State = (() => {
     throw new Error("this isn't a plan export");
   }
 
-  return { UNASSIGNED, slotLabels, newState, toItems, setUnits, setCategory, toggleAddon, setAudit, moveTo,
+  return { UNASSIGNED, slotLabels, gradYearOptions, newState, toItems, setUnits, setCategory, toggleAddon, setAudit, moveTo,
     addCourse, addCustom, removeItem, startBlank, setTarget, reconcile, validate, migrateV1, fromFile };
 })();
 

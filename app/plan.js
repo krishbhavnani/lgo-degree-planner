@@ -15,7 +15,9 @@ const courseInfo=n=>{const c=courseByNum[n]||{};return {aags:c.aags,design:c.des
 const CTX={program:PROGRAM,course:n=>courseByNum[n]||null};
 const PLS={state:"lgo-dp.state",unreadable:"lgo-dp.state-unreadable",view:"lgo-dp.view",
   v1plan:"lgo-dp.plan",v1reqs:"lgo-dp.reqs",v1backup:"lgo-dp.v1-backup"};
-const DEFAULT_GRAD_YEAR=2028;
+// Graduation years on offer today; a new plan starts as the class now in its first year.
+const GRAD_YEARS=State.gradYearOptions(PROGRAM,new Date());
+const DEFAULT_GRAD_YEAR=GRAD_YEARS[GRAD_YEARS.length-2];
 
 let notices=[];  // shown once above the term grid
 function loadPlanState(){
@@ -136,7 +138,36 @@ function renderNotice(){
   box.hidden=!notices.length;
   box.innerHTML=notices.map(n=>`<div>${esc(n)}</div>`).join("")+`<button class="notice-x" title="dismiss">✕</button>`;
 }
-function renderPlan(){ const res=evaluatePlan(); renderReqPanel(res); renderTerms(res); renderPlanSummary(res); renderNotice(); }
+// "Graduating: [2028]  Starts Summer 2026 · Graduates Spring 2028". A saved year outside today's
+// window (an older plan) stays in the list.
+function yearOptions(){
+  const ys=[...new Set([...GRAD_YEARS,STATE.gradYear])].sort((a,b)=>a-b);
+  return ys.map(y=>`<option ${y===STATE.gradYear?'selected':''}>${y}</option>`).join("");
+}
+const yearSpan=()=>`Starts ${PLAN_TERMS[0]} · Graduates ${PLAN_TERMS[PLAN_TERMS.length-1]}`;
+function renderGradYear(){
+  document.getElementById("grad-year").innerHTML=yearOptions();
+  document.getElementById("grad-span").textContent=yearSpan();
+}
+// Counted (gradyear/<year>) when the question is answered or Plan opens, not on every change.
+function setGradYear(year){
+  STATE.gradYear=year; STATE.yearChosen=true; planSave(); renderPlan();
+}
+document.getElementById("grad-year").addEventListener("change",e=>setGradYear(+e.target.value));
+// The first time someone opens Plan, ask which class they're in (once; the header picker stays).
+function askGradYearOnce(){
+  if(STATE.yearChosen){ track("gradyear/"+STATE.gradYear); return; }
+  STATE.yearChosen=true; planSave();
+  openModal("Which class are you in?",
+    `<div class="setrow">Graduating: <select id="ask-year">${yearOptions()}</select></div>
+     <div class="hint" id="ask-span" style="margin:4px 0 12px">${esc(yearSpan())}</div>
+     <div class="hint" style="margin-bottom:12px">Every term in your plan follows this year. You can change it any time from the Plan header.</div>
+     <button class="primary" id="ask-done">Done</button>`);
+  document.getElementById("ask-year").addEventListener("change",e=>{
+    setGradYear(+e.target.value); document.getElementById("ask-span").textContent=yearSpan();});
+  document.getElementById("ask-done").addEventListener("click",()=>{track("gradyear/"+STATE.gradYear); closeModal();});
+}
+function renderPlan(){ const res=evaluatePlan(); renderGradYear(); renderReqPanel(res); renderTerms(res); renderPlanSummary(res); renderNotice(); }
 document.getElementById("plan-notice").addEventListener("click",e=>{if(e.target.closest(".notice-x")){notices=[]; renderNotice();}});
 
 // ---- plan event handling ----

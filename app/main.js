@@ -40,7 +40,7 @@ function setView(v){
   document.getElementById("search").style.display=plan?"none":"";
   document.getElementById("export").style.display=plan?"none":"";
   save(PLS.view,v);
-  if(plan){ renderPlan(); track("plan-opened"); } else renderRows();
+  if(plan){ renderPlan(); track("plan-opened"); askGradYearOnce(); } else renderRows();
 }
 document.getElementById("tab-browse").addEventListener("click",()=>setView("browse"));
 document.getElementById("tab-plan").addEventListener("click",()=>setView("plan"));
