@@ -42,7 +42,10 @@ def norm_title(title):
 
 
 def titles_match(a, b):
-    return bool(a) and bool(b) and norm_title(a) == norm_title(b)
+    """Same topic? Ignores case, punctuation, [J] and Sloan's "SSIM:" prefix (Special Seminar in
+    Management), which the design list uses: "SSIM: Generative AI Lab" = "Generative AI Lab"."""
+    key = lambda t: re.sub(r"^ssim ", "", norm_title(t))
+    return bool(a) and bool(b) and key(a) == key(b)
 
 
 def slug(title):

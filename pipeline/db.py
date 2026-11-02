@@ -217,8 +217,7 @@ def _lab_course(row, this_ay, current, ctx):
         "category": row.get("category"), "description": "", "url": None, "prereq_raw": "",
         "prereq_numbers": [], "meets_with": [], "same_as": [], "group": None,
         "range_numbers": None,
-        "designations": _designations(row, True, name, ctx, this_ay, lab=True, aags=False,
-                                      design=False),
+        "designations": _designations(row, True, name, ctx, this_ay, lab=True, aags=False),
         "evals": None, "aliases": [], "offerings": {}}
     for season in _lab_seasons(row):
         t = terms.term(season, this_ay)

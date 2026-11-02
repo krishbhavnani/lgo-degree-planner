@@ -99,6 +99,16 @@ class ObserveTest(unittest.TestCase):
         self.assertNotIn("action_learning",
                          obs["15.S04~special-seminar-in-management"]["designations"])
 
+    def test_lab_gets_design_when_the_list_names_its_topic(self):
+        rows = [row("15.S04", "Generative AI Lab (GENAI-LAB)", terms=("Fall",),
+                    catalog_title="Special Seminar in Management", action_learning="GENAI-LAB",
+                    al_name="Generative AI Lab", al_term="Spring", design_approved="approved")]
+        design = [{"numbers": ["15.S04"], "name": "SSIM: Generative AI Lab"}]
+        obs = cdb.observe(ctx(rows, design_rows=design))
+        self.assertEqual(obs["15.S04~generative-ai-lab"]["designations"]["design"]["value"],
+                         "approved")
+        self.assertNotIn("design", obs["15.S04~special-seminar-in-management"]["designations"])
+
     def test_lab_in_matching_term_keeps_lab_name(self):
         rows = [row("15.S17", "Defense and Dual-Use Ventures Lab (DDUV-LAB)", terms=("Fall",),
                     action_learning="DDUV-LAB", al_name="Defense and Dual-Use Ventures Lab",
