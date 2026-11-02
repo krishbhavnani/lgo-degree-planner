@@ -202,7 +202,8 @@
     "notes": []
    }
   ],
-  "summary": "8 courses scheduled · MBA 0/156u · EECS 87/66u · Thesis 0/24u",
+  "summary": "8 courses scheduled · MBA 0/150u · EECS 87/60u · Thesis 0/24u",
+  "summary_note": "Changed on purpose in Phase 1: the summary line follows edited targets. Before, it always read MBA …/156u · EECS …/66u · Thesis …/24u",
   "terms": [
    {
     "term": "Summer 2026",

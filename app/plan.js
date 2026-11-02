@@ -1,117 +1,72 @@
 // ===========================================================================
 // PLAN VIEW — schedule sandbox + degree-requirement tracker
 // ===========================================================================
-const PLAN_TERMS=["Summer 2026","Fall 2026","IAP 2027","Spring 2027","Summer 2027","Fall 2027","IAP 2028","Spring 2028"];
-const TAGS=["MBA Core","LGO Required MBA","MBA Elective","LGO Required Eng","Eng Elective","Thesis","Python","LGO Design"];
-const TAGCLASS={"MBA Core":"t-core","LGO Required MBA":"t-lgo","MBA Elective":"t-elec","LGO Required Eng":"t-lgo","Eng Elective":"t-elec","Thesis":"t-thesis","Python":"t-python","LGO Design":"t-design"};
-const MBA_CORE_SET=["15.010","15.280","15.311","15.515"];
-const LGO_REQ_MBA_SET=["15.316","15.317","15.761","15.876","15.S21","15.086","15.792","15.766","15.S23","15.794","15.769"];
+// The degree rules come from programs/*.json (loaded as programs.js): the major, plus the shared
+// LGO file it extends.
+const MAJOR=Object.values(window.PROGRAMS||{}).find(p=>p.extends);
+const PROGRAM=Engine.resolve(window.PROGRAMS[MAJOR.extends],MAJOR);
+const START_YEAR=2026;  // first summer of the plan (a grad-year picker replaces this in Phase 2a)
+const PLAN_TERMS=Engine.termLabels(PROGRAM,START_YEAR);
+const TAGS=PROGRAM.categories.map(c=>c.id);
+const TAGCLASS=Object.fromEntries(PROGRAM.categories.map(c=>[c.id,c.style?"t-"+c.style:""]));
 const courseByNum={}; COURSES.forEach(c=>{courseByNum[c.number]=c;});
-
-// Sample 2-year LGO plan (from the Excel) — the default schedule.
-const PLAN_DEFAULT=[
- // Base plan = LGO-required courses only; students add their own electives.
- // Summer 2026
- ["15.316","Building & Leading Effective Teams",4,["LGO Required MBA"],"Summer 2026"],
- ["15.317","Organizational Leadership & Change",6,["LGO Required MBA"],"Summer 2026"],
- ["15.761","Intro to Operations Management",9,["LGO Required MBA"],"Summer 2026"],
- ["15.876","Lean Operations",3,["LGO Required MBA"],"Summer 2026"],
- ["15.086","Engineering Probability",3,["LGO Required MBA"],"Summer 2026"],
- ["6.S090","Python Workshop",3,["Python"],"Summer 2026"],
- ["15.066","Systems Optimization & Analysis for Ops",12,["LGO Required Eng"],"Summer 2026"],
- ["15.087","Engineering Statistics & Data Science",12,["LGO Required Eng"],"Summer 2026"],
- // Fall 2026
- ["15.010","Economic Analysis for Business Decisions",9,["MBA Core"],"Fall 2026"],
- ["15.280","Communication for Leaders",9,["MBA Core"],"Fall 2026"],
- ["15.311","Organizational Processes",9,["MBA Core"],"Fall 2026"],
- ["15.515","Financial Accounting",9,["MBA Core"],"Fall 2026"],
- ["15.792","Global Operations Leadership Seminar",2,["LGO Required MBA"],"Fall 2026"],
- ["15.002","Leadership Challenges for an Inclusive World",1,["MBA Elective"],"Fall 2026"],
- // IAP 2027
- ["15.766","Domestic Plant Trek & Partner Integration",9,["LGO Required MBA"],"IAP 2027"],
- // Spring 2027
- // Required, flexible-term courses: start in Unassigned, locked (can't be removed), and can only be
- // scheduled in their allowed terms.
- ["15.769","Operations Strategy",9,["LGO Required MBA"],"Unassigned",{required:true,allowedTerms:["Spring 2027","Spring 2028"]}],
- ["15.792","Global Operations Leadership Seminar",2,["LGO Required MBA"],"Unassigned",{required:true,allowedTerms:["Spring 2027","Spring 2028"]}],
- // Summer 2027
- ["15.794","Research Project in Operations",1,["LGO Required MBA"],"Summer 2027"],
- // Fall 2027
- ["15.794","Research Project in Operations",12,["LGO Required MBA"],"Fall 2027"],
- ["15.THG","Graduate Thesis",9,["Thesis"],"Fall 2027"],
- // Spring 2028
- ["15.THG","Graduate Thesis",15,["Thesis"],"Spring 2028"],
- ["15.317","Organizational Leadership & Change",6,["LGO Required MBA"],"Spring 2028"],
- ["15.794","Research Project in Operations",5,["LGO Required MBA"],"Spring 2028"],
-].map((a,i)=>({id:"p"+i,number:a[0],title:a[1],units:a[2],tags:a[3],term:migTerm(a[4]),audit:false,base:true,...(a[5]||{})}));
-
-const REQ_DEFAULT=[
- {key:"mba_core",group:"MBA",name:"MBA Core",target:36,type:"units",tags:["MBA Core"]},
- {key:"mba_lgo",group:"MBA",name:"LGO Required MBA",target:71,type:"units",tags:["LGO Required MBA"]},
- {key:"mba_elec",group:"MBA",name:"MBA Free Electives",target:49,type:"units",tags:["MBA Elective"]},
- {key:"mba_total",group:"MBA",name:"MBA Total Coursework",target:156,type:"units",tags:["MBA Core","LGO Required MBA","MBA Elective"],headline:true},
- {key:"aags",group:"EECS",name:"AAGS Core (3 AAGS courses)",target:36,minCourses:3,type:"aags",tags:["Eng Elective","LGO Required Eng"]},
- {key:"eng_lgo",group:"EECS",name:"LGO Required Eng",target:24,type:"units",tags:["LGO Required Eng"]},
- {key:"eng_elec",group:"EECS",name:"Eng Electives (beyond AAGS core)",target:6,type:"elec_beyond_aags",tags:["Eng Elective"]},
- {key:"eng_total",group:"EECS",name:"EECS Total Coursework",target:66,type:"units",tags:["LGO Required Eng","Eng Elective"],headline:true},
- {key:"thesis",group:"Thesis & extras",name:"SM Thesis",target:24,type:"units",tags:["Thesis"]},
- {key:"python",group:"Thesis & extras",name:"Python (6.S090)",target:1,type:"count",tags:["Python"]},
- {key:"design",group:"Thesis & extras",name:"LGO Design",target:1,type:"count",tags:["LGO Design"]},
-];
+// What the rules read about a course.
+const courseInfo=n=>{const c=courseByNum[n]||{};return {aags:c.aags,design:c.design_approved,department:c.department};};
+// The LGO base plan (required courses only); students add their own electives.
+const PLAN_DEFAULT=Engine.basePlan(PROGRAM,START_YEAR);
 
 const PLS={plan:"lgo-dp.plan",reqs:"lgo-dp.reqs",view:"lgo-dp.view"};
 const newId=()=>"p"+Date.now().toString(36)+Math.random().toString(36).slice(2,7);
 let planItems=(load(PLS.plan,null)||PLAN_DEFAULT).map(x=>({...x,tags:[...x.tags],term:migTerm(x.term)}));
 // Repair any historical duplicate ids (older builds reused a counter that reset on reload).
 (()=>{const seen=new Set();planItems.forEach(it=>{if(!it.id||seen.has(it.id))it.id=newId();seen.add(it.id);});})();
-let reqs=load(PLS.reqs,null)||REQ_DEFAULT.map(x=>({...x,tags:[...x.tags]}));
+// Requirement settings hold only the targets the user changed, by requirement id. Older saves
+// stored whole requirement copies ({key, target, tags, ...}); only key and target are read.
+function loadTargets(saved){
+  const t={};
+  (Array.isArray(saved)?saved:[]).forEach(r=>{const req=PROGRAM.requirements.find(x=>x.id===r.key);
+    if(req && r.target!=null && +r.target!==Engine.defaultTarget(req)) t[r.key]=+r.target;});
+  return t;
+}
+let targets=loadTargets(load(PLS.reqs,null));
 let hideAudit=false;
 function planSave(){save(PLS.plan,planItems);}
-function reqSave(){save(PLS.reqs,reqs);}
+function savedTargets(){return Object.entries(targets).map(([key,target])=>({key,target}));}
+function reqSave(){save(PLS.reqs,savedTargets());}
 
-function defaultTagsFor(number,dept){
-  if(MBA_CORE_SET.includes(number)) return ["MBA Core"];
-  if(LGO_REQ_MBA_SET.includes(number)) return ["LGO Required MBA"];
-  if(number==="15.066"||number==="15.087") return ["LGO Required Eng"];
-  if(number.indexOf("6.S090")===0) return ["Python"];
-  if(/THG/.test(number)) return ["Thesis"];
-  if(C51_MODULES.includes(number)) return ["Eng Elective"];  // pairs with 6.C51 → counts toward EECS
-  const d=dept||"";
-  if(d.includes("Course 15")) return ["MBA Elective"];
-  if(d.includes("Course 6")||d.includes("Course 2")) return ["Eng Elective"];  // non-EECS eng also = Eng Elective
-  return [];
-}
 function addPlanItem(number,title,units,term){
   const c=courseByNum[number];
   planItems.push({id:newId(),number,title:title||(c?c.title:number),
     units:units!=null?units:(c&&c.units_total!=null?c.units_total:0),
-    tags:defaultTagsFor(number,c?c.department:""),term:term||"Unassigned",audit:false});
+    tags:Engine.classify(PROGRAM,number,courseInfo),term:term||"Unassigned",audit:false});
   planSave(); renderPlan(); track("course-added");
 }
 
-function renderReqPanel(){
-  const groups={}; reqs.forEach(b=>{(groups[b.group]=groups[b.group]||[]).push(b);});
+function evaluatePlan(){return Engine.evaluate(PROGRAM,planItems,courseInfo,targets);}
+function renderReqPanel(res=evaluatePlan()){
+  const groups={}; res.requirements.forEach(b=>{(groups[b.group]=groups[b.group]||[]).push(b);});
   let h="";
   for(const g of Object.keys(groups)){
     h+=`<div class="reqgroup"><h4>${esc(g)}</h4>`;
     for(const b of groups[g]){
-      const e=reqEarned(b);
-      let met, label, pct;
-      if(b.type==="aags"){ const mc=b.minCourses||3; met=e.n>=b.target && e.courses>=mc; label=`${e.n} / ${b.target}u · ${e.courses}/${mc} courses`; pct=Math.min(100,100*e.n/b.target);}
-      else if(b.type==="count"){ met=e.n>=b.target; label=`${e.n} / ${b.target}`; pct=Math.min(100,100*e.n/(b.target||1));}
-      else { met=e.n>=b.target; label=`${e.n} / ${b.target}u`; pct=Math.min(100,100*e.n/(b.target||1));}
+      const met=b.met, n=b.value;
+      let label, pct;
+      if(b.type==="from_set"){ label=`${n} / ${b.target}u · ${b.courses}/${b.min_courses} courses`; pct=Math.min(100,100*n/b.target);}
+      else if(b.type==="count"){ label=`${n} / ${b.target}`; pct=Math.min(100,100*n/(b.target||1));}
+      else { label=`${n} / ${b.target}u`; pct=Math.min(100,100*n/(b.target||1));}
+      const info=b.counted&&b.counted.length?["Counted: "+b.counted.join(", ")]:[];
       if(b.headline){
         h+=`<div class="reqtotal ${met?'met':''}">
-            <span class="rt-l">${esc(b.name)}</span>
-            <span class="rt-v">${met?'✓ ':''}${e.n}<span class="rt-t">/ ${b.target}u</span></span></div>`;
+            <span class="rt-l">${esc(b.label)}</span>
+            <span class="rt-v">${met?'✓ ':''}${n}<span class="rt-t">/ ${b.target}u</span></span></div>`;
         continue;
       }
       h+=`<div class="reqrow ${met?'met':''}">
-        <div class="rl"><span class="rn">${esc(b.name)}</span>
+        <div class="rl"><span class="rn">${esc(b.label)}</span>
         <span class="rv ${met?'':'short'}">${met?'✓ ':''}${label}</span></div>
         <div class="bar ${met?'done':''}"><i style="width:${pct}%"></i></div>
-        ${(e.info||[]).map(n=>`<div class="hint" style="margin-top:3px">${esc(n)}</div>`).join("")}
-        ${(e.notes||[]).map(n=>`<div class="hint" style="margin-top:3px">⚠ ${esc(n)}</div>`).join("")}</div>`;
+        ${info.map(n=>`<div class="hint" style="margin-top:3px">${esc(n)}</div>`).join("")}
+        ${b.notes.map(n=>`<div class="hint" style="margin-top:3px">⚠ ${esc(n)}</div>`).join("")}</div>`;
     }
     h+="</div>";
   }
@@ -119,7 +74,7 @@ function renderReqPanel(){
 }
 
 // ---- term grid ----
-function renderTerms(){
+function renderTerms(res=evaluatePlan()){
   const grid=document.getElementById("termgrid");
   const order=["Unassigned",...PLAN_TERMS];
   let h="";
@@ -127,10 +82,10 @@ function renderTerms(){
     const items=planItems.filter(it=>it.term===term && (!hideAudit||!it.audit));
     items.sort((a,b)=>(a.audit-b.audit) || ((+b.units||0)-(+a.units||0)));  // size desc; audits last
     if(term==="Unassigned" && items.length===0) continue;
-    const tot=items.filter(it=>!it.audit).reduce((s,it)=>s+(+it.units||0),0);  // every unit counts
-    const cap=term==="Unassigned"?Infinity:TERM_LIMIT;
+    const tot=(res.terms[term]||{units:0}).units;  // every unit counts
+    const limit=PROGRAM.term_unit_limit, cap=term==="Unassigned"?Infinity:limit;
     h+=`<div class="term ${term==='Unassigned'?'unassigned':''}"><div class="term-h">${esc(term)}${term==='Unassigned'?' <span class="hint" style="font-weight:400">· not counted toward requirements</span>':''}
-        <span class="tu ${tot>cap?'over':''}" ${tot>cap?`title="Over the limit of ${TERM_LIMIT} units per term"`:''}>${term==='Unassigned'?'':`${tot}u${tot>cap?` · over ${TERM_LIMIT}u limit`:''}`}</span></div><div class="term-body">`;
+        <span class="tu ${tot>cap?'over':''}" ${tot>cap?`title="Over the limit of ${limit} units per term"`:''}>${term==='Unassigned'?'':`${tot}u${tot>cap?` · over ${limit}u limit`:''}`}</span></div><div class="term-body">`;
     for(const it of items){
       const req=!!it.required, lockTags=!!(it.base||it.required);  // base-plan designations are fixed
       const tagChips=(it.tags||[]).map(t=>lockTags?`<span class="tagchip ${TAGCLASS[t]||''}">${esc(t)}</span>`
@@ -154,15 +109,11 @@ function renderTerms(){
   }
   grid.innerHTML=h;
 }
-function renderPlanSummary(){
-  const active=planItems.filter(counts);
-  const mba=reqEarned(reqs.find(b=>b.key==="mba_total")).n;
-  const eng=reqEarned(reqs.find(b=>b.key==="eng_total")).n;
-  const th=reqEarned(reqs.find(b=>b.key==="thesis")).n;
-  document.getElementById("plan-summary").innerHTML=
-    `<b>${active.length}</b> courses scheduled · MBA <b>${mba}</b>/156u · EECS <b>${eng}</b>/66u · Thesis <b>${th}</b>/24u`;
+function renderPlanSummary(res=evaluatePlan()){
+  document.getElementById("plan-summary").innerHTML=`<b>${res.scheduled}</b> courses scheduled`+
+    res.summary.map(s=>` · ${esc(s.label)} <b>${s.value}</b>/${s.target}u`).join("");
 }
-function renderPlan(){ renderReqPanel(); renderTerms(); renderPlanSummary(); }
+function renderPlan(){ const res=evaluatePlan(); renderReqPanel(res); renderTerms(res); renderPlanSummary(res); }
 
 // ---- plan event handling ----
 function itemById(id){return planItems.find(x=>x.id===id);}
@@ -227,35 +178,37 @@ function addCourseModal(){
     closeModal();});
 }
 function settingsModal(){
-  const rows=reqs.map((b,i)=>`<div class="setrow"><span class="sn">${esc(b.name)} <span class="hint">(${esc(b.group)}, counts: ${b.tags.join(', ')||'—'})</span></span>
-    <input type="number" data-req="${i}" value="${b.target}"> ${b.type==='count'?'courses':'units'}</div>`).join("");
+  const rows=PROGRAM.requirements.map(b=>`<div class="setrow"><span class="sn">${esc(b.label)} <span class="hint">(${esc(b.group)}, counts: ${b.pool.join(', ')||'—'})</span></span>
+    <input type="number" data-req="${esc(b.id)}" value="${targets[b.id]??Engine.defaultTarget(b)}"> ${b.type==='count'?'courses':'units'}</div>`).join("");
   openModal("Requirement settings (editable)",
     `<div class="hint" style="margin-bottom:8px">Adjust the target for any requirement. These are your editable model of the LGO degree rules.</div>
      ${rows}<div style="margin-top:12px"><button id="req-reset">↺ Reset requirements to LGO defaults</button></div>`);
   document.getElementById("modal-body").addEventListener("change",e=>{
-    const i=e.target.getAttribute("data-req"); if(i==null)return;
-    reqs[+i].target=+e.target.value||0; reqSave(); renderReqPanel();
+    const id=e.target.getAttribute("data-req"); if(id==null)return;
+    const req=PROGRAM.requirements.find(x=>x.id===id), v=+e.target.value||0;
+    if(v===Engine.defaultTarget(req)) delete targets[id]; else targets[id]=v;
+    reqSave(); renderPlan();
   });
   document.getElementById("req-reset").addEventListener("click",()=>{
-    reqs=REQ_DEFAULT.map(x=>({...x,tags:[...x.tags]})); reqSave(); renderReqPanel(); settingsModal();
+    targets={}; reqSave(); renderPlan(); settingsModal();
   });
 }
 document.getElementById("plan-add").addEventListener("click",addCourseModal);
 document.getElementById("plan-settings").addEventListener("click",settingsModal);
 document.getElementById("plan-export").addEventListener("click",()=>{
-  const blob=new Blob([JSON.stringify({plan:planItems,reqs},null,2)],{type:"application/json"});
+  const blob=new Blob([JSON.stringify({plan:planItems,reqs:savedTargets()},null,2)],{type:"application/json"});
   const a=document.createElement("a");a.href=URL.createObjectURL(blob);a.download="lgo_plan.json";a.click();
 });
 document.getElementById("plan-import").addEventListener("click",()=>{
   const inp=document.createElement("input");inp.type="file";inp.accept=".json";
   inp.onchange=()=>{const f=inp.files[0];if(!f)return;const r=new FileReader();
-    r.onload=()=>{try{const d=JSON.parse(r.result); if(d.plan)planItems=d.plan; if(d.reqs)reqs=d.reqs; planSave();reqSave();renderPlan();}catch(err){alert("Could not parse JSON");}};
+    r.onload=()=>{try{const d=JSON.parse(r.result); if(d.plan)planItems=d.plan; if(d.reqs)targets=loadTargets(d.reqs); planSave();reqSave();renderPlan();}catch(err){alert("Could not parse JSON");}};
     r.readAsText(f);};
   inp.click();
 });
 document.getElementById("plan-reset").addEventListener("click",()=>{
   if(!confirm("Reset the schedule AND requirements to the LGO sample defaults? Your current plan will be lost."))return;
-  planItems=PLAN_DEFAULT.map(x=>({...x,tags:[...x.tags]})); reqs=REQ_DEFAULT.map(x=>({...x,tags:[...x.tags]}));
+  planItems=PLAN_DEFAULT.map(x=>({...x,tags:[...x.tags]})); targets={};
   planSave();reqSave();renderPlan();
 });
 

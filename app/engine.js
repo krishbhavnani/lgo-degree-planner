@@ -1,66 +1,181 @@
-// Requirement math. Reads planItems, reqs and courseByNum from plan.js (until Phase 1 step 4).
-// ---- requirement computation ----
-// Only scheduled courses count: audits and anything still in "Unassigned" don't.
-const TERM_LIMIT=72;  // units per term (per Krish, 2026-10-27)
-const counts=it=>!it.audit && it.term!=="Unassigned";
-const fmtTerms=ts=>ts.length>1?ts.slice(0,-1).join(", ")+" or "+ts[ts.length-1]:ts[0];
-// LGO EECS handbook: 6.C51 (6u) taken with exactly one 6u co-req module counts as ONE 12u AAGS course.
-const C51_MODULES=["1.C51","2.C51","3.C51","6.C511","7.C51","10.C51","11.C51","15.C51","20.C51","22.C51","SCM.C51"];
-// Allocate engineering courses: AAGS-approved courses fill the AAGS core first (largest first)
-// until it has its minimum courses AND units; every other engineering course — including extra
-// AAGS courses — counts as an eng elective. Each course counts toward exactly one bucket.
-function engAllocation(){
-  const aagsB=reqs.find(x=>x.type==="aags");
-  const tags=aagsB?aagsB.tags:["Eng Elective","LGO Required Eng"];
-  const target=aagsB?aagsB.target:36, minC=aagsB?(aagsB.minCourses||3):3;
-  const items=planItems.filter(it=>counts(it) && (it.tags||[]).some(t=>tags.includes(t)));
-  const isAags=it=>((courseByNum[it.number]||{}).aags||"").startsWith("Approved");
-  const notes=[], cands=[];
-  const c51=items.find(it=>it.number==="6.C51");
-  const mods=items.filter(it=>C51_MODULES.includes(it.number));
-  if(c51){
-    const mod=mods[0];
-    cands.push({ids:[c51.id].concat(mod?[mod.id]:[]), label:mod?"6.C51+"+mod.number:"6.C51",
-                units:(+c51.units||0)+(mod?(+mod.units||0):0)});
-    if(!mod && (+c51.units||0)<12) notes.push("6.C51 needs a 6u co-req module (e.g. 15.C51 or SCM.C51) to count as a full 12u AAGS course.");
-    if(mods.length>1) notes.push("Only one co-req module pairs with 6.C51; "+mods.slice(1).map(m=>m.number).join(", ")+" counted as eng electives instead.");
-  } else if(mods.length){
-    notes.push(mods.map(m=>m.number).join(", ")+" only counts toward AAGS when paired with 6.C51.");
+// Requirements engine: pure functions over a program (programs/*.json), plan items and a course
+// lookup. No DOM and no globals, so the same file runs in the page (<script>) and in node (tests).
+//
+//   resolve(base, major)        one program: the major's entries placed at the {"program": true}
+//                               markers in the base (lgo.json); lists and bundles merged
+//   termLabels(program, year)   ["Summer 2026", "Fall 2026", ...] for a plan starting in `year`
+//   basePlan(program, year)     the starting plan items
+//   classify(program, number, courseInfo)          default category for a newly added course
+//   evaluate(program, items, courseInfo, targets)  {requirements, terms, scheduled, summary}
+//
+// courseInfo(number) -> {aags, design, department} (fields may be missing).
+// targets: requirement id -> the user's own target, replacing min_units (min_courses for "count").
+const Engine = (() => {
+  const UNASSIGNED = "Unassigned";
+
+  // Base entries in order, with the major's entries where the base has {"program": true}
+  // (or at the end if it has no marker).
+  function placeAt(base, major) {
+    const out = [];
+    let placed = false;
+    for (const x of base || []) {
+      if (x && x.program) { out.push(...(major || [])); placed = true; } else out.push(x);
+    }
+    if (!placed) out.push(...(major || []));
+    return out;
   }
-  for(const it of items){
-    if(it.number==="6.C51" || C51_MODULES.includes(it.number)) continue;
-    if((it.tags||[]).includes("LGO Required Eng")) continue;   // LGO-required eng has its own bucket
-    if(isAags(it)) cands.push({ids:[it.id], label:it.number, units:+it.units||0});
+
+  function resolve(base, major) {
+    return {
+      id: major.id,
+      name: major.name,
+      terms: base.terms,
+      term_unit_limit: base.term_unit_limit,
+      categories: placeAt(base.categories, major.categories),
+      lists: { ...base.lists, ...major.lists },
+      classify: placeAt(base.classify, major.classify),
+      bundles: [...(base.bundles || []), ...(major.bundles || [])],
+      requirements: placeAt(base.requirements, major.requirements),
+      base_plan: base.base_plan || [],
+    };
   }
-  cands.sort((a,b)=>b.units-a.units);
-  const core=[]; let coreUnits=0;
-  for(const c of cands){ if(core.length>=minC && coreUnits>=target) break; core.push(c); coreUnits+=c.units; }
-  const used=new Set(); core.forEach(c=>c.ids.forEach(id=>used.add(id)));
-  return {coreUnits, coreCourses:core.length, coreLabels:core.map(c=>c.label), used, notes};
-}
-function reqEarned(b){
-  if(b.type==="aags"){
-    const a=engAllocation();
-    return {n:a.coreUnits, courses:a.coreCourses, notes:a.notes,
-            info:a.coreLabels.length?["Counted: "+a.coreLabels.join(", ")]:[]};
+
+  function slotLabel(program, slot, year) {
+    const t = program.terms.find(x => x.slot === slot);
+    if (!t) throw new Error("unknown term slot: " + slot);
+    return t.season + " " + (year + t.year_offset);
   }
-  if(b.type==="elec_beyond_aags"){
-    const a=engAllocation();
-    const elec=planItems.filter(it=>counts(it) && !a.used.has(it.id) && (it.tags||[]).some(t=>b.tags.includes(t)));
-    return {n:elec.reduce((s,it)=>s+(+it.units||0),0), courses:elec.length,
-            info:elec.length?["Counted: "+elec.map(it=>it.number).join(", ")]:[]};
+  const termLabels = (program, year) => program.terms.map(t => slotLabel(program, t.slot, year));
+
+  // Required flexible-term courses start in Unassigned and may only move to their allowed terms.
+  function basePlan(program, year) {
+    return program.base_plan.map((b, i) => {
+      const it = { id: "p" + i, number: b.course, title: b.title, units: b.units, tags: [b.category],
+        term: b.slot ? slotLabel(program, b.slot, year) : UNASSIGNED, audit: false, base: true };
+      if (b.required) {
+        it.required = true;
+        it.allowedTerms = (b.allowed_slots || []).map(s => slotLabel(program, s, year));
+      }
+      return it;
+    });
   }
-  // Design is satisfied by any planned pre-approved design course OR a manual "LGO Design" tag.
-  if(b.key==="design"){
-    const items=planItems.filter(it=>counts(it) && ((it.tags||[]).includes("LGO Design") ||
-        (courseByNum[it.number]||{}).design_approved==="approved"));
-    return {n:items.length, courses:items.length};
+
+  // A list is explicit numbers, a number pattern, or a course designation from the data.
+  function inList(program, listId, number, info) {
+    const l = program.lists[listId];
+    if (!l) throw new Error("unknown list: " + listId);
+    if (Array.isArray(l)) return l.includes(number);
+    if (l.pattern != null) return new RegExp(l.pattern).test(number) && !(l.except || []).includes(number);
+    if (l.designation) {
+      const v = (info(number) || {})[l.designation];
+      return l.prefix != null ? String(v || "").startsWith(l.prefix) : v === l.value;
+    }
+    throw new Error("list " + listId + " has no numbers, pattern or designation");
   }
-  const items=planItems.filter(it=>counts(it) && (it.tags||[]).some(t=>b.tags.includes(t)));
-  if(b.type==="count") return {n:items.length, courses:items.length};
-  // flag required courses that are still unscheduled (on the specific bucket, not the totals)
-  const pending=b.headline?[]:planItems.filter(it=>it.required && it.term==="Unassigned" && (it.tags||[]).some(t=>b.tags.includes(t)));
-  if(pending.length) return {n:items.reduce((s,it)=>s+(+it.units||0),0), courses:items.length,
-      notes:pending.map(it=>`${it.number} (${it.units}u) is required — schedule it in ${fmtTerms(it.allowedTerms||[])}.`)};
-  return {n:items.reduce((s,it)=>s+(+it.units||0),0), courses:items.length};
-}
+
+  function classify(program, number, info) {
+    const dept = (info(number) || {}).department || "";
+    for (const rule of program.classify) {
+      const c = rule.if;
+      if ((c.in && inList(program, c.in, number, info)) || (c.dept && c.dept.some(d => dept.includes(d))))
+        return [rule.then];
+    }
+    return [];
+  }
+
+  // Only scheduled courses count: audits and anything still in Unassigned don't.
+  const counts = it => !it.audit && it.term !== UNASSIGNED;
+  const unitsOf = it => +it.units || 0;
+  const inPool = (it, pool) => (it.tags || []).some(t => (pool || []).includes(t));
+  const fmtTerms = ts => ts.length > 1 ? ts.slice(0, -1).join(", ") + " or " + ts[ts.length - 1] : ts[0];
+  const fill = (text, vars) => text.replace(/\{(\w+)\}/g, (m, k) => vars[k]);
+  const defaultTarget = r => r.type === "count" ? r.min_courses : r.min_units;
+
+  // from_set: candidates are bundles plus single courses on the list (bundle courses and the
+  // `exclude` categories never count singly). The largest fill the requirement until it has both
+  // its minimum courses and units; ties keep plan order. The courses used are claimed.
+  function fromSet(program, r, scheduled, info, target, claimed) {
+    const items = scheduled.filter(it => inPool(it, r.pool));
+    const bundles = (r.bundles || []).map(id => program.bundles.find(b => b.id === id));
+    const notes = [], cands = [];
+    for (const b of bundles) {
+      const lead = items.find(it => it.number === b.lead);
+      const partners = items.filter(it => inList(program, b.partners, it.number, info));
+      if (lead) {
+        const used = partners.slice(0, b.max_partners);
+        cands.push({ ids: [lead.id, ...used.map(p => p.id)],
+          label: [lead.number, ...used.map(p => p.number)].join("+"),
+          units: unitsOf(lead) + used.reduce((s, p) => s + unitsOf(p), 0) });
+        if (!used.length && unitsOf(lead) < b.full_units) notes.push(b.notes.no_partner);
+        if (partners.length > b.max_partners)
+          notes.push(fill(b.notes.extra_partners, { extra: partners.slice(b.max_partners).map(p => p.number).join(", ") }));
+      } else if (partners.length) {
+        notes.push(fill(b.notes.partner_alone, { partners: partners.map(p => p.number).join(", ") }));
+      }
+    }
+    const inBundle = n => bundles.some(b => n === b.lead || inList(program, b.partners, n, info));
+    for (const it of items) {
+      if (inBundle(it.number) || inPool(it, r.exclude)) continue;
+      if (inList(program, r.list, it.number, info)) cands.push({ ids: [it.id], label: it.number, units: unitsOf(it) });
+    }
+    cands.sort((a, b) => b.units - a.units);
+    const core = [];
+    let total = 0;
+    for (const c of cands) {
+      if (core.length >= r.min_courses && total >= target) break;
+      core.push(c);
+      total += c.units;
+    }
+    claimed[r.id] = new Set(core.flatMap(c => c.ids));
+    return { value: total, courses: core.length, met: total >= target && core.length >= r.min_courses,
+      counted: core.map(c => c.label), notes };
+  }
+
+  function evaluate(program, items, info, targets = {}) {
+    const scheduled = items.filter(counts);
+    const targetOf = r => targets[r.id] != null ? targets[r.id] : defaultTarget(r);
+    const out = {}, claimed = {};
+    // from_set first: other requirements can exclude the courses it claims.
+    for (const r of program.requirements)
+      if (r.type === "from_set") out[r.id] = { ...fromSet(program, r, scheduled, info, targetOf(r), claimed), target: targetOf(r) };
+    for (const r of program.requirements) {
+      if (r.type === "from_set") continue;
+      const target = targetOf(r);
+      if (r.type === "count") {
+        const its = scheduled.filter(it => inPool(it, r.pool) || (r.or_in && inList(program, r.or_in, it.number, info)));
+        out[r.id] = { value: its.length, courses: its.length, met: its.length >= target, counted: null, notes: [] };
+      } else if (r.type === "sum" && r.exclude_claimed) {
+        const used = claimed[r.exclude_claimed] || new Set();
+        const its = scheduled.filter(it => !used.has(it.id) && inPool(it, r.pool));
+        const value = its.reduce((s, it) => s + unitsOf(it), 0);
+        out[r.id] = { value, courses: its.length, met: value >= target, counted: its.map(it => it.number), notes: [] };
+      } else if (r.type === "sum") {
+        const its = scheduled.filter(it => inPool(it, r.pool));
+        const value = its.reduce((s, it) => s + unitsOf(it), 0);
+        // Required courses still unscheduled are flagged on their own requirement, not on totals.
+        const pending = r.headline ? [] : items.filter(it => it.required && it.term === UNASSIGNED && inPool(it, r.pool));
+        out[r.id] = { value, courses: its.length, met: value >= target, counted: null,
+          notes: pending.map(it => `${it.number} (${it.units}u) is required — schedule it in ${fmtTerms(it.allowedTerms || [])}.`) };
+      } else {
+        throw new Error("unknown requirement type: " + r.type);
+      }
+      out[r.id].target = target;
+    }
+
+    const requirements = program.requirements.map(r => ({ id: r.id, group: r.group, label: r.label, type: r.type,
+      headline: !!r.headline, min_courses: r.min_courses, ...out[r.id] }));
+    const terms = {};
+    for (const it of items) {
+      if (it.audit || it.term === UNASSIGNED) continue;
+      (terms[it.term] = terms[it.term] || { units: 0 }).units += unitsOf(it);
+    }
+    for (const t of Object.values(terms)) t.over = t.units > program.term_unit_limit;
+    const summary = program.requirements.filter(r => r.summary)
+      .map(r => ({ label: r.summary, value: out[r.id].value, target: out[r.id].target }));
+    return { requirements, terms, scheduled: scheduled.length, summary };
+  }
+
+  return { resolve, termLabels, basePlan, classify, evaluate, defaultTarget, UNASSIGNED };
+})();
+
+if (typeof module !== "undefined") module.exports = Engine;
