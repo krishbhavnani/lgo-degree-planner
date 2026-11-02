@@ -13,7 +13,8 @@ const courseByNum={}; COURSES.forEach(c=>{courseByNum[c.number]=c;});
 // What the rules read about a course.
 const courseInfo=n=>{const c=courseByNum[n]||{};return {aags:c.aags,design:c.design_approved,department:c.department};};
 const CTX={program:PROGRAM,course:n=>courseByNum[n]||null};
-const PLS={state:"lgo-dp.state",unreadable:"lgo-dp.state-unreadable",view:"lgo-dp.view"};
+const PLS={state:"lgo-dp.state",unreadable:"lgo-dp.state-unreadable",view:"lgo-dp.view",
+  v1plan:"lgo-dp.plan",v1reqs:"lgo-dp.reqs",v1backup:"lgo-dp.v1-backup"};
 const DEFAULT_GRAD_YEAR=2028;
 
 let notices=[];  // shown once above the term grid
@@ -23,6 +24,15 @@ function loadPlanState(){
     try{ const s=State.validate(CTX,saved); notices.push(...State.reconcile(CTX,s)); return s; }
     catch(e){ save(PLS.unreadable,saved);
       notices.push(`Your saved plan couldn't be read (${e.message}), so the planner started again from the LGO base plan. The old copy is kept in this browser.`); }
+  }
+  // A plan saved by the earlier version: convert it once, keep the original as a backup.
+  const v1={plan:load(PLS.v1plan,null),reqs:load(PLS.v1reqs,null)};
+  if(v1.plan||v1.reqs){
+    const m=State.migrateV1(CTX,v1);
+    notices.push(...m.notes,...State.reconcile(CTX,m.state));
+    save(PLS.v1backup,v1); save(PLS.state,m.state);
+    localStorage.removeItem(PLS.v1plan); localStorage.removeItem(PLS.v1reqs);
+    return m.state;
   }
   return State.newState(PROGRAM,DEFAULT_GRAD_YEAR);
 }
@@ -214,7 +224,7 @@ document.getElementById("plan-import").addEventListener("click",()=>{
   inp.onchange=()=>{const f=inp.files[0];if(!f)return;const r=new FileReader();
     r.onload=()=>{let d;
       try{d=JSON.parse(r.result);}catch(err){alert("Could not read that file: it isn't a plan export (JSON).");return;}
-      try{const s=State.validate(CTX,d); notices=State.reconcile(CTX,s); STATE=s; planSave(); renderPlan();}
+      try{const m=State.fromFile(CTX,d); notices=[...m.notes,...State.reconcile(CTX,m.state)]; STATE=m.state; planSave(); renderPlan();}
       catch(err){alert("Could not import that plan: "+err.message+".");}};
     r.readAsText(f);};
   inp.click();

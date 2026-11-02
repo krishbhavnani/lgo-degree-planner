@@ -170,8 +170,79 @@ const State = (() => {
       items: obj.items, removedBase: Array.isArray(obj.removedBase) ? obj.removedBase : [], targets };
   }
 
+  // ---- v1 (lgo-dp.plan + lgo-dp.reqs, and v1 export files) -> v2 ----
+  // v1 saved whole items with calendar terms (always Summer 2026 - Spring 2028; older saves used
+  // "1st Summer" ... "2nd Spring") and category tags; base items had ids p0, p1, ... in base_plan
+  // order. Returns {state, notes}: notes say what the student should know.
+  const V1_GRAD_YEAR = 2028;
+  function migrateV1(ctx, { plan, reqs }) {
+    const program = ctx.program;
+    const state = newState(program, V1_GRAD_YEAR);   // no saved plan = the base plan
+    const notes = [];
+    const slotOf = Object.fromEntries(Object.entries(slotLabels(program, V1_GRAD_YEAR)).map(([s, l]) => [l, s]));
+    const toSlot = term => {
+      if (term === E.UNASSIGNED) return UNASSIGNED;
+      const old = /^(1st|2nd) (\w+)$/.exec(term || "");
+      const slot = old ? `Y${old[1][0]} ${old[2]}` : slotOf[term];
+      return program.terms.some(t => t.slot === slot) ? slot : null;
+    };
+    const addonIds = new Set(program.categories.filter(c => c.kind === "addon").map(c => c.id));
+    const known = new Set(program.categories.map(c => c.id));
+    const usedBase = new Set(), usedIds = new Set();
+
+    if (Array.isArray(plan)) state.items = [];
+    for (const old of Array.isArray(plan) ? plan : []) {
+      if (!old || !old.number) continue;
+      let slot = toSlot(old.term);
+      if (slot === null) { notes.push(`${old.number} was in an unknown term (${old.term}); it's now unassigned.`); slot = UNASSIGNED; }
+      // Base items: by position id first, then by number and term.
+      let b = null;
+      if (old.base) {
+        const m = /^p(\d+)$/.exec(old.id || "");
+        const byPos = m ? program.base_plan[+m[1]] : null;
+        b = byPos && byPos.course === old.number && !usedBase.has(byPos.id) ? byPos
+          : program.base_plan.find(x => x.course === old.number && !usedBase.has(x.id) && (x.slot || UNASSIGNED) === slot)
+          || program.base_plan.find(x => x.course === old.number && !usedBase.has(x.id)) || null;
+      }
+      let it;
+      if (b) { usedBase.add(b.id); it = { id: b.id, course: b.course, slot, base: b.id }; }
+      else if (ctx.course(old.number)) it = { id: old.id, course: old.number, slot };
+      else it = { id: old.id, course: null, slot, custom: { number: old.number, title: old.title || old.number, units: +old.units || 0 } };
+      if (!it.id || usedIds.has(it.id)) it.id = newId();
+      usedIds.add(it.id);
+      state.items.push(it);
+
+      const tags = (old.tags || []).filter(t => known.has(t));
+      const cats = tags.filter(t => !addonIds.has(t)), addons = tags.filter(t => addonIds.has(t));
+      if (!b) {
+        setCategory(ctx, state, it.id, cats[0] || null);
+        if (addons.length) it.addons = addons;
+        if (cats.length > 1)
+          notes.push(`${old.number} counted toward ${cats.join(" and ")}. A course now counts toward one category, so it counts toward ${cats[0]}; change it with its category menu.`);
+      }
+      if (!it.custom && old.units != null) setUnits(ctx, state, it.id, +old.units || 0);
+      if (old.audit) it.audit = true;
+    }
+    // Base courses the student had removed (v1 "remove" or "Start blank").
+    if (Array.isArray(plan))
+      for (const b of program.base_plan) if (!usedBase.has(b.id) && !b.required) state.removedBase.push(b.id);
+    // Targets: v1 saved whole requirement copies, later [{key, target}]; keep edited ones only.
+    for (const r of Array.isArray(reqs) ? reqs : []) {
+      const req = r && program.requirements.find(x => x.id === r.key);
+      if (req && r.target != null) setTarget(program, state, req.id, +r.target);
+    }
+    return { state, notes };
+  }
+
+  // An imported file: a v2 plan, or a v1 export ({plan, reqs}).
+  function fromFile(ctx, obj) {
+    if (obj && obj.v === V) return { state: validate(ctx, obj), notes: [] };
+    if (obj && Array.isArray(obj.plan)) return migrateV1(ctx, obj);
+    throw new Error("this isn't a plan export");
+  }
+
   return { UNASSIGNED, slotLabels, newState, toItems, setUnits, setCategory, toggleAddon, setAudit, moveTo,
-    addCourse, addCustom, removeItem, startBlank, setTarget, reconcile, validate };
+    addCourse, addCustom, removeItem, startBlank, setTarget, reconcile, validate, migrateV1, fromFile };
 })();
 
 if (typeof module !== "undefined") module.exports = State;
