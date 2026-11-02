@@ -85,7 +85,7 @@ python3 -m unittest discover -s tests -t .
 | EECS [subject updates](https://www.eecs.mit.edu/academics/subject-updates/) | this and next term's EECS special subjects (all graduate ones) |
 | LGO handbook, Appendix 2 | pre-approved and conditionally approved design classes |
 | MIT Sloan [Action Learning](https://mitsloan.mit.edu/action-learning) course booklet | which courses are Action Learning labs |
-| `evals.json` | workload hours from MIT subject evaluations (refreshed once per term by a logged-in run; only the extracted hours are published) |
+| MIT subject evaluations | workload hours (refreshed once per term by a logged-in run and stored on the `data` branch; only the extracted hours are published) |
 
 **Guardrails.** Every run checks what it fetched before publishing anything: pages returned and
 complete, no login pages, catalog pages from the same day, course counts not down more than 30%

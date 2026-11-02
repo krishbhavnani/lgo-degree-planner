@@ -12,8 +12,9 @@ Pipeline (see pipeline/):
   4. archive   with --refresh: raw pages saved change-only, gzipped, into .data/ (a worktree of
                the public `data` branch), plus extracts/ written from passing runs. Never
                committed by this script.
-  5. publish   data.js / courses.json, built from the extracts plus evals.json (subject
-               evaluation hours, refreshed once per term by a logged-in browser run).
+  5. publish   data.js / courses.json, built from the extracts plus the evaluation hours
+               (extracts/evals.json on the data branch, refreshed once per term by a
+               logged-in browser run).
   6. database  with --refresh: merge the run into the course database (courses x term
                offerings, pipeline/db.py) on the data branch, append its changes to the feed,
                and write db.js + changes.js for the site (the planner moves to these in
@@ -338,8 +339,10 @@ def build(sources, results, archive_dir=None):
         else:
             c["aags"] = "N/A"  # non-EECS course not on the AAGS page
 
-    # Evaluation hours (evals.json, refreshed once per term by a logged-in browser run).
-    ev_ex, ev_problems = evals.load(os.path.join(HERE, "evals.json"))
+    # Evaluation hours: extracts/evals.json on the data branch, written once per term by a
+    # logged-in browser run (raw reports stay in personal/; only the hours are public).
+    ev_ex, ev_problems = evals.load(os.path.join(archive_dir or pconfig.ARCHIVE_DIR,
+                                                 evals.EXTRACT_PATH))
     ev_ex["problems"] = ev_problems
     ex["evals"] = ev_ex
     by_num = {r["number"]: r for r in ev_ex["records"]}

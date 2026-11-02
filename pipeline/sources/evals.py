@@ -1,8 +1,8 @@
 """MIT subject evaluations -> evals extract (format only; no fetcher).
 
 Evaluations sit behind MIT Touchstone, so they can't be fetched by the scheduled run. Once per
-term a logged-in browser run extracts the hours and writes evals.json (raw reports never leave
-the personal/ folder; only these extracted numbers are public).
+term a logged-in browser run extracts the hours and writes extracts/evals.json on the data branch
+(raw reports never leave the personal/ folder; only these extracted numbers are public).
 
 Format 1 (what that run should write):
 
@@ -20,6 +20,9 @@ still read, and its special-subject entries are reported as untitled.
 import json
 import os
 import re
+
+# Where the evaluation hours live: on the data branch, next to the other extracts.
+EXTRACT_PATH = os.path.join("extracts", "evals.json")
 
 FIELDS = ("hours_in", "hours_out", "responses", "term", "instructor", "instructor_match")
 
@@ -39,8 +42,8 @@ def from_legacy(data):
 def load(path):
     """Read evals.json in either format. Returns (extract, problems)."""
     if not os.path.exists(path):
-        # evals.json is committed; losing it would silently drop every course's hours.
-        return {"format": 1, "records": []}, [("fail", "evals.json is missing")]
+        # Losing it would silently drop every course's hours.
+        return {"format": 1, "records": []}, [("fail", "evaluation hours missing: %s" % path)]
     with open(path, encoding="utf-8") as f:
         data = json.load(f)
     ex = data if isinstance(data, dict) and data.get("format") == 1 else from_legacy(data)
