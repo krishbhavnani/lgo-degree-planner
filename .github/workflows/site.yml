@@ -86,7 +86,9 @@ jobs:
 
       - name: Stage the site
         if: steps.build.outputs.code != '1'
-        run: cp index.html _site/
+        run: |
+          cp -R index.html app _site/
+          python3 tools/check_site.py _site
 
       - uses: actions/upload-pages-artifact@v3
         if: steps.build.outputs.code != '1'

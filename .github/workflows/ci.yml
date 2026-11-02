@@ -32,5 +32,10 @@ jobs:
       - name: Build the site files from the archive
         run: python3 scrape.py --from-archive --out _build || [ $? -eq 2 ]
 
+      - name: Every file the page loads is in the build
+        run: |
+          cp -R index.html app _build/
+          python3 tools/check_site.py _build
+
       - name: Python tests
         run: python3 -m unittest discover -s tests -t . -v
