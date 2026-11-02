@@ -2,6 +2,7 @@
 
 Some machines (e.g. a Mac with python.org Python) can't verify MIT's certificate chain
 with urllib. When that happens we switch to the system `curl`, which uses the OS trust store.
+Hosts in config.LEGACY_TLS_HOSTS get a context that accepts their older key exchange.
 """
 
 import os
@@ -35,6 +36,15 @@ class FetchResult:
 
     def text(self):
         return self.body.decode("utf-8", errors="replace")
+
+
+def tls_context(host):
+    """SSL context for `host`: None (urllib's default) unless it is a legacy-TLS host."""
+    if host not in config.LEGACY_TLS_HOSTS:
+        return None
+    ctx = ssl.create_default_context()      # certificate and hostname checks stay on
+    ctx.set_ciphers("DEFAULT:@SECLEVEL=1")  # allows 1024-bit DH; level 2 needs 2048
+    return ctx
 
 
 class Fetcher:
@@ -72,7 +82,9 @@ class Fetcher:
                     self.log("  (urllib can't verify %s's certificate; using curl)" % host)
                     self._use_curl.add(host)
                     res = self._curl(url)
-            retryable = res.status is None or (res.status is not None and res.status >= 500)
+            # A TLS handshake failure fails the same way every time, so it isn't retried.
+            retryable = (res.status is None and not (res.error or "").startswith("tls:")) or \
+                (res.status is not None and res.status >= 500)
             if not retryable or attempt >= self.retries:
                 return res
             attempt += 1
@@ -84,7 +96,8 @@ class Fetcher:
     def _urllib(self, url):
         req = urllib.request.Request(url, headers={"User-Agent": self.user_agent})
         try:
-            with urllib.request.urlopen(req, timeout=self.timeout) as resp:
+            context = tls_context(urlparse(url).hostname or "")
+            with urllib.request.urlopen(req, timeout=self.timeout, context=context) as resp:
                 return FetchResult(url, resp.status, resp.read(), final_url=resp.geturl())
         except urllib.error.HTTPError as e:
             body = e.read() if hasattr(e, "read") else b""
@@ -94,6 +107,8 @@ class Fetcher:
             if isinstance(e.reason, ssl.SSLCertVerificationError) or \
                     "CERTIFICATE_VERIFY_FAILED" in str(e.reason):
                 return FetchResult(url, None, b"", error="ssl")
+            if isinstance(e.reason, ssl.SSLError):
+                return FetchResult(url, None, b"", error="tls: %s" % e.reason)
             return FetchResult(url, None, b"", error="network: %s" % e.reason)
         except (socket.timeout, TimeoutError) as e:
             return FetchResult(url, None, b"", error="timeout: %s" % e)

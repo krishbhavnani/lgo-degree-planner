@@ -40,6 +40,10 @@ MIN_DELAY_PER_HOST = 1.5      # seconds between requests to the same host
 TIMEOUT = 60                  # seconds per request
 RETRIES = 3                   # retries after the first attempt (timeouts, 5xx, network errors)
 BACKOFF = 2.0                 # seconds; doubles each retry (2, 4, 8)
+# Hosts whose servers still use 1024-bit Diffie-Hellman key exchange. OpenSSL's default security
+# level on Linux (GitHub's runners) refuses it ("DH key too small"); for these hosts only we allow
+# level 1. The certificate is still verified. Remove a host once its server is upgraded.
+LEGACY_TLS_HOSTS = ("student.mit.edu",)
 
 # --- Guardrails ------------------------------------------------------------
 MIN_PAGE_BYTES = 20 * 1024    # anything smaller is a broken/empty page
