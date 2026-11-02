@@ -16,7 +16,7 @@ on:
   push:
     branches: [main]
   schedule:
-    - cron: "17 9 * * 1"   # Mondays 09:17 UTC
+    - cron: "0 8 * * 1"   # Mondays 08:00 UTC = 3am Boston in winter (EST), 4am in summer (EDT)
   workflow_dispatch:
     inputs:
       refresh:
