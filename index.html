@@ -259,6 +259,31 @@ const COURSES = DATA.courses;
 if(window.PERSONAL_RATINGS) COURSES.forEach(c=>{const r=window.PERSONAL_RATINGS[c.number];
   if(r){c.rating=r.rating??null; c.rating_rationale=r.rating_rationale??null;}});
 
+// ---- analytics: counts only ----------------------------------------------
+// GoatCounter counts visits and a few named events, on the public site only (never file://, a
+// local server or the personal build). No cookies, and nothing about a plan is ever sent.
+// The script is pinned to v5 and checked against its hash, so a changed file won't run.
+const ANALYTICS=location.hostname==="krishbhavnani.github.io";
+const gcQueue=[];
+if(ANALYTICS){
+  const s=document.createElement("script");
+  s.async=true; s.src="https://gc.zgo.at/count.v5.js"; s.crossOrigin="anonymous";
+  s.integrity="sha384-atnOLvQb9t+jTSipvd75X2yginT4PjVbqDdlJAmxMm+wYElFmeR6EmLP5bYeoRVQ";
+  s.dataset.goatcounter="https://lgo-degree-planner.goatcounter.com/count";
+  s.onload=()=>gcQueue.splice(0).forEach(gcSend);
+  document.head.appendChild(s);
+}
+function gcSend(name){window.goatcounter.count({path:name,title:name,event:true});}
+// Count an event at most once per browser-tab session (reloads don't count again).
+const tracked=new Set();
+function track(name){
+  if(!ANALYTICS||tracked.has(name)) return;
+  tracked.add(name);
+  const key="lgo-dp.ev."+name;
+  try{ if(sessionStorage.getItem(key)) return; sessionStorage.setItem(key,"1"); }catch(e){}
+  if(window.goatcounter?.count) gcSend(name); else gcQueue.push(name);
+}
+
 // ---- column definitions -------------------------------------------------
 const HAS_RATINGS = COURSES.some(c=>c.rating!=null);
 const COLS = [
@@ -615,7 +640,7 @@ function addPlanItem(number,title,units,term){
   planItems.push({id:newId(),number,title:title||(c?c.title:number),
     units:units!=null?units:(c&&c.units_total!=null?c.units_total:0),
     tags:defaultTagsFor(number,c?c.department:""),term:term||"Unassigned",audit:false});
-  planSave(); renderPlan();
+  planSave(); renderPlan(); track("course-added");
 }
 
 // ---- requirement computation ----
@@ -868,7 +893,7 @@ function setView(v){
   document.getElementById("search").style.display=plan?"none":"";
   document.getElementById("export").style.display=plan?"none":"";
   save(PLS.view,v);
-  if(plan) renderPlan(); else renderRows();
+  if(plan){ renderPlan(); track("plan-opened"); } else renderRows();
 }
 document.getElementById("tab-browse").addEventListener("click",()=>setView("browse"));
 document.getElementById("tab-plan").addEventListener("click",()=>setView("plan"));

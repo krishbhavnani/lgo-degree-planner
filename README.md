@@ -54,6 +54,8 @@ any column; show/hide columns.
 Everything you do — your plan, flagged courses, column preferences, and requirement edits — is saved
 in your browser's `localStorage`, so each visitor gets their own private dashboard.
 
+Counts visits anonymously (GoatCounter, no cookies). Your plan never leaves your browser.
+
 ---
 
 ## Quick start
