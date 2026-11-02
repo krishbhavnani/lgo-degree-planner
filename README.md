@@ -58,16 +58,25 @@ in your browser's `localStorage`, so each visitor gets their own private dashboa
 
 ## Quick start
 
-No build step. **Open `index.html` in any modern browser** (double-click it, or serve the folder
-over `http://` if you prefer). It loads `data.js` and runs entirely client-side.
+The live site is at <https://krishbhavnani.github.io/lgo-degree-planner/>. It runs entirely
+client-side from `index.html` plus the generated data files.
+
+To run it locally, build the data files first (they are generated, not committed; see below), then
+open `index.html` in any modern browser:
+
+```bash
+git worktree add .data data
+python3 scrape.py --from-archive
+```
 
 ---
 
 ## How the data is built
 
-Course data is built into `data.js` / `courses.json` by `scrape.py` (Python 3; standard library
+Course data is built into `data.js`, `courses.json`, `db.js` and `changes.js` by `scrape.py` (Python 3; standard library
 plus `pypdf` for one PDF, see `requirements.txt`). Nothing is maintained by hand: every source has
-a fetcher in `pipeline/sources/`.
+a fetcher in `pipeline/sources/`. The generated files are never committed to `main`: GitHub
+Actions builds them from the `data` branch on every deploy and refreshes that branch weekly.
 
 ```bash
 pip install -r requirements.txt
