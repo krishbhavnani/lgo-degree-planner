@@ -12,7 +12,6 @@ const readJson = p => JSON.parse(fs.readFileSync(p, "utf8"));
 const program = Engine.resolve(readJson(path.join(ROOT, "programs/lgo.json")), readJson(path.join(ROOT, "programs/eecs.json")));
 const frozen = readJson(path.join(GOLDEN, "courses.json")).courses;
 const info = n => { const c = frozen[n] || {}; return { aags: c.aags, design: c.design_approved, department: c.department }; };
-const START_YEAR = 2026;
 
 // The fields the app shows, in the shape the fixtures recorded them.
 const shown = r => ({ id: r.id, n: r.value, courses: r.courses, target: r.target, met: r.met,
@@ -35,11 +34,6 @@ for (const file of goldens) {
     }
   });
 }
-
-test("the base plan from lgo.json is today's default plan, item for item", () => {
-  const golden = readJson(path.join(GOLDEN, "a_base_plan.json"));
-  assert.deepEqual(Engine.basePlan(program, START_YEAR), golden.plan);
-});
 
 test("term labels follow the start year", () => {
   assert.deepEqual(Engine.termLabels(program, 2026),

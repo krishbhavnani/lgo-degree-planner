@@ -20,6 +20,12 @@ test("every program file parses and is named after its id", () => {
   for (const m of majors) assert.equal(m.extends, BASE, `${m.id} must extend ${BASE}`);
 });
 
+test("lgo.json sets the graduation-year window", () => {
+  const g = files[BASE].grad_year_options;
+  assert.ok(Number.isInteger(g.back) && g.back >= 2, "back");
+  assert.ok(Number.isInteger(g.new_class_month) && g.new_class_month >= 1 && g.new_class_month <= 12, "new_class_month");
+});
+
 test("lgo.json marks where a major's entries go, once per section", () => {
   for (const key of ["categories", "classify", "requirements"])
     assert.equal(files[BASE][key].filter(isMarker).length, 1, `lgo.json ${key} needs one {"program": true}`);
@@ -88,7 +94,9 @@ for (const major of majors) {
   });
 
   test(`${major.id}: the base plan uses real categories and term slots`, () => {
+    assert.deepEqual(dupes(p.base_plan.map(b => b.id)), [], "base_plan ids must be unique");
     for (const b of p.base_plan) {
+      assert.ok(typeof b.id === "string" && b.id, `${b.course}: needs an id`);
       assert.ok(hasCat(b.category), `${b.course}: category ${b.category}`);
       assert.ok(typeof b.units === "number", `${b.course}: units`);
       if (b.required) assert.ok(b.allowed_slots.length && b.allowed_slots.every(s => slots.includes(s)), `${b.course}: allowed_slots`);

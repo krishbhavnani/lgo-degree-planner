@@ -4,7 +4,6 @@
 //   resolve(base, major)        one program: the major's entries placed at the {"program": true}
 //                               markers in the base (lgo.json); lists and bundles merged
 //   termLabels(program, year)   ["Summer 2026", "Fall 2026", ...] for a plan starting in `year`
-//   basePlan(program, year)     the starting plan items
 //   classify(program, number, courseInfo)          default category for a newly added course
 //   evaluate(program, items, courseInfo, targets)  {requirements, terms, scheduled, summary}
 //
@@ -31,6 +30,7 @@ const Engine = (() => {
       name: major.name,
       terms: base.terms,
       term_unit_limit: base.term_unit_limit,
+      grad_year_options: base.grad_year_options,
       categories: placeAt(base.categories, major.categories),
       lists: { ...base.lists, ...major.lists },
       classify: placeAt(base.classify, major.classify),
@@ -46,19 +46,6 @@ const Engine = (() => {
     return t.season + " " + (year + t.year_offset);
   }
   const termLabels = (program, year) => program.terms.map(t => slotLabel(program, t.slot, year));
-
-  // Required flexible-term courses start in Unassigned and may only move to their allowed terms.
-  function basePlan(program, year) {
-    return program.base_plan.map((b, i) => {
-      const it = { id: "p" + i, number: b.course, title: b.title, units: b.units, tags: [b.category],
-        term: b.slot ? slotLabel(program, b.slot, year) : UNASSIGNED, audit: false, base: true };
-      if (b.required) {
-        it.required = true;
-        it.allowedTerms = (b.allowed_slots || []).map(s => slotLabel(program, s, year));
-      }
-      return it;
-    });
-  }
 
   // A list is explicit numbers, a number pattern, or a course designation from the data.
   function inList(program, listId, number, info) {
@@ -175,7 +162,7 @@ const Engine = (() => {
     return { requirements, terms, scheduled: scheduled.length, summary };
   }
 
-  return { resolve, termLabels, basePlan, classify, evaluate, defaultTarget, UNASSIGNED };
+  return { resolve, termLabels, classify, evaluate, defaultTarget, UNASSIGNED };
 })();
 
 if (typeof module !== "undefined") module.exports = Engine;

@@ -1,195 +1,271 @@
 {
- "_how": "Frozen copy of the course fields the requirement rules read (from data.js, 2026-11-02), so the weekly refresh can't change golden results. Courses missing here are not in the catalog.",
+ "_how": "Frozen copy of the course fields the planner reads (rules, titles, units) (from data.js, 2026-11-02), so the weekly refresh can't change golden results. Courses missing here are not in the catalog.",
  "courses": {
   "15.002": {
    "aags": "N/A",
    "design_approved": null,
-   "department": "Course 15 — Management"
+   "department": "Course 15 — Management",
+   "title": "Leadership Challenges for an Inclusive World",
+   "units_total": null
   },
   "15.010": {
    "aags": "N/A",
    "design_approved": null,
-   "department": "Course 15 — Management"
+   "department": "Course 15 — Management",
+   "title": "Economic Analysis for Business Decisions",
+   "units_total": 9
   },
   "15.011": {
    "aags": "N/A",
    "design_approved": null,
-   "department": "Course 15 — Management"
+   "department": "Course 15 — Management",
+   "title": "Economic Analysis for Business Decisions",
+   "units_total": 9
   },
   "15.012": {
    "aags": "N/A",
    "design_approved": null,
-   "department": "Course 15 — Management"
+   "department": "Course 15 — Management",
+   "title": "Applied Macro- and International Economics",
+   "units_total": 9
   },
   "15.013": {
    "aags": "N/A",
    "design_approved": null,
-   "department": "Course 15 — Management"
+   "department": "Course 15 — Management",
+   "title": "Economics for Strategic Decisions",
+   "units_total": 9
   },
   "15.016": {
    "aags": "N/A",
    "design_approved": null,
-   "department": "Course 15 — Management"
+   "department": "Course 15 — Management",
+   "title": "[J] Climate and Energy in the Global Economy",
+   "units_total": 12
   },
   "15.020": {
    "aags": "N/A",
    "design_approved": null,
-   "department": "Course 15 — Management"
+   "department": "Course 15 — Management",
+   "title": "Economics of Energy, Innovation, and Sustainability",
+   "units_total": 12
   },
   "15.021": {
    "aags": "N/A",
    "design_approved": null,
-   "department": "Course 15 — Management"
+   "department": "Course 15 — Management",
+   "title": "[J] Real Estate Economics",
+   "units_total": 12
   },
   "15.022": {
    "aags": "N/A",
    "design_approved": null,
-   "department": "Course 15 — Management"
+   "department": "Course 15 — Management",
+   "title": "[J] Real Estate Markets: Macroeconomics",
+   "units_total": 6
   },
   "15.038": {
    "aags": "N/A",
    "design_approved": null,
-   "department": "Course 15 — Management"
+   "department": "Course 15 — Management",
+   "title": "[J] Energy Economics and Policy",
+   "units_total": 12
   },
   "15.066": {
    "aags": "N/A",
    "design_approved": null,
-   "department": "Course 15 — Management"
+   "department": "Course 15 — Management",
+   "title": "[J] System Optimization and Analysis for Operations",
+   "units_total": 12
   },
   "15.086": {
    "aags": "N/A",
    "design_approved": null,
-   "department": "Course 15 — Management"
+   "department": "Course 15 — Management",
+   "title": "Engineering Probability",
+   "units_total": 3
   },
   "15.087": {
    "aags": "N/A",
    "design_approved": null,
-   "department": "Course 15 — Management"
+   "department": "Course 15 — Management",
+   "title": "Engineering Statistics and Data Science",
+   "units_total": 12
   },
   "15.128": {
    "aags": "N/A",
    "design_approved": "conditional",
-   "department": "Course 15 — Management"
+   "department": "Course 15 — Management",
+   "title": "[J] Revolutionary Ventures: How to Invent and Deploy Transformative Technologies",
+   "units_total": 9
   },
   "15.280": {
    "aags": "N/A",
    "design_approved": null,
-   "department": "Course 15 — Management"
+   "department": "Course 15 — Management",
+   "title": "Communication for Leaders",
+   "units_total": 9
   },
   "15.311": {
    "aags": "N/A",
    "design_approved": null,
-   "department": "Course 15 — Management"
+   "department": "Course 15 — Management",
+   "title": "Organizational Processes",
+   "units_total": 9
   },
   "15.316": {
    "aags": "N/A",
    "design_approved": null,
-   "department": "Course 15 — Management"
+   "department": "Course 15 — Management",
+   "title": "Building and Leading Effective Teams",
+   "units_total": 4
   },
   "15.317": {
    "aags": "N/A",
    "design_approved": null,
-   "department": "Course 15 — Management"
+   "department": "Course 15 — Management",
+   "title": "Leadership and Organizational Change",
+   "units_total": null
   },
   "15.515": {
    "aags": "N/A",
    "design_approved": null,
-   "department": "Course 15 — Management"
+   "department": "Course 15 — Management",
+   "title": "Financial Accounting",
+   "units_total": 9
   },
   "15.761": {
    "aags": "N/A",
    "design_approved": null,
-   "department": "Course 15 — Management"
+   "department": "Course 15 — Management",
+   "title": "Introduction to Operations Management",
+   "units_total": 9
   },
   "15.766": {
    "aags": "N/A",
    "design_approved": null,
-   "department": "Course 15 — Management"
+   "department": "Course 15 — Management",
+   "title": "Domestic Plant Trek and Partner Integration",
+   "units_total": 9
   },
   "15.769": {
    "aags": "N/A",
    "design_approved": null,
-   "department": "Course 15 — Management"
+   "department": "Course 15 — Management",
+   "title": "Operations Strategy",
+   "units_total": 9
   },
   "15.792": {
    "aags": "N/A",
    "design_approved": null,
-   "department": "Course 15 — Management"
+   "department": "Course 15 — Management",
+   "title": "[J] Global Operations Leadership Seminar",
+   "units_total": 2
   },
   "15.794": {
    "aags": "N/A",
    "design_approved": null,
-   "department": "Course 15 — Management"
+   "department": "Course 15 — Management",
+   "title": "Research Project in Operations",
+   "units_total": null
   },
   "15.876": {
    "aags": "N/A",
    "design_approved": null,
-   "department": "Course 15 — Management"
+   "department": "Course 15 — Management",
+   "title": "Lean Operations",
+   "units_total": 3
   },
   "15.C51": {
    "aags": "Approved-Offered",
    "design_approved": null,
-   "department": "Course 15 — Management"
+   "department": "Course 15 — Management",
+   "title": "Modeling with Machine Learning: Financial Technology",
+   "units_total": 6
   },
   "15.THG": {
    "aags": "N/A",
    "design_approved": null,
-   "department": "Course 15 — Management"
+   "department": "Course 15 — Management",
+   "title": "Graduate Thesis",
+   "units_total": null
   },
   "2.032": {
    "aags": "N/A",
    "design_approved": null,
-   "department": "Course 2 — MechE"
+   "department": "Course 2 — MechE",
+   "title": "Dynamics",
+   "units_total": 12
   },
   "6.5060": {
    "aags": "Approved-Offered",
    "design_approved": null,
-   "department": "Course 6 — EECS"
+   "department": "Course 6 — EECS",
+   "title": "Algorithm Engineering",
+   "units_total": 12
   },
   "6.5080": {
    "aags": "Approved-NotThisYear",
    "design_approved": null,
-   "department": "Course 6 — EECS"
+   "department": "Course 6 — EECS",
+   "title": "Multicore Programming",
+   "units_total": 12
   },
   "6.5110": {
    "aags": "Approved-NotThisYear",
    "design_approved": null,
-   "department": "Course 6 — EECS"
+   "department": "Course 6 — EECS",
+   "title": "Foundations of Program Analysis",
+   "units_total": 12
   },
   "6.5120": {
    "aags": "Approved-NotThisYear",
    "design_approved": null,
-   "department": "Course 6 — EECS"
+   "department": "Course 6 — EECS",
+   "title": "Formal Reasoning About Programs",
+   "units_total": 12
   },
   "6.5130": {
    "aags": "Not approved",
    "design_approved": null,
-   "department": "Course 6 — EECS"
+   "department": "Course 6 — EECS",
+   "title": "Introduction to Program Synthesis",
+   "units_total": 12
   },
   "6.5210": {
    "aags": "Approved-Offered",
    "design_approved": null,
-   "department": "Course 6 — EECS"
+   "department": "Course 6 — EECS",
+   "title": "[J] Advanced Algorithms",
+   "units_total": 15
   },
   "6.5440": {
    "aags": "Not approved",
    "design_approved": null,
-   "department": "Course 6 — EECS"
+   "department": "Course 6 — EECS",
+   "title": "Algorithmic Lower Bounds: Fun with Hardness Proofs",
+   "units_total": 12
   },
   "6.5900": {
    "aags": "Approved-Offered",
    "design_approved": "approved",
-   "department": "Course 6 — EECS"
+   "department": "Course 6 — EECS",
+   "title": "Computer System Architecture",
+   "units_total": 12
   },
   "6.C51": {
    "aags": "Approved-Offered",
    "design_approved": "approved",
-   "department": "Course 6 — EECS"
+   "department": "Course 6 — EECS",
+   "title": "Modeling with Machine Learning: from Algorithms to Applications",
+   "units_total": 6
   },
   "SCM.C51": {
    "aags": "Approved-NotInCatalog",
    "design_approved": "conditional",
-   "department": "Common Ground — other depts"
+   "department": "Common Ground — other depts",
+   "title": "Machine Learning Applications for Supply Chain Management",
+   "units_total": 6
   }
  }
 }

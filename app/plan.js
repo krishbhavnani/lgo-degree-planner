@@ -2,47 +2,54 @@
 // PLAN VIEW — schedule sandbox + degree-requirement tracker
 // ===========================================================================
 // The degree rules come from programs/*.json (loaded as programs.js): the major, plus the shared
-// LGO file it extends.
+// LGO file it extends. The student's plan is saved as State v2 (app/state.js).
 const MAJOR=Object.values(window.PROGRAMS||{}).find(p=>p.extends);
 const PROGRAM=Engine.resolve(window.PROGRAMS[MAJOR.extends],MAJOR);
-const START_YEAR=2026;  // first summer of the plan (a grad-year picker replaces this in Phase 2a)
-const PLAN_TERMS=Engine.termLabels(PROGRAM,START_YEAR);
-const TAGS=PROGRAM.categories.map(c=>c.id);
+const CATEGORIES=PROGRAM.categories.filter(c=>c.kind!=="addon");   // one per course
+const ADDONS=PROGRAM.categories.filter(c=>c.kind==="addon");        // on top of the category
+const ADDON_IDS=new Set(ADDONS.map(c=>c.id));
 const TAGCLASS=Object.fromEntries(PROGRAM.categories.map(c=>[c.id,c.style?"t-"+c.style:""]));
 const courseByNum={}; COURSES.forEach(c=>{courseByNum[c.number]=c;});
 // What the rules read about a course.
 const courseInfo=n=>{const c=courseByNum[n]||{};return {aags:c.aags,design:c.design_approved,department:c.department};};
-// The LGO base plan (required courses only); students add their own electives.
-const PLAN_DEFAULT=Engine.basePlan(PROGRAM,START_YEAR);
+const CTX={program:PROGRAM,course:n=>courseByNum[n]||null};
+const PLS={state:"lgo-dp.state",unreadable:"lgo-dp.state-unreadable",view:"lgo-dp.view"};
+const DEFAULT_GRAD_YEAR=2028;
 
-const PLS={plan:"lgo-dp.plan",reqs:"lgo-dp.reqs",view:"lgo-dp.view"};
-const newId=()=>"p"+Date.now().toString(36)+Math.random().toString(36).slice(2,7);
-let planItems=(load(PLS.plan,null)||PLAN_DEFAULT).map(x=>({...x,tags:[...x.tags],term:migTerm(x.term)}));
-// Repair any historical duplicate ids (older builds reused a counter that reset on reload).
-(()=>{const seen=new Set();planItems.forEach(it=>{if(!it.id||seen.has(it.id))it.id=newId();seen.add(it.id);});})();
-// Requirement settings hold only the targets the user changed, by requirement id. Older saves
-// stored whole requirement copies ({key, target, tags, ...}); only key and target are read.
-function loadTargets(saved){
-  const t={};
-  (Array.isArray(saved)?saved:[]).forEach(r=>{const req=PROGRAM.requirements.find(x=>x.id===r.key);
-    if(req && r.target!=null && +r.target!==Engine.defaultTarget(req)) t[r.key]=+r.target;});
-  return t;
+let notices=[];  // shown once above the term grid
+function loadPlanState(){
+  const saved=load(PLS.state,null);
+  if(saved){
+    try{ const s=State.validate(CTX,saved); notices.push(...State.reconcile(CTX,s)); return s; }
+    catch(e){ save(PLS.unreadable,saved);
+      notices.push(`Your saved plan couldn't be read (${e.message}), so the planner started again from the LGO base plan. The old copy is kept in this browser.`); }
+  }
+  return State.newState(PROGRAM,DEFAULT_GRAD_YEAR);
 }
-let targets=loadTargets(load(PLS.reqs,null));
+let STATE=loadPlanState();
+// Derived from STATE on every change: the items the grid and engine use, and the term names.
+let planItems=[], PLAN_TERMS=[], SLOT_OF={};
+function refreshItems(){
+  const labels=State.slotLabels(PROGRAM,STATE.gradYear);
+  PLAN_TERMS=PROGRAM.terms.map(t=>labels[t.slot]);
+  SLOT_OF=Object.fromEntries(Object.entries(labels).map(([slot,label])=>[label,slot]));
+  SLOT_OF[Engine.UNASSIGNED]=State.UNASSIGNED;
+  planItems=State.toItems(CTX,STATE);
+}
+function planSave(){save(PLS.state,STATE); refreshItems();}
+if(notices.length) save(PLS.state,STATE);
+refreshItems();
 let hideAudit=false;
-function planSave(){save(PLS.plan,planItems);}
-function savedTargets(){return Object.entries(targets).map(([key,target])=>({key,target}));}
-function reqSave(){save(PLS.reqs,savedTargets());}
 
+// From Browse or the add-course box. A title or units means a course typed in by hand.
 function addPlanItem(number,title,units,term){
-  const c=courseByNum[number];
-  planItems.push({id:newId(),number,title:title||(c?c.title:number),
-    units:units!=null?units:(c&&c.units_total!=null?c.units_total:0),
-    tags:Engine.classify(PROGRAM,number,courseInfo),term:term||"Unassigned",audit:false});
+  const slot=SLOT_OF[term||Engine.UNASSIGNED];
+  if(title!=null||units!=null) State.addCustom(CTX,STATE,{number,title,units},slot);
+  else State.addCourse(STATE,number,slot);
   planSave(); renderPlan(); track("course-added");
 }
 
-function evaluatePlan(){return Engine.evaluate(PROGRAM,planItems,courseInfo,targets);}
+function evaluatePlan(){return Engine.evaluate(PROGRAM,planItems,courseInfo,STATE.targets);}
 function renderReqPanel(res=evaluatePlan()){
   const groups={}; res.requirements.forEach(b=>{(groups[b.group]=groups[b.group]||[]).push(b);});
   let h="";
@@ -87,11 +94,12 @@ function renderTerms(res=evaluatePlan()){
     h+=`<div class="term ${term==='Unassigned'?'unassigned':''}"><div class="term-h">${esc(term)}${term==='Unassigned'?' <span class="hint" style="font-weight:400">· not counted toward requirements</span>':''}
         <span class="tu ${tot>cap?'over':''}" ${tot>cap?`title="Over the limit of ${limit} units per term"`:''}>${term==='Unassigned'?'':`${tot}u${tot>cap?` · over ${limit}u limit`:''}`}</span></div><div class="term-body">`;
     for(const it of items){
-      const req=!!it.required, lockTags=!!(it.base||it.required);  // base-plan designations are fixed
-      const tagChips=(it.tags||[]).map(t=>lockTags?`<span class="tagchip ${TAGCLASS[t]||''}">${esc(t)}</span>`
-          :`<span class="tagchip ${TAGCLASS[t]||''}" data-act="rmtag" data-id="${it.id}" data-tag="${esc(t)}" title="click to remove">${esc(t)} ✕</span>`).join("");
-      const avail=TAGS.filter(t=>!(it.tags||[]).includes(t));
-      const addsel=lockTags?'':`<select data-act="addtag" data-id="${it.id}"><option value="">+tag</option>${avail.map(t=>`<option>${esc(t)}</option>`).join("")}</select>`;
+      const req=!!it.required, lockTags=!!(it.base||it.required);  // base-plan categories are fixed
+      const cat=(it.tags||[]).find(t=>!ADDON_IDS.has(t))||"";
+      const tagChips=lockTags?(it.tags||[]).map(t=>`<span class="tagchip ${TAGCLASS[t]||''}">${esc(t)}</span>`).join(""):
+        `<select class="catsel ${TAGCLASS[cat]||''}" data-act="cat" data-id="${it.id}" title="Which requirement this course counts toward"><option value="">no category</option>${CATEGORIES.map(c=>`<option ${c.id===cat?'selected':''}>${esc(c.id)}</option>`).join("")}</select>`+
+        ADDONS.map(a=>{const on=(it.tags||[]).includes(a.id);
+          return `<span class="tagchip ${TAGCLASS[a.id]||''} ${on?'':'off'}" data-act="addon" data-id="${it.id}" data-tag="${esc(a.id)}" title="${on?'click to remove':'click to add'}">${on?'':'+ '}${esc(a.id)}${on?' ✕':''}</span>`;}).join("");
       const termOpts=req?["Unassigned",...(it.allowedTerms||[])]:order;
       const termsel=`<select data-act="term" data-id="${it.id}">${termOpts.map(t=>`<option ${t===it.term?'selected':''}>${esc(t)}</option>`).join("")}</select>`;
       h+=`<div class="pitem ${it.audit?'audit':''}">
@@ -100,7 +108,7 @@ function renderTerms(res=evaluatePlan()){
           <span class="pi-title" title="${esc(it.title)}">${esc(it.title)}</span>
           <input class="pi-u" type="number" min="0" value="${it.units}" data-act="units" data-id="${it.id}">
           ${req?'':`<span class="pi-x" data-act="rm" data-id="${it.id}" title="remove">✕</span>`}</div>
-        <div class="pi-tags">${tagChips}${addsel}</div>
+        <div class="pi-tags">${tagChips}</div>
         <div class="pi-controls">${termsel}
           ${req?'':`<label><input type="checkbox" data-act="audit" data-id="${it.id}" ${it.audit?'checked':''}> audit</label>`}</div>
       </div>`;
@@ -113,28 +121,32 @@ function renderPlanSummary(res=evaluatePlan()){
   document.getElementById("plan-summary").innerHTML=`<b>${res.scheduled}</b> courses scheduled`+
     res.summary.map(s=>` · ${esc(s.label)} <b>${s.value}</b>/${s.target}u`).join("");
 }
-function renderPlan(){ const res=evaluatePlan(); renderReqPanel(res); renderTerms(res); renderPlanSummary(res); }
+function renderNotice(){
+  const box=document.getElementById("plan-notice");
+  box.hidden=!notices.length;
+  box.innerHTML=notices.map(n=>`<div>${esc(n)}</div>`).join("")+`<button class="notice-x" title="dismiss">✕</button>`;
+}
+function renderPlan(){ const res=evaluatePlan(); renderReqPanel(res); renderTerms(res); renderPlanSummary(res); renderNotice(); }
+document.getElementById("plan-notice").addEventListener("click",e=>{if(e.target.closest(".notice-x")){notices=[]; renderNotice();}});
 
 // ---- plan event handling ----
 function itemById(id){return planItems.find(x=>x.id===id);}
 document.getElementById("termgrid").addEventListener("change",e=>{
   const t=e.target, id=t.getAttribute("data-id"), act=t.getAttribute("data-act"); if(!id)return;
   const it=itemById(id); if(!it)return;
-  if(act==="term"){ if(it.required && t.value!=="Unassigned" && !(it.allowedTerms||[]).includes(t.value)) return; it.term=t.value; }
-  else if(act==="addtag" && (it.base||it.required)) return;   // designation locked
+  if(act==="term"){ if(!State.moveTo(CTX,STATE,id,SLOT_OF[t.value])) return; }
+  else if(act==="cat"){ if(it.base||it.required) return; State.setCategory(CTX,STATE,id,t.value||null); }   // category locked
   else if(it.required && act!=="units") return;
-  else if(act==="units"){ it.units=+t.value||0; }
-  else if(act==="audit"){ it.audit=t.checked; }
-  else if(act==="addtag"){ if(t.value && !it.tags.includes(t.value)) it.tags.push(t.value); }
+  else if(act==="units"){ State.setUnits(CTX,STATE,id,+t.value||0); }
+  else if(act==="audit"){ State.setAudit(STATE,id,t.checked); }
   else return;
   planSave(); renderPlan();
 });
 document.getElementById("termgrid").addEventListener("click",e=>{
   const t=e.target.closest("[data-act]"); if(!t)return;
   const act=t.getAttribute("data-act"), id=t.getAttribute("data-id"), it=itemById(id); if(!it)return;
-  if(act==="rm"){ if(it.required) return; planItems=planItems.filter(x=>x.id!==id); }
-  else if(act==="rmtag" && (it.base||it.required)) return;   // designation locked
-  else if(act==="rmtag"){ const tg=t.getAttribute("data-tag"); it.tags=it.tags.filter(x=>x!==tg); }
+  if(act==="rm"){ if(!State.removeItem(CTX,STATE,id)) return; }
+  else if(act==="addon"){ if(it.base||it.required) return; State.toggleAddon(STATE,id,t.getAttribute("data-tag")); }
   else return;
   planSave(); renderPlan();
 });
@@ -179,40 +191,42 @@ function addCourseModal(){
 }
 function settingsModal(){
   const rows=PROGRAM.requirements.map(b=>`<div class="setrow"><span class="sn">${esc(b.label)} <span class="hint">(${esc(b.group)}, counts: ${b.pool.join(', ')||'—'})</span></span>
-    <input type="number" data-req="${esc(b.id)}" value="${targets[b.id]??Engine.defaultTarget(b)}"> ${b.type==='count'?'courses':'units'}</div>`).join("");
+    <input type="number" data-req="${esc(b.id)}" value="${STATE.targets[b.id]??Engine.defaultTarget(b)}"> ${b.type==='count'?'courses':'units'}</div>`).join("");
   openModal("Requirement settings (editable)",
     `<div class="hint" style="margin-bottom:8px">Adjust the target for any requirement. These are your editable model of the LGO degree rules.</div>
      ${rows}<div style="margin-top:12px"><button id="req-reset">↺ Reset requirements to LGO defaults</button></div>`);
   document.getElementById("modal-body").addEventListener("change",e=>{
     const id=e.target.getAttribute("data-req"); if(id==null)return;
-    const req=PROGRAM.requirements.find(x=>x.id===id), v=+e.target.value||0;
-    if(v===Engine.defaultTarget(req)) delete targets[id]; else targets[id]=v;
-    reqSave(); renderPlan();
+    State.setTarget(PROGRAM,STATE,id,+e.target.value||0); planSave(); renderPlan();
   });
   document.getElementById("req-reset").addEventListener("click",()=>{
-    targets={}; reqSave(); renderPlan(); settingsModal();
+    STATE.targets={}; planSave(); renderPlan(); settingsModal();
   });
 }
 document.getElementById("plan-add").addEventListener("click",addCourseModal);
 document.getElementById("plan-settings").addEventListener("click",settingsModal);
 document.getElementById("plan-export").addEventListener("click",()=>{
-  const blob=new Blob([JSON.stringify({plan:planItems,reqs:savedTargets()},null,2)],{type:"application/json"});
+  const blob=new Blob([JSON.stringify(STATE,null,2)],{type:"application/json"});
   const a=document.createElement("a");a.href=URL.createObjectURL(blob);a.download="lgo_plan.json";a.click();
 });
 document.getElementById("plan-import").addEventListener("click",()=>{
   const inp=document.createElement("input");inp.type="file";inp.accept=".json";
   inp.onchange=()=>{const f=inp.files[0];if(!f)return;const r=new FileReader();
-    r.onload=()=>{try{const d=JSON.parse(r.result); if(d.plan)planItems=d.plan; if(d.reqs)targets=loadTargets(d.reqs); planSave();reqSave();renderPlan();}catch(err){alert("Could not parse JSON");}};
+    r.onload=()=>{let d;
+      try{d=JSON.parse(r.result);}catch(err){alert("Could not read that file: it isn't a plan export (JSON).");return;}
+      try{const s=State.validate(CTX,d); notices=State.reconcile(CTX,s); STATE=s; planSave(); renderPlan();}
+      catch(err){alert("Could not import that plan: "+err.message+".");}};
     r.readAsText(f);};
   inp.click();
 });
 document.getElementById("plan-reset").addEventListener("click",()=>{
   if(!confirm("Reset the schedule AND requirements to the LGO sample defaults? Your current plan will be lost."))return;
-  planItems=PLAN_DEFAULT.map(x=>({...x,tags:[...x.tags]})); targets={};
-  planSave();reqSave();renderPlan();
+  const year=STATE.gradYear, chosen=STATE.yearChosen;
+  STATE=State.newState(PROGRAM,year); if(chosen) STATE.yearChosen=true;
+  planSave(); renderPlan();
 });
 
 document.getElementById("plan-blank").addEventListener("click",()=>{
   if(!confirm("Clear your schedule and start from a blank plan? Your current plan will be lost (requirement settings stay; required courses go back to Unassigned)."))return;
-  planItems=planItems.filter(it=>it.required).map(it=>({...it,term:"Unassigned"})); planSave(); renderPlan();
+  State.startBlank(CTX,STATE); planSave(); renderPlan();
 });
