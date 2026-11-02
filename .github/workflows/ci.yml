@@ -1,0 +1,36 @@
+# Every push and pull request: rebuild the site files from the data branch (no fetching) and run
+# the tests. The data branch is checked out into .data/, where scrape.py expects it.
+name: CI
+
+on:
+  push:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Check out the data branch into .data/
+        uses: actions/checkout@v4
+        with:
+          ref: data
+          path: .data
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      # Exit code 2 = built with warnings (a secondary source kept its last good data): fine here.
+      - name: Build the site files from the archive
+        run: python3 scrape.py --from-archive --out _build || [ $? -eq 2 ]
+
+      - name: Python tests
+        run: python3 -m unittest discover -s tests -t . -v
