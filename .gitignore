@@ -20,8 +20,6 @@ __pycache__/
 .data/
 
 # Generated site data — built by scrape.py (CI builds it from the data branch); never committed
-/data.js
-/courses.json
 /db.js
 /changes.js
 /programs.js

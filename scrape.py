@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Builds the LGO Degree Planner course data (data.js / courses.json).
+Builds the LGO Degree Planner course data: the course database and the site files from it.
 
 Pipeline (see pipeline/):
   1. collect   fetch every registered source politely (or read the .scratch/ cache)
@@ -12,25 +12,23 @@ Pipeline (see pipeline/):
   4. archive   with --refresh: raw pages saved change-only, gzipped, into .data/ (a worktree of
                the public `data` branch), plus extracts/ written from passing runs. Never
                committed by this script.
-  5. publish   data.js / courses.json, built from the extracts plus the evaluation hours
-               (extracts/evals.json on the data branch, refreshed once per term by a
-               logged-in browser run); programs.js, the degree rules from programs/*.json.
-  6. database  with --refresh: merge the run into the course database (courses x term
-               offerings, pipeline/db.py) on the data branch, append its changes to the feed,
-               and write db.js + changes.js for the site (the planner moves to these in
-               ticket 4; data.js stays until then).
+  5. database  with --refresh: merge the run (catalog rows plus the evaluation hours from
+               extracts/evals.json, refreshed once per term by a logged-in browser run) into
+               the course database (courses x term offerings, pipeline/db.py) on the data
+               branch and append its changes to the feed.
+  6. publish   the site files: db.js and changes.js from the database, programs.js from the
+               degree rules in programs/*.json.
 
-Personal ratings are never merged into data.js (it is public); they load at runtime from the
-gitignored personal/ratings.js overlay.
+Personal ratings are never published; they load at runtime from the gitignored
+personal/ratings.js overlay.
 
 Exit codes: 0 all checks passed; 2 published with warnings; 1 failed, nothing written.
 
-Run:  python3 scrape.py --from-archive   # rebuild the site files from the data branch (.data/),
+Run:  python3 scrape.py --from-archive   # write the site files from the data branch (.data/),
                                        # fetching nothing (CI, deploys, fresh clones)
-      python3 scrape.py              # parse cached pages in .scratch/ (fetches any missing)
+      python3 scrape.py              # check the cached pages in .scratch/ (writes nothing)
       python3 scrape.py --refresh    # fetch live from MIT, check, archive, publish
-      python3 scrape.py ... --out DIR   # write the site files (data.js, courses.json, db.js,
-                                        # changes.js, programs.js) there
+      python3 scrape.py ... --out DIR   # write the site files (db.js, changes.js, programs.js) there
       python3 scrape.py --refresh --archive-dir PATH   # archive somewhere else
       python3 scrape.py --refresh --no-archive
 """
@@ -272,9 +270,9 @@ def pretty_term(t):
 
 
 def build(sources, results, archive_dir=None):
-    """Parse every source into its extract, then build the data.js payload from them.
+    """Parse every source into its extract, then the course rows the database merges.
 
-    Returns (payload, extracts dict). The payload keeps today's data.js shape.
+    Returns the extracts dict; ex["_context"] holds what pipeline/db.py needs.
     """
     def page(key):
         r = results.get(key)
@@ -355,7 +353,7 @@ def build(sources, results, archive_dir=None):
     print("  applied evaluation data for %d courses" %
           sum(1 for c in courses if c["eval_status"]))
 
-    # Personal ratings are NOT merged here: data.js is public. They load at runtime from the
+    # Personal ratings are NOT merged here: everything built is public. They load at runtime from the
     # gitignored personal/ratings.js overlay (see index.html), so they can never be published.
 
     # LGO pre-approved design classes (conditional wins; see pipeline/sources/design.py).
@@ -384,43 +382,19 @@ def build(sources, results, archive_dir=None):
                 c["title"] = "%s (%s)" % (d.get("name") or c["title"], lab_code(d))
     print("  tagged %d Action Learning labs" % sum(1 for c in courses if c["action_learning"]))
 
-    meta = {
-        "pulled_at": datetime.now().strftime("%Y-%m-%d %H:%M"),
-        "catalog_term": years["term"],
-        "academic_year": years["this"],
-        "source_dates": cat["page_dates"],
-        "aags_count": len(ag["records"]),
-        "course_count": len(courses),
-        "departments": dict(Counter(c["department"] for c in courses)),
-    }
-    payload = {"meta": meta, "courses": courses}
+    print("  %d courses across %d departments" %
+          (len(courses), len(Counter(c["department"] for c in courses))))
     # What the course database (pipeline/db.py) needs from this build; not an extract.
     ex["_context"] = {"rows": courses, "special": special, "eval_records": by_num,
                       "design_rows": ex["design"]["records"], "years": years}
-    return payload, ex
-
-
-def write_outputs(payload, out_dir=HERE):
-    courses, meta = payload["courses"], payload["meta"]
-    os.makedirs(out_dir, exist_ok=True)
-    with open(os.path.join(out_dir, "courses.json"), "w", encoding="utf-8") as f:
-        json.dump(payload, f, indent=2, ensure_ascii=False)
-    with open(os.path.join(out_dir, "data.js"), "w", encoding="utf-8") as f:
-        f.write("window.COURSE_DATA = ")
-        json.dump(payload, f, ensure_ascii=False)
-        f.write(";\n")
-
-    write_programs_js(out_dir)
-    print("Wrote courses.json, data.js and programs.js  (pulled_at %s)" % meta["pulled_at"])
-    offered = sum(1 for c in courses if c["offering_status"] == "Offered")
-    print("  offered now: %d  |  AAGS-approved in set: %d" %
-          (offered, sum(1 for c in courses if c["aags"] != "Not approved")))
+    return ex
 
 
 def write_programs_js(out_dir=HERE):
     """programs.js: every programs/*.json keyed by its id, as window.PROGRAMS (the degree rules).
 
     The app loads it with a <script> tag, which works over Pages and file:// alike."""
+    os.makedirs(out_dir, exist_ok=True)
     programs = {}
     for name in sorted(os.listdir(PROGRAMS_DIR)):
         if name.endswith(".json"):
@@ -430,8 +404,18 @@ def write_programs_js(out_dir=HERE):
     publish.write_js(os.path.join(out_dir, "programs.js"), "PROGRAMS", programs)
 
 
+def publish_site(archive_dir, out_dir=HERE):
+    """The site files from the data branch alone: db.js, changes.js (stored database and feed,
+    with the term and academic year from the last catalog extract) and programs.js."""
+    with open(os.path.join(archive_dir, "extracts", "catalog.json"), encoding="utf-8") as f:
+        years = json.load(f)["years"]
+    write_db_js(archive_dir, years, out_dir)
+    write_programs_js(out_dir)
+
+
 def write_db_js(archive_dir, years, out_dir=HERE, db=None):
     """db.js + changes.js for the site, from the stored database and change feed."""
+    os.makedirs(out_dir, exist_ok=True)
     db = db or course_db.load(archive_dir)
     publish.write_js(os.path.join(out_dir, "db.js"), "COURSE_DB", publish.db_payload(db, years))
     publish.write_js(os.path.join(out_dir, "changes.js"), "COURSE_CHANGES",
@@ -491,25 +475,23 @@ def main(fetcher=None):
                  "(git worktree add .data data)" % archive_dir)
     elif refresh and "--no-archive" not in sys.argv:
         print("Note: no archive at %s; snapshots will not be saved." % archive_dir)
+    if from_archive:
+        publish_site(archive_dir, out_dir)
+        print("Wrote db.js, changes.js and programs.js from %s (nothing fetched)." % archive_dir)
+        return 0
     started = datetime.now(timezone.utc)
     run_id = snapshots.stamp(started)
-    data_date = started.strftime("%Y-%m-%d")
-    if from_archive:
-        fetcher = snapshots.Replay(archive)
-        data_date = fetcher.date
-        print("Replaying run %s from %s (nothing is fetched)." % (fetcher.run["run_id"],
-                                                                 archive_dir))
 
     sources = pconfig.build_sources(pconfig.catalog_pages())
     print("Collecting %d pages + discovered links (%s)..." %
-          (len(sources), "archive" if from_archive else "live" if refresh else "cache"))
-    sources, results = collect(sources, refresh or from_archive, fetcher)
+          (len(sources), "live" if refresh else "cache"))
+    sources, results = collect(sources, refresh, fetcher)
     pages = {s.key: guardrails.page_metrics(s, results[s.key]) for s in sources}
     baseline = archive.baseline_run() if archive else None
 
-    payload, ex, courses_info, parse_error = None, {}, None, None
+    ex, courses_info, parse_error = {}, None, None
     try:
-        payload, ex = build(sources, results, archive_dir if archive else None)
+        ex = build(sources, results, archive_dir if archive else None)
         courses_info = guardrails.course_metrics(ex["catalog"]["records"],
                                                  len(ex["aags"]["records"]))
     except Exception as e:  # a page redesign can break the parser; that's a failed run
@@ -531,18 +513,13 @@ def main(fetcher=None):
         print("\nAll %d guardrail checks passed%s." %
               (len(checks), " (%d warning(s))" % len(warned) if warned else ""))
         for s in sources:
-            if results[s.key].via not in ("cache", "archive"):
+            if results[s.key].via != "cache":
                 _save_cache(s, results[s.key])
-        # When the course data was fetched (not when this file was built): the site's
-        # freshness note and staleness banner use this.
-        if live or from_archive:
-            payload["meta"]["data_updated"] = data_date
-        write_outputs(payload, out_dir)
-        if from_archive:
-            write_db_js(archive_dir, ex["catalog"]["years"], out_dir)
-            print("Wrote db.js and changes.js from the stored database.")
+        if not (archive and live and "--no-archive" not in sys.argv):
+            print("Nothing written: the site files come from the database (--refresh with the "
+                  "archive, or --from-archive).")
     else:
-        print("\nGuardrails FAILED - nothing written (courses.json / data.js unchanged).")
+        print("\nGuardrails FAILED - nothing written.")
 
     if archive and live and "--no-archive" not in sys.argv:
         status = "pass" if ok else "fail"
@@ -562,6 +539,7 @@ def main(fetcher=None):
                                              "; kept last good: %s" % ", ".join(kept)
                                              if kept else ""))
             update_db(archive_dir, ex["_context"], run_id, out_dir=out_dir)
+            write_programs_js(out_dir)
         archive.record_run(guardrails.run_record(
             run_id, snapshots.iso(started), snapshots.iso(datetime.now(timezone.utc)),
             sources, pages, courses_info, checks, published=ok))

@@ -1,4 +1,4 @@
-# Every push and pull request: rebuild the site files from the data branch (no fetching) and run
+# Every push and pull request: write the site files from the data branch (no fetching) and run
 # the Python and JS tests (node is preinstalled on the runner; no npm). The data branch is checked out into .data/, where scrape.py expects it.
 name: CI
 
@@ -28,9 +28,8 @@ jobs:
       - name: Install dependencies
         run: pip install -r requirements.txt
 
-      # Exit code 2 = built with warnings (a secondary source kept its last good data): fine here.
-      - name: Build the site files from the archive
-        run: python3 scrape.py --from-archive || [ $? -eq 2 ]
+      - name: Write the site files from the archive
+        run: python3 scrape.py --from-archive
 
       - name: Every file the page loads is in the build
         run: python3 tools/check_site.py .

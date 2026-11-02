@@ -75,7 +75,7 @@ python3 scrape.py --from-archive
 
 ## How the data is built
 
-Course data is built into `data.js`, `courses.json`, `db.js` and `changes.js` by `scrape.py` (Python 3; standard library
+Course data is built into `db.js` (every course and its term offerings) and `changes.js` by `scrape.py` (Python 3; standard library
 plus `pypdf` for one PDF, see `requirements.txt`). Nothing is maintained by hand: every source has
 a fetcher in `pipeline/sources/`. The same run turns the degree rules in `programs/*.json` into
 `programs.js`. The generated files are never committed to `main`: GitHub Actions builds them from

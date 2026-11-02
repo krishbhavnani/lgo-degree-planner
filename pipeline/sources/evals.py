@@ -57,7 +57,7 @@ def load(path):
 
 
 def legacy_fields(rec):
-    """Record -> the eval_* fields data.js uses today."""
+    """Record -> the eval_* fields on a course row (pipeline/db.py turns them into course evals)."""
     out = {"eval_" + f: rec.get(f) for f in FIELDS}
     out["eval_status"] = rec.get("status", "ok")
     return out

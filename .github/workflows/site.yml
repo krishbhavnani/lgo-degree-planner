@@ -1,6 +1,6 @@
 # Builds and deploys the site to GitHub Pages (Settings -> Pages -> Source: GitHub Actions).
 #
-#   push to main / manual run   rebuild from the data branch (--from-archive) and deploy
+#   push to main / manual run   write the site files from the data branch (--from-archive) and deploy
 #   weekly cron / manual run    fetch live from MIT (--refresh), commit the results to the data
 #   with "refresh" ticked       branch, and deploy
 #
@@ -10,6 +10,7 @@
 #                                      so GitHub emails the maintainer
 #   1  a guardrail failed           -> deploy nothing, fail the job; a refresh still commits its
 #                                      evidence (fail-marked snapshots, run record) to the data branch
+# --from-archive only writes files from data the refresh already checked, so it exits 0.
 name: Site
 
 on:
