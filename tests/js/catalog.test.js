@@ -58,6 +58,7 @@ test("past terms inside tracking: ran or didn't run, and only courses that ran c
   assert.equal(later.addable("6.1220", "Summer 2026"), true);   // before tracking: anything
   assert.equal(later.isPastTracked("Fall 2026"), true);
   assert.equal(later.isPastTracked("Summer 2026"), false);
+  assert.deepEqual(["Summer 2026", "Fall 2026", "Summer 2028", "Fall 2028"].map(cat.tracked), [false, true, true, false]);
 });
 
 test("a special subject's number resolves to the topic running that term", () => {

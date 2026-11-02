@@ -84,6 +84,8 @@ const Catalog = (() => {
     // Past terms inside tracking only take courses that ran; anything else can be planned.
     const addable = (id, term) => status(id, term).code !== "didnt_run";
     const isPastTracked = term => termKey(term) < current && termKey(term) >= first;
+    // Inside the terms the catalog covers (not before tracking began, not beyond it).
+    const tracked = term => termKey(term) >= first && termKey(term) <= last;
 
     // Offered in a term now or later? If not, why not (for the dimmed rows in Browse).
     function availability(c) {
@@ -113,7 +115,7 @@ const Catalog = (() => {
       };
     }
 
-    return { meta, courses, get, byNumber, resolve, offering, title, info, status, addable, isPastTracked, row, termKey };
+    return { meta, courses, get, byNumber, resolve, offering, title, info, status, addable, isPastTracked, tracked, row, termKey };
   }
 
   return { load, LEGEND, termKey };

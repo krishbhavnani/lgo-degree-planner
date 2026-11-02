@@ -160,3 +160,7 @@ select.catsel.t-thesis{background:#f3e8fb;color:#7a3ca8} select.catsel.t-python{
 .chip.half{font-size:10px;padding:0 4px;background:#efe8fb;color:#5b3ca8}
 .halfload{font-weight:400;margin-left:6px}
 .pitem.placeholder{border-style:dashed;background:#fbfcfe}
+/* Browse: the student's terms per course, dimmed rows (not offered now or later) */
+.tchip{display:inline-block;font-size:10.5px;font-weight:600;border-radius:5px;padding:1px 4px;margin:1px 3px 1px 0;white-space:nowrap;cursor:help}
+tr.dim td{opacity:.5}
+.tchips{display:flex;flex-wrap:wrap;min-width:118px}

@@ -29,11 +29,9 @@
     <h3>Department</h3>
     <div class="checks" id="f_dept"></div>
 
-    <h3>Term offered</h3>
-    <div class="checks" id="f_terms"></div>
-
-    <h3>Offering status</h3>
-    <div class="checks" id="f_offering"></div>
+    <h3>Offered in</h3>
+    <div class="frow"><select id="f_term" style="width:100%"><option value="">any term</option></select></div>
+    <div class="frow"><label title="Courses with no offering this year or next, dimmed, with the reason"><input type="checkbox" id="f_notnow"> Include not currently offered</label></div>
 
     <h3>AAGS approval</h3>
     <div class="checks" id="f_aags"></div>
@@ -107,7 +105,6 @@
 <!-- Add-course / settings modal -->
 <div id="modal" hidden><div class="modal-card"><div class="modal-head"><b id="modal-title"></b><button id="modal-x">✕</button></div><div id="modal-body"></div></div></div>
 
-<script src="data.js"></script>
 <script src="db.js"></script>
 <script src="programs.js"></script>
 <!-- Optional personal overlay (gitignored personal/ folder). Missing on the public site, which is fine. -->

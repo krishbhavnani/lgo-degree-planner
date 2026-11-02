@@ -9,8 +9,6 @@ const CATEGORIES=PROGRAM.categories.filter(c=>c.kind!=="addon");   // one per co
 const ADDONS=PROGRAM.categories.filter(c=>c.kind==="addon");        // on top of the category
 const ADDON_IDS=new Set(ADDONS.map(c=>c.id));
 const TAGCLASS=Object.fromEntries(PROGRAM.categories.map(c=>[c.id,c.style?"t-"+c.style:""]));
-// Course facts: db.js (courses x term offerings), read through app/catalog.js.
-const CAT=Catalog.load(window.COURSE_DB);
 const courseInfo=key=>CAT.get(key)?CAT.info(key):{};   // what the rules read about a course
 const CTX={program:PROGRAM,cat:CAT};
 const PLS={state:"lgo-dp.state",unreadable:"lgo-dp.state-unreadable",view:"lgo-dp.view",
