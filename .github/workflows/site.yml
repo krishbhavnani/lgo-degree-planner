@@ -1,0 +1,105 @@
+# Builds and deploys the site to GitHub Pages (Settings -> Pages -> Source: GitHub Actions).
+#
+#   push to main / manual run   rebuild from the data branch (--from-archive) and deploy
+#   weekly cron / manual run    fetch live from MIT (--refresh), commit the results to the data
+#   with "refresh" ticked       branch, and deploy
+#
+# scrape.py exit codes:
+#   0  all checks passed            -> deploy
+#   2  a secondary source failed    -> deploy (it kept its last good data), then fail the job
+#                                      so GitHub emails the maintainer
+#   1  a guardrail failed           -> deploy nothing, fail the job; a refresh still commits its
+#                                      evidence (fail-marked snapshots, run record) to the data branch
+name: Site
+
+on:
+  push:
+    branches: [main]
+  schedule:
+    - cron: "17 9 * * 1"   # Mondays 09:17 UTC
+  workflow_dispatch:
+    inputs:
+      refresh:
+        description: "Fetch live from MIT (like the weekly run) instead of rebuilding from the archive"
+        type: boolean
+        default: false
+
+permissions:
+  contents: write   # push the refresh to the data branch
+  pages: write
+  id-token: write
+
+# One run at a time, never cancelled: a push deploy and the weekly refresh must not overlap.
+concurrency:
+  group: site
+  cancel-in-progress: false
+
+jobs:
+  build-deploy:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deploy.outputs.page_url }}
+    env:
+      REFRESH: ${{ github.event_name == 'schedule' || inputs.refresh == true }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Check out the data branch into .data/
+        uses: actions/checkout@v4
+        with:
+          ref: data
+          path: .data
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Build
+        id: build
+        run: |
+          set +e
+          if [ "$REFRESH" = "true" ]; then
+            python3 scrape.py --refresh --out _site
+          else
+            python3 scrape.py --from-archive --out _site
+          fi
+          code=$?
+          echo "code=$code" >> "$GITHUB_OUTPUT"
+          echo "scrape.py exited $code"
+
+      - name: Commit the refresh to the data branch
+        if: env.REFRESH == 'true'
+        working-directory: .data
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          case "${{ steps.build.outputs.code }}" in
+            0) result=pass ;; 2) result="pass with warnings" ;; *) result=FAILED ;;
+          esac
+          git diff --cached --quiet || git commit -q -m "Weekly refresh $(date -u +%F): $result"
+          git push origin HEAD:data
+
+      - name: Stage the site
+        if: steps.build.outputs.code != '1'
+        run: cp index.html _site/
+
+      - uses: actions/upload-pages-artifact@v3
+        if: steps.build.outputs.code != '1'
+        with:
+          path: _site
+
+      - name: Deploy
+        id: deploy
+        if: steps.build.outputs.code != '1'
+        uses: actions/deploy-pages@v4
+
+      - name: Fail the job if the build was not clean
+        if: steps.build.outputs.code != '0'
+        run: |
+          echo "::error::scrape.py exited ${{ steps.build.outputs.code }} (1 = nothing deployed; 2 = deployed, but a secondary source kept its last good data). See the Build step's summary table."
+          exit 1
