@@ -97,6 +97,7 @@ for (const major of majors) {
     assert.deepEqual(dupes(p.base_plan.map(b => b.id)), [], "base_plan ids must be unique");
     for (const b of p.base_plan) {
       assert.ok(typeof b.id === "string" && b.id, `${b.course}: needs an id`);
+      if (b.course in (base.not_in_catalog || {})) assert.ok(b.title, `${b.course} isn't in the catalog, so it needs a title`);
       assert.ok(hasCat(b.category), `${b.course}: category ${b.category}`);
       assert.ok(typeof b.units === "number", `${b.course}: units`);
       if (b.required) assert.ok(b.allowed_slots.length && b.allowed_slots.every(s => slots.includes(s)), `${b.course}: allowed_slots`);

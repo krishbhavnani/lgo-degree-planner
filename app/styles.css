@@ -151,3 +151,12 @@ select.catsel.t-thesis{background:#f3e8fb;color:#7a3ca8} select.catsel.t-python{
 .addresult{display:flex;align-items:center;gap:8px;padding:5px 6px;border-bottom:1px solid var(--line);font-size:13px;cursor:pointer}
 .addresult:hover{background:#f3f5f8}
 .addresult .ar-add{margin-left:auto;border:1px solid var(--line);border-radius:6px;padding:2px 8px;background:#fff}
+/* term status badges (one legend: Browse, add-course search, plan) */
+.tb{display:inline-block;min-width:15px;text-align:center;font-size:11px;font-weight:700;border-radius:4px;padding:0 3px;margin-right:4px;cursor:help}
+.tb-listed,.tb-ran{background:#e4f4ea;color:var(--ok)} .tb-expected{background:#e6eefb;color:var(--blue)}
+.tb-unverified{background:#fdf0db;color:var(--warn)}
+.tb-not_offered,.tb-removed,.tb-not_listed{background:#fbe9e9;color:var(--bad)} .tb-didnt_run{background:var(--bad);color:#fff}
+.tb-no_record,.tb-not_projected{background:var(--chip);color:var(--grey)}
+.chip.half{font-size:10px;padding:0 4px;background:#efe8fb;color:#5b3ca8}
+.halfload{font-weight:400;margin-left:6px}
+.pitem.placeholder{border-style:dashed;background:#fbfcfe}

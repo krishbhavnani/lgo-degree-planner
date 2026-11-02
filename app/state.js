@@ -8,17 +8,18 @@ function esc(s){return (s==null?'':String(s)).replace(/[&<>"]/g,m=>({'&':'&amp;'
 // (base plan, rules) and the course data (titles, units), so fixes reach returning users.
 //   {v:2, program, gradYear, yearChosen?, items, removedBase, targets}
 //   item: {id, course|null, slot ("Y1 Fall" ... or "unassigned"), base?, units?, category?,
-//          addons?, audit?, custom?: {number, title, units}}
+//          addons?, audit?, custom?: {number?, title, units}}
+// course is a course id from db.js (a special subject's id names its topic). A custom item is a
+// course typed in by hand; one without a number is a placeholder ("MBA Elective — TBD").
 // units/category are stored only when they differ from the default; targets only when edited.
 //
-// ctx = {program (resolved), course(number) -> {title, units_total, department, aags,
-//        design_approved} or null}
+// ctx = {program (resolved), cat (Catalog.load(db.js))}
 const State = (() => {
   const E = typeof Engine !== "undefined" ? Engine : require("./engine.js");
   const V = 2;
   const UNASSIGNED = "unassigned";
 
-  const info = ctx => n => { const c = ctx.course(n) || {}; return { aags: c.aags, design: c.design_approved, department: c.department }; };
+  const infoOf = (ctx, it) => () => (it.course && ctx.cat.get(it.course) ? ctx.cat.info(it.course) : {});
   const baseOf = (ctx, it) => it.base ? ctx.program.base_plan.find(b => b.id === it.base) || null : null;
   const numberOf = it => it.course || (it.custom && it.custom.number) || "";
   const find = (state, id) => state.items.find(x => x.id === id);
@@ -46,15 +47,22 @@ const State = (() => {
       ({ id: b.id, course: b.course, slot: b.slot || UNASSIGNED, base: b.id })), removedBase: [], targets: {} };
   }
 
-  // What an item is when the student hasn't changed it.
-  function defaults(ctx, it) {
-    const b = baseOf(ctx, it);
-    if (b) return { title: b.title, units: b.units, category: b.category };
-    const n = numberOf(it);
-    const category = n ? E.classify(ctx.program, n, info(ctx))[0] || null : null;
+  // Calendar term of an item (null when unassigned).
+  const termOf = (ctx, state, it) => it.slot === UNASSIGNED ? null : slotLabels(ctx.program, state.gradYear)[it.slot];
+  const inCatalog = (ctx, id) => !!(id && ctx.cat.get(id));
+  // The course number shown and matched by the rules (a special subject's id isn't its number).
+  const courseNumber = (ctx, it) => inCatalog(ctx, it.course) ? ctx.cat.get(it.course).number : numberOf(it);
+
+  // What an item is when the student hasn't changed it: titles from the catalog (that term's
+  // offering), units from the base plan or the catalog, category from the classify rules.
+  function defaults(ctx, it, term) {
+    const b = baseOf(ctx, it), n = courseNumber(ctx, it);
+    if (b) return { title: (inCatalog(ctx, b.course) && ctx.cat.title(b.course, term)) || b.title || n, units: b.units, category: b.category };
+    const category = n ? E.classify(ctx.program, n, infoOf(ctx, it))[0] || null : null;
     if (it.custom) return { title: it.custom.title || n, units: it.custom.units ?? 0, category };
-    const c = ctx.course(it.course);
-    return { title: c ? c.title : n, units: c && c.units_total != null ? c.units_total : 0, category };
+    if (!inCatalog(ctx, it.course)) return { title: n, units: 0, category };
+    const o = ctx.cat.offering(it.course, term), u = o && o.units;
+    return { title: ctx.cat.title(it.course, term), units: u && u.total != null ? u.total : 0, category };
   }
 
   // The items the engine and the term grid use: calendar terms for the grad year, tags =
@@ -62,9 +70,10 @@ const State = (() => {
   function toItems(ctx, state) {
     const labels = slotLabels(ctx.program, state.gradYear);
     return state.items.map(it => {
-      const d = defaults(ctx, it), b = baseOf(ctx, it);
+      const term = it.slot === UNASSIGNED ? null : labels[it.slot];
+      const d = defaults(ctx, it, term), b = baseOf(ctx, it);
       const category = "category" in it ? it.category : d.category;
-      const out = { id: it.id, number: numberOf(it), title: d.title, units: it.units ?? d.units,
+      const out = { id: it.id, course: it.course || null, number: courseNumber(ctx, it), title: d.title, units: it.units ?? d.units,
         tags: [category, ...(it.addons || [])].filter(Boolean),
         term: it.slot === UNASSIGNED ? E.UNASSIGNED : labels[it.slot], audit: !!it.audit, base: !!it.base };
       if (b && b.required) { out.required = true; out.allowedTerms = (b.allowed_slots || []).map(s => labels[s]); }
@@ -76,11 +85,11 @@ const State = (() => {
   function setUnits(ctx, state, id, units) {
     const it = find(state, id);
     if (it.custom) { it.custom.units = units; return; }
-    if (units === defaults(ctx, it).units) delete it.units; else it.units = units;
+    if (units === defaults(ctx, it, termOf(ctx, state, it)).units) delete it.units; else it.units = units;
   }
   function setCategory(ctx, state, id, category) {
     const it = find(state, id);
-    if (category === defaults(ctx, it).category) delete it.category; else it.category = category;
+    if (category === defaults(ctx, it, termOf(ctx, state, it)).category) delete it.category; else it.category = category;
   }
   function toggleAddon(state, id, addon) {
     const it = find(state, id), a = new Set(it.addons || []);
@@ -95,16 +104,17 @@ const State = (() => {
     it.slot = slot;
     return true;
   }
-  function addCourse(state, number, slot) {
-    const it = { id: newId(), course: number, slot };
+  function addCourse(state, courseId, slot) {
+    const it = { id: newId(), course: courseId, slot };
     state.items.push(it);
     return it;
   }
   // A course typed in by hand: a catalog number becomes a normal course (with its units if
   // given); anything else is kept as a custom item with its own title and units.
   function addCustom(ctx, state, { number, title, units }, slot) {
-    if (number && ctx.course(number)) {
-      const it = addCourse(state, number, slot);
+    const id = number && resolve(ctx, number, slot === UNASSIGNED ? null : slotLabels(ctx.program, state.gradYear)[slot]);
+    if (id) {
+      const it = addCourse(state, id, slot);
       if (units != null) setUnits(ctx, state, it.id, units);
       return it;
     }
@@ -112,6 +122,25 @@ const State = (() => {
     state.items.push(it);
     return it;
   }
+  // A placeholder: a category and units, no course yet. It counts like a course.
+  function addPlaceholder(state, { category, units }, slot) {
+    const it = { id: newId(), course: null, slot, custom: { title: "", units: units || 0 }, category: category || null };
+    state.items.push(it);
+    return it;
+  }
+  // A course number (or id) to the catalog id; a special subject picks the topic running in `term`.
+  const resolve = (ctx, number, term) => inCatalog(ctx, number) ? number : ctx.cat.resolve(number, term);
+  // Older saves hold course numbers; point them at catalog ids. Returns how many changed.
+  function fixCourseIds(ctx, state) {
+    let n = 0;
+    for (const it of state.items) {
+      if (!it.course || inCatalog(ctx, it.course)) continue;
+      const id = ctx.cat.resolve(it.course, termOf(ctx, state, it));
+      if (id) { it.course = id; n++; }
+    }
+    return n;
+  }
+
   function removeItem(ctx, state, id) {
     const it = find(state, id), b = baseOf(ctx, it);
     if (b && b.required) return false;
@@ -138,7 +167,7 @@ const State = (() => {
     const removed = [], added = [];
     state.items = state.items.filter(it => {
       if (!it.base || ids.has(it.base)) return true;
-      removed.push(numberOf(it));
+      removed.push(courseNumber(ctx, it));
       return false;
     });
     state.removedBase = (state.removedBase || []).filter(id => ids.has(id));
@@ -146,7 +175,7 @@ const State = (() => {
     for (const b of ctx.program.base_plan) {
       if (have.has(b.id) || state.removedBase.includes(b.id)) continue;
       state.items.push({ id: b.id, course: b.course, slot: b.slot || UNASSIGNED, base: b.id });
-      added.push(`${b.course} ${b.title}`);
+      added.push(`${b.course} ${(inCatalog(ctx, b.course) && ctx.cat.title(b.course)) || b.title || ""}`.trim());
     }
     return [...(removed.length ? [`No longer in the LGO base plan, so removed from your plan: ${removed.join("; ")}.`] : []),
       ...(added.length ? [`Added from the LGO base plan: ${added.join("; ")}.`] : [])];
@@ -190,7 +219,8 @@ const State = (() => {
     const program = ctx.program;
     const state = newState(program, V1_GRAD_YEAR);   // no saved plan = the base plan
     const notes = [];
-    const slotOf = Object.fromEntries(Object.entries(slotLabels(program, V1_GRAD_YEAR)).map(([s, l]) => [l, s]));
+    const v1Labels = slotLabels(program, V1_GRAD_YEAR);
+    const slotOf = Object.fromEntries(Object.entries(v1Labels).map(([s, l]) => [l, s]));
     const toSlot = term => {
       if (term === E.UNASSIGNED) return UNASSIGNED;
       const old = /^(1st|2nd) (\w+)$/.exec(term || "");
@@ -217,7 +247,7 @@ const State = (() => {
       }
       let it;
       if (b) { usedBase.add(b.id); it = { id: b.id, course: b.course, slot, base: b.id }; }
-      else if (ctx.course(old.number)) it = { id: old.id, course: old.number, slot };
+      else if (resolve(ctx, old.number, v1Labels[slot])) it = { id: old.id, course: resolve(ctx, old.number, v1Labels[slot]), slot };
       else it = { id: old.id, course: null, slot, custom: { number: old.number, title: old.title || old.number, units: +old.units || 0 } };
       if (!it.id || usedIds.has(it.id)) it.id = newId();
       usedIds.add(it.id);
@@ -253,7 +283,7 @@ const State = (() => {
   }
 
   return { UNASSIGNED, slotLabels, gradYearOptions, newState, toItems, setUnits, setCategory, toggleAddon, setAudit, moveTo,
-    addCourse, addCustom, removeItem, startBlank, setTarget, reconcile, validate, migrateV1, fromFile };
+    addCourse, addCustom, addPlaceholder, fixCourseIds, removeItem, startBlank, setTarget, reconcile, validate, migrateV1, fromFile };
 })();
 
 if (typeof module !== "undefined") module.exports = State;

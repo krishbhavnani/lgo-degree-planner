@@ -7,7 +7,8 @@
 //   classify(program, number, courseInfo)          default category for a newly added course
 //   evaluate(program, items, courseInfo, targets)  {requirements, terms, scheduled, summary}
 //
-// courseInfo(number) -> {aags, design, department} (fields may be missing).
+// courseInfo(key) -> {aags, design, department} (fields may be missing). key is an item's course
+// id when it has one (a special subject's topics differ), else its number.
 // targets: requirement id -> the user's own target, replacing min_units (min_courses for "count").
 const Engine = (() => {
   const UNASSIGNED = "Unassigned";
@@ -48,23 +49,25 @@ const Engine = (() => {
   const termLabels = (program, year) => program.terms.map(t => slotLabel(program, t.slot, year));
 
   // A list is explicit numbers, a number pattern, or a course designation from the data.
-  function inList(program, listId, number, info) {
+  // infoOf() returns the course's designations; only designation lists call it.
+  function inList(program, listId, number, infoOf) {
     const l = program.lists[listId];
     if (!l) throw new Error("unknown list: " + listId);
     if (Array.isArray(l)) return l.includes(number);
     if (l.pattern != null) return new RegExp(l.pattern).test(number) && !(l.except || []).includes(number);
     if (l.designation) {
-      const v = (info(number) || {})[l.designation];
+      const v = (infoOf() || {})[l.designation];
       return l.prefix != null ? String(v || "").startsWith(l.prefix) : v === l.value;
     }
     throw new Error("list " + listId + " has no numbers, pattern or designation");
   }
 
   function classify(program, number, info) {
-    const dept = (info(number) || {}).department || "";
+    const infoOf = () => info(number) || {};
+    const dept = infoOf().department || "";
     for (const rule of program.classify) {
       const c = rule.if;
-      if ((c.in && inList(program, c.in, number, info)) || (c.dept && c.dept.some(d => dept.includes(d))))
+      if ((c.in && inList(program, c.in, number, infoOf)) || (c.dept && c.dept.some(d => dept.includes(d))))
         return [rule.then];
     }
     return [];
@@ -72,6 +75,7 @@ const Engine = (() => {
 
   // Only scheduled courses count: audits and anything still in Unassigned don't.
   const counts = it => !it.audit && it.term !== UNASSIGNED;
+  const keyOf = it => it.course || it.number;
   const unitsOf = it => +it.units || 0;
   const inPool = (it, pool) => (it.tags || []).some(t => (pool || []).includes(t));
   const fmtTerms = ts => ts.length > 1 ? ts.slice(0, -1).join(", ") + " or " + ts[ts.length - 1] : ts[0];
@@ -87,7 +91,7 @@ const Engine = (() => {
     const notes = [], cands = [];
     for (const b of bundles) {
       const lead = items.find(it => it.number === b.lead);
-      const partners = items.filter(it => inList(program, b.partners, it.number, info));
+      const partners = items.filter(it => inList(program, b.partners, it.number, () => info(keyOf(it))));
       if (lead) {
         const used = partners.slice(0, b.max_partners);
         cands.push({ ids: [lead.id, ...used.map(p => p.id)],
@@ -100,10 +104,10 @@ const Engine = (() => {
         notes.push(fill(b.notes.partner_alone, { partners: partners.map(p => p.number).join(", ") }));
       }
     }
-    const inBundle = n => bundles.some(b => n === b.lead || inList(program, b.partners, n, info));
+    const inBundle = it => bundles.some(b => it.number === b.lead || inList(program, b.partners, it.number, () => info(keyOf(it))));
     for (const it of items) {
-      if (inBundle(it.number) || inPool(it, r.exclude)) continue;
-      if (inList(program, r.list, it.number, info)) cands.push({ ids: [it.id], label: it.number, units: unitsOf(it) });
+      if (inBundle(it) || inPool(it, r.exclude)) continue;
+      if (inList(program, r.list, it.number, () => info(keyOf(it)))) cands.push({ ids: [it.id], label: it.number, units: unitsOf(it) });
     }
     cands.sort((a, b) => b.units - a.units);
     const core = [];
@@ -129,7 +133,7 @@ const Engine = (() => {
       if (r.type === "from_set") continue;
       const target = targetOf(r);
       if (r.type === "count") {
-        const its = scheduled.filter(it => inPool(it, r.pool) || (r.or_in && inList(program, r.or_in, it.number, info)));
+        const its = scheduled.filter(it => inPool(it, r.pool) || (r.or_in && inList(program, r.or_in, it.number, () => info(keyOf(it)))));
         out[r.id] = { value: its.length, courses: its.length, met: its.length >= target, counted: null, notes: [] };
       } else if (r.type === "sum" && r.exclude_claimed) {
         const used = claimed[r.exclude_claimed] || new Set();

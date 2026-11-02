@@ -81,6 +81,7 @@
     <aside class="plan-reqs">
       <div class="plan-tools">
         <button id="plan-add">＋ Add course</button>
+        <button id="plan-placeholder" title="Hold a spot for a course you haven't picked yet">＋ Placeholder</button>
         <button id="plan-settings">⚙ Requirements</button>
         <button id="plan-export">⬇ Export</button>
         <button id="plan-import">⬆ Import</button>
@@ -107,10 +108,12 @@
 <div id="modal" hidden><div class="modal-card"><div class="modal-head"><b id="modal-title"></b><button id="modal-x">✕</button></div><div id="modal-body"></div></div></div>
 
 <script src="data.js"></script>
+<script src="db.js"></script>
 <script src="programs.js"></script>
 <!-- Optional personal overlay (gitignored personal/ folder). Missing on the public site, which is fine. -->
 <script src="personal/ratings.js" onerror="this.remove()"></script>
 <script src="app/engine.js"></script>
+<script src="app/catalog.js"></script>
 <script src="app/state.js"></script>
 <script src="app/main.js"></script>
 <script src="app/browse.js"></script>

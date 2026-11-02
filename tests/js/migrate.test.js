@@ -8,9 +8,10 @@ const State = require("../../app/state.js");
 const { ROOT, readJson } = require("./helpers.js");
 
 const program = Engine.resolve(readJson("programs/lgo.json"), readJson("programs/eecs.json"));
-const frozen = readJson("tests/js/golden/courses.json").courses;
-const ctx = { program, course: n => frozen[n] || null };
-const info = n => { const c = frozen[n] || {}; return { aags: c.aags, design: c.design_approved, department: c.department }; };
+const Catalog = require("../../app/catalog.js");
+const cat = Catalog.load(readJson("tests/js/golden/db.json"));   // frozen db.js subset
+const ctx = { program, cat };
+const info = key => cat.get(key) ? cat.info(key) : {};
 const clone = x => JSON.parse(JSON.stringify(x));
 const GOLDEN = path.join(ROOT, "tests/js/golden");
 const goldens = fs.readdirSync(GOLDEN).filter(f => /^[a-z]\d*_\w+\.json$/.test(f)).map(f => [f, readJson(path.join("tests/js/golden", f))]);

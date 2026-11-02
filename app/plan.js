@@ -9,10 +9,10 @@ const CATEGORIES=PROGRAM.categories.filter(c=>c.kind!=="addon");   // one per co
 const ADDONS=PROGRAM.categories.filter(c=>c.kind==="addon");        // on top of the category
 const ADDON_IDS=new Set(ADDONS.map(c=>c.id));
 const TAGCLASS=Object.fromEntries(PROGRAM.categories.map(c=>[c.id,c.style?"t-"+c.style:""]));
-const courseByNum={}; COURSES.forEach(c=>{courseByNum[c.number]=c;});
-// What the rules read about a course.
-const courseInfo=n=>{const c=courseByNum[n]||{};return {aags:c.aags,design:c.design_approved,department:c.department};};
-const CTX={program:PROGRAM,course:n=>courseByNum[n]||null};
+// Course facts: db.js (courses x term offerings), read through app/catalog.js.
+const CAT=Catalog.load(window.COURSE_DB);
+const courseInfo=key=>CAT.get(key)?CAT.info(key):{};   // what the rules read about a course
+const CTX={program:PROGRAM,cat:CAT};
 const PLS={state:"lgo-dp.state",unreadable:"lgo-dp.state-unreadable",view:"lgo-dp.view",
   v1plan:"lgo-dp.plan",v1reqs:"lgo-dp.reqs",v1backup:"lgo-dp.v1-backup"};
 // Graduation years on offer today; a new plan starts as the class now in its first year.
@@ -23,7 +23,7 @@ let notices=[];  // shown once above the term grid
 function loadPlanState(){
   const saved=load(PLS.state,null);
   if(saved){
-    try{ const s=State.validate(CTX,saved); notices.push(...State.reconcile(CTX,s)); return s; }
+    try{ const s=State.validate(CTX,saved); State.fixCourseIds(CTX,s); notices.push(...State.reconcile(CTX,s)); return s; }
     catch(e){ save(PLS.unreadable,saved);
       notices.push(`Your saved plan couldn't be read (${e.message}), so the planner started again from the LGO base plan. The old copy is kept in this browser.`); }
   }
@@ -53,13 +53,20 @@ if(notices.length) save(PLS.state,STATE);
 refreshItems();
 let hideAudit=false;
 
-// From Browse or the add-course box. A title or units means a course typed in by hand.
-function addPlanItem(number,title,units,term){
-  const slot=SLOT_OF[term||Engine.UNASSIGNED];
-  if(title!=null||units!=null) State.addCustom(CTX,STATE,{number,title,units},slot);
-  else State.addCourse(STATE,number,slot);
+// From Browse or the add-course box (a course id or number). A title or units means a course
+// typed in by hand.
+function addPlanItem(key,title,units,term){
+  term=term||Engine.UNASSIGNED;
+  const slot=SLOT_OF[term];
+  if(title!=null||units!=null) State.addCustom(CTX,STATE,{number:key,title,units},slot);
+  else State.addCourse(STATE,CAT.get(key)?key:(CAT.resolve(key,term===Engine.UNASSIGNED?null:term)||key),slot);
   planSave(); renderPlan(); track("course-added");
 }
+// A course's status in a term, as a small badge with a plain-language tooltip (one legend
+// everywhere: Browse, the add-course search and the plan).
+const badgeHtml=b=>`<span class="tb tb-${b.code}" title="${esc(b.label)}: ${esc(b.tip)}">${b.symbol}</span>`;
+const STATUS_RANK={listed:0,ran:0,expected:1,unverified:2,no_record:3,not_projected:3};
+const rankOf=b=>STATUS_RANK[b.code]??4;
 
 function evaluatePlan(){return Engine.evaluate(PROGRAM,planItems,courseInfo,STATE.targets);}
 function renderReqPanel(res=evaluatePlan()){
@@ -103,8 +110,13 @@ function renderTerms(res=evaluatePlan()){
     if(term==="Unassigned" && items.length===0) continue;
     const tot=(res.terms[term]||{units:0}).units;  // every unit counts
     const limit=PROGRAM.term_unit_limit, cap=term==="Unassigned"?Infinity:limit;
+    // Half-term courses load only their half; full-term courses load both.
+    const halfOf=it=>{const c=it.course&&CAT.get(it.course),o=c&&c.offerings[term];return o?o.half:null;};
+    const load={full:0,H1:0,H2:0}; let hasHalf=false;
+    for(const it of items){ if(it.audit) continue; const hh=halfOf(it); if(hh) hasHalf=true; load[hh||"full"]+=(+it.units||0); }
+    const halves=hasHalf&&term!=="Unassigned"?` <span class="hint halfload" title="Half-term courses load only their half of the term">H1 ${load.full+load.H1}u · H2 ${load.full+load.H2}u</span>`:"";
     h+=`<div class="term ${term==='Unassigned'?'unassigned':''}"><div class="term-h">${esc(term)}${term==='Unassigned'?' <span class="hint" style="font-weight:400">· not counted toward requirements</span>':''}
-        <span class="tu ${tot>cap?'over':''}" ${tot>cap?`title="Over the limit of ${limit} units per term"`:''}>${term==='Unassigned'?'':`${tot}u${tot>cap?` · over ${limit}u limit`:''}`}</span></div><div class="term-body">`;
+        <span class="tu ${tot>cap?'over':''}" ${tot>cap?`title="Over the limit of ${limit} units per term"`:''}>${term==='Unassigned'?'':`${tot}u${tot>cap?` · over ${limit}u limit`:''}`}${halves}</span></div><div class="term-body">`;
     for(const it of items){
       const req=!!it.required, lockTags=!!(it.base||it.required);  // base-plan categories are fixed
       const cat=(it.tags||[]).find(t=>!ADDON_IDS.has(t))||"";
@@ -114,10 +126,14 @@ function renderTerms(res=evaluatePlan()){
           return `<span class="tagchip ${TAGCLASS[a.id]||''} ${on?'':'off'}" data-act="addon" data-id="${it.id}" data-tag="${esc(a.id)}" title="${on?'click to remove':'click to add'}">${on?'':'+ '}${esc(a.id)}${on?' ✕':''}</span>`;}).join("");
       const termOpts=req?["Unassigned",...(it.allowedTerms||[])]:order;
       const termsel=`<select data-act="term" data-id="${it.id}">${termOpts.map(t=>`<option ${t===it.term?'selected':''}>${esc(t)}</option>`).join("")}</select>`;
-      h+=`<div class="pitem ${it.audit?'audit':''}">
-        <div class="pi-top"><span class="pi-num">${esc(it.number)}</span>
-          ${(courseByNum[it.number]||{}).design_approved?`<span class="dz" title="Pre-approved design class">🎨</span>`:''}
-          <span class="pi-title" title="${esc(it.title)}">${esc(it.title)}</span>
+      const known=it.course&&CAT.get(it.course), design=known&&courseInfo(it.course).design;
+      const half=halfOf(it);
+      const placeholder=!it.number;
+      h+=`<div class="pitem ${it.audit?'audit':''} ${placeholder?'placeholder':''}">
+        <div class="pi-top">${known&&term!=="Unassigned"?badgeHtml(CAT.status(it.course,term)):''}<span class="pi-num">${placeholder?'TBD':esc(it.number)}</span>
+          ${design?`<span class="dz dz-${design}" title="${design==='approved'?'Pre-approved design class':'Conditionally approved design class: check the LGO handbook'}">🎨</span>`:''}
+          ${half?`<span class="chip half" title="Half-term course: ${half==='H1'?'first':'second'} half">${half}</span>`:''}
+          <span class="pi-title" title="${esc(it.title)}">${placeholder?esc((it.tags[0]||'Any category')+' placeholder'):esc(it.title)}</span>
           <input class="pi-u" type="number" min="0" value="${it.units}" data-act="units" data-id="${it.id}">
           ${req?'':`<span class="pi-x" data-act="rm" data-id="${it.id}" title="remove">✕</span>`}</div>
         <div class="pi-tags">${tagChips}</div>
@@ -214,14 +230,20 @@ function addCourseModal(){
   const resBox=document.getElementById("add-results");
   const doSearch=()=>{
     const q=document.getElementById("add-search").value.trim().toLowerCase();
-    if(!q){resBox.innerHTML='<div class="hint" style="padding:8px">Type to search '+COURSES.length+' courses…</div>';return;}
-    const inPlan=new Set(planItems.map(it=>it.number));
-    const hits=COURSES.filter(c=>(c.number+" "+c.title).toLowerCase().includes(q)).slice(0,40);
-    resBox.innerHTML=hits.map(c=>{const added=inPlan.has(c.number);
-      return `<div class="addresult ${added?'added':''}" data-add="${added?'':c.number}"><b>${esc(c.number)}</b> ${esc(c.title)}
-      <span class="hint">${c.units_total!=null?c.units_total+'u':''}</span>${added?'<span class="ar-in">✓ in plan</span>':'<span class="ar-add">＋ add</span>'}</div>`;}).join("")||'<div class="hint" style="padding:8px">no matches</div>';
+    const term=document.getElementById("add-term").value, real=term!==Engine.UNASSIGNED;
+    const past=real&&CAT.isPastTracked(term);
+    if(!q){resBox.innerHTML=`<div class="hint" style="padding:8px">Type to search ${CAT.courses.length} courses…${past?` For ${esc(term)}, only courses that ran are shown.`:''}</div>`;return;}
+    const inPlan=new Set(planItems.map(it=>it.course));
+    let hits=CAT.courses.filter(c=>(c.number+" "+c.title).toLowerCase().includes(q));
+    if(past) hits=hits.filter(c=>CAT.addable(c.id,term));       // a past term: only what ran
+    const scored=hits.map(c=>({c,b:real?CAT.status(c.id,term):null,o:CAT.offering(c.id,real?term:null)}));
+    if(real) scored.sort((x,y)=>rankOf(x.b)-rankOf(y.b));
+    resBox.innerHTML=scored.slice(0,40).map(({c,b,o})=>{const added=inPlan.has(c.id);const u=o&&o.units&&o.units.total;
+      return `<div class="addresult ${added?'added':''}" data-add="${added?'':esc(c.id)}">${b?badgeHtml(b):''}<b>${esc(c.number)}</b> ${esc(CAT.title(c.id,real?term:null))}
+      <span class="hint">${u!=null?u+'u':''}</span>${added?'<span class="ar-in">✓ in plan</span>':'<span class="ar-add">＋ add</span>'}</div>`;}).join("")||'<div class="hint" style="padding:8px">no matches</div>';
   };
-  document.getElementById("add-search").addEventListener("input",doSearch); doSearch();
+  document.getElementById("add-search").addEventListener("input",doSearch);
+  document.getElementById("add-term").addEventListener("change",doSearch); doSearch();
   resBox.addEventListener("click",e=>{const r=e.target.closest("[data-add]");if(!r)return;
     const num=r.getAttribute("data-add"); if(!num)return; const term=document.getElementById("add-term").value;
     addPlanItem(num,null,null,term); doSearch();});
@@ -229,6 +251,20 @@ function addCourseModal(){
     const num=document.getElementById("cu-num").value.trim(); if(!num)return;
     addPlanItem(num,document.getElementById("cu-title").value.trim()||num,+document.getElementById("cu-u").value||0,document.getElementById("add-term").value);
     closeModal();});
+}
+// A placeholder: "MBA Elective — TBD, 9u". Counts toward requirements like a course.
+function placeholderModal(){
+  const termOpts=["Unassigned",...PLAN_TERMS].map(t=>`<option>${esc(t)}</option>`).join("");
+  openModal("Add a placeholder",
+    `<div class="hint" style="margin-bottom:8px">Hold a spot for a course you haven't picked yet. It counts toward its requirement like a real course.</div>
+     <div class="setrow">Term: <select id="ph-term">${termOpts}</select></div>
+     <div class="setrow">Counts toward: <select id="ph-cat">${CATEGORIES.map(c=>`<option>${esc(c.id)}</option>`).join("")}</select></div>
+     <div class="setrow">Units: <input id="ph-u" type="number" min="0" value="9" style="width:60px;padding:4px;border:1px solid var(--line);border-radius:6px"></div>
+     <button class="primary" id="ph-add">Add placeholder</button>`);
+  document.getElementById("ph-add").addEventListener("click",()=>{
+    State.addPlaceholder(STATE,{category:document.getElementById("ph-cat").value,units:+document.getElementById("ph-u").value||0},
+      SLOT_OF[document.getElementById("ph-term").value]);
+    planSave(); renderPlan(); closeModal();});
 }
 function settingsModal(){
   const rows=PROGRAM.requirements.map(b=>`<div class="setrow"><span class="sn">${esc(b.label)} <span class="hint">(${esc(b.group)}, counts: ${b.pool.join(', ')||'—'})</span></span>
@@ -245,6 +281,7 @@ function settingsModal(){
   });
 }
 document.getElementById("plan-add").addEventListener("click",addCourseModal);
+document.getElementById("plan-placeholder").addEventListener("click",placeholderModal);
 document.getElementById("plan-settings").addEventListener("click",settingsModal);
 document.getElementById("plan-export").addEventListener("click",()=>{
   const blob=new Blob([JSON.stringify(STATE,null,2)],{type:"application/json"});

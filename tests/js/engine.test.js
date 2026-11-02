@@ -10,8 +10,10 @@ const ROOT = path.join(__dirname, "..", "..");
 const GOLDEN = path.join(__dirname, "golden");
 const readJson = p => JSON.parse(fs.readFileSync(p, "utf8"));
 const program = Engine.resolve(readJson(path.join(ROOT, "programs/lgo.json")), readJson(path.join(ROOT, "programs/eecs.json")));
-const frozen = readJson(path.join(GOLDEN, "courses.json")).courses;
-const info = n => { const c = frozen[n] || {}; return { aags: c.aags, design: c.design_approved, department: c.department }; };
+// Course facts come from a frozen db.js subset, read through catalog.js as the app does.
+const Catalog = require("../../app/catalog.js");
+const cat = Catalog.load(readJson(path.join(GOLDEN, "db.json")));
+const info = key => cat.get(key) ? cat.info(key) : {};
 
 // The fields the app shows, in the shape the fixtures recorded them.
 const shown = r => ({ id: r.id, n: r.value, courses: r.courses, target: r.target, met: r.met,

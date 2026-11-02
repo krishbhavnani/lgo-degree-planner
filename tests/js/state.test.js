@@ -7,16 +7,21 @@ const State = require("../../app/state.js");
 const { readJson } = require("./helpers.js");
 
 const program = Engine.resolve(readJson("programs/lgo.json"), readJson("programs/eecs.json"));
-const frozen = readJson("tests/js/golden/courses.json").courses;
-const ctx = { program, course: n => frozen[n] || null };
-const info = n => { const c = frozen[n] || {}; return { aags: c.aags, design: c.design_approved, department: c.department }; };
+const Catalog = require("../../app/catalog.js");
+const cat = Catalog.load(readJson("tests/js/golden/db.json"));   // frozen db.js subset
+const ctx = { program, cat };
+const info = key => cat.get(key) ? cat.info(key) : {};
 const golden = name => readJson(path.join("tests/js/golden", name + ".json"));
-const withoutId = items => items.map(({ id, ...rest }) => rest);
 const clone = x => JSON.parse(JSON.stringify(x));
 
-test("a new plan is the base plan, item for item (ids aside)", () => {
+test("a new plan is the base plan, item for item (ids and titles aside)", () => {
   const items = State.toItems(ctx, State.newState(program, 2028));
-  assert.deepEqual(withoutId(items), withoutId(golden("a_base_plan").plan));
+  const strip = its => its.map(({ id, title, course, ...rest }) => rest);
+  assert.deepEqual(strip(items), strip(golden("a_base_plan").plan));
+  // Titles come from the catalog, or the base plan for a course the catalog doesn't list.
+  assert.equal(items.find(it => it.number === "15.317").title, "Leadership and Organizational Change");
+  assert.equal(items.find(it => it.number === "6.S090").title, "Python Workshop");
+  assert.equal(items.find(it => it.number === "15.066").course, "15.066");
 });
 
 test("a new plan stores nothing but slots and base ids", () => {
@@ -101,10 +106,10 @@ test("reconciliation adds new base courses and drops retired ones", () => {
   const s = State.newState(program, 2028);
   const p2 = clone(program);
   p2.base_plan = p2.base_plan.filter(b => b.id !== "lean-ops-y1summer");
-  p2.base_plan.push({ id: "new-course", course: "15.016", title: "A new LGO course", units: 6, category: "LGO Required MBA", slot: "Y1 IAP" });
+  p2.base_plan.push({ id: "new-course", course: "15.016", units: 6, category: "LGO Required MBA", slot: "Y1 IAP" });
   const changes = State.reconcile({ ...ctx, program: p2 }, s);
   assert.deepEqual(changes, ["No longer in the LGO base plan, so removed from your plan: 15.876.",
-    "Added from the LGO base plan: 15.016 A new LGO course."]);
+    "Added from the LGO base plan: 15.016 Climate and Energy in the Global Economy."]);
   assert.ok(s.items.some(it => it.base === "new-course") && !s.items.some(it => it.base === "lean-ops-y1summer"));
   assert.deepEqual(State.reconcile({ ...ctx, program: p2 }, s), []);
 });
@@ -155,4 +160,44 @@ test("changing the graduation year moves every course with its slot", () => {
   assert.equal(termOf(), "Fall 2025");
   assert.deepEqual(Object.values(State.slotLabels(program, 2026)),
     ["Summer 2024", "Fall 2024", "IAP 2025", "Spring 2025", "Summer 2025", "Fall 2025", "IAP 2026", "Spring 2026"]);
+});
+
+test("older saves holding a course number point at the catalog id, by term for special subjects", () => {
+  const s = State.newState(program, 2028);
+  s.items.push({ id: "a", course: "15.S04", slot: "Y1 Spring" }, { id: "b", course: "15.S04", slot: "Y1 Fall" },
+    { id: "c", course: "6.5060", slot: "Y1 Fall" }, { id: "d", course: "99.999", slot: "Y1 Fall" });
+  assert.equal(State.fixCourseIds(ctx, s), 2);
+  assert.deepEqual(s.items.slice(-4).map(it => it.course),
+    ["15.S04~generative-ai-lab", "15.S04~special-seminar-in-management", "6.5060", "99.999"]);
+  const shown = State.toItems(ctx, s);
+  assert.equal(shown.find(it => it.id === "a").title, "Generative AI Lab");
+  assert.equal(shown.find(it => it.id === "a").number, "15.S04");
+});
+
+test("a placeholder counts toward its requirement like a course", () => {
+  const s = State.newState(program, 2028);
+  const before = Engine.evaluate(program, State.toItems(ctx, s), info).requirements.find(r => r.id === "mba_elec").value;
+  const p = State.addPlaceholder(s, { category: "MBA Elective", units: 9 }, "Y1 Spring");
+  const item = State.toItems(ctx, s).find(it => it.id === p.id);
+  assert.deepEqual([item.number, item.tags, item.units, item.term], ["", ["MBA Elective"], 9, "Spring 2027"]);
+  const after = Engine.evaluate(program, State.toItems(ctx, s), info).requirements.find(r => r.id === "mba_elec").value;
+  assert.equal(after - before, 9);
+  assert.deepEqual(State.validate(ctx, JSON.parse(JSON.stringify(s))), s);
+});
+
+test("a Class of 2026 plan sits entirely before tracking began: every term is 'no record'", () => {
+  const items = State.toItems(ctx, State.newState(program, 2026));
+  const codes = new Set(items.filter(it => it.term !== "Unassigned" && it.course).map(it => cat.status(it.course, it.term).code));
+  assert.deepEqual([...codes], ["no_record"]);
+  assert.ok(cat.addable("6.5060", "Fall 2025"));
+});
+
+test("a course's default units come from that term's offering; arranged units default to 0", () => {
+  const s = State.newState(program, 2028);
+  const a = State.addCourse(s, "6.5060", "Y1 Fall");
+  const b = State.addCourse(s, "15.S04~special-seminar-in-management", "Y1 Fall");
+  const units = id => State.toItems(ctx, s).find(x => x.id === id).units;
+  assert.equal(units(a.id), cat.offering("6.5060", "Fall 2026").units.total);
+  assert.equal(cat.offering(b.course, "Fall 2026").units.kind, "arranged");
+  assert.equal(units(b.id), 0);
 });
