@@ -69,8 +69,15 @@ const Catalog = (() => {
       const d = c.designations || {};
       return { aags: aagsLabel(c), design: d.design ? d.design.value : null, department: c.department };
     }
+    // EECS's "Satisfies: AAGS in ..." wording on a subject that isn't on the AAGS list reads
+    // "Needs approval": the student decides whether to count it (never automatic).
     const aagsLabel = c => (c.designations && c.designations.aags) ? c.designations.aags.value
+      : (c.designations && c.designations.aags_note) ? "Needs approval"
       : aagsDepts.has(c.department) ? "Not approved" : "N/A";
+    // Courses a student may count toward AAGS on their own call: special subjects and courses
+    // with EECS's AAGS wording, unless already on the AAGS list.
+    const claimable = id => { const c = get(id), d = (c && c.designations) || {};
+      return !!c && !d.aags && (c.kind === "special" || !!d.aags_note); };
 
     function status(id, term) {
       const k = termKey(term);
@@ -106,7 +113,8 @@ const Catalog = (() => {
         prereqs: (c.prereq_numbers || []).map(n => ({ number: n, name: (byNumber(n)[0] || {}).title || "" })),
         units_raw: u.raw || (u.kind === "arranged" ? "arranged" : ""), units_total: u.total ?? null,
         half_term: o.half || null, instructor: o.instructor || "", schedule_summary: o.schedule_summary || "",
-        aags: aagsLabel(c), design_approved: d.design ? d.design.value : null,
+        aags: aagsLabel(c), aags_note: d.aags_note ? d.aags_note.text : null,
+        design_approved: d.design ? d.design.value : null,
         action_learning: al ? al.code : null, al_term: al ? al.term : null, al_name: al ? al.name : null,
         eval_hours_in: ev.hours_in ?? null, eval_hours_out: ev.hours_out ?? null, eval_responses: ev.responses ?? null,
         eval_term: ev.term || null, eval_instructor: ev.instructor || null,
@@ -115,7 +123,7 @@ const Catalog = (() => {
       };
     }
 
-    return { meta, courses, get, byNumber, resolve, offering, title, info, status, addable, isPastTracked, tracked, row, termKey };
+    return { meta, courses, get, byNumber, resolve, offering, title, info, status, addable, isPastTracked, tracked, claimable, row, termKey };
   }
 
   return { load, LEGEND, termKey };

@@ -8,7 +8,8 @@ function esc(s){return (s==null?'':String(s)).replace(/[&<>"]/g,m=>({'&':'&amp;'
 // (base plan, rules) and the course data (titles, units), so fixes reach returning users.
 //   {v:2, program, gradYear, yearChosen?, items, removedBase, targets}
 //   item: {id, course|null, slot ("Y1 Fall" ... or "unassigned"), base?, units?, category?,
-//          addons?, audit?, custom?: {number?, title, units}}
+//          addons?, claims?, audit?, custom?: {number?, title, units}}
+// claims: list ids (e.g. "aags") the student counts this course toward on their own call.
 // course is a course id from db.js (a special subject's id names its topic). A custom item is a
 // course typed in by hand; one without a number is a placeholder ("MBA Elective — TBD").
 // units/category are stored only when they differ from the default; targets only when edited.
@@ -74,7 +75,7 @@ const State = (() => {
       const d = defaults(ctx, it, term), b = baseOf(ctx, it);
       const category = "category" in it ? it.category : d.category;
       const out = { id: it.id, course: it.course || null, number: courseNumber(ctx, it), title: d.title, units: it.units ?? d.units,
-        tags: [category, ...(it.addons || [])].filter(Boolean),
+        tags: [category, ...(it.addons || [])].filter(Boolean), ...(it.claims ? { claims: it.claims } : {}),
         term: it.slot === UNASSIGNED ? E.UNASSIGNED : labels[it.slot], audit: !!it.audit, base: !!it.base };
       if (b && b.required) { out.required = true; out.allowedTerms = (b.allowed_slots || []).map(s => labels[s]); }
       return out;
@@ -95,6 +96,11 @@ const State = (() => {
     const it = find(state, id), a = new Set(it.addons || []);
     if (a.has(addon)) a.delete(addon); else a.add(addon);
     if (a.size) it.addons = [...a]; else delete it.addons;
+  }
+  function toggleClaim(state, id, listId) {
+    const it = find(state, id), c = new Set(it.claims || []);
+    if (c.has(listId)) c.delete(listId); else c.add(listId);
+    if (c.size) it.claims = [...c]; else delete it.claims;
   }
   function setAudit(state, id, on) { const it = find(state, id); if (on) it.audit = true; else delete it.audit; }
   // Required base courses may only go to their allowed terms (or back to unassigned).
@@ -200,6 +206,7 @@ const State = (() => {
       if (it.units != null && typeof it.units !== "number") fail(`units for ${numberOf(it)} aren't a number`);
       if (it.category != null && !cats.has(it.category)) fail(`unknown category: ${it.category}`);
       for (const a of it.addons || []) if (!cats.has(a)) fail(`unknown category: ${a}`);
+      for (const l of it.claims || []) if (!(ctx.program.lists[l] || {}).claimable) fail(`can't count a course toward ${l} by hand`);
     }
     const targets = {};
     for (const [k, v] of Object.entries(obj.targets || {})) {
@@ -283,7 +290,7 @@ const State = (() => {
   }
 
   return { UNASSIGNED, slotLabels, gradYearOptions, newState, toItems, setUnits, setCategory, toggleAddon, setAudit, moveTo,
-    addCourse, addCustom, addPlaceholder, fixCourseIds, removeItem, startBlank, setTarget, reconcile, validate, migrateV1, fromFile };
+    toggleClaim, addCourse, addCustom, addPlaceholder, fixCourseIds, removeItem, startBlank, setTarget, reconcile, validate, migrateV1, fromFile };
 })();
 
 if (typeof module !== "undefined") module.exports = State;

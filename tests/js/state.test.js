@@ -201,3 +201,18 @@ test("a course's default units come from that term's offering; arranged units de
   assert.equal(cat.offering(b.course, "Fall 2026").units.kind, "arranged");
   assert.equal(units(b.id), 0);
 });
+
+test("a student's AAGS claim is stored only when on, reaches the engine and is validated", () => {
+  const s = State.newState(program, 2028);
+  const it = State.addCourse(s, "15.S04~generative-ai-lab", "Y1 Spring");
+  State.toggleClaim(s, it.id, "aags");
+  assert.deepEqual(it.claims, ["aags"]);
+  assert.deepEqual(State.toItems(ctx, s).find(x => x.id === it.id).claims, ["aags"]);
+  assert.deepEqual(State.validate(ctx, JSON.parse(JSON.stringify(s))), s);
+  State.toggleClaim(s, it.id, "aags");
+  assert.ok(!("claims" in it));
+  assert.ok(!("claims" in State.toItems(ctx, s).find(x => x.id === it.id)));
+  const bad = JSON.parse(JSON.stringify(s));
+  bad.items.find(x => x.id === it.id).claims = ["mba_core"];
+  assert.throws(() => State.validate(ctx, bad), /by hand/);
+});

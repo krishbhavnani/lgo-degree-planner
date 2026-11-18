@@ -199,6 +199,15 @@ def observe(ctx):
         for rec2 in (special_by_num.get(x) for x in [n]):
             if rec2 and not rec:   # EECS "(was X)" notes also apply to catalog rows
                 course["aliases"] = list(rec2.get("was") or [])
+        # EECS's "Satisfies: AAGS in ..." is the department's note, not approval (it changes and
+        # is a judgment call): kept so Browse can show "needs approval" and a student can count
+        # the course on their own call. Never an aags designation.
+        note_rec = rec or (special_by_num.get(n) if not special else None)
+        if (note_rec and re.search(r"\bAAGS\b", note_rec.get("satisfies") or "")
+                and "aags" not in course["designations"]):
+            course["designations"]["aags_note"] = {"text": note_rec["satisfies"].strip(),
+                                                   "source": "EECS subject updates",
+                                                   "scope": note_rec["term"]}
         if cid not in out:
             out[cid] = course
         if lab_elsewhere:

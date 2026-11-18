@@ -12,7 +12,9 @@
   ],
 
   "lists": {
-    "aags": {"designation": "aags", "prefix": "Approved"},
+    "aags": {"designation": "aags", "prefix": "Approved",
+             "claimable": true, "claim_label": "AAGS",
+             "claim_note": "Counted toward AAGS on your own call: {courses}. Get approval from the EECS graduate office before you rely on it."},
     "c51_modules": {"pattern": "^[0-9A-Z]+\\.C51\\d*$", "except": ["6.C51"]},
     "lgo_required_eng": ["15.066", "15.087"]
   },

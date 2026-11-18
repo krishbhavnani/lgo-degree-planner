@@ -92,3 +92,18 @@ test("titles and offerings by term", () => {
   assert.equal(cat.offering("6.5060", "Spring 2027").status, "listed");   // no offering then: reference one
   assert.equal(cat.get("nope"), null);
 });
+
+test("EECS's AAGS wording reads 'Needs approval' and makes a course claimable; approval doesn't", () => {
+  const db2 = JSON.parse(JSON.stringify(db));
+  db2.courses.push({ id: "6.S978~engineering-ai", number: "6.S978", kind: "special", title: "Engineering AI", department: "Course 6 — EECS",
+    designations: { aags_note: { text: "AUS, AAGS in Computer Systems", source: "EECS subject updates", scope: "Fall 2026" } },
+    offerings: { "Fall 2026": off("listed") } });
+  const c2 = Catalog.load(db2);
+  const r = c2.row(c2.get("6.S978~engineering-ai"));
+  assert.deepEqual([r.aags, r.aags_note], ["Needs approval", "AUS, AAGS in Computer Systems"]);
+  assert.equal(c2.info("6.S978~engineering-ai").aags, "Needs approval");     // not "Approved…": rules won't count it
+  assert.equal(c2.claimable("6.S978~engineering-ai"), true);
+  assert.equal(c2.claimable("15.S04~special-seminar-in-management"), true);   // any special subject
+  assert.equal(c2.claimable("6.5060"), false);                                  // already approved
+  assert.equal(c2.claimable("6.1220"), false);                                  // regular, no EECS wording
+});

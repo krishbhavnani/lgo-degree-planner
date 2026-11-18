@@ -57,6 +57,7 @@ for (const major of majors) {
   test(`${major.id}: categories, lists and default-category rules are well formed`, () => {
     for (const c of p.categories) assert.ok(KINDS.includes(c.kind), `${c.id}: kind ${c.kind}`);
     for (const [id, l] of Object.entries(p.lists)) {
+      if (l.claimable) assert.ok(l.claim_label && /\{courses\}/.test(l.claim_note || ""), `${id}: claimable lists need claim_label and a claim_note with {courses}`);
       if (Array.isArray(l)) assert.ok(l.every(n => typeof n === "string"), id);
       else if (l.pattern != null) assert.doesNotThrow(() => new RegExp(l.pattern), id);
       else {

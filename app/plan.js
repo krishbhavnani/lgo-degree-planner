@@ -8,6 +8,8 @@ const PROGRAM=Engine.resolve(window.PROGRAMS[MAJOR.extends],MAJOR);
 const CATEGORIES=PROGRAM.categories.filter(c=>c.kind!=="addon");   // one per course
 const ADDONS=PROGRAM.categories.filter(c=>c.kind==="addon");        // on top of the category
 const ADDON_IDS=new Set(ADDONS.map(c=>c.id));
+// Lists a student may count a course toward on their own call (AAGS for special subjects).
+const CLAIMABLE=Object.entries(PROGRAM.lists).filter(([,l])=>l.claimable);
 const TAGCLASS=Object.fromEntries(PROGRAM.categories.map(c=>[c.id,c.style?"t-"+c.style:""]));
 const courseInfo=key=>CAT.get(key)?CAT.info(key):{};   // what the rules read about a course
 const CTX={program:PROGRAM,cat:CAT};
@@ -63,6 +65,9 @@ function addPlanItem(key,title,units,term){
 // A course's status in a term, as a small badge with a plain-language tooltip (one legend
 // everywhere: Browse, the add-course search and the plan).
 const badgeHtml=b=>`<span class="tb tb-${b.code}" title="${esc(b.label)}: ${esc(b.tip)}">${b.symbol}</span>`;
+// Special subjects (and courses EECS describes as AAGS but that aren't on the list) can be
+// counted toward AAGS by the student; so can a course typed in by hand.
+const canClaim=it=>!it.base&&!it.required&&(it.course&&CAT.get(it.course)?CAT.claimable(it.course):!!it.number);
 const STATUS_RANK={listed:0,ran:0,expected:1,unverified:2,no_record:3,not_projected:3};
 const rankOf=b=>STATUS_RANK[b.code]??4;
 
@@ -121,7 +126,11 @@ function renderTerms(res=evaluatePlan()){
       const tagChips=lockTags?(it.tags||[]).map(t=>`<span class="tagchip ${TAGCLASS[t]||''}">${esc(t)}</span>`).join(""):
         `<select class="catsel ${TAGCLASS[cat]||''}" data-act="cat" data-id="${it.id}" title="Which requirement this course counts toward"><option value="">no category</option>${CATEGORIES.map(c=>`<option ${c.id===cat?'selected':''}>${esc(c.id)}</option>`).join("")}</select>`+
         ADDONS.map(a=>{const on=(it.tags||[]).includes(a.id);
-          return `<span class="tagchip ${TAGCLASS[a.id]||''} ${on?'':'off'}" data-act="addon" data-id="${it.id}" data-tag="${esc(a.id)}" title="${on?'click to remove':'click to add'}">${on?'':'+ '}${esc(a.id)}${on?' ✕':''}</span>`;}).join("");
+          return `<span class="tagchip ${TAGCLASS[a.id]||''} ${on?'':'off'}" data-act="addon" data-id="${it.id}" data-tag="${esc(a.id)}" title="${on?'click to remove':'click to add'}">${on?'':'+ '}${esc(a.id)}${on?' ✕':''}</span>`;}).join("")+
+        (canClaim(it)?CLAIMABLE.map(([lid,l])=>{const on=(it.claims||[]).includes(lid);
+          return `<span class="tagchip claim ${on?'on':'off'}" data-act="claim" data-id="${it.id}" data-list="${esc(lid)}" title="${on
+            ?`Counting toward ${esc(l.claim_label)} on your own call: get it approved before you rely on it. Click to stop.`
+            :`Not on the ${esc(l.claim_label)} list. Click to count it anyway (needs approval).`}">${on?`${esc(l.claim_label)} (your call) ✕`:`+ ${esc(l.claim_label)}?`}</span>`;}).join(""):"");
       const termOpts=req?["Unassigned",...(it.allowedTerms||[])]:order;
       const termsel=`<select data-act="term" data-id="${it.id}">${termOpts.map(t=>`<option ${t===it.term?'selected':''}>${esc(t)}</option>`).join("")}</select>`;
       const known=it.course&&CAT.get(it.course), design=known&&courseInfo(it.course).design;
@@ -202,6 +211,7 @@ document.getElementById("termgrid").addEventListener("click",e=>{
   const act=t.getAttribute("data-act"), id=t.getAttribute("data-id"), it=itemById(id); if(!it)return;
   if(act==="rm"){ if(!State.removeItem(CTX,STATE,id)) return; }
   else if(act==="addon"){ if(it.base||it.required) return; State.toggleAddon(STATE,id,t.getAttribute("data-tag")); }
+  else if(act==="claim"){ if(!canClaim(it)) return; State.toggleClaim(STATE,id,t.getAttribute("data-list")); }
   else return;
   planSave(); renderPlan();
 });

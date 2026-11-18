@@ -126,6 +126,26 @@ class ObserveTest(unittest.TestCase):
         self.assertEqual(list(obs["6.S978~engineering-ai"]["offerings"]), ["Fall 2026"])
         self.assertEqual(obs["6.7980"]["aliases"], ["6.S890"])
 
+    def test_eecs_aags_wording_is_a_note_never_approval(self):
+        special = [{"numbers": ["6.S978"], "number": "6.S978", "title": "Engineering AI",
+                    "term": "Fall 2026", "was": [],
+                    "satisfies": "AUS, AAGS in Computer Systems and Artificial Intelligence"},
+                   {"numbers": ["6.S950"], "number": "6.S950", "title": "Agency with AI",
+                    "term": "Fall 2026", "was": [], "satisfies": "EECS elective"}]
+        rows = [row("6.S978", "Engineering AI", is_special=True),
+                row("6.S950", "Agency with AI", is_special=True)]
+        obs = cdb.observe(ctx(rows, special=special))
+        d = obs["6.S978~engineering-ai"]["designations"]
+        self.assertNotIn("aags", d)
+        self.assertEqual(d["aags_note"]["text"],
+                         "AUS, AAGS in Computer Systems and Artificial Intelligence")
+        self.assertNotIn("aags_note", obs["6.S950~agency-with-ai"]["designations"])
+        # A course already on the AAGS list needs no note.
+        rows = [row("6.S978", "Engineering AI", is_special=True, aags="Approved-Offered")]
+        d = cdb.observe(ctx(rows, special=special[:1]))["6.S978~engineering-ai"]["designations"]
+        self.assertIn("aags", d)
+        self.assertNotIn("aags_note", d)
+
 
 class MergeTest(unittest.TestCase):
     def setUp(self):

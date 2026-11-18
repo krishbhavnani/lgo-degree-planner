@@ -105,9 +105,13 @@ const Engine = (() => {
       }
     }
     const inBundle = it => bundles.some(b => it.number === b.lead || inList(program, b.partners, it.number, () => info(keyOf(it))));
+    // A claimable list (AAGS) also takes courses the student counts on their own call.
+    const list = program.lists[r.list];
     for (const it of items) {
       if (inBundle(it) || inPool(it, r.exclude)) continue;
-      if (inList(program, r.list, it.number, () => info(keyOf(it)))) cands.push({ ids: [it.id], label: it.number, units: unitsOf(it) });
+      const listed = inList(program, r.list, it.number, () => info(keyOf(it)));
+      const claimed = !listed && !!list.claimable && (it.claims || []).includes(r.list);
+      if (listed || claimed) cands.push({ ids: [it.id], label: it.number, units: unitsOf(it), claimed });
     }
     cands.sort((a, b) => b.units - a.units);
     const core = [];
@@ -118,6 +122,8 @@ const Engine = (() => {
       total += c.units;
     }
     claimed[r.id] = new Set(core.flatMap(c => c.ids));
+    const onTheirCall = core.filter(c => c.claimed).map(c => c.label);
+    if (onTheirCall.length) notes.push(fill(list.claim_note, { courses: onTheirCall.join(", ") }));
     return { value: total, courses: core.length, met: total >= target && core.length >= r.min_courses,
       counted: core.map(c => c.label), notes };
   }

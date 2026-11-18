@@ -85,9 +85,10 @@ function renderAags(c){
   const a=c.aags||'Not approved';
   const map={'Approved-Offered':['b-blue','AAGS ✓ offered'],'Approved-NotThisYear':['b-grey','AAGS ✓ (not this yr)'],
              'Approved-NotInCatalog':['b-grey','AAGS ✓ (not in catalog)'],'Not approved':['b-none','— not approved'],
-             'N/A':['b-none','—']};
+             'N/A':['b-none','—'],'Needs approval':['b-warn','AAGS ? needs approval']};
   const [cls,txt]=map[a]||['b-none',a];
-  return `<span class="badge ${cls}">${esc(txt)}</span>`;
+  const tip=c.aags_note?`EECS lists it as: "${c.aags_note}". Not on the AAGS list: you can count it in your plan, but get it approved first.`:'';
+  return `<span class="badge ${cls}" ${tip?`title="${esc(tip)}"`:''}>${esc(txt)}</span>`;
 }
 function renderPrereqs(c){
   if(!c.prereqs || !c.prereqs.length){
@@ -122,7 +123,7 @@ function renderDesc(c){
 
 // ---- build sidebar filters ----------------------------------------------
 function uniq(arr){return [...new Set(arr)].filter(x=>x!=null&&x!=='');}
-const AAGS=['Approved-Offered','Approved-NotThisYear','Approved-NotInCatalog','Not approved'];
+const AAGS=['Approved-Offered','Approved-NotThisYear','Approved-NotInCatalog','Needs approval','Not approved'];
 const CATS=uniq(COURSES.map(c=>c.category)).sort();
 const DEPTS=uniq(COURSES.map(c=>c.department)).sort();
 

@@ -62,3 +62,18 @@ test("targets the user didn't change come from the program", () => {
   assert.equal(byId.python, 1);
   assert.equal(Engine.evaluate(program, [], info, { mba_total: 150 }).summary[0].target, 150);
 });
+
+test("a special subject counts toward AAGS only when the student claims it, with a note", () => {
+  const it = (id, number, units, extra = {}) => ({ id, number, title: number, units, tags: ["Eng Elective"], term: "Fall 2026", audit: false, ...extra });
+  const items = [it("a", "6.5060", 12), it("b", "6.5080", 12), it("c", "6.S978", 12)];
+  const aags = items => Engine.evaluate(program, items, info).requirements.find(r => r.id === "aags");
+  const before = aags(items);
+  assert.deepEqual([before.value, before.courses, before.counted, before.notes], [24, 2, ["6.5060", "6.5080"], []]);
+  const after = aags([...items.slice(0, 2), it("c", "6.S978", 12, { claims: ["aags"] })]);
+  assert.deepEqual([after.value, after.courses, after.met], [36, 3, true]);
+  assert.equal(after.notes.length, 1);
+  assert.match(after.notes[0], /^Counted toward AAGS on your own call: 6\.S978\./);
+  // Claiming an already-approved course changes nothing and adds no note.
+  const approved = aags([it("a", "6.5060", 12, { claims: ["aags"] })]);
+  assert.deepEqual([approved.value, approved.notes], [12, []]);
+});
