@@ -17,7 +17,7 @@ const COLS = [
      (c.design_approved?` <span class="dz dz-${c.design_approved}" title="${c.design_approved==='approved'?'LGO pre-approved design class: fulfills the Design requirement':'LGO conditionally approved design class: check the LGO handbook'}">🎨</span>`:'')+
      (c.half_term?` <span class="chip half" title="Half-term course (${c.half_term==='H1'?'first':'second'} half)">${c.half_term}</span>`:'')+
      (c.kind==='special'?` <span class="hint" title="Special subjects reuse their number for a different topic each term">· topic changes each term</span>`:'')},
-  {key:'category',label:'Category', get:c=>c.category||'', render:c=>esc(c.category||'')},
+  {key:'category',label:'Research area', get:c=>c.category||'', render:c=>esc(c.category||'')},
   {key:'terms', label:'Your terms', num:true, get:c=>firstOffered(c), render:renderTermChips},
   {key:'offering',label:'Offering', get:c=>c.available.now?'':c.available.reason, render:renderOffering},
   {key:'aags', label:'AAGS', get:c=>c.aags||'', render:renderAags},
