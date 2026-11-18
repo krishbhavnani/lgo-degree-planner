@@ -1,145 +1,189 @@
 # LGO Degree Planner
 
-A fast, offline-friendly dashboard for **MIT Leaders for Global Operations (LGO)** students to
-browse graduate courses, plan a two-year schedule term by term, and track progress toward the dual
-**SM + MBA** degree requirements — all in a single HTML page with no sign-in and no server.
+A course planner for **MIT Leaders for Global Operations (LGO)** students: browse graduate courses,
+lay out your two years term by term, and track progress toward the dual **SM + MBA** degree. It runs
+in your browser with no sign-in, and the course data refreshes itself from MIT every week.
 
-> **Planning aid, not an official degree audit.** This tool is unofficial and may contain errors or
-> stale data. Always confirm requirements and course details against the
-> [MIT Course Catalog](https://student.mit.edu/catalog/), your department, and the LGO program
-> office before registering.
+**Live site: <https://krishbhavnani.github.io/lgo-degree-planner/>**
 
----
-
-## What it does
-
-**Browse** — 730 graduate subjects across the departments LGO students most commonly draw from:
-
-| Dept | Courses | Covers |
-|------|--------:|--------|
-| Course 6 — EECS | 158 | engineering electives, AAGS core |
-| Course 15 — Management (Sloan) | 396 | MBA core, LGO-required, MBA electives |
-| Course 2 — MechE | 170 | non-EECS engineering electives |
-| Common Ground for Computing (other depts) | 6 | 6.C51 co-requisite modules and similar |
-
-For each course: number, title, category, term offered, offering status (e.g. *not offered this
-year*), units (and total), prerequisites (resolved to names), parsed schedule, description,
-instructor, **AAGS** approval status (taken only from the EECS AAGS page), and **workload** —
-average weekly hours in and out of class from MIT subject evaluations, with a Light → Very Heavy
-difficulty label (about 400 EECS and Sloan courses have evaluation data). Filter by department, term, offering, category, AAGS,
-unit range, **🎨 pre-approved design classes**, and **🧪 Action Learning labs**; search and sort on
-any column; show/hide columns.
-
-**Plan** — switch to the Plan tab for a sandbox schedule:
-
-- An 8-term grid (Summer → Spring across two years) plus an "Unassigned" holding area. Courses in
-  Unassigned don't count toward requirements until you place them in a term.
-- Starts from a **base plan of LGO-required courses**. Required courses with a flexible term
-  (15.769 Operations Strategy; the second 15.792 seminar — both Spring 2027 or Spring 2028) start in Unassigned: they
-  can't be removed, and can only be scheduled in their allowed terms. Base-plan courses keep their
-  requirement designation (tags can't be changed); courses you add are fully editable.
-- Each term shows its total units (every course counts) and flags anything over **72 units**.
-- Add any catalog course (or a custom one), move it between terms, set units, add tags, or mark it
-  as **audit** (shown but not counted toward credit).
-- A live **requirements tracker** for the LGO dual degree:
-  - **MBA** — core (36u) + LGO-required (71u) + free electives (≥49u) = **156u**
-  - **EECS SM** (mirrors the LGO handbook, Appendix 5A) — AAGS core (3 AAGS-approved courses / 36u)
-    + LGO-required eng (24u) + eng electives beyond the AAGS core (≥6u) = **≥66u**. 6.C51 taken with
-    a 6u co-requisite module (e.g. 15.C51) counts as one 12u AAGS course.
-  - **SM thesis** (24u), **Python** (6.S090), and the **LGO Design** requirement
-  - Pre-approved design courses satisfy the Design requirement automatically.
-- Requirement targets are **editable** (and resettable to defaults), so the model isn't locked in.
-- Export or import your plan as JSON.
-
-Everything you do — your plan, flagged courses, column preferences, and requirement edits — is saved
-in your browser's `localStorage`, so each visitor gets their own private dashboard.
-
-Counts visits anonymously (GoatCounter, no cookies). Your plan never leaves your browser.
+> **Planning aid, not an official degree audit.** This tool is unofficial and can be wrong or out of
+> date. Confirm requirements and course details with the LGO program office, your department and the
+> [MIT Subject Listing](https://student.mit.edu/catalog/) before you register.
 
 ---
 
-## Quick start
+## Using the planner
 
-The live site is at <https://krishbhavnani.github.io/lgo-degree-planner/>. It runs entirely
-client-side from `index.html` plus the generated data files.
+### Browse
 
-To run it locally, build the data files first (they are generated, not committed; see below), then
-open `index.html` in any modern browser:
+743 graduate subjects from the departments LGO students draw on most: Course 15 (Sloan, 401),
+Course 2 (MechE, 171), Course 6 (EECS, 162), plus Common Ground modules and the EECS special
+subjects that other departments list. A special subject (a number like 15.S04 that carries a
+different topic each term) gets one row per topic.
 
-```bash
-git worktree add .data data
-python3 scrape.py --from-archive
-```
+For each course you see the title, research area, units, schedule, prerequisites, instructor and
+description, and:
+
+- **Your terms:** the terms of *your* plan in which the catalog lists the course, each with a badge.
+  The badge legend sits above the table:
+
+  | Badge | Meaning |
+  |---|---|
+  | ✓ | Listed in the catalog for that term (or, for a past term, it ran) |
+  | ~ | Expected: offered regularly, but that year's catalog isn't out yet |
+  | ? | Unverified: not offered regularly; check with the department |
+  | ⚠ | Not offered, not listed, or dropped from the catalog |
+  | ✗ | Didn't run that term |
+  | ○ | Before tracking began (Fall 2026): no record, any course can be planned |
+  | … | Beyond the terms the catalog covers so far |
+
+- **AAGS** status, taken only from the EECS AAGS list. EECS special subjects whose EECS page says
+  "AAGS in …" but that aren't on the list show **"AAGS ? needs approval"**: you decide whether to count
+  them (see Plan).
+- **Workload:** average weekly hours in and out of class from MIT subject evaluations, with a
+  Light → Very Heavy label (about 360 courses). *Eval match* flags when the evaluation was for a
+  different instructor; `*` marks fewer than 5 responses.
+- Marks for **🎨 LGO pre-approved design classes** (faded: conditionally approved) and
+  **🧪 Action Learning labs**, and an **H1/H2** chip for half-term courses.
+
+Filter by department, **Offered in** (any of your terms), AAGS, design, Action Learning, research
+area, units and weekly hours; search; sort any column; show or hide columns. Browse lists courses
+offered now or later; tick *Include not currently offered* to see the rest, dimmed, with the reason.
+Star courses (★) and export the starred ones as CSV. **＋** adds a course to your plan.
+
+### Plan
+
+- **Your graduation year.** The first time you open Plan it asks which class you're in
+  ("Graduating 2028" = Summer 2026 → Spring 2028). Change it any time from the Plan header; every
+  term relabels and your courses move with them. Years on offer: the incoming class and the three
+  before it.
+- **The base plan.** Your plan starts with the LGO-required courses in their usual terms. Two
+  flexible required courses (15.769 and the second 15.792 seminar) start in *Unassigned* and can only
+  go in their allowed terms. Base-plan courses keep their category.
+- **Adding courses.** *＋ Add course* searches the catalog; each result shows its badge for the term
+  you're adding to, best first. For a term that's already over, only courses that ran are shown.
+  You can also type in a course that isn't in the catalog. *＋ Placeholder* holds a spot ("MBA
+  Elective placeholder, 9u") for a course you haven't picked yet; it counts like a real course.
+- **Each course** shows its badge for its term. Pick which requirement it counts toward (one
+  category per course), toggle **LGO Design**, change its units, move it, or mark it **audit**
+  (shown, not counted). Courses in *Unassigned* don't count until you place them.
+- **AAGS on your own call.** A special subject (or a course EECS describes as AAGS but that isn't
+  on the list) has a **"+ AAGS?"** toggle. Turn it on to count the course toward the AAGS core; it's
+  marked *AAGS (your call)*, and the AAGS requirement reminds you to get it approved.
+- **Terms** show their total units and flag anything over **72 units**. Terms with half-term courses
+  also show the load in each half (H1 / H2).
+- **Requirements tracker,** live as you edit:
+  - **MBA:** core (36u) + LGO-required (71u) + free electives (≥49u) = **156u**
+  - **EECS SM:** AAGS core (3 AAGS courses, 36u) + LGO-required engineering (24u) + engineering
+    electives beyond the AAGS core (≥6u) = **≥66u**. 6.C51 taken with one 6u co-requisite module
+    (e.g. 15.C51) counts as a single 12u AAGS course.
+  - **SM thesis** (24u), **Python** (6.S090), and **LGO Design** (a pre-approved design course
+    fulfills it automatically).
+  - Targets are editable under *⚙ Requirements* (and reset to the defaults).
+- **Export / Import** your plan as a file; *Reset* returns to the base plan; *Start blank* clears
+  everything except the required courses.
+
+### Your data
+
+Your plan, stars and column choices are saved in your browser only (`localStorage`); nothing about
+your plan is sent anywhere. Plans saved by earlier versions of the site are converted automatically
+the first time you open the new one (the original is kept in your browser). The site counts visits
+anonymously (GoatCounter, no cookies).
 
 ---
 
-## How the data is built
+## What it can't do (yet)
 
-Course data is built into `db.js` (every course and its term offerings) and `changes.js` by `scrape.py` (Python 3; standard library
-plus `pypdf` for one PDF, see `requirements.txt`). Nothing is maintained by hand: every source has
-a fetcher in `pipeline/sources/`. The same run turns the degree rules in `programs/*.json` into
-`programs.js`. The generated files are never committed to `main`: GitHub Actions builds them from
-the `data` branch on every deploy and refreshes that branch weekly.
+- **It isn't an official audit.** Rules are modeled from the LGO handbook and program material and
+  can be incomplete; a few details are still being confirmed with LGO staff (for example, whether
+  pass/fail classes count toward credits, and the exact MBA free-elective total).
+- **One major:** the requirement tracker models **EECS SM + MBA**. Other engineering majors can browse
+  and plan courses as electives, but their requirements aren't modeled yet.
+- **Course coverage:** Course 6 subjects listed only on catalog page m6e (about 84, e.g. Gordon
+  Engineering Leadership) aren't included yet. The EECS IAP offerings page and next spring's EECS
+  subject updates aren't read yet; IAP courses come from the MIT catalog only.
+- **Terms before Fall 2026** have no catalog record (tracking began then), and terms beyond the
+  current catalog show as "not projected yet".
+- **6.C51 pairing** is simplified: a module without 6.C51 still counts as an engineering elective.
+- **Workload hours** come from the most recent evaluation and may reflect another instructor or
+  year. MechE, Common Ground and new special subjects mostly have none; special-subject hours only
+  show when the evaluation's title matches the topic.
+- **Action Learning labs** come from Sloan's yearly booklet: a brand-new lab, or one running under a
+  special-subject number, appears only once the booklet is published.
+- Not designed for phones yet.
+
+---
+
+## What's next
+
+1. **Feedback from LGO staff and a demo with EECS students,** who enter their real plans and check
+   the totals. Their corrections come first.
+2. **One-category model, finished:** LGO Design only alongside an elective; conditionally approved
+   design courses shown as an indicator only.
+3. **More EECS courses:** the m6e catalog page, the spring EECS subject updates and the EECS IAP
+   list as soon as MIT publishes them.
+4. **Handoff:** a maintainer guide (refreshes, the once-a-term evaluation run, adding a major).
+5. **A second major.**
+
+---
+
+## How it's built (for maintainers)
+
+The site is static: `index.html` plus plain JavaScript in `app/` (no build step, no npm) and three
+generated files:
+
+| File | What it holds | Made from |
+|---|---|---|
+| `db.js` | every course and its term offerings, statuses, designations, eval hours | the course database on the [`data` branch](https://github.com/krishbhavnani/lgo-degree-planner/tree/data) |
+| `changes.js` | the recent change feed (courses added, dropped, changed) | the same branch |
+| `programs.js` | the degree rules | `programs/lgo.json` (shared LGO rules, base plan, terms) and `programs/eecs.json` |
+
+Code: `app/catalog.js` reads `db.js`; `app/engine.js` evaluates requirements from the program files
+(pure functions, tested in node); `app/state.js` is the saved plan; `app/browse.js` and
+`app/plan.js` are the two tabs. **Degree rules live only in `programs/*.json`**; a test fails if a
+course number or category name appears in the app code.
+
+### The data pipeline
+
+`scrape.py` (Python 3, standard library plus `pypdf`) fetches every source politely, parses it,
+checks it, archives it and merges it into the course database. Nothing is maintained by hand.
+
+| Source | What it provides |
+|---|---|
+| [MIT Subject Listing](https://student.mit.edu/catalog/) | every graduate subject: terms, units, schedule, offering status; the academic year is read from the pages |
+| MIT Subject Listing index | department names for subjects outside the scraped departments |
+| EECS [AAGS](https://eecsis.mit.edu/degree_requirements.pcgi?program=AAGS) list | AAGS approval (the only source for it) |
+| EECS [subject updates](https://www.eecs.mit.edu/academics/subject-updates/) | this and next term's EECS special subjects; their "AAGS in …" wording is kept as a note, never as approval |
+| LGO handbook, Appendix 2 | pre-approved and conditionally approved design classes |
+| MIT Sloan [Action Learning](https://mitsloan.mit.edu/action-learning) booklet | which courses are Action Learning labs |
+| MIT subject evaluations | workload hours (refreshed once per term by a logged-in run; only the extracted hours are published) |
+
+- **Weekly refresh:** GitHub Actions runs `scrape.py --refresh` every Monday (08:00 UTC), commits the
+  results to the `data` branch and redeploys. Pushes to `main` redeploy from the stored data.
+- **Guardrails:** every run checks what it fetched before publishing: pages returned and complete,
+  no login pages, catalog pages from the same day, course counts not down more than 30%, required
+  fields present. If the catalog or AAGS checks fail, nothing is published. If another source breaks,
+  the run keeps that source's last good data, publishes, and fails the job so the maintainer is
+  emailed.
+- **History:** raw copies of every page (saved only when they change), the parsed data per source,
+  the course database and its change feed all live on the `data` branch.
+
+### Running it locally
 
 ```bash
 pip install -r requirements.txt
-git worktree add .data data      # the data branch: archived pages, extracts, course database
-python3 scrape.py --from-archive # rebuild the site files from .data/ (fetches nothing)
-python3 scrape.py --refresh      # fetch everything live from MIT, check, archive, publish
-python3 -m unittest discover -s tests -t .
+git worktree add .data data          # the data branch
+python3 scrape.py --from-archive     # write db.js, changes.js, programs.js (fetches nothing)
+open index.html                      # or serve the folder over http
+python3 scrape.py --refresh          # fetch live from MIT, check, archive, update the database
+python3 -m unittest discover -s tests -t .   # Python tests
+node --test tests/js/*.test.js               # JS tests: requirement goldens, saved plans, rules
 ```
 
-| Source | What it provides |
-|--------|------------------|
-| [MIT Subject Listing](https://student.mit.edu/catalog/) | every graduate subject, terms, units, schedule, offering status; the academic year is read from the pages |
-| MIT Subject Listing index | department names for subjects outside the scraped departments |
-| EECS [AAGS](https://eecsis.mit.edu/degree_requirements.pcgi?program=AAGS) list | AAGS approval (the only source for it) |
-| EECS [subject updates](https://www.eecs.mit.edu/academics/subject-updates/) | this and next term's EECS special subjects (all graduate ones) |
-| LGO handbook, Appendix 2 | pre-approved and conditionally approved design classes |
-| MIT Sloan [Action Learning](https://mitsloan.mit.edu/action-learning) course booklet | which courses are Action Learning labs |
-| MIT subject evaluations | workload hours (refreshed once per term by a logged-in run and stored on the `data` branch; only the extracted hours are published) |
-
-**Guardrails.** Every run checks what it fetched before publishing anything: pages returned and
-complete, no login pages, catalog pages from the same day, course counts not down more than 30%
-from the last good run, required fields present. If the catalog or AAGS checks fail, nothing is
-written. If one of the other sources breaks (a page redesign, a late booklet), the run keeps that
-source's last good data, still publishes, and exits with a warning.
-
-**History.** Raw copies of every page are archived on the
-[`data` branch](https://github.com/krishbhavnani/lgo-degree-planner/tree/data) (saved only when
-they change), along with the parsed data per source.
-
-**Known limitation.** The Action Learning booklet is the only source that marks courses as labs.
-Regular-numbered labs stay labs from year to year without it, but a brand-new lab, or a lab that
-runs under a special-subject number (15.Sxx), is only picked up once Sloan publishes the booklet.
-
-To add a department, add it to `CATALOG_DEPARTMENTS` in `pipeline/config.py` and re-run.
+To add a department, add it to `CATALOG_DEPARTMENTS` in `pipeline/config.py`. To change a degree
+rule, edit `programs/*.json`; the JS tests check every reference.
 
 ---
 
-## Notes & limitations
-
-- **Requirement model.** The built-in requirement tracker reflects the **LGO EECS SM + MBA** dual
-  degree; its rules live in `programs/lgo.json` and `programs/eecs.json`. Courses from other departments are browsable and plannable as electives, but per-major
-  requirement models for other engineering programs aren't built in yet.
-- **Term labels** currently span a fixed two-year window and fit one cohort at a time.
-- **Workload data coverage.** Hours come from the most recent MIT subject-evaluation report for each
-  course, which may reflect a different instructor or year (the *Eval match* column flags this; a `*`
-  marks small response counts). MechE, Common Ground and brand-new special subjects have no
-  evaluation data yet.
-- **No ratings.** Subjective "worth-taking" ratings are personal and are not included; the Rating
-  columns are empty. Letting users import their own ratings/notes is on the roadmap.
-
----
-
-## Data sources
-
-See [How the data is built](#how-the-data-is-built). All course content belongs to MIT and its departments; this tool only reorganizes publicly listed
-information for planning convenience.
-
----
-
-## Status
-
-Early public version. Feedback and requirement corrections from LGO students across majors are
-welcome — please open an issue.
+All course content belongs to MIT and its departments; this tool only reorganizes publicly listed
+information for planning. Questions or corrections: open an issue on this repository.
