@@ -1,25 +1,25 @@
 {
  "format": 1,
  "source": "catalog",
- "run_id": "2026-11-16T101309Z",
+ "run_id": "2026-11-18T172625Z",
  "years": {
   "term": "Fall 2026",
   "this": "2026-2027",
   "next": "2027-2028"
  },
  "page_dates": {
-  "m6a": "13-NOV-2026 05:10 PM",
-  "m6b": "13-NOV-2026 05:10 PM",
-  "m6c": "13-NOV-2026 05:10 PM",
-  "m6d": "13-NOV-2026 05:10 PM",
-  "m15a": "13-NOV-2026 05:10 PM",
-  "m15b": "13-NOV-2026 05:10 PM",
-  "m15c": "13-NOV-2026 05:10 PM",
-  "m2a": "13-NOV-2026 05:10 PM",
-  "m2b": "13-NOV-2026 05:10 PM",
-  "m2c": "13-NOV-2026 05:10 PM",
-  "mCGa": "13-NOV-2026 05:10 PM",
-  "m6e": "13-NOV-2026 05:10 PM"
+  "m6a": "17-NOV-2026 05:10 PM",
+  "m6b": "17-NOV-2026 05:10 PM",
+  "m6c": "17-NOV-2026 05:10 PM",
+  "m6d": "17-NOV-2026 05:10 PM",
+  "m15a": "17-NOV-2026 05:10 PM",
+  "m15b": "17-NOV-2026 05:10 PM",
+  "m15c": "17-NOV-2026 05:10 PM",
+  "m2a": "17-NOV-2026 05:10 PM",
+  "m2b": "17-NOV-2026 05:10 PM",
+  "m2c": "17-NOV-2026 05:10 PM",
+  "mCGa": "17-NOV-2026 05:10 PM",
+  "m6e": "17-NOV-2026 05:10 PM"
  },
  "ranges": [
   {
@@ -4222,8 +4222,8 @@
    "url": "https://student.mit.edu/catalog/m6c.html#6.7000",
    "_src": {
     "page": "catalog/m6c",
-    "snapshot": "snapshots/catalog/m6c/2026-11-09T090447Z.html.gz",
-    "fetched_at": "2026-11-09T09:04:47Z"
+    "snapshot": "snapshots/catalog/m6c/2026-11-18T172628Z.html.gz",
+    "fetched_at": "2026-11-18T17:26:28Z"
    }
   },
   {
@@ -4261,8 +4261,8 @@
    "url": "https://student.mit.edu/catalog/m6c.html#6.7010",
    "_src": {
     "page": "catalog/m6c",
-    "snapshot": "snapshots/catalog/m6c/2026-11-09T090447Z.html.gz",
-    "fetched_at": "2026-11-09T09:04:47Z"
+    "snapshot": "snapshots/catalog/m6c/2026-11-18T172628Z.html.gz",
+    "fetched_at": "2026-11-18T17:26:28Z"
    }
   },
   {
@@ -4302,8 +4302,8 @@
    "url": "https://student.mit.edu/catalog/m6c.html#6.7020",
    "_src": {
     "page": "catalog/m6c",
-    "snapshot": "snapshots/catalog/m6c/2026-11-09T090447Z.html.gz",
-    "fetched_at": "2026-11-09T09:04:47Z"
+    "snapshot": "snapshots/catalog/m6c/2026-11-18T172628Z.html.gz",
+    "fetched_at": "2026-11-18T17:26:28Z"
    }
   },
   {
@@ -4366,8 +4366,8 @@
    "url": "https://student.mit.edu/catalog/m6c.html#6.3102",
    "_src": {
     "page": "catalog/m6c",
-    "snapshot": "snapshots/catalog/m6c/2026-11-09T090447Z.html.gz",
-    "fetched_at": "2026-11-09T09:04:47Z"
+    "snapshot": "snapshots/catalog/m6c/2026-11-18T172628Z.html.gz",
+    "fetched_at": "2026-11-18T17:26:28Z"
    }
   },
   {
@@ -4409,8 +4409,8 @@
    "url": "https://student.mit.edu/catalog/m6c.html#6.7100",
    "_src": {
     "page": "catalog/m6c",
-    "snapshot": "snapshots/catalog/m6c/2026-11-09T090447Z.html.gz",
-    "fetched_at": "2026-11-09T09:04:47Z"
+    "snapshot": "snapshots/catalog/m6c/2026-11-18T172628Z.html.gz",
+    "fetched_at": "2026-11-18T17:26:28Z"
    }
   },
   {
@@ -4450,8 +4450,8 @@
    "url": "https://student.mit.edu/catalog/m6c.html#6.7110",
    "_src": {
     "page": "catalog/m6c",
-    "snapshot": "snapshots/catalog/m6c/2026-11-09T090447Z.html.gz",
-    "fetched_at": "2026-11-09T09:04:47Z"
+    "snapshot": "snapshots/catalog/m6c/2026-11-18T172628Z.html.gz",
+    "fetched_at": "2026-11-18T17:26:28Z"
    }
   },
   {
@@ -4492,8 +4492,8 @@
    "url": "https://student.mit.edu/catalog/m6c.html#6.7121",
    "_src": {
     "page": "catalog/m6c",
-    "snapshot": "snapshots/catalog/m6c/2026-11-09T090447Z.html.gz",
-    "fetched_at": "2026-11-09T09:04:47Z"
+    "snapshot": "snapshots/catalog/m6c/2026-11-18T172628Z.html.gz",
+    "fetched_at": "2026-11-18T17:26:28Z"
    }
   },
   {
@@ -4554,8 +4554,8 @@
    "url": "https://student.mit.edu/catalog/m6c.html#6.7210",
    "_src": {
     "page": "catalog/m6c",
-    "snapshot": "snapshots/catalog/m6c/2026-11-09T090447Z.html.gz",
-    "fetched_at": "2026-11-09T09:04:47Z"
+    "snapshot": "snapshots/catalog/m6c/2026-11-18T172628Z.html.gz",
+    "fetched_at": "2026-11-18T17:26:28Z"
    }
   },
   {
@@ -4597,8 +4597,8 @@
    "url": "https://student.mit.edu/catalog/m6c.html#6.7220",
    "_src": {
     "page": "catalog/m6c",
-    "snapshot": "snapshots/catalog/m6c/2026-11-09T090447Z.html.gz",
-    "fetched_at": "2026-11-09T09:04:47Z"
+    "snapshot": "snapshots/catalog/m6c/2026-11-18T172628Z.html.gz",
+    "fetched_at": "2026-11-18T17:26:28Z"
    }
   },
   {
@@ -4638,8 +4638,8 @@
    "url": "https://student.mit.edu/catalog/m6c.html#6.7230",
    "_src": {
     "page": "catalog/m6c",
-    "snapshot": "snapshots/catalog/m6c/2026-11-09T090447Z.html.gz",
-    "fetched_at": "2026-11-09T09:04:47Z"
+    "snapshot": "snapshots/catalog/m6c/2026-11-18T172628Z.html.gz",
+    "fetched_at": "2026-11-18T17:26:28Z"
    }
   },
   {
@@ -4678,8 +4678,8 @@
    "url": "https://student.mit.edu/catalog/m6c.html#6.7240",
    "_src": {
     "page": "catalog/m6c",
-    "snapshot": "snapshots/catalog/m6c/2026-11-09T090447Z.html.gz",
-    "fetched_at": "2026-11-09T09:04:47Z"
+    "snapshot": "snapshots/catalog/m6c/2026-11-18T172628Z.html.gz",
+    "fetched_at": "2026-11-18T17:26:28Z"
    }
   },
   {
@@ -4719,8 +4719,8 @@
    "url": "https://student.mit.edu/catalog/m6c.html#6.7250",
    "_src": {
     "page": "catalog/m6c",
-    "snapshot": "snapshots/catalog/m6c/2026-11-09T090447Z.html.gz",
-    "fetched_at": "2026-11-09T09:04:47Z"
+    "snapshot": "snapshots/catalog/m6c/2026-11-18T172628Z.html.gz",
+    "fetched_at": "2026-11-18T17:26:28Z"
    }
   },
   {
@@ -4758,8 +4758,8 @@
    "url": "https://student.mit.edu/catalog/m6c.html#6.7260",
    "_src": {
     "page": "catalog/m6c",
-    "snapshot": "snapshots/catalog/m6c/2026-11-09T090447Z.html.gz",
-    "fetched_at": "2026-11-09T09:04:47Z"
+    "snapshot": "snapshots/catalog/m6c/2026-11-18T172628Z.html.gz",
+    "fetched_at": "2026-11-18T17:26:28Z"
    }
   },
   {
@@ -4812,8 +4812,8 @@
    "url": "https://student.mit.edu/catalog/m6c.html#6.7300",
    "_src": {
     "page": "catalog/m6c",
-    "snapshot": "snapshots/catalog/m6c/2026-11-09T090447Z.html.gz",
-    "fetched_at": "2026-11-09T09:04:47Z"
+    "snapshot": "snapshots/catalog/m6c/2026-11-18T172628Z.html.gz",
+    "fetched_at": "2026-11-18T17:26:28Z"
    }
   },
   {
@@ -4866,8 +4866,8 @@
    "url": "https://student.mit.edu/catalog/m6c.html#6.7310",
    "_src": {
     "page": "catalog/m6c",
-    "snapshot": "snapshots/catalog/m6c/2026-11-09T090447Z.html.gz",
-    "fetched_at": "2026-11-09T09:04:47Z"
+    "snapshot": "snapshots/catalog/m6c/2026-11-18T172628Z.html.gz",
+    "fetched_at": "2026-11-18T17:26:28Z"
    }
   },
   {
@@ -4908,8 +4908,8 @@
    "url": "https://student.mit.edu/catalog/m6c.html#6.7320",
    "_src": {
     "page": "catalog/m6c",
-    "snapshot": "snapshots/catalog/m6c/2026-11-09T090447Z.html.gz",
-    "fetched_at": "2026-11-09T09:04:47Z"
+    "snapshot": "snapshots/catalog/m6c/2026-11-18T172628Z.html.gz",
+    "fetched_at": "2026-11-18T17:26:28Z"
    }
   },
   {
@@ -4962,8 +4962,8 @@
    "url": "https://student.mit.edu/catalog/m6c.html#6.7330",
    "_src": {
     "page": "catalog/m6c",
-    "snapshot": "snapshots/catalog/m6c/2026-11-09T090447Z.html.gz",
-    "fetched_at": "2026-11-09T09:04:47Z"
+    "snapshot": "snapshots/catalog/m6c/2026-11-18T172628Z.html.gz",
+    "fetched_at": "2026-11-18T17:26:28Z"
    }
   },
   {
@@ -5005,8 +5005,8 @@
    "url": "https://student.mit.edu/catalog/m6c.html#6.7340",
    "_src": {
     "page": "catalog/m6c",
-    "snapshot": "snapshots/catalog/m6c/2026-11-09T090447Z.html.gz",
-    "fetched_at": "2026-11-09T09:04:47Z"
+    "snapshot": "snapshots/catalog/m6c/2026-11-18T172628Z.html.gz",
+    "fetched_at": "2026-11-18T17:26:28Z"
    }
   },
   {
@@ -5044,8 +5044,8 @@
    "url": "https://student.mit.edu/catalog/m6c.html#6.7350",
    "_src": {
     "page": "catalog/m6c",
-    "snapshot": "snapshots/catalog/m6c/2026-11-09T090447Z.html.gz",
-    "fetched_at": "2026-11-09T09:04:47Z"
+    "snapshot": "snapshots/catalog/m6c/2026-11-18T172628Z.html.gz",
+    "fetched_at": "2026-11-18T17:26:28Z"
    }
   },
   {
@@ -5100,8 +5100,8 @@
    "url": "https://student.mit.edu/catalog/m6c.html#6.7410",
    "_src": {
     "page": "catalog/m6c",
-    "snapshot": "snapshots/catalog/m6c/2026-11-09T090447Z.html.gz",
-    "fetched_at": "2026-11-09T09:04:47Z"
+    "snapshot": "snapshots/catalog/m6c/2026-11-18T172628Z.html.gz",
+    "fetched_at": "2026-11-18T17:26:28Z"
    }
   },
   {
@@ -5141,8 +5141,8 @@
    "url": "https://student.mit.edu/catalog/m6c.html#6.7420",
    "_src": {
     "page": "catalog/m6c",
-    "snapshot": "snapshots/catalog/m6c/2026-11-09T090447Z.html.gz",
-    "fetched_at": "2026-11-09T09:04:47Z"
+    "snapshot": "snapshots/catalog/m6c/2026-11-18T172628Z.html.gz",
+    "fetched_at": "2026-11-18T17:26:28Z"
    }
   },
   {
@@ -5182,8 +5182,8 @@
    "url": "https://student.mit.edu/catalog/m6c.html#6.7430",
    "_src": {
     "page": "catalog/m6c",
-    "snapshot": "snapshots/catalog/m6c/2026-11-09T090447Z.html.gz",
-    "fetched_at": "2026-11-09T09:04:47Z"
+    "snapshot": "snapshots/catalog/m6c/2026-11-18T172628Z.html.gz",
+    "fetched_at": "2026-11-18T17:26:28Z"
    }
   },
   {
@@ -5222,8 +5222,8 @@
    "url": "https://student.mit.edu/catalog/m6c.html#6.7440",
    "_src": {
     "page": "catalog/m6c",
-    "snapshot": "snapshots/catalog/m6c/2026-11-09T090447Z.html.gz",
-    "fetched_at": "2026-11-09T09:04:47Z"
+    "snapshot": "snapshots/catalog/m6c/2026-11-18T172628Z.html.gz",
+    "fetched_at": "2026-11-18T17:26:28Z"
    }
   },
   {
@@ -5263,8 +5263,8 @@
    "url": "https://student.mit.edu/catalog/m6c.html#6.7450",
    "_src": {
     "page": "catalog/m6c",
-    "snapshot": "snapshots/catalog/m6c/2026-11-09T090447Z.html.gz",
-    "fetched_at": "2026-11-09T09:04:47Z"
+    "snapshot": "snapshots/catalog/m6c/2026-11-18T172628Z.html.gz",
+    "fetched_at": "2026-11-18T17:26:28Z"
    }
   },
   {
@@ -5304,8 +5304,8 @@
    "url": "https://student.mit.edu/catalog/m6c.html#6.7460",
    "_src": {
     "page": "catalog/m6c",
-    "snapshot": "snapshots/catalog/m6c/2026-11-09T090447Z.html.gz",
-    "fetched_at": "2026-11-09T09:04:47Z"
+    "snapshot": "snapshots/catalog/m6c/2026-11-18T172628Z.html.gz",
+    "fetched_at": "2026-11-18T17:26:28Z"
    }
   },
   {
@@ -5342,8 +5342,8 @@
    "url": "https://student.mit.edu/catalog/m6c.html#6.7470",
    "_src": {
     "page": "catalog/m6c",
-    "snapshot": "snapshots/catalog/m6c/2026-11-09T090447Z.html.gz",
-    "fetched_at": "2026-11-09T09:04:47Z"
+    "snapshot": "snapshots/catalog/m6c/2026-11-18T172628Z.html.gz",
+    "fetched_at": "2026-11-18T17:26:28Z"
    }
   },
   {
@@ -5382,8 +5382,8 @@
    "url": "https://student.mit.edu/catalog/m6c.html#6.7480",
    "_src": {
     "page": "catalog/m6c",
-    "snapshot": "snapshots/catalog/m6c/2026-11-09T090447Z.html.gz",
-    "fetched_at": "2026-11-09T09:04:47Z"
+    "snapshot": "snapshots/catalog/m6c/2026-11-18T172628Z.html.gz",
+    "fetched_at": "2026-11-18T17:26:28Z"
    }
   },
   {
@@ -5444,8 +5444,8 @@
    "url": "https://student.mit.edu/catalog/m6c.html#6.3702",
    "_src": {
     "page": "catalog/m6c",
-    "snapshot": "snapshots/catalog/m6c/2026-11-09T090447Z.html.gz",
-    "fetched_at": "2026-11-09T09:04:47Z"
+    "snapshot": "snapshots/catalog/m6c/2026-11-18T172628Z.html.gz",
+    "fetched_at": "2026-11-18T17:26:28Z"
    }
   },
   {
@@ -5487,8 +5487,8 @@
    "url": "https://student.mit.edu/catalog/m6c.html#6.3722",
    "_src": {
     "page": "catalog/m6c",
-    "snapshot": "snapshots/catalog/m6c/2026-11-09T090447Z.html.gz",
-    "fetched_at": "2026-11-09T09:04:47Z"
+    "snapshot": "snapshots/catalog/m6c/2026-11-18T172628Z.html.gz",
+    "fetched_at": "2026-11-18T17:26:28Z"
    }
   },
   {
@@ -5541,8 +5541,8 @@
    "url": "https://student.mit.edu/catalog/m6c.html#6.3732",
    "_src": {
     "page": "catalog/m6c",
-    "snapshot": "snapshots/catalog/m6c/2026-11-09T090447Z.html.gz",
-    "fetched_at": "2026-11-09T09:04:47Z"
+    "snapshot": "snapshots/catalog/m6c/2026-11-18T172628Z.html.gz",
+    "fetched_at": "2026-11-18T17:26:28Z"
    }
   },
   {
@@ -5601,8 +5601,8 @@
    "url": "https://student.mit.edu/catalog/m6c.html#6.7700",
    "_src": {
     "page": "catalog/m6c",
-    "snapshot": "snapshots/catalog/m6c/2026-11-09T090447Z.html.gz",
-    "fetched_at": "2026-11-09T09:04:47Z"
+    "snapshot": "snapshots/catalog/m6c/2026-11-18T172628Z.html.gz",
+    "fetched_at": "2026-11-18T17:26:28Z"
    }
   },
   {
@@ -5642,8 +5642,8 @@
    "url": "https://student.mit.edu/catalog/m6c.html#6.7710",
    "_src": {
     "page": "catalog/m6c",
-    "snapshot": "snapshots/catalog/m6c/2026-11-09T090447Z.html.gz",
-    "fetched_at": "2026-11-09T09:04:47Z"
+    "snapshot": "snapshots/catalog/m6c/2026-11-18T172628Z.html.gz",
+    "fetched_at": "2026-11-18T17:26:28Z"
    }
   },
   {
@@ -5687,8 +5687,8 @@
    "url": "https://student.mit.edu/catalog/m6c.html#6.7720",
    "_src": {
     "page": "catalog/m6c",
-    "snapshot": "snapshots/catalog/m6c/2026-11-09T090447Z.html.gz",
-    "fetched_at": "2026-11-09T09:04:47Z"
+    "snapshot": "snapshots/catalog/m6c/2026-11-18T172628Z.html.gz",
+    "fetched_at": "2026-11-18T17:26:28Z"
    }
   },
   {
@@ -5742,8 +5742,8 @@
    "url": "https://student.mit.edu/catalog/m6c.html#6.7730",
    "_src": {
     "page": "catalog/m6c",
-    "snapshot": "snapshots/catalog/m6c/2026-11-09T090447Z.html.gz",
-    "fetched_at": "2026-11-09T09:04:47Z"
+    "snapshot": "snapshots/catalog/m6c/2026-11-18T172628Z.html.gz",
+    "fetched_at": "2026-11-18T17:26:28Z"
    }
   },
   {
@@ -5786,8 +5786,8 @@
    "url": "https://student.mit.edu/catalog/m6c.html#6.7740",
    "_src": {
     "page": "catalog/m6c",
-    "snapshot": "snapshots/catalog/m6c/2026-11-09T090447Z.html.gz",
-    "fetched_at": "2026-11-09T09:04:47Z"
+    "snapshot": "snapshots/catalog/m6c/2026-11-18T172628Z.html.gz",
+    "fetched_at": "2026-11-18T17:26:28Z"
    }
   },
   {
@@ -5826,8 +5826,8 @@
    "url": "https://student.mit.edu/catalog/m6c.html#6.7800",
    "_src": {
     "page": "catalog/m6c",
-    "snapshot": "snapshots/catalog/m6c/2026-11-09T090447Z.html.gz",
-    "fetched_at": "2026-11-09T09:04:47Z"
+    "snapshot": "snapshots/catalog/m6c/2026-11-18T172628Z.html.gz",
+    "fetched_at": "2026-11-18T17:26:28Z"
    }
   },
   {
@@ -5889,8 +5889,8 @@
    "url": "https://student.mit.edu/catalog/m6c.html#6.7810",
    "_src": {
     "page": "catalog/m6c",
-    "snapshot": "snapshots/catalog/m6c/2026-11-09T090447Z.html.gz",
-    "fetched_at": "2026-11-09T09:04:47Z"
+    "snapshot": "snapshots/catalog/m6c/2026-11-18T172628Z.html.gz",
+    "fetched_at": "2026-11-18T17:26:28Z"
    }
   },
   {
@@ -5932,8 +5932,8 @@
    "url": "https://student.mit.edu/catalog/m6c.html#6.7820",
    "_src": {
     "page": "catalog/m6c",
-    "snapshot": "snapshots/catalog/m6c/2026-11-09T090447Z.html.gz",
-    "fetched_at": "2026-11-09T09:04:47Z"
+    "snapshot": "snapshots/catalog/m6c/2026-11-18T172628Z.html.gz",
+    "fetched_at": "2026-11-18T17:26:28Z"
    }
   },
   {
@@ -5971,8 +5971,8 @@
    "url": "https://student.mit.edu/catalog/m6c.html#6.7830",
    "_src": {
     "page": "catalog/m6c",
-    "snapshot": "snapshots/catalog/m6c/2026-11-09T090447Z.html.gz",
-    "fetched_at": "2026-11-09T09:04:47Z"
+    "snapshot": "snapshots/catalog/m6c/2026-11-18T172628Z.html.gz",
+    "fetched_at": "2026-11-18T17:26:28Z"
    }
   },
   {
@@ -6024,8 +6024,8 @@
    "url": "https://student.mit.edu/catalog/m6c.html#6.3932",
    "_src": {
     "page": "catalog/m6c",
-    "snapshot": "snapshots/catalog/m6c/2026-11-09T090447Z.html.gz",
-    "fetched_at": "2026-11-09T09:04:47Z"
+    "snapshot": "snapshots/catalog/m6c/2026-11-18T172628Z.html.gz",
+    "fetched_at": "2026-11-18T17:26:28Z"
    }
   },
   {
@@ -6089,8 +6089,8 @@
    "url": "https://student.mit.edu/catalog/m6c.html#6.3952",
    "_src": {
     "page": "catalog/m6c",
-    "snapshot": "snapshots/catalog/m6c/2026-11-09T090447Z.html.gz",
-    "fetched_at": "2026-11-09T09:04:47Z"
+    "snapshot": "snapshots/catalog/m6c/2026-11-18T172628Z.html.gz",
+    "fetched_at": "2026-11-18T17:26:28Z"
    }
   },
   {
@@ -6142,8 +6142,8 @@
    "url": "https://student.mit.edu/catalog/m6c.html#6.7900",
    "_src": {
     "page": "catalog/m6c",
-    "snapshot": "snapshots/catalog/m6c/2026-11-09T090447Z.html.gz",
-    "fetched_at": "2026-11-09T09:04:47Z"
+    "snapshot": "snapshots/catalog/m6c/2026-11-18T172628Z.html.gz",
+    "fetched_at": "2026-11-18T17:26:28Z"
    }
   },
   {
@@ -6196,8 +6196,8 @@
    "url": "https://student.mit.edu/catalog/m6c.html#6.7910",
    "_src": {
     "page": "catalog/m6c",
-    "snapshot": "snapshots/catalog/m6c/2026-11-09T090447Z.html.gz",
-    "fetched_at": "2026-11-09T09:04:47Z"
+    "snapshot": "snapshots/catalog/m6c/2026-11-18T172628Z.html.gz",
+    "fetched_at": "2026-11-18T17:26:28Z"
    }
   },
   {
@@ -6259,8 +6259,8 @@
    "url": "https://student.mit.edu/catalog/m6c.html#6.7920",
    "_src": {
     "page": "catalog/m6c",
-    "snapshot": "snapshots/catalog/m6c/2026-11-09T090447Z.html.gz",
-    "fetched_at": "2026-11-09T09:04:47Z"
+    "snapshot": "snapshots/catalog/m6c/2026-11-18T172628Z.html.gz",
+    "fetched_at": "2026-11-18T17:26:28Z"
    }
   },
   {
@@ -6305,8 +6305,8 @@
    "url": "https://student.mit.edu/catalog/m6c.html#6.7930",
    "_src": {
     "page": "catalog/m6c",
-    "snapshot": "snapshots/catalog/m6c/2026-11-09T090447Z.html.gz",
-    "fetched_at": "2026-11-09T09:04:47Z"
+    "snapshot": "snapshots/catalog/m6c/2026-11-18T172628Z.html.gz",
+    "fetched_at": "2026-11-18T17:26:28Z"
    }
   },
   {
@@ -6346,8 +6346,8 @@
    "url": "https://student.mit.edu/catalog/m6c.html#6.7940",
    "_src": {
     "page": "catalog/m6c",
-    "snapshot": "snapshots/catalog/m6c/2026-11-09T090447Z.html.gz",
-    "fetched_at": "2026-11-09T09:04:47Z"
+    "snapshot": "snapshots/catalog/m6c/2026-11-18T172628Z.html.gz",
+    "fetched_at": "2026-11-18T17:26:28Z"
    }
   },
   {
@@ -6399,8 +6399,8 @@
    "url": "https://student.mit.edu/catalog/m6c.html#6.7960",
    "_src": {
     "page": "catalog/m6c",
-    "snapshot": "snapshots/catalog/m6c/2026-11-09T090447Z.html.gz",
-    "fetched_at": "2026-11-09T09:04:47Z"
+    "snapshot": "snapshots/catalog/m6c/2026-11-18T172628Z.html.gz",
+    "fetched_at": "2026-11-18T17:26:28Z"
    }
   },
   {
@@ -6441,8 +6441,8 @@
    "url": "https://student.mit.edu/catalog/m6c.html#6.7970",
    "_src": {
     "page": "catalog/m6c",
-    "snapshot": "snapshots/catalog/m6c/2026-11-09T090447Z.html.gz",
-    "fetched_at": "2026-11-09T09:04:47Z"
+    "snapshot": "snapshots/catalog/m6c/2026-11-18T172628Z.html.gz",
+    "fetched_at": "2026-11-18T17:26:28Z"
    }
   },
   {
@@ -6493,8 +6493,8 @@
    "url": "https://student.mit.edu/catalog/m6c.html#6.7980",
    "_src": {
     "page": "catalog/m6c",
-    "snapshot": "snapshots/catalog/m6c/2026-11-09T090447Z.html.gz",
-    "fetched_at": "2026-11-09T09:04:47Z"
+    "snapshot": "snapshots/catalog/m6c/2026-11-18T172628Z.html.gz",
+    "fetched_at": "2026-11-18T17:26:28Z"
    }
   },
   {
@@ -6533,8 +6533,8 @@
    "url": "https://student.mit.edu/catalog/m6c.html#6.7990",
    "_src": {
     "page": "catalog/m6c",
-    "snapshot": "snapshots/catalog/m6c/2026-11-09T090447Z.html.gz",
-    "fetched_at": "2026-11-09T09:04:47Z"
+    "snapshot": "snapshots/catalog/m6c/2026-11-18T172628Z.html.gz",
+    "fetched_at": "2026-11-18T17:26:28Z"
    }
   },
   {
@@ -6589,8 +6589,8 @@
    "url": "https://student.mit.edu/catalog/m6d.html#6.4132",
    "_src": {
     "page": "catalog/m6d",
-    "snapshot": "snapshots/catalog/m6d/2026-11-16T101314Z.html.gz",
-    "fetched_at": "2026-11-16T10:13:14Z"
+    "snapshot": "snapshots/catalog/m6d/2026-11-18T172630Z.html.gz",
+    "fetched_at": "2026-11-18T17:26:30Z"
    }
   },
   {
@@ -6639,8 +6639,8 @@
    "url": "https://student.mit.edu/catalog/m6d.html#6.4150",
    "_src": {
     "page": "catalog/m6d",
-    "snapshot": "snapshots/catalog/m6d/2026-11-16T101314Z.html.gz",
-    "fetched_at": "2026-11-16T10:13:14Z"
+    "snapshot": "snapshots/catalog/m6d/2026-11-18T172630Z.html.gz",
+    "fetched_at": "2026-11-18T17:26:30Z"
    }
   },
   {
@@ -6682,8 +6682,8 @@
    "url": "https://student.mit.edu/catalog/m6d.html#6.8110",
    "_src": {
     "page": "catalog/m6d",
-    "snapshot": "snapshots/catalog/m6d/2026-11-16T101314Z.html.gz",
-    "fetched_at": "2026-11-16T10:13:14Z"
+    "snapshot": "snapshots/catalog/m6d/2026-11-18T172630Z.html.gz",
+    "fetched_at": "2026-11-18T17:26:30Z"
    }
   },
   {
@@ -6694,7 +6694,7 @@
    "terms": [
     "Spring"
    ],
-   "offering_status": "Not offered next year (2027-2028)",
+   "offering_status": "Not offered this year (2026-2027)",
    "offering_notes": [],
    "meets_with": [],
    "prereq_raw": "6.3900",
@@ -6714,14 +6714,14 @@
    "same_as": [],
    "schedule": [],
    "schedule_summary": "",
-   "description": "Examines how brain neural circuits and function can affect the design of machine learning hardware and software, and vice versa. Builds an understanding of how similar and different the computational approaches of the two are, and what can be deduced from one area about the other. Studies the relationship between brain neural circuits and machine learning design, exploring how insights from one can inform the other. Compares biological concepts like neurons, connectomes, and non-backpropagation learning with artificial neural network hardware and software designs, scaling laws, and state-of-the-art optimization techniques.",
-   "instructor": "N. Shavit",
+   "description": "Examines how brain neural circuits and function can affect the design of machine learning hardware and software, and vice versa. Builds an understanding of how similar and different the computational approaches of the two are, and what can be deduced from one area about the other. Studies the relationship between brain neural circuits and machine learning design, exploring how insights from one can inform the other. Compares biological concepts like neurons, connectomes, and non-backpropagation learning with artificial neural network hardware and software designs, scaling laws, and state-of-the-art optimization techniques. Staff",
+   "instructor": null,
    "source_page": "m6d",
    "url": "https://student.mit.edu/catalog/m6d.html#6.8120",
    "_src": {
     "page": "catalog/m6d",
-    "snapshot": "snapshots/catalog/m6d/2026-11-16T101314Z.html.gz",
-    "fetched_at": "2026-11-16T10:13:14Z"
+    "snapshot": "snapshots/catalog/m6d/2026-11-18T172630Z.html.gz",
+    "fetched_at": "2026-11-18T17:26:30Z"
    }
   },
   {
@@ -6761,8 +6761,8 @@
    "url": "https://student.mit.edu/catalog/m6d.html#6.8130",
    "_src": {
     "page": "catalog/m6d",
-    "snapshot": "snapshots/catalog/m6d/2026-11-16T101314Z.html.gz",
-    "fetched_at": "2026-11-16T10:13:14Z"
+    "snapshot": "snapshots/catalog/m6d/2026-11-18T172630Z.html.gz",
+    "fetched_at": "2026-11-18T17:26:30Z"
    }
   },
   {
@@ -6824,8 +6824,8 @@
    "url": "https://student.mit.edu/catalog/m6d.html#6.4212",
    "_src": {
     "page": "catalog/m6d",
-    "snapshot": "snapshots/catalog/m6d/2026-11-16T101314Z.html.gz",
-    "fetched_at": "2026-11-16T10:13:14Z"
+    "snapshot": "snapshots/catalog/m6d/2026-11-18T172630Z.html.gz",
+    "fetched_at": "2026-11-18T17:26:30Z"
    }
   },
   {
@@ -6867,8 +6867,8 @@
    "url": "https://student.mit.edu/catalog/m6d.html#6.4222",
    "_src": {
     "page": "catalog/m6d",
-    "snapshot": "snapshots/catalog/m6d/2026-11-16T101314Z.html.gz",
-    "fetched_at": "2026-11-16T10:13:14Z"
+    "snapshot": "snapshots/catalog/m6d/2026-11-18T172630Z.html.gz",
+    "fetched_at": "2026-11-18T17:26:30Z"
    }
   },
   {
@@ -6906,8 +6906,8 @@
    "url": "https://student.mit.edu/catalog/m6d.html#6.8200",
    "_src": {
     "page": "catalog/m6d",
-    "snapshot": "snapshots/catalog/m6d/2026-11-16T101314Z.html.gz",
-    "fetched_at": "2026-11-16T10:13:14Z"
+    "snapshot": "snapshots/catalog/m6d/2026-11-18T172630Z.html.gz",
+    "fetched_at": "2026-11-18T17:26:30Z"
    }
   },
   {
@@ -6945,8 +6945,8 @@
    "url": "https://student.mit.edu/catalog/m6d.html#6.8210",
    "_src": {
     "page": "catalog/m6d",
-    "snapshot": "snapshots/catalog/m6d/2026-11-16T101314Z.html.gz",
-    "fetched_at": "2026-11-16T10:13:14Z"
+    "snapshot": "snapshots/catalog/m6d/2026-11-18T172630Z.html.gz",
+    "fetched_at": "2026-11-18T17:26:30Z"
    }
   },
   {
@@ -6997,8 +6997,8 @@
    "url": "https://student.mit.edu/catalog/m6d.html#6.8410",
    "_src": {
     "page": "catalog/m6d",
-    "snapshot": "snapshots/catalog/m6d/2026-11-16T101314Z.html.gz",
-    "fetched_at": "2026-11-16T10:13:14Z"
+    "snapshot": "snapshots/catalog/m6d/2026-11-18T172630Z.html.gz",
+    "fetched_at": "2026-11-18T17:26:30Z"
    }
   },
   {
@@ -7050,8 +7050,8 @@
    "url": "https://student.mit.edu/catalog/m6d.html#6.8420",
    "_src": {
     "page": "catalog/m6d",
-    "snapshot": "snapshots/catalog/m6d/2026-11-16T101314Z.html.gz",
-    "fetched_at": "2026-11-16T10:13:14Z"
+    "snapshot": "snapshots/catalog/m6d/2026-11-18T172630Z.html.gz",
+    "fetched_at": "2026-11-18T17:26:30Z"
    }
   },
   {
@@ -7091,8 +7091,8 @@
    "url": "https://student.mit.edu/catalog/m6d.html#6.8510",
    "_src": {
     "page": "catalog/m6d",
-    "snapshot": "snapshots/catalog/m6d/2026-11-16T101314Z.html.gz",
-    "fetched_at": "2026-11-16T10:13:14Z"
+    "snapshot": "snapshots/catalog/m6d/2026-11-18T172630Z.html.gz",
+    "fetched_at": "2026-11-18T17:26:30Z"
    }
   },
   {
@@ -7131,8 +7131,8 @@
    "url": "https://student.mit.edu/catalog/m6d.html#6.8530",
    "_src": {
     "page": "catalog/m6d",
-    "snapshot": "snapshots/catalog/m6d/2026-11-16T101314Z.html.gz",
-    "fetched_at": "2026-11-16T10:13:14Z"
+    "snapshot": "snapshots/catalog/m6d/2026-11-18T172630Z.html.gz",
+    "fetched_at": "2026-11-18T17:26:30Z"
    }
   },
   {
@@ -7176,8 +7176,8 @@
    "url": "https://student.mit.edu/catalog/m6d.html#6.8700",
    "_src": {
     "page": "catalog/m6d",
-    "snapshot": "snapshots/catalog/m6d/2026-11-16T101314Z.html.gz",
-    "fetched_at": "2026-11-16T10:13:14Z"
+    "snapshot": "snapshots/catalog/m6d/2026-11-18T172630Z.html.gz",
+    "fetched_at": "2026-11-18T17:26:30Z"
    }
   },
   {
@@ -7222,8 +7222,8 @@
    "url": "https://student.mit.edu/catalog/m6d.html#6.8710",
    "_src": {
     "page": "catalog/m6d",
-    "snapshot": "snapshots/catalog/m6d/2026-11-16T101314Z.html.gz",
-    "fetched_at": "2026-11-16T10:13:14Z"
+    "snapshot": "snapshots/catalog/m6d/2026-11-18T172630Z.html.gz",
+    "fetched_at": "2026-11-18T17:26:30Z"
    }
   },
   {
@@ -7275,8 +7275,8 @@
    "url": "https://student.mit.edu/catalog/m6d.html#6.8720",
    "_src": {
     "page": "catalog/m6d",
-    "snapshot": "snapshots/catalog/m6d/2026-11-16T101314Z.html.gz",
-    "fetched_at": "2026-11-16T10:13:14Z"
+    "snapshot": "snapshots/catalog/m6d/2026-11-18T172630Z.html.gz",
+    "fetched_at": "2026-11-18T17:26:30Z"
    }
   },
   {
@@ -7330,8 +7330,8 @@
    "url": "https://student.mit.edu/catalog/m6d.html#6.4812",
    "_src": {
     "page": "catalog/m6d",
-    "snapshot": "snapshots/catalog/m6d/2026-11-16T101314Z.html.gz",
-    "fetched_at": "2026-11-16T10:13:14Z"
+    "snapshot": "snapshots/catalog/m6d/2026-11-18T172630Z.html.gz",
+    "fetched_at": "2026-11-18T17:26:30Z"
    }
   },
   {
@@ -7398,8 +7398,8 @@
    "url": "https://student.mit.edu/catalog/m6d.html#6.4822",
    "_src": {
     "page": "catalog/m6d",
-    "snapshot": "snapshots/catalog/m6d/2026-11-16T101314Z.html.gz",
-    "fetched_at": "2026-11-16T10:13:14Z"
+    "snapshot": "snapshots/catalog/m6d/2026-11-18T172630Z.html.gz",
+    "fetched_at": "2026-11-18T17:26:30Z"
    }
   },
   {
@@ -7450,8 +7450,8 @@
    "url": "https://student.mit.edu/catalog/m6d.html#6.4832",
    "_src": {
     "page": "catalog/m6d",
-    "snapshot": "snapshots/catalog/m6d/2026-11-16T101314Z.html.gz",
-    "fetched_at": "2026-11-16T10:13:14Z"
+    "snapshot": "snapshots/catalog/m6d/2026-11-18T172630Z.html.gz",
+    "fetched_at": "2026-11-18T17:26:30Z"
    }
   },
   {
@@ -7498,8 +7498,8 @@
    "url": "https://student.mit.edu/catalog/m6d.html#6.4842",
    "_src": {
     "page": "catalog/m6d",
-    "snapshot": "snapshots/catalog/m6d/2026-11-16T101314Z.html.gz",
-    "fetched_at": "2026-11-16T10:13:14Z"
+    "snapshot": "snapshots/catalog/m6d/2026-11-18T172630Z.html.gz",
+    "fetched_at": "2026-11-18T17:26:30Z"
    }
   },
   {
@@ -7556,8 +7556,8 @@
    "url": "https://student.mit.edu/catalog/m6d.html#6.4852",
    "_src": {
     "page": "catalog/m6d",
-    "snapshot": "snapshots/catalog/m6d/2026-11-16T101314Z.html.gz",
-    "fetched_at": "2026-11-16T10:13:14Z"
+    "snapshot": "snapshots/catalog/m6d/2026-11-18T172630Z.html.gz",
+    "fetched_at": "2026-11-18T17:26:30Z"
    }
   },
   {
@@ -7604,8 +7604,8 @@
    "url": "https://student.mit.edu/catalog/m6d.html#6.4861",
    "_src": {
     "page": "catalog/m6d",
-    "snapshot": "snapshots/catalog/m6d/2026-11-16T101314Z.html.gz",
-    "fetched_at": "2026-11-16T10:13:14Z"
+    "snapshot": "snapshots/catalog/m6d/2026-11-18T172630Z.html.gz",
+    "fetched_at": "2026-11-18T17:26:30Z"
    }
   },
   {
@@ -7651,8 +7651,8 @@
    "url": "https://student.mit.edu/catalog/m6d.html#6.8800",
    "_src": {
     "page": "catalog/m6d",
-    "snapshot": "snapshots/catalog/m6d/2026-11-16T101314Z.html.gz",
-    "fetched_at": "2026-11-16T10:13:14Z"
+    "snapshot": "snapshots/catalog/m6d/2026-11-18T172630Z.html.gz",
+    "fetched_at": "2026-11-18T17:26:30Z"
    }
   },
   {
@@ -7691,8 +7691,8 @@
    "url": "https://student.mit.edu/catalog/m6d.html#6.8810",
    "_src": {
     "page": "catalog/m6d",
-    "snapshot": "snapshots/catalog/m6d/2026-11-16T101314Z.html.gz",
-    "fetched_at": "2026-11-16T10:13:14Z"
+    "snapshot": "snapshots/catalog/m6d/2026-11-18T172630Z.html.gz",
+    "fetched_at": "2026-11-18T17:26:30Z"
    }
   },
   {
@@ -7735,8 +7735,8 @@
    "url": "https://student.mit.edu/catalog/m6d.html#6.8830",
    "_src": {
     "page": "catalog/m6d",
-    "snapshot": "snapshots/catalog/m6d/2026-11-16T101314Z.html.gz",
-    "fetched_at": "2026-11-16T10:13:14Z"
+    "snapshot": "snapshots/catalog/m6d/2026-11-18T172630Z.html.gz",
+    "fetched_at": "2026-11-18T17:26:30Z"
    }
   },
   {
@@ -7776,8 +7776,8 @@
    "url": "https://student.mit.edu/catalog/m6d.html#6.8850",
    "_src": {
     "page": "catalog/m6d",
-    "snapshot": "snapshots/catalog/m6d/2026-11-16T101314Z.html.gz",
-    "fetched_at": "2026-11-16T10:13:14Z"
+    "snapshot": "snapshots/catalog/m6d/2026-11-18T172630Z.html.gz",
+    "fetched_at": "2026-11-18T17:26:30Z"
    }
   },
   {
@@ -7818,8 +7818,8 @@
    "url": "https://student.mit.edu/catalog/m6d.html#6.8300",
    "_src": {
     "page": "catalog/m6d",
-    "snapshot": "snapshots/catalog/m6d/2026-11-16T101314Z.html.gz",
-    "fetched_at": "2026-11-16T10:13:14Z"
+    "snapshot": "snapshots/catalog/m6d/2026-11-18T172630Z.html.gz",
+    "fetched_at": "2026-11-18T17:26:30Z"
    }
   },
   {
@@ -7870,8 +7870,8 @@
    "url": "https://student.mit.edu/catalog/m6d.html#6.8370",
    "_src": {
     "page": "catalog/m6d",
-    "snapshot": "snapshots/catalog/m6d/2026-11-16T101314Z.html.gz",
-    "fetched_at": "2026-11-16T10:13:14Z"
+    "snapshot": "snapshots/catalog/m6d/2026-11-18T172630Z.html.gz",
+    "fetched_at": "2026-11-18T17:26:30Z"
    }
   },
   {
@@ -7910,8 +7910,8 @@
    "url": "https://student.mit.edu/catalog/m6d.html#6.8610",
    "_src": {
     "page": "catalog/m6d",
-    "snapshot": "snapshots/catalog/m6d/2026-11-16T101314Z.html.gz",
-    "fetched_at": "2026-11-16T10:13:14Z"
+    "snapshot": "snapshots/catalog/m6d/2026-11-18T172630Z.html.gz",
+    "fetched_at": "2026-11-18T17:26:30Z"
    }
   },
   {
@@ -7953,8 +7953,8 @@
    "url": "https://student.mit.edu/catalog/m6d.html#6.8620",
    "_src": {
     "page": "catalog/m6d",
-    "snapshot": "snapshots/catalog/m6d/2026-11-16T101314Z.html.gz",
-    "fetched_at": "2026-11-16T10:13:14Z"
+    "snapshot": "snapshots/catalog/m6d/2026-11-18T172630Z.html.gz",
+    "fetched_at": "2026-11-18T17:26:30Z"
    }
   },
   {
@@ -7994,8 +7994,8 @@
    "url": "https://student.mit.edu/catalog/m6d.html#6.8630",
    "_src": {
     "page": "catalog/m6d",
-    "snapshot": "snapshots/catalog/m6d/2026-11-16T101314Z.html.gz",
-    "fetched_at": "2026-11-16T10:13:14Z"
+    "snapshot": "snapshots/catalog/m6d/2026-11-18T172630Z.html.gz",
+    "fetched_at": "2026-11-18T17:26:30Z"
    }
   },
   {
@@ -11482,8 +11482,8 @@
    "url": "https://student.mit.edu/catalog/m15b.html#15.304",
    "_src": {
     "page": "catalog/m15b",
-    "snapshot": "snapshots/catalog/m15b/2026-11-16T101317Z.html.gz",
-    "fetched_at": "2026-11-16T10:13:17Z"
+    "snapshot": "snapshots/catalog/m15b/2026-11-18T172633Z.html.gz",
+    "fetched_at": "2026-11-18T17:26:33Z"
    }
   },
   {
@@ -11520,8 +11520,8 @@
    "url": "https://student.mit.edu/catalog/m15b.html#15.308",
    "_src": {
     "page": "catalog/m15b",
-    "snapshot": "snapshots/catalog/m15b/2026-11-16T101317Z.html.gz",
-    "fetched_at": "2026-11-16T10:13:17Z"
+    "snapshot": "snapshots/catalog/m15b/2026-11-18T172633Z.html.gz",
+    "fetched_at": "2026-11-18T17:26:33Z"
    }
   },
   {
@@ -11556,8 +11556,8 @@
    "url": "https://student.mit.edu/catalog/m15b.html#15.309",
    "_src": {
     "page": "catalog/m15b",
-    "snapshot": "snapshots/catalog/m15b/2026-11-16T101317Z.html.gz",
-    "fetched_at": "2026-11-16T10:13:17Z"
+    "snapshot": "snapshots/catalog/m15b/2026-11-18T172633Z.html.gz",
+    "fetched_at": "2026-11-18T17:26:33Z"
    }
   },
   {
@@ -11592,8 +11592,8 @@
    "url": "https://student.mit.edu/catalog/m15b.html#15.310",
    "_src": {
     "page": "catalog/m15b",
-    "snapshot": "snapshots/catalog/m15b/2026-11-16T101317Z.html.gz",
-    "fetched_at": "2026-11-16T10:13:17Z"
+    "snapshot": "snapshots/catalog/m15b/2026-11-18T172633Z.html.gz",
+    "fetched_at": "2026-11-18T17:26:33Z"
    }
   },
   {
@@ -11640,8 +11640,8 @@
    "url": "https://student.mit.edu/catalog/m15b.html#15.311",
    "_src": {
     "page": "catalog/m15b",
-    "snapshot": "snapshots/catalog/m15b/2026-11-16T101317Z.html.gz",
-    "fetched_at": "2026-11-16T10:13:17Z"
+    "snapshot": "snapshots/catalog/m15b/2026-11-18T172633Z.html.gz",
+    "fetched_at": "2026-11-18T17:26:33Z"
    }
   },
   {
@@ -11676,8 +11676,8 @@
    "url": "https://student.mit.edu/catalog/m15b.html#15.316",
    "_src": {
     "page": "catalog/m15b",
-    "snapshot": "snapshots/catalog/m15b/2026-11-16T101317Z.html.gz",
-    "fetched_at": "2026-11-16T10:13:17Z"
+    "snapshot": "snapshots/catalog/m15b/2026-11-18T172633Z.html.gz",
+    "fetched_at": "2026-11-18T17:26:33Z"
    }
   },
   {
@@ -11713,8 +11713,8 @@
    "url": "https://student.mit.edu/catalog/m15b.html#15.317",
    "_src": {
     "page": "catalog/m15b",
-    "snapshot": "snapshots/catalog/m15b/2026-11-16T101317Z.html.gz",
-    "fetched_at": "2026-11-16T10:13:17Z"
+    "snapshot": "snapshots/catalog/m15b/2026-11-18T172633Z.html.gz",
+    "fetched_at": "2026-11-18T17:26:33Z"
    }
   },
   {
@@ -11760,8 +11760,8 @@
    "url": "https://student.mit.edu/catalog/m15b.html#15.318",
    "_src": {
     "page": "catalog/m15b",
-    "snapshot": "snapshots/catalog/m15b/2026-11-16T101317Z.html.gz",
-    "fetched_at": "2026-11-16T10:13:17Z"
+    "snapshot": "snapshots/catalog/m15b/2026-11-18T172633Z.html.gz",
+    "fetched_at": "2026-11-18T17:26:33Z"
    }
   },
   {
@@ -11798,8 +11798,8 @@
    "url": "https://student.mit.edu/catalog/m15b.html#15.320",
    "_src": {
     "page": "catalog/m15b",
-    "snapshot": "snapshots/catalog/m15b/2026-11-16T101317Z.html.gz",
-    "fetched_at": "2026-11-16T10:13:17Z"
+    "snapshot": "snapshots/catalog/m15b/2026-11-18T172633Z.html.gz",
+    "fetched_at": "2026-11-18T17:26:33Z"
    }
   },
   {
@@ -11846,8 +11846,8 @@
    "url": "https://student.mit.edu/catalog/m15b.html#15.321",
    "_src": {
     "page": "catalog/m15b",
-    "snapshot": "snapshots/catalog/m15b/2026-11-16T101317Z.html.gz",
-    "fetched_at": "2026-11-16T10:13:17Z"
+    "snapshot": "snapshots/catalog/m15b/2026-11-18T172633Z.html.gz",
+    "fetched_at": "2026-11-18T17:26:33Z"
    }
   },
   {
@@ -11884,8 +11884,8 @@
    "url": "https://student.mit.edu/catalog/m15b.html#15.322",
    "_src": {
     "page": "catalog/m15b",
-    "snapshot": "snapshots/catalog/m15b/2026-11-16T101317Z.html.gz",
-    "fetched_at": "2026-11-16T10:13:17Z"
+    "snapshot": "snapshots/catalog/m15b/2026-11-18T172633Z.html.gz",
+    "fetched_at": "2026-11-18T17:26:33Z"
    }
   },
   {
@@ -11920,8 +11920,8 @@
    "url": "https://student.mit.edu/catalog/m15b.html#15.323",
    "_src": {
     "page": "catalog/m15b",
-    "snapshot": "snapshots/catalog/m15b/2026-11-16T101317Z.html.gz",
-    "fetched_at": "2026-11-16T10:13:17Z"
+    "snapshot": "snapshots/catalog/m15b/2026-11-18T172633Z.html.gz",
+    "fetched_at": "2026-11-18T17:26:33Z"
    }
   },
   {
@@ -11968,8 +11968,8 @@
    "url": "https://student.mit.edu/catalog/m15b.html#15.325",
    "_src": {
     "page": "catalog/m15b",
-    "snapshot": "snapshots/catalog/m15b/2026-11-16T101317Z.html.gz",
-    "fetched_at": "2026-11-16T10:13:17Z"
+    "snapshot": "snapshots/catalog/m15b/2026-11-18T172633Z.html.gz",
+    "fetched_at": "2026-11-18T17:26:33Z"
    }
   },
   {
@@ -12006,8 +12006,8 @@
    "url": "https://student.mit.edu/catalog/m15b.html#15.328",
    "_src": {
     "page": "catalog/m15b",
-    "snapshot": "snapshots/catalog/m15b/2026-11-16T101317Z.html.gz",
-    "fetched_at": "2026-11-16T10:13:17Z"
+    "snapshot": "snapshots/catalog/m15b/2026-11-18T172633Z.html.gz",
+    "fetched_at": "2026-11-18T17:26:33Z"
    }
   },
   {
@@ -12044,8 +12044,8 @@
    "url": "https://student.mit.edu/catalog/m15b.html#15.329",
    "_src": {
     "page": "catalog/m15b",
-    "snapshot": "snapshots/catalog/m15b/2026-11-16T101317Z.html.gz",
-    "fetched_at": "2026-11-16T10:13:17Z"
+    "snapshot": "snapshots/catalog/m15b/2026-11-18T172633Z.html.gz",
+    "fetched_at": "2026-11-18T17:26:33Z"
    }
   },
   {
@@ -12080,8 +12080,8 @@
    "url": "https://student.mit.edu/catalog/m15b.html#15.330",
    "_src": {
     "page": "catalog/m15b",
-    "snapshot": "snapshots/catalog/m15b/2026-11-16T101317Z.html.gz",
-    "fetched_at": "2026-11-16T10:13:17Z"
+    "snapshot": "snapshots/catalog/m15b/2026-11-18T172633Z.html.gz",
+    "fetched_at": "2026-11-18T17:26:33Z"
    }
   },
   {
@@ -12116,8 +12116,8 @@
    "url": "https://student.mit.edu/catalog/m15b.html#15.334",
    "_src": {
     "page": "catalog/m15b",
-    "snapshot": "snapshots/catalog/m15b/2026-11-16T101317Z.html.gz",
-    "fetched_at": "2026-11-16T10:13:17Z"
+    "snapshot": "snapshots/catalog/m15b/2026-11-18T172633Z.html.gz",
+    "fetched_at": "2026-11-18T17:26:33Z"
    }
   },
   {
@@ -12152,8 +12152,8 @@
    "url": "https://student.mit.edu/catalog/m15b.html#15.335",
    "_src": {
     "page": "catalog/m15b",
-    "snapshot": "snapshots/catalog/m15b/2026-11-16T101317Z.html.gz",
-    "fetched_at": "2026-11-16T10:13:17Z"
+    "snapshot": "snapshots/catalog/m15b/2026-11-18T172633Z.html.gz",
+    "fetched_at": "2026-11-18T17:26:33Z"
    }
   },
   {
@@ -12188,8 +12188,8 @@
    "url": "https://student.mit.edu/catalog/m15b.html#15.336",
    "_src": {
     "page": "catalog/m15b",
-    "snapshot": "snapshots/catalog/m15b/2026-11-16T101317Z.html.gz",
-    "fetched_at": "2026-11-16T10:13:17Z"
+    "snapshot": "snapshots/catalog/m15b/2026-11-18T172633Z.html.gz",
+    "fetched_at": "2026-11-18T17:26:33Z"
    }
   },
   {
@@ -12235,8 +12235,8 @@
    "url": "https://student.mit.edu/catalog/m15b.html#15.337",
    "_src": {
     "page": "catalog/m15b",
-    "snapshot": "snapshots/catalog/m15b/2026-11-16T101317Z.html.gz",
-    "fetched_at": "2026-11-16T10:13:17Z"
+    "snapshot": "snapshots/catalog/m15b/2026-11-18T172633Z.html.gz",
+    "fetched_at": "2026-11-18T17:26:33Z"
    }
   },
   {
@@ -12271,8 +12271,8 @@
    "url": "https://student.mit.edu/catalog/m15b.html#15.338",
    "_src": {
     "page": "catalog/m15b",
-    "snapshot": "snapshots/catalog/m15b/2026-11-16T101317Z.html.gz",
-    "fetched_at": "2026-11-16T10:13:17Z"
+    "snapshot": "snapshots/catalog/m15b/2026-11-18T172633Z.html.gz",
+    "fetched_at": "2026-11-18T17:26:33Z"
    }
   },
   {
@@ -12307,8 +12307,8 @@
    "url": "https://student.mit.edu/catalog/m15b.html#15.339",
    "_src": {
     "page": "catalog/m15b",
-    "snapshot": "snapshots/catalog/m15b/2026-11-16T101317Z.html.gz",
-    "fetched_at": "2026-11-16T10:13:17Z"
+    "snapshot": "snapshots/catalog/m15b/2026-11-18T172633Z.html.gz",
+    "fetched_at": "2026-11-18T17:26:33Z"
    }
   },
   {
@@ -12343,8 +12343,8 @@
    "url": "https://student.mit.edu/catalog/m15b.html#15.341",
    "_src": {
     "page": "catalog/m15b",
-    "snapshot": "snapshots/catalog/m15b/2026-11-16T101317Z.html.gz",
-    "fetched_at": "2026-11-16T10:13:17Z"
+    "snapshot": "snapshots/catalog/m15b/2026-11-18T172633Z.html.gz",
+    "fetched_at": "2026-11-18T17:26:33Z"
    }
   },
   {
@@ -12390,8 +12390,8 @@
    "url": "https://student.mit.edu/catalog/m15b.html#15.342",
    "_src": {
     "page": "catalog/m15b",
-    "snapshot": "snapshots/catalog/m15b/2026-11-16T101317Z.html.gz",
-    "fetched_at": "2026-11-16T10:13:17Z"
+    "snapshot": "snapshots/catalog/m15b/2026-11-18T172633Z.html.gz",
+    "fetched_at": "2026-11-18T17:26:33Z"
    }
   },
   {
@@ -12428,8 +12428,8 @@
    "url": "https://student.mit.edu/catalog/m15b.html#15.345",
    "_src": {
     "page": "catalog/m15b",
-    "snapshot": "snapshots/catalog/m15b/2026-11-16T101317Z.html.gz",
-    "fetched_at": "2026-11-16T10:13:17Z"
+    "snapshot": "snapshots/catalog/m15b/2026-11-18T172633Z.html.gz",
+    "fetched_at": "2026-11-18T17:26:33Z"
    }
   },
   {
@@ -12464,8 +12464,8 @@
    "url": "https://student.mit.edu/catalog/m15b.html#15.346",
    "_src": {
     "page": "catalog/m15b",
-    "snapshot": "snapshots/catalog/m15b/2026-11-16T101317Z.html.gz",
-    "fetched_at": "2026-11-16T10:13:17Z"
+    "snapshot": "snapshots/catalog/m15b/2026-11-18T172633Z.html.gz",
+    "fetched_at": "2026-11-18T17:26:33Z"
    }
   },
   {
@@ -12500,8 +12500,8 @@
    "url": "https://student.mit.edu/catalog/m15b.html#15.347",
    "_src": {
     "page": "catalog/m15b",
-    "snapshot": "snapshots/catalog/m15b/2026-11-16T101317Z.html.gz",
-    "fetched_at": "2026-11-16T10:13:17Z"
+    "snapshot": "snapshots/catalog/m15b/2026-11-18T172633Z.html.gz",
+    "fetched_at": "2026-11-18T17:26:33Z"
    }
   },
   {
@@ -12538,8 +12538,8 @@
    "url": "https://student.mit.edu/catalog/m15b.html#15.350",
    "_src": {
     "page": "catalog/m15b",
-    "snapshot": "snapshots/catalog/m15b/2026-11-16T101317Z.html.gz",
-    "fetched_at": "2026-11-16T10:13:17Z"
+    "snapshot": "snapshots/catalog/m15b/2026-11-18T172633Z.html.gz",
+    "fetched_at": "2026-11-18T17:26:33Z"
    }
   },
   {
@@ -12578,8 +12578,8 @@
    "url": "https://student.mit.edu/catalog/m15b.html#15.351",
    "_src": {
     "page": "catalog/m15b",
-    "snapshot": "snapshots/catalog/m15b/2026-11-16T101317Z.html.gz",
-    "fetched_at": "2026-11-16T10:13:17Z"
+    "snapshot": "snapshots/catalog/m15b/2026-11-18T172633Z.html.gz",
+    "fetched_at": "2026-11-18T17:26:33Z"
    }
   },
   {
@@ -12616,8 +12616,8 @@
    "url": "https://student.mit.edu/catalog/m15b.html#15.352",
    "_src": {
     "page": "catalog/m15b",
-    "snapshot": "snapshots/catalog/m15b/2026-11-16T101317Z.html.gz",
-    "fetched_at": "2026-11-16T10:13:17Z"
+    "snapshot": "snapshots/catalog/m15b/2026-11-18T172633Z.html.gz",
+    "fetched_at": "2026-11-18T17:26:33Z"
    }
   },
   {
@@ -12652,8 +12652,8 @@
    "url": "https://student.mit.edu/catalog/m15b.html#15.355",
    "_src": {
     "page": "catalog/m15b",
-    "snapshot": "snapshots/catalog/m15b/2026-11-16T101317Z.html.gz",
-    "fetched_at": "2026-11-16T10:13:17Z"
+    "snapshot": "snapshots/catalog/m15b/2026-11-18T172633Z.html.gz",
+    "fetched_at": "2026-11-18T17:26:33Z"
    }
   },
   {
@@ -12690,8 +12690,8 @@
    "url": "https://student.mit.edu/catalog/m15b.html#15.356",
    "_src": {
     "page": "catalog/m15b",
-    "snapshot": "snapshots/catalog/m15b/2026-11-16T101317Z.html.gz",
-    "fetched_at": "2026-11-16T10:13:17Z"
+    "snapshot": "snapshots/catalog/m15b/2026-11-18T172633Z.html.gz",
+    "fetched_at": "2026-11-18T17:26:33Z"
    }
   },
   {
@@ -12726,8 +12726,8 @@
    "url": "https://student.mit.edu/catalog/m15b.html#15.357",
    "_src": {
     "page": "catalog/m15b",
-    "snapshot": "snapshots/catalog/m15b/2026-11-16T101317Z.html.gz",
-    "fetched_at": "2026-11-16T10:13:17Z"
+    "snapshot": "snapshots/catalog/m15b/2026-11-18T172633Z.html.gz",
+    "fetched_at": "2026-11-18T17:26:33Z"
    }
   },
   {
@@ -12765,8 +12765,8 @@
    "url": "https://student.mit.edu/catalog/m15b.html#15.358",
    "_src": {
     "page": "catalog/m15b",
-    "snapshot": "snapshots/catalog/m15b/2026-11-16T101317Z.html.gz",
-    "fetched_at": "2026-11-16T10:13:17Z"
+    "snapshot": "snapshots/catalog/m15b/2026-11-18T172633Z.html.gz",
+    "fetched_at": "2026-11-18T17:26:33Z"
    }
   },
   {
@@ -12812,8 +12812,8 @@
    "url": "https://student.mit.edu/catalog/m15b.html#15.360",
    "_src": {
     "page": "catalog/m15b",
-    "snapshot": "snapshots/catalog/m15b/2026-11-16T101317Z.html.gz",
-    "fetched_at": "2026-11-16T10:13:17Z"
+    "snapshot": "snapshots/catalog/m15b/2026-11-18T172633Z.html.gz",
+    "fetched_at": "2026-11-18T17:26:33Z"
    }
   },
   {
@@ -12850,8 +12850,8 @@
    "url": "https://student.mit.edu/catalog/m15b.html#15.361",
    "_src": {
     "page": "catalog/m15b",
-    "snapshot": "snapshots/catalog/m15b/2026-11-16T101317Z.html.gz",
-    "fetched_at": "2026-11-16T10:13:17Z"
+    "snapshot": "snapshots/catalog/m15b/2026-11-18T172633Z.html.gz",
+    "fetched_at": "2026-11-18T17:26:33Z"
    }
   },
   {
@@ -12888,8 +12888,8 @@
    "url": "https://student.mit.edu/catalog/m15b.html#15.362",
    "_src": {
     "page": "catalog/m15b",
-    "snapshot": "snapshots/catalog/m15b/2026-11-16T101317Z.html.gz",
-    "fetched_at": "2026-11-16T10:13:17Z"
+    "snapshot": "snapshots/catalog/m15b/2026-11-18T172633Z.html.gz",
+    "fetched_at": "2026-11-18T17:26:33Z"
    }
   },
   {
@@ -12926,8 +12926,8 @@
    "url": "https://student.mit.edu/catalog/m15b.html#15.363",
    "_src": {
     "page": "catalog/m15b",
-    "snapshot": "snapshots/catalog/m15b/2026-11-16T101317Z.html.gz",
-    "fetched_at": "2026-11-16T10:13:17Z"
+    "snapshot": "snapshots/catalog/m15b/2026-11-18T172633Z.html.gz",
+    "fetched_at": "2026-11-18T17:26:33Z"
    }
   },
   {
@@ -12962,8 +12962,8 @@
    "url": "https://student.mit.edu/catalog/m15b.html#15.364",
    "_src": {
     "page": "catalog/m15b",
-    "snapshot": "snapshots/catalog/m15b/2026-11-16T101317Z.html.gz",
-    "fetched_at": "2026-11-16T10:13:17Z"
+    "snapshot": "snapshots/catalog/m15b/2026-11-18T172633Z.html.gz",
+    "fetched_at": "2026-11-18T17:26:33Z"
    }
   },
   {
@@ -13005,8 +13005,8 @@
    "url": "https://student.mit.edu/catalog/m15b.html#15.365",
    "_src": {
     "page": "catalog/m15b",
-    "snapshot": "snapshots/catalog/m15b/2026-11-16T101317Z.html.gz",
-    "fetched_at": "2026-11-16T10:13:17Z"
+    "snapshot": "snapshots/catalog/m15b/2026-11-18T172633Z.html.gz",
+    "fetched_at": "2026-11-18T17:26:33Z"
    }
   },
   {
@@ -13052,8 +13052,8 @@
    "url": "https://student.mit.edu/catalog/m15b.html#15.366",
    "_src": {
     "page": "catalog/m15b",
-    "snapshot": "snapshots/catalog/m15b/2026-11-16T101317Z.html.gz",
-    "fetched_at": "2026-11-16T10:13:17Z"
+    "snapshot": "snapshots/catalog/m15b/2026-11-18T172633Z.html.gz",
+    "fetched_at": "2026-11-18T17:26:33Z"
    }
   },
   {
@@ -13090,8 +13090,8 @@
    "url": "https://student.mit.edu/catalog/m15b.html#15.367",
    "_src": {
     "page": "catalog/m15b",
-    "snapshot": "snapshots/catalog/m15b/2026-11-16T101317Z.html.gz",
-    "fetched_at": "2026-11-16T10:13:17Z"
+    "snapshot": "snapshots/catalog/m15b/2026-11-18T172633Z.html.gz",
+    "fetched_at": "2026-11-18T17:26:33Z"
    }
   },
   {
@@ -13126,8 +13126,8 @@
    "url": "https://student.mit.edu/catalog/m15b.html#15.368",
    "_src": {
     "page": "catalog/m15b",
-    "snapshot": "snapshots/catalog/m15b/2026-11-16T101317Z.html.gz",
-    "fetched_at": "2026-11-16T10:13:17Z"
+    "snapshot": "snapshots/catalog/m15b/2026-11-18T172633Z.html.gz",
+    "fetched_at": "2026-11-18T17:26:33Z"
    }
   },
   {
@@ -13173,8 +13173,8 @@
    "url": "https://student.mit.edu/catalog/m15b.html#15.369",
    "_src": {
     "page": "catalog/m15b",
-    "snapshot": "snapshots/catalog/m15b/2026-11-16T101317Z.html.gz",
-    "fetched_at": "2026-11-16T10:13:17Z"
+    "snapshot": "snapshots/catalog/m15b/2026-11-18T172633Z.html.gz",
+    "fetched_at": "2026-11-18T17:26:33Z"
    }
   },
   {
@@ -13224,8 +13224,8 @@
    "url": "https://student.mit.edu/catalog/m15b.html#15.371",
    "_src": {
     "page": "catalog/m15b",
-    "snapshot": "snapshots/catalog/m15b/2026-11-16T101317Z.html.gz",
-    "fetched_at": "2026-11-16T10:13:17Z"
+    "snapshot": "snapshots/catalog/m15b/2026-11-18T172633Z.html.gz",
+    "fetched_at": "2026-11-18T17:26:33Z"
    }
   },
   {
@@ -13260,8 +13260,8 @@
    "url": "https://student.mit.edu/catalog/m15b.html#15.374",
    "_src": {
     "page": "catalog/m15b",
-    "snapshot": "snapshots/catalog/m15b/2026-11-16T101317Z.html.gz",
-    "fetched_at": "2026-11-16T10:13:17Z"
+    "snapshot": "snapshots/catalog/m15b/2026-11-18T172633Z.html.gz",
+    "fetched_at": "2026-11-18T17:26:33Z"
    }
   },
   {
@@ -13308,8 +13308,8 @@
    "url": "https://student.mit.edu/catalog/m15b.html#15.378",
    "_src": {
     "page": "catalog/m15b",
-    "snapshot": "snapshots/catalog/m15b/2026-11-16T101317Z.html.gz",
-    "fetched_at": "2026-11-16T10:13:17Z"
+    "snapshot": "snapshots/catalog/m15b/2026-11-18T172633Z.html.gz",
+    "fetched_at": "2026-11-18T17:26:33Z"
    }
   },
   {
@@ -13361,8 +13361,8 @@
    "url": "https://student.mit.edu/catalog/m15b.html#15.379",
    "_src": {
     "page": "catalog/m15b",
-    "snapshot": "snapshots/catalog/m15b/2026-11-16T101317Z.html.gz",
-    "fetched_at": "2026-11-16T10:13:17Z"
+    "snapshot": "snapshots/catalog/m15b/2026-11-18T172633Z.html.gz",
+    "fetched_at": "2026-11-18T17:26:33Z"
    }
   },
   {
@@ -13409,8 +13409,8 @@
    "url": "https://student.mit.edu/catalog/m15b.html#15.382",
    "_src": {
     "page": "catalog/m15b",
-    "snapshot": "snapshots/catalog/m15b/2026-11-16T101317Z.html.gz",
-    "fetched_at": "2026-11-16T10:13:17Z"
+    "snapshot": "snapshots/catalog/m15b/2026-11-18T172633Z.html.gz",
+    "fetched_at": "2026-11-18T17:26:33Z"
    }
   },
   {
@@ -13445,8 +13445,8 @@
    "url": "https://student.mit.edu/catalog/m15b.html#15.383",
    "_src": {
     "page": "catalog/m15b",
-    "snapshot": "snapshots/catalog/m15b/2026-11-16T101317Z.html.gz",
-    "fetched_at": "2026-11-16T10:13:17Z"
+    "snapshot": "snapshots/catalog/m15b/2026-11-18T172633Z.html.gz",
+    "fetched_at": "2026-11-18T17:26:33Z"
    }
   },
   {
@@ -13493,8 +13493,8 @@
    "url": "https://student.mit.edu/catalog/m15b.html#15.385",
    "_src": {
     "page": "catalog/m15b",
-    "snapshot": "snapshots/catalog/m15b/2026-11-16T101317Z.html.gz",
-    "fetched_at": "2026-11-16T10:13:17Z"
+    "snapshot": "snapshots/catalog/m15b/2026-11-18T172633Z.html.gz",
+    "fetched_at": "2026-11-18T17:26:33Z"
    }
   },
   {
@@ -13531,8 +13531,8 @@
    "url": "https://student.mit.edu/catalog/m15b.html#15.386",
    "_src": {
     "page": "catalog/m15b",
-    "snapshot": "snapshots/catalog/m15b/2026-11-16T101317Z.html.gz",
-    "fetched_at": "2026-11-16T10:13:17Z"
+    "snapshot": "snapshots/catalog/m15b/2026-11-18T172633Z.html.gz",
+    "fetched_at": "2026-11-18T17:26:33Z"
    }
   },
   {
@@ -13582,8 +13582,8 @@
    "url": "https://student.mit.edu/catalog/m15b.html#15.387",
    "_src": {
     "page": "catalog/m15b",
-    "snapshot": "snapshots/catalog/m15b/2026-11-16T101317Z.html.gz",
-    "fetched_at": "2026-11-16T10:13:17Z"
+    "snapshot": "snapshots/catalog/m15b/2026-11-18T172633Z.html.gz",
+    "fetched_at": "2026-11-18T17:26:33Z"
    }
   },
   {
@@ -13629,8 +13629,8 @@
    "url": "https://student.mit.edu/catalog/m15b.html#15.388",
    "_src": {
     "page": "catalog/m15b",
-    "snapshot": "snapshots/catalog/m15b/2026-11-16T101317Z.html.gz",
-    "fetched_at": "2026-11-16T10:13:17Z"
+    "snapshot": "snapshots/catalog/m15b/2026-11-18T172633Z.html.gz",
+    "fetched_at": "2026-11-18T17:26:33Z"
    }
   },
   {
@@ -13688,8 +13688,8 @@
    "url": "https://student.mit.edu/catalog/m15b.html#15.389",
    "_src": {
     "page": "catalog/m15b",
-    "snapshot": "snapshots/catalog/m15b/2026-11-16T101317Z.html.gz",
-    "fetched_at": "2026-11-16T10:13:17Z"
+    "snapshot": "snapshots/catalog/m15b/2026-11-18T172633Z.html.gz",
+    "fetched_at": "2026-11-18T17:26:33Z"
    }
   },
   {
@@ -13737,8 +13737,8 @@
    "url": "https://student.mit.edu/catalog/m15b.html#15.390",
    "_src": {
     "page": "catalog/m15b",
-    "snapshot": "snapshots/catalog/m15b/2026-11-16T101317Z.html.gz",
-    "fetched_at": "2026-11-16T10:13:17Z"
+    "snapshot": "snapshots/catalog/m15b/2026-11-18T172633Z.html.gz",
+    "fetched_at": "2026-11-18T17:26:33Z"
    }
   },
   {
@@ -13776,8 +13776,8 @@
    "url": "https://student.mit.edu/catalog/m15b.html#15.392",
    "_src": {
     "page": "catalog/m15b",
-    "snapshot": "snapshots/catalog/m15b/2026-11-16T101317Z.html.gz",
-    "fetched_at": "2026-11-16T10:13:17Z"
+    "snapshot": "snapshots/catalog/m15b/2026-11-18T172633Z.html.gz",
+    "fetched_at": "2026-11-18T17:26:33Z"
    }
   },
   {
@@ -13812,8 +13812,8 @@
    "url": "https://student.mit.edu/catalog/m15b.html#15.393",
    "_src": {
     "page": "catalog/m15b",
-    "snapshot": "snapshots/catalog/m15b/2026-11-16T101317Z.html.gz",
-    "fetched_at": "2026-11-16T10:13:17Z"
+    "snapshot": "snapshots/catalog/m15b/2026-11-18T172633Z.html.gz",
+    "fetched_at": "2026-11-18T17:26:33Z"
    }
   },
   {
@@ -13860,8 +13860,8 @@
    "url": "https://student.mit.edu/catalog/m15b.html#15.394",
    "_src": {
     "page": "catalog/m15b",
-    "snapshot": "snapshots/catalog/m15b/2026-11-16T101317Z.html.gz",
-    "fetched_at": "2026-11-16T10:13:17Z"
+    "snapshot": "snapshots/catalog/m15b/2026-11-18T172633Z.html.gz",
+    "fetched_at": "2026-11-18T17:26:33Z"
    }
   },
   {
@@ -13898,8 +13898,8 @@
    "url": "https://student.mit.edu/catalog/m15b.html#15.396",
    "_src": {
     "page": "catalog/m15b",
-    "snapshot": "snapshots/catalog/m15b/2026-11-16T101317Z.html.gz",
-    "fetched_at": "2026-11-16T10:13:17Z"
+    "snapshot": "snapshots/catalog/m15b/2026-11-18T172633Z.html.gz",
+    "fetched_at": "2026-11-18T17:26:33Z"
    }
   },
   {
@@ -13936,8 +13936,8 @@
    "url": "https://student.mit.edu/catalog/m15b.html#15.397",
    "_src": {
     "page": "catalog/m15b",
-    "snapshot": "snapshots/catalog/m15b/2026-11-16T101317Z.html.gz",
-    "fetched_at": "2026-11-16T10:13:17Z"
+    "snapshot": "snapshots/catalog/m15b/2026-11-18T172633Z.html.gz",
+    "fetched_at": "2026-11-18T17:26:33Z"
    }
   },
   {
@@ -13972,8 +13972,8 @@
    "url": "https://student.mit.edu/catalog/m15b.html#15.398",
    "_src": {
     "page": "catalog/m15b",
-    "snapshot": "snapshots/catalog/m15b/2026-11-16T101317Z.html.gz",
-    "fetched_at": "2026-11-16T10:13:17Z"
+    "snapshot": "snapshots/catalog/m15b/2026-11-18T172633Z.html.gz",
+    "fetched_at": "2026-11-18T17:26:33Z"
    }
   },
   {
@@ -14020,8 +14020,8 @@
    "url": "https://student.mit.edu/catalog/m15b.html#15.399",
    "_src": {
     "page": "catalog/m15b",
-    "snapshot": "snapshots/catalog/m15b/2026-11-16T101317Z.html.gz",
-    "fetched_at": "2026-11-16T10:13:17Z"
+    "snapshot": "snapshots/catalog/m15b/2026-11-18T172633Z.html.gz",
+    "fetched_at": "2026-11-18T17:26:33Z"
    }
   },
   {
@@ -14079,8 +14079,8 @@
    "url": "https://student.mit.edu/catalog/m15b.html#15.401",
    "_src": {
     "page": "catalog/m15b",
-    "snapshot": "snapshots/catalog/m15b/2026-11-16T101317Z.html.gz",
-    "fetched_at": "2026-11-16T10:13:17Z"
+    "snapshot": "snapshots/catalog/m15b/2026-11-18T172633Z.html.gz",
+    "fetched_at": "2026-11-18T17:26:33Z"
    }
   },
   {
@@ -14127,8 +14127,8 @@
    "url": "https://student.mit.edu/catalog/m15b.html#15.403",
    "_src": {
     "page": "catalog/m15b",
-    "snapshot": "snapshots/catalog/m15b/2026-11-16T101317Z.html.gz",
-    "fetched_at": "2026-11-16T10:13:17Z"
+    "snapshot": "snapshots/catalog/m15b/2026-11-18T172633Z.html.gz",
+    "fetched_at": "2026-11-18T17:26:33Z"
    }
   },
   {
@@ -14163,8 +14163,8 @@
    "url": "https://student.mit.edu/catalog/m15b.html#15.410",
    "_src": {
     "page": "catalog/m15b",
-    "snapshot": "snapshots/catalog/m15b/2026-11-16T101317Z.html.gz",
-    "fetched_at": "2026-11-16T10:13:17Z"
+    "snapshot": "snapshots/catalog/m15b/2026-11-18T172633Z.html.gz",
+    "fetched_at": "2026-11-18T17:26:33Z"
    }
   },
   {
@@ -14213,8 +14213,8 @@
    "url": "https://student.mit.edu/catalog/m15b.html#15.414",
    "_src": {
     "page": "catalog/m15b",
-    "snapshot": "snapshots/catalog/m15b/2026-11-16T101317Z.html.gz",
-    "fetched_at": "2026-11-16T10:13:17Z"
+    "snapshot": "snapshots/catalog/m15b/2026-11-18T172633Z.html.gz",
+    "fetched_at": "2026-11-18T17:26:33Z"
    }
   },
   {
@@ -14249,8 +14249,8 @@
    "url": "https://student.mit.edu/catalog/m15b.html#15.415",
    "_src": {
     "page": "catalog/m15b",
-    "snapshot": "snapshots/catalog/m15b/2026-11-16T101317Z.html.gz",
-    "fetched_at": "2026-11-16T10:13:17Z"
+    "snapshot": "snapshots/catalog/m15b/2026-11-18T172633Z.html.gz",
+    "fetched_at": "2026-11-18T17:26:33Z"
    }
   },
   {
@@ -14299,8 +14299,8 @@
    "url": "https://student.mit.edu/catalog/m15b.html#15.425",
    "_src": {
     "page": "catalog/m15b",
-    "snapshot": "snapshots/catalog/m15b/2026-11-16T101317Z.html.gz",
-    "fetched_at": "2026-11-16T10:13:17Z"
+    "snapshot": "snapshots/catalog/m15b/2026-11-18T172633Z.html.gz",
+    "fetched_at": "2026-11-18T17:26:33Z"
    }
   },
   {
@@ -14359,8 +14359,8 @@
    "url": "https://student.mit.edu/catalog/m15b.html#15.426",
    "_src": {
     "page": "catalog/m15b",
-    "snapshot": "snapshots/catalog/m15b/2026-11-16T101317Z.html.gz",
-    "fetched_at": "2026-11-16T10:13:17Z"
+    "snapshot": "snapshots/catalog/m15b/2026-11-18T172633Z.html.gz",
+    "fetched_at": "2026-11-18T17:26:33Z"
    }
   },
   {
@@ -14402,8 +14402,8 @@
    "url": "https://student.mit.edu/catalog/m15b.html#15.429",
    "_src": {
     "page": "catalog/m15b",
-    "snapshot": "snapshots/catalog/m15b/2026-11-16T101317Z.html.gz",
-    "fetched_at": "2026-11-16T10:13:17Z"
+    "snapshot": "snapshots/catalog/m15b/2026-11-18T172633Z.html.gz",
+    "fetched_at": "2026-11-18T17:26:33Z"
    }
   },
   {
@@ -14455,8 +14455,8 @@
    "url": "https://student.mit.edu/catalog/m15b.html#15.431",
    "_src": {
     "page": "catalog/m15b",
-    "snapshot": "snapshots/catalog/m15b/2026-11-16T101317Z.html.gz",
-    "fetched_at": "2026-11-16T10:13:17Z"
+    "snapshot": "snapshots/catalog/m15b/2026-11-18T172633Z.html.gz",
+    "fetched_at": "2026-11-18T17:26:33Z"
    }
   },
   {
@@ -14509,8 +14509,8 @@
    "url": "https://student.mit.edu/catalog/m15b.html#15.433",
    "_src": {
     "page": "catalog/m15b",
-    "snapshot": "snapshots/catalog/m15b/2026-11-16T101317Z.html.gz",
-    "fetched_at": "2026-11-16T10:13:17Z"
+    "snapshot": "snapshots/catalog/m15b/2026-11-18T172633Z.html.gz",
+    "fetched_at": "2026-11-18T17:26:33Z"
    }
   },
   {
@@ -14561,8 +14561,8 @@
    "url": "https://student.mit.edu/catalog/m15b.html#15.434",
    "_src": {
     "page": "catalog/m15b",
-    "snapshot": "snapshots/catalog/m15b/2026-11-16T101317Z.html.gz",
-    "fetched_at": "2026-11-16T10:13:17Z"
+    "snapshot": "snapshots/catalog/m15b/2026-11-18T172633Z.html.gz",
+    "fetched_at": "2026-11-18T17:26:33Z"
    }
   },
   {
@@ -14601,8 +14601,8 @@
    "url": "https://student.mit.edu/catalog/m15b.html#15.437",
    "_src": {
     "page": "catalog/m15b",
-    "snapshot": "snapshots/catalog/m15b/2026-11-16T101317Z.html.gz",
-    "fetched_at": "2026-11-16T10:13:17Z"
+    "snapshot": "snapshots/catalog/m15b/2026-11-18T172633Z.html.gz",
+    "fetched_at": "2026-11-18T17:26:33Z"
    }
   },
   {
@@ -14641,8 +14641,8 @@
    "url": "https://student.mit.edu/catalog/m15b.html#15.438",
    "_src": {
     "page": "catalog/m15b",
-    "snapshot": "snapshots/catalog/m15b/2026-11-16T101317Z.html.gz",
-    "fetched_at": "2026-11-16T10:13:17Z"
+    "snapshot": "snapshots/catalog/m15b/2026-11-18T172633Z.html.gz",
+    "fetched_at": "2026-11-18T17:26:33Z"
    }
   },
   {
@@ -14681,8 +14681,8 @@
    "url": "https://student.mit.edu/catalog/m15b.html#15.439",
    "_src": {
     "page": "catalog/m15b",
-    "snapshot": "snapshots/catalog/m15b/2026-11-16T101317Z.html.gz",
-    "fetched_at": "2026-11-16T10:13:17Z"
+    "snapshot": "snapshots/catalog/m15b/2026-11-18T172633Z.html.gz",
+    "fetched_at": "2026-11-18T17:26:33Z"
    }
   },
   {
@@ -14723,8 +14723,8 @@
    "url": "https://student.mit.edu/catalog/m15b.html#15.445",
    "_src": {
     "page": "catalog/m15b",
-    "snapshot": "snapshots/catalog/m15b/2026-11-16T101317Z.html.gz",
-    "fetched_at": "2026-11-16T10:13:17Z"
+    "snapshot": "snapshots/catalog/m15b/2026-11-18T172633Z.html.gz",
+    "fetched_at": "2026-11-18T17:26:33Z"
    }
   },
   {
@@ -14762,8 +14762,8 @@
    "url": "https://student.mit.edu/catalog/m15b.html#15.446",
    "_src": {
     "page": "catalog/m15b",
-    "snapshot": "snapshots/catalog/m15b/2026-11-16T101317Z.html.gz",
-    "fetched_at": "2026-11-16T10:13:17Z"
+    "snapshot": "snapshots/catalog/m15b/2026-11-18T172633Z.html.gz",
+    "fetched_at": "2026-11-18T17:26:33Z"
    }
   },
   {
@@ -14802,8 +14802,8 @@
    "url": "https://student.mit.edu/catalog/m15b.html#15.447",
    "_src": {
     "page": "catalog/m15b",
-    "snapshot": "snapshots/catalog/m15b/2026-11-16T101317Z.html.gz",
-    "fetched_at": "2026-11-16T10:13:17Z"
+    "snapshot": "snapshots/catalog/m15b/2026-11-18T172633Z.html.gz",
+    "fetched_at": "2026-11-18T17:26:33Z"
    }
   },
   {
@@ -14844,8 +14844,8 @@
    ],
    "_src": {
     "page": "catalog/m15b",
-    "snapshot": "snapshots/catalog/m15b/2026-11-16T101317Z.html.gz",
-    "fetched_at": "2026-11-16T10:13:17Z"
+    "snapshot": "snapshots/catalog/m15b/2026-11-18T172633Z.html.gz",
+    "fetched_at": "2026-11-18T17:26:33Z"
    }
   },
   {
@@ -14906,8 +14906,8 @@
    "url": "https://student.mit.edu/catalog/m15b.html#15.450",
    "_src": {
     "page": "catalog/m15b",
-    "snapshot": "snapshots/catalog/m15b/2026-11-16T101317Z.html.gz",
-    "fetched_at": "2026-11-16T10:13:17Z"
+    "snapshot": "snapshots/catalog/m15b/2026-11-18T172633Z.html.gz",
+    "fetched_at": "2026-11-18T17:26:33Z"
    }
   },
   {
@@ -14957,8 +14957,8 @@
    "url": "https://student.mit.edu/catalog/m15b.html#15.451",
    "_src": {
     "page": "catalog/m15b",
-    "snapshot": "snapshots/catalog/m15b/2026-11-16T101317Z.html.gz",
-    "fetched_at": "2026-11-16T10:13:17Z"
+    "snapshot": "snapshots/catalog/m15b/2026-11-18T172633Z.html.gz",
+    "fetched_at": "2026-11-18T17:26:33Z"
    }
   },
   {
@@ -14997,8 +14997,8 @@
    "url": "https://student.mit.edu/catalog/m15b.html#15.452",
    "_src": {
     "page": "catalog/m15b",
-    "snapshot": "snapshots/catalog/m15b/2026-11-16T101317Z.html.gz",
-    "fetched_at": "2026-11-16T10:13:17Z"
+    "snapshot": "snapshots/catalog/m15b/2026-11-18T172633Z.html.gz",
+    "fetched_at": "2026-11-18T17:26:33Z"
    }
   },
   {
@@ -15038,8 +15038,8 @@
    "url": "https://student.mit.edu/catalog/m15b.html#15.453",
    "_src": {
     "page": "catalog/m15b",
-    "snapshot": "snapshots/catalog/m15b/2026-11-16T101317Z.html.gz",
-    "fetched_at": "2026-11-16T10:13:17Z"
+    "snapshot": "snapshots/catalog/m15b/2026-11-18T172633Z.html.gz",
+    "fetched_at": "2026-11-18T17:26:33Z"
    }
   },
   {
@@ -15074,8 +15074,8 @@
    "url": "https://student.mit.edu/catalog/m15b.html#15.454",
    "_src": {
     "page": "catalog/m15b",
-    "snapshot": "snapshots/catalog/m15b/2026-11-16T101317Z.html.gz",
-    "fetched_at": "2026-11-16T10:13:17Z"
+    "snapshot": "snapshots/catalog/m15b/2026-11-18T172633Z.html.gz",
+    "fetched_at": "2026-11-18T17:26:33Z"
    }
   },
   {
@@ -15110,8 +15110,8 @@
    "url": "https://student.mit.edu/catalog/m15b.html#15.455",
    "_src": {
     "page": "catalog/m15b",
-    "snapshot": "snapshots/catalog/m15b/2026-11-16T101317Z.html.gz",
-    "fetched_at": "2026-11-16T10:13:17Z"
+    "snapshot": "snapshots/catalog/m15b/2026-11-18T172633Z.html.gz",
+    "fetched_at": "2026-11-18T17:26:33Z"
    }
   },
   {
@@ -15172,8 +15172,8 @@
    "url": "https://student.mit.edu/catalog/m15b.html#15.456",
    "_src": {
     "page": "catalog/m15b",
-    "snapshot": "snapshots/catalog/m15b/2026-11-16T101317Z.html.gz",
-    "fetched_at": "2026-11-16T10:13:17Z"
+    "snapshot": "snapshots/catalog/m15b/2026-11-18T172633Z.html.gz",
+    "fetched_at": "2026-11-18T17:26:33Z"
    }
   },
   {
@@ -15234,8 +15234,8 @@
    "url": "https://student.mit.edu/catalog/m15b.html#15.457",
    "_src": {
     "page": "catalog/m15b",
-    "snapshot": "snapshots/catalog/m15b/2026-11-16T101317Z.html.gz",
-    "fetched_at": "2026-11-16T10:13:17Z"
+    "snapshot": "snapshots/catalog/m15b/2026-11-18T172633Z.html.gz",
+    "fetched_at": "2026-11-18T17:26:33Z"
    }
   },
   {
@@ -15274,8 +15274,8 @@
    "url": "https://student.mit.edu/catalog/m15b.html#15.458",
    "_src": {
     "page": "catalog/m15b",
-    "snapshot": "snapshots/catalog/m15b/2026-11-16T101317Z.html.gz",
-    "fetched_at": "2026-11-16T10:13:17Z"
+    "snapshot": "snapshots/catalog/m15b/2026-11-18T172633Z.html.gz",
+    "fetched_at": "2026-11-18T17:26:33Z"
    }
   },
   {
@@ -15312,8 +15312,8 @@
    "url": "https://student.mit.edu/catalog/m15b.html#15.465",
    "_src": {
     "page": "catalog/m15b",
-    "snapshot": "snapshots/catalog/m15b/2026-11-16T101317Z.html.gz",
-    "fetched_at": "2026-11-16T10:13:17Z"
+    "snapshot": "snapshots/catalog/m15b/2026-11-18T172633Z.html.gz",
+    "fetched_at": "2026-11-18T17:26:33Z"
    }
   },
   {
@@ -15351,8 +15351,8 @@
    "url": "https://student.mit.edu/catalog/m15b.html#15.466",
    "_src": {
     "page": "catalog/m15b",
-    "snapshot": "snapshots/catalog/m15b/2026-11-16T101317Z.html.gz",
-    "fetched_at": "2026-11-16T10:13:17Z"
+    "snapshot": "snapshots/catalog/m15b/2026-11-18T172633Z.html.gz",
+    "fetched_at": "2026-11-18T17:26:33Z"
    }
   },
   {
@@ -15391,8 +15391,8 @@
    "url": "https://student.mit.edu/catalog/m15b.html#15.467",
    "_src": {
     "page": "catalog/m15b",
-    "snapshot": "snapshots/catalog/m15b/2026-11-16T101317Z.html.gz",
-    "fetched_at": "2026-11-16T10:13:17Z"
+    "snapshot": "snapshots/catalog/m15b/2026-11-18T172633Z.html.gz",
+    "fetched_at": "2026-11-18T17:26:33Z"
    }
   },
   {
@@ -15451,8 +15451,8 @@
    "url": "https://student.mit.edu/catalog/m15b.html#15.470",
    "_src": {
     "page": "catalog/m15b",
-    "snapshot": "snapshots/catalog/m15b/2026-11-16T101317Z.html.gz",
-    "fetched_at": "2026-11-16T10:13:17Z"
+    "snapshot": "snapshots/catalog/m15b/2026-11-18T172633Z.html.gz",
+    "fetched_at": "2026-11-18T17:26:33Z"
    }
   },
   {
@@ -15489,8 +15489,8 @@
    "url": "https://student.mit.edu/catalog/m15b.html#15.471",
    "_src": {
     "page": "catalog/m15b",
-    "snapshot": "snapshots/catalog/m15b/2026-11-16T101317Z.html.gz",
-    "fetched_at": "2026-11-16T10:13:17Z"
+    "snapshot": "snapshots/catalog/m15b/2026-11-18T172633Z.html.gz",
+    "fetched_at": "2026-11-18T17:26:33Z"
    }
   },
   {
@@ -15549,8 +15549,8 @@
    "url": "https://student.mit.edu/catalog/m15b.html#15.472",
    "_src": {
     "page": "catalog/m15b",
-    "snapshot": "snapshots/catalog/m15b/2026-11-16T101317Z.html.gz",
-    "fetched_at": "2026-11-16T10:13:17Z"
+    "snapshot": "snapshots/catalog/m15b/2026-11-18T172633Z.html.gz",
+    "fetched_at": "2026-11-18T17:26:33Z"
    }
   },
   {
@@ -15587,8 +15587,8 @@
    "url": "https://student.mit.edu/catalog/m15b.html#15.473",
    "_src": {
     "page": "catalog/m15b",
-    "snapshot": "snapshots/catalog/m15b/2026-11-16T101317Z.html.gz",
-    "fetched_at": "2026-11-16T10:13:17Z"
+    "snapshot": "snapshots/catalog/m15b/2026-11-18T172633Z.html.gz",
+    "fetched_at": "2026-11-18T17:26:33Z"
    }
   },
   {
@@ -15637,8 +15637,8 @@
    "url": "https://student.mit.edu/catalog/m15b.html#15.474",
    "_src": {
     "page": "catalog/m15b",
-    "snapshot": "snapshots/catalog/m15b/2026-11-16T101317Z.html.gz",
-    "fetched_at": "2026-11-16T10:13:17Z"
+    "snapshot": "snapshots/catalog/m15b/2026-11-18T172633Z.html.gz",
+    "fetched_at": "2026-11-18T17:26:33Z"
    }
   },
   {
@@ -15689,8 +15689,8 @@
    "url": "https://student.mit.edu/catalog/m15b.html#15.475",
    "_src": {
     "page": "catalog/m15b",
-    "snapshot": "snapshots/catalog/m15b/2026-11-16T101317Z.html.gz",
-    "fetched_at": "2026-11-16T10:13:17Z"
+    "snapshot": "snapshots/catalog/m15b/2026-11-18T172633Z.html.gz",
+    "fetched_at": "2026-11-18T17:26:33Z"
    }
   },
   {
@@ -15730,8 +15730,8 @@
    "url": "https://student.mit.edu/catalog/m15b.html#15.480",
    "_src": {
     "page": "catalog/m15b",
-    "snapshot": "snapshots/catalog/m15b/2026-11-16T101317Z.html.gz",
-    "fetched_at": "2026-11-16T10:13:17Z"
+    "snapshot": "snapshots/catalog/m15b/2026-11-18T172633Z.html.gz",
+    "fetched_at": "2026-11-18T17:26:33Z"
    }
   },
   {
@@ -15772,8 +15772,8 @@
    "url": "https://student.mit.edu/catalog/m15b.html#15.481",
    "_src": {
     "page": "catalog/m15b",
-    "snapshot": "snapshots/catalog/m15b/2026-11-16T101317Z.html.gz",
-    "fetched_at": "2026-11-16T10:13:17Z"
+    "snapshot": "snapshots/catalog/m15b/2026-11-18T172633Z.html.gz",
+    "fetched_at": "2026-11-18T17:26:33Z"
    }
   },
   {
@@ -15812,8 +15812,8 @@
    "url": "https://student.mit.edu/catalog/m15b.html#15.482",
    "_src": {
     "page": "catalog/m15b",
-    "snapshot": "snapshots/catalog/m15b/2026-11-16T101317Z.html.gz",
-    "fetched_at": "2026-11-16T10:13:17Z"
+    "snapshot": "snapshots/catalog/m15b/2026-11-18T172633Z.html.gz",
+    "fetched_at": "2026-11-18T17:26:33Z"
    }
   },
   {
@@ -15864,8 +15864,8 @@
    "url": "https://student.mit.edu/catalog/m15b.html#15.483",
    "_src": {
     "page": "catalog/m15b",
-    "snapshot": "snapshots/catalog/m15b/2026-11-16T101317Z.html.gz",
-    "fetched_at": "2026-11-16T10:13:17Z"
+    "snapshot": "snapshots/catalog/m15b/2026-11-18T172633Z.html.gz",
+    "fetched_at": "2026-11-18T17:26:33Z"
    }
   },
   {
@@ -15904,8 +15904,8 @@
    "url": "https://student.mit.edu/catalog/m15b.html#15.492",
    "_src": {
     "page": "catalog/m15b",
-    "snapshot": "snapshots/catalog/m15b/2026-11-16T101317Z.html.gz",
-    "fetched_at": "2026-11-16T10:13:17Z"
+    "snapshot": "snapshots/catalog/m15b/2026-11-18T172633Z.html.gz",
+    "fetched_at": "2026-11-18T17:26:33Z"
    }
   },
   {
@@ -15955,8 +15955,8 @@
    "url": "https://student.mit.edu/catalog/m15b.html#15.497",
    "_src": {
     "page": "catalog/m15b",
-    "snapshot": "snapshots/catalog/m15b/2026-11-16T101317Z.html.gz",
-    "fetched_at": "2026-11-16T10:13:17Z"
+    "snapshot": "snapshots/catalog/m15b/2026-11-18T172633Z.html.gz",
+    "fetched_at": "2026-11-18T17:26:33Z"
    }
   },
   {
@@ -15995,8 +15995,8 @@
    "url": "https://student.mit.edu/catalog/m15b.html#15.499",
    "_src": {
     "page": "catalog/m15b",
-    "snapshot": "snapshots/catalog/m15b/2026-11-16T101317Z.html.gz",
-    "fetched_at": "2026-11-16T10:13:17Z"
+    "snapshot": "snapshots/catalog/m15b/2026-11-18T172633Z.html.gz",
+    "fetched_at": "2026-11-18T17:26:33Z"
    }
   },
   {
@@ -16033,8 +16033,8 @@
    "url": "https://student.mit.edu/catalog/m15b.html#15.509",
    "_src": {
     "page": "catalog/m15b",
-    "snapshot": "snapshots/catalog/m15b/2026-11-16T101317Z.html.gz",
-    "fetched_at": "2026-11-16T10:13:17Z"
+    "snapshot": "snapshots/catalog/m15b/2026-11-18T172633Z.html.gz",
+    "fetched_at": "2026-11-18T17:26:33Z"
    }
   },
   {
@@ -16069,8 +16069,8 @@
    "url": "https://student.mit.edu/catalog/m15b.html#15.511",
    "_src": {
     "page": "catalog/m15b",
-    "snapshot": "snapshots/catalog/m15b/2026-11-16T101317Z.html.gz",
-    "fetched_at": "2026-11-16T10:13:17Z"
+    "snapshot": "snapshots/catalog/m15b/2026-11-18T172633Z.html.gz",
+    "fetched_at": "2026-11-18T17:26:33Z"
    }
   },
   {
@@ -16127,8 +16127,8 @@
    "url": "https://student.mit.edu/catalog/m15b.html#15.515",
    "_src": {
     "page": "catalog/m15b",
-    "snapshot": "snapshots/catalog/m15b/2026-11-16T101317Z.html.gz",
-    "fetched_at": "2026-11-16T10:13:17Z"
+    "snapshot": "snapshots/catalog/m15b/2026-11-18T172633Z.html.gz",
+    "fetched_at": "2026-11-18T17:26:33Z"
    }
   },
   {
@@ -16177,8 +16177,8 @@
    "url": "https://student.mit.edu/catalog/m15b.html#15.516",
    "_src": {
     "page": "catalog/m15b",
-    "snapshot": "snapshots/catalog/m15b/2026-11-16T101317Z.html.gz",
-    "fetched_at": "2026-11-16T10:13:17Z"
+    "snapshot": "snapshots/catalog/m15b/2026-11-18T172633Z.html.gz",
+    "fetched_at": "2026-11-18T17:26:33Z"
    }
   },
   {
@@ -16218,8 +16218,8 @@
    "url": "https://student.mit.edu/catalog/m15b.html#15.518",
    "_src": {
     "page": "catalog/m15b",
-    "snapshot": "snapshots/catalog/m15b/2026-11-16T101317Z.html.gz",
-    "fetched_at": "2026-11-16T10:13:17Z"
+    "snapshot": "snapshots/catalog/m15b/2026-11-18T172633Z.html.gz",
+    "fetched_at": "2026-11-18T17:26:33Z"
    }
   },
   {
@@ -16267,8 +16267,8 @@
    "url": "https://student.mit.edu/catalog/m15b.html#15.521",
    "_src": {
     "page": "catalog/m15b",
-    "snapshot": "snapshots/catalog/m15b/2026-11-16T101317Z.html.gz",
-    "fetched_at": "2026-11-16T10:13:17Z"
+    "snapshot": "snapshots/catalog/m15b/2026-11-18T172633Z.html.gz",
+    "fetched_at": "2026-11-18T17:26:33Z"
    }
   },
   {
@@ -16325,8 +16325,8 @@
    "url": "https://student.mit.edu/catalog/m15b.html#15.535",
    "_src": {
     "page": "catalog/m15b",
-    "snapshot": "snapshots/catalog/m15b/2026-11-16T101317Z.html.gz",
-    "fetched_at": "2026-11-16T10:13:17Z"
+    "snapshot": "snapshots/catalog/m15b/2026-11-18T172633Z.html.gz",
+    "fetched_at": "2026-11-18T17:26:33Z"
    }
   },
   {
@@ -16375,8 +16375,8 @@
    "url": "https://student.mit.edu/catalog/m15b.html#15.539",
    "_src": {
     "page": "catalog/m15b",
-    "snapshot": "snapshots/catalog/m15b/2026-11-16T101317Z.html.gz",
-    "fetched_at": "2026-11-16T10:13:17Z"
+    "snapshot": "snapshots/catalog/m15b/2026-11-18T172633Z.html.gz",
+    "fetched_at": "2026-11-18T17:26:33Z"
    }
   },
   {
@@ -16423,8 +16423,8 @@
    "url": "https://student.mit.edu/catalog/m15b.html#15.540",
    "_src": {
     "page": "catalog/m15b",
-    "snapshot": "snapshots/catalog/m15b/2026-11-16T101317Z.html.gz",
-    "fetched_at": "2026-11-16T10:13:17Z"
+    "snapshot": "snapshots/catalog/m15b/2026-11-18T172633Z.html.gz",
+    "fetched_at": "2026-11-18T17:26:33Z"
    }
   },
   {
@@ -16471,8 +16471,8 @@
    "url": "https://student.mit.edu/catalog/m15b.html#15.561",
    "_src": {
     "page": "catalog/m15b",
-    "snapshot": "snapshots/catalog/m15b/2026-11-16T101317Z.html.gz",
-    "fetched_at": "2026-11-16T10:13:17Z"
+    "snapshot": "snapshots/catalog/m15b/2026-11-18T172633Z.html.gz",
+    "fetched_at": "2026-11-18T17:26:33Z"
    }
   },
   {
@@ -16507,8 +16507,8 @@
    "url": "https://student.mit.edu/catalog/m15b.html#15.562",
    "_src": {
     "page": "catalog/m15b",
-    "snapshot": "snapshots/catalog/m15b/2026-11-16T101317Z.html.gz",
-    "fetched_at": "2026-11-16T10:13:17Z"
+    "snapshot": "snapshots/catalog/m15b/2026-11-18T172633Z.html.gz",
+    "fetched_at": "2026-11-18T17:26:33Z"
    }
   },
   {
@@ -16557,8 +16557,8 @@
    "url": "https://student.mit.edu/catalog/m15b.html#15.563",
    "_src": {
     "page": "catalog/m15b",
-    "snapshot": "snapshots/catalog/m15b/2026-11-16T101317Z.html.gz",
-    "fetched_at": "2026-11-16T10:13:17Z"
+    "snapshot": "snapshots/catalog/m15b/2026-11-18T172633Z.html.gz",
+    "fetched_at": "2026-11-18T17:26:33Z"
    }
   },
   {
@@ -16593,8 +16593,8 @@
    "url": "https://student.mit.edu/catalog/m15b.html#15.566",
    "_src": {
     "page": "catalog/m15b",
-    "snapshot": "snapshots/catalog/m15b/2026-11-16T101317Z.html.gz",
-    "fetched_at": "2026-11-16T10:13:17Z"
+    "snapshot": "snapshots/catalog/m15b/2026-11-18T172633Z.html.gz",
+    "fetched_at": "2026-11-18T17:26:33Z"
    }
   },
   {
@@ -16629,8 +16629,8 @@
    "url": "https://student.mit.edu/catalog/m15b.html#15.567",
    "_src": {
     "page": "catalog/m15b",
-    "snapshot": "snapshots/catalog/m15b/2026-11-16T101317Z.html.gz",
-    "fetched_at": "2026-11-16T10:13:17Z"
+    "snapshot": "snapshots/catalog/m15b/2026-11-18T172633Z.html.gz",
+    "fetched_at": "2026-11-18T17:26:33Z"
    }
   },
   {
@@ -16665,8 +16665,8 @@
    "url": "https://student.mit.edu/catalog/m15b.html#15.568",
    "_src": {
     "page": "catalog/m15b",
-    "snapshot": "snapshots/catalog/m15b/2026-11-16T101317Z.html.gz",
-    "fetched_at": "2026-11-16T10:13:17Z"
+    "snapshot": "snapshots/catalog/m15b/2026-11-18T172633Z.html.gz",
+    "fetched_at": "2026-11-18T17:26:33Z"
    }
   },
   {
@@ -16704,8 +16704,8 @@
    "url": "https://student.mit.edu/catalog/m15b.html#15.570",
    "_src": {
     "page": "catalog/m15b",
-    "snapshot": "snapshots/catalog/m15b/2026-11-16T101317Z.html.gz",
-    "fetched_at": "2026-11-16T10:13:17Z"
+    "snapshot": "snapshots/catalog/m15b/2026-11-18T172633Z.html.gz",
+    "fetched_at": "2026-11-18T17:26:33Z"
    }
   },
   {
@@ -16761,8 +16761,8 @@
    "url": "https://student.mit.edu/catalog/m15b.html#15.572",
    "_src": {
     "page": "catalog/m15b",
-    "snapshot": "snapshots/catalog/m15b/2026-11-16T101317Z.html.gz",
-    "fetched_at": "2026-11-16T10:13:17Z"
+    "snapshot": "snapshots/catalog/m15b/2026-11-18T172633Z.html.gz",
+    "fetched_at": "2026-11-18T17:26:33Z"
    }
   },
   {
@@ -16797,8 +16797,8 @@
    "url": "https://student.mit.edu/catalog/m15b.html#15.573",
    "_src": {
     "page": "catalog/m15b",
-    "snapshot": "snapshots/catalog/m15b/2026-11-16T101317Z.html.gz",
-    "fetched_at": "2026-11-16T10:13:17Z"
+    "snapshot": "snapshots/catalog/m15b/2026-11-18T172633Z.html.gz",
+    "fetched_at": "2026-11-18T17:26:33Z"
    }
   },
   {
@@ -16833,8 +16833,8 @@
    "url": "https://student.mit.edu/catalog/m15b.html#15.574",
    "_src": {
     "page": "catalog/m15b",
-    "snapshot": "snapshots/catalog/m15b/2026-11-16T101317Z.html.gz",
-    "fetched_at": "2026-11-16T10:13:17Z"
+    "snapshot": "snapshots/catalog/m15b/2026-11-18T172633Z.html.gz",
+    "fetched_at": "2026-11-18T17:26:33Z"
    }
   },
   {
@@ -16869,8 +16869,8 @@
    "url": "https://student.mit.edu/catalog/m15b.html#15.575",
    "_src": {
     "page": "catalog/m15b",
-    "snapshot": "snapshots/catalog/m15b/2026-11-16T101317Z.html.gz",
-    "fetched_at": "2026-11-16T10:13:17Z"
+    "snapshot": "snapshots/catalog/m15b/2026-11-18T172633Z.html.gz",
+    "fetched_at": "2026-11-18T17:26:33Z"
    }
   },
   {
@@ -16916,8 +16916,8 @@
    "url": "https://student.mit.edu/catalog/m15b.html#15.576",
    "_src": {
     "page": "catalog/m15b",
-    "snapshot": "snapshots/catalog/m15b/2026-11-16T101317Z.html.gz",
-    "fetched_at": "2026-11-16T10:13:17Z"
+    "snapshot": "snapshots/catalog/m15b/2026-11-18T172633Z.html.gz",
+    "fetched_at": "2026-11-18T17:26:33Z"
    }
   },
   {
@@ -16952,8 +16952,8 @@
    "url": "https://student.mit.edu/catalog/m15b.html#15.579",
    "_src": {
     "page": "catalog/m15b",
-    "snapshot": "snapshots/catalog/m15b/2026-11-16T101317Z.html.gz",
-    "fetched_at": "2026-11-16T10:13:17Z"
+    "snapshot": "snapshots/catalog/m15b/2026-11-18T172633Z.html.gz",
+    "fetched_at": "2026-11-18T17:26:33Z"
    }
   },
   {
@@ -16984,14 +16984,14 @@
    "same_as": [],
    "schedule": [],
    "schedule_summary": "",
-   "description": "Group study of current topics related to information technology.",
-   "instructor": "S. Madnick",
+   "description": "Group study of current topics related to information technology. Staff",
+   "instructor": null,
    "source_page": "m15b",
    "url": "https://student.mit.edu/catalog/m15b.html#15.580",
    "_src": {
     "page": "catalog/m15b",
-    "snapshot": "snapshots/catalog/m15b/2026-11-16T101317Z.html.gz",
-    "fetched_at": "2026-11-16T10:13:17Z"
+    "snapshot": "snapshots/catalog/m15b/2026-11-18T172633Z.html.gz",
+    "fetched_at": "2026-11-18T17:26:33Z"
    }
   },
   {
@@ -17026,8 +17026,8 @@
    "url": "https://student.mit.edu/catalog/m15b.html#15.615",
    "_src": {
     "page": "catalog/m15b",
-    "snapshot": "snapshots/catalog/m15b/2026-11-16T101317Z.html.gz",
-    "fetched_at": "2026-11-16T10:13:17Z"
+    "snapshot": "snapshots/catalog/m15b/2026-11-18T172633Z.html.gz",
+    "fetched_at": "2026-11-18T17:26:33Z"
    }
   },
   {
@@ -17064,8 +17064,8 @@
    "url": "https://student.mit.edu/catalog/m15b.html#15.617",
    "_src": {
     "page": "catalog/m15b",
-    "snapshot": "snapshots/catalog/m15b/2026-11-16T101317Z.html.gz",
-    "fetched_at": "2026-11-16T10:13:17Z"
+    "snapshot": "snapshots/catalog/m15b/2026-11-18T172633Z.html.gz",
+    "fetched_at": "2026-11-18T17:26:33Z"
    }
   },
   {
@@ -17112,8 +17112,8 @@
    "url": "https://student.mit.edu/catalog/m15b.html#15.618",
    "_src": {
     "page": "catalog/m15b",
-    "snapshot": "snapshots/catalog/m15b/2026-11-16T101317Z.html.gz",
-    "fetched_at": "2026-11-16T10:13:17Z"
+    "snapshot": "snapshots/catalog/m15b/2026-11-18T172633Z.html.gz",
+    "fetched_at": "2026-11-18T17:26:33Z"
    }
   },
   {
@@ -17150,8 +17150,8 @@
    "url": "https://student.mit.edu/catalog/m15b.html#15.620",
    "_src": {
     "page": "catalog/m15b",
-    "snapshot": "snapshots/catalog/m15b/2026-11-16T101317Z.html.gz",
-    "fetched_at": "2026-11-16T10:13:17Z"
+    "snapshot": "snapshots/catalog/m15b/2026-11-18T172633Z.html.gz",
+    "fetched_at": "2026-11-18T17:26:33Z"
    }
   },
   {
@@ -17188,8 +17188,8 @@
    "url": "https://student.mit.edu/catalog/m15b.html#15.621",
    "_src": {
     "page": "catalog/m15b",
-    "snapshot": "snapshots/catalog/m15b/2026-11-16T101317Z.html.gz",
-    "fetched_at": "2026-11-16T10:13:17Z"
+    "snapshot": "snapshots/catalog/m15b/2026-11-18T172633Z.html.gz",
+    "fetched_at": "2026-11-18T17:26:33Z"
    }
   },
   {
@@ -17236,8 +17236,8 @@
    "url": "https://student.mit.edu/catalog/m15b.html#15.622",
    "_src": {
     "page": "catalog/m15b",
-    "snapshot": "snapshots/catalog/m15b/2026-11-16T101317Z.html.gz",
-    "fetched_at": "2026-11-16T10:13:17Z"
+    "snapshot": "snapshots/catalog/m15b/2026-11-18T172633Z.html.gz",
+    "fetched_at": "2026-11-18T17:26:33Z"
    }
   },
   {
@@ -17272,8 +17272,8 @@
    "url": "https://student.mit.edu/catalog/m15b.html#15.630",
    "_src": {
     "page": "catalog/m15b",
-    "snapshot": "snapshots/catalog/m15b/2026-11-16T101317Z.html.gz",
-    "fetched_at": "2026-11-16T10:13:17Z"
+    "snapshot": "snapshots/catalog/m15b/2026-11-18T172633Z.html.gz",
+    "fetched_at": "2026-11-18T17:26:33Z"
    }
   },
   {
@@ -17315,8 +17315,8 @@
    ],
    "_src": {
     "page": "catalog/m15b",
-    "snapshot": "snapshots/catalog/m15b/2026-11-16T101317Z.html.gz",
-    "fetched_at": "2026-11-16T10:13:17Z"
+    "snapshot": "snapshots/catalog/m15b/2026-11-18T172633Z.html.gz",
+    "fetched_at": "2026-11-18T17:26:33Z"
    }
   },
   {
@@ -17368,8 +17368,8 @@
    "url": "https://student.mit.edu/catalog/m15b.html#15.655",
    "_src": {
     "page": "catalog/m15b",
-    "snapshot": "snapshots/catalog/m15b/2026-11-16T101317Z.html.gz",
-    "fetched_at": "2026-11-16T10:13:17Z"
+    "snapshot": "snapshots/catalog/m15b/2026-11-18T172633Z.html.gz",
+    "fetched_at": "2026-11-18T17:26:33Z"
    }
   },
   {
@@ -17419,8 +17419,8 @@
    "url": "https://student.mit.edu/catalog/m15b.html#15.657",
    "_src": {
     "page": "catalog/m15b",
-    "snapshot": "snapshots/catalog/m15b/2026-11-16T101317Z.html.gz",
-    "fetched_at": "2026-11-16T10:13:17Z"
+    "snapshot": "snapshots/catalog/m15b/2026-11-18T172633Z.html.gz",
+    "fetched_at": "2026-11-18T17:26:33Z"
    }
   },
   {
@@ -17455,8 +17455,8 @@
    "url": "https://student.mit.edu/catalog/m15b.html#15.661",
    "_src": {
     "page": "catalog/m15b",
-    "snapshot": "snapshots/catalog/m15b/2026-11-16T101317Z.html.gz",
-    "fetched_at": "2026-11-16T10:13:17Z"
+    "snapshot": "snapshots/catalog/m15b/2026-11-18T172633Z.html.gz",
+    "fetched_at": "2026-11-18T17:26:33Z"
    }
   },
   {
@@ -17505,8 +17505,8 @@
    "url": "https://student.mit.edu/catalog/m15b.html#15.662",
    "_src": {
     "page": "catalog/m15b",
-    "snapshot": "snapshots/catalog/m15b/2026-11-16T101317Z.html.gz",
-    "fetched_at": "2026-11-16T10:13:17Z"
+    "snapshot": "snapshots/catalog/m15b/2026-11-18T172633Z.html.gz",
+    "fetched_at": "2026-11-18T17:26:33Z"
    }
   },
   {
@@ -17549,8 +17549,8 @@
    "url": "https://student.mit.edu/catalog/m15b.html#15.663",
    "_src": {
     "page": "catalog/m15b",
-    "snapshot": "snapshots/catalog/m15b/2026-11-16T101317Z.html.gz",
-    "fetched_at": "2026-11-16T10:13:17Z"
+    "snapshot": "snapshots/catalog/m15b/2026-11-18T172633Z.html.gz",
+    "fetched_at": "2026-11-18T17:26:33Z"
    }
   },
   {
@@ -17597,8 +17597,8 @@
    "url": "https://student.mit.edu/catalog/m15b.html#15.665",
    "_src": {
     "page": "catalog/m15b",
-    "snapshot": "snapshots/catalog/m15b/2026-11-16T101317Z.html.gz",
-    "fetched_at": "2026-11-16T10:13:17Z"
+    "snapshot": "snapshots/catalog/m15b/2026-11-18T172633Z.html.gz",
+    "fetched_at": "2026-11-18T17:26:33Z"
    }
   },
   {
@@ -17635,8 +17635,8 @@
    "url": "https://student.mit.edu/catalog/m15b.html#15.669",
    "_src": {
     "page": "catalog/m15b",
-    "snapshot": "snapshots/catalog/m15b/2026-11-16T101317Z.html.gz",
-    "fetched_at": "2026-11-16T10:13:17Z"
+    "snapshot": "snapshots/catalog/m15b/2026-11-18T172633Z.html.gz",
+    "fetched_at": "2026-11-18T17:26:33Z"
    }
   },
   {
@@ -17682,8 +17682,8 @@
    "url": "https://student.mit.edu/catalog/m15b.html#15.671",
    "_src": {
     "page": "catalog/m15b",
-    "snapshot": "snapshots/catalog/m15b/2026-11-16T101317Z.html.gz",
-    "fetched_at": "2026-11-16T10:13:17Z"
+    "snapshot": "snapshots/catalog/m15b/2026-11-18T172633Z.html.gz",
+    "fetched_at": "2026-11-18T17:26:33Z"
    }
   },
   {
@@ -17722,8 +17722,8 @@
    "url": "https://student.mit.edu/catalog/m15b.html#15.672",
    "_src": {
     "page": "catalog/m15b",
-    "snapshot": "snapshots/catalog/m15b/2026-11-16T101317Z.html.gz",
-    "fetched_at": "2026-11-16T10:13:17Z"
+    "snapshot": "snapshots/catalog/m15b/2026-11-18T172633Z.html.gz",
+    "fetched_at": "2026-11-18T17:26:33Z"
    }
   },
   {
@@ -17762,8 +17762,8 @@
    "url": "https://student.mit.edu/catalog/m15b.html#15.673",
    "_src": {
     "page": "catalog/m15b",
-    "snapshot": "snapshots/catalog/m15b/2026-11-16T101317Z.html.gz",
-    "fetched_at": "2026-11-16T10:13:17Z"
+    "snapshot": "snapshots/catalog/m15b/2026-11-18T172633Z.html.gz",
+    "fetched_at": "2026-11-18T17:26:33Z"
    }
   },
   {
@@ -17814,8 +17814,8 @@
    "url": "https://student.mit.edu/catalog/m15b.html#15.674",
    "_src": {
     "page": "catalog/m15b",
-    "snapshot": "snapshots/catalog/m15b/2026-11-16T101317Z.html.gz",
-    "fetched_at": "2026-11-16T10:13:17Z"
+    "snapshot": "snapshots/catalog/m15b/2026-11-18T172633Z.html.gz",
+    "fetched_at": "2026-11-18T17:26:33Z"
    }
   },
   {
@@ -17850,8 +17850,8 @@
    "url": "https://student.mit.edu/catalog/m15b.html#15.675",
    "_src": {
     "page": "catalog/m15b",
-    "snapshot": "snapshots/catalog/m15b/2026-11-16T101317Z.html.gz",
-    "fetched_at": "2026-11-16T10:13:17Z"
+    "snapshot": "snapshots/catalog/m15b/2026-11-18T172633Z.html.gz",
+    "fetched_at": "2026-11-18T17:26:33Z"
    }
   },
   {
@@ -17886,8 +17886,8 @@
    "url": "https://student.mit.edu/catalog/m15b.html#15.676",
    "_src": {
     "page": "catalog/m15b",
-    "snapshot": "snapshots/catalog/m15b/2026-11-16T101317Z.html.gz",
-    "fetched_at": "2026-11-16T10:13:17Z"
+    "snapshot": "snapshots/catalog/m15b/2026-11-18T172633Z.html.gz",
+    "fetched_at": "2026-11-18T17:26:33Z"
    }
   },
   {
@@ -17935,8 +17935,8 @@
    "url": "https://student.mit.edu/catalog/m15b.html#15.677",
    "_src": {
     "page": "catalog/m15b",
-    "snapshot": "snapshots/catalog/m15b/2026-11-16T101317Z.html.gz",
-    "fetched_at": "2026-11-16T10:13:17Z"
+    "snapshot": "snapshots/catalog/m15b/2026-11-18T172633Z.html.gz",
+    "fetched_at": "2026-11-18T17:26:33Z"
    }
   },
   {
@@ -17971,8 +17971,8 @@
    "url": "https://student.mit.edu/catalog/m15b.html#15.679",
    "_src": {
     "page": "catalog/m15b",
-    "snapshot": "snapshots/catalog/m15b/2026-11-16T101317Z.html.gz",
-    "fetched_at": "2026-11-16T10:13:17Z"
+    "snapshot": "snapshots/catalog/m15b/2026-11-18T172633Z.html.gz",
+    "fetched_at": "2026-11-18T17:26:33Z"
    }
   },
   {
@@ -18019,8 +18019,8 @@
    "url": "https://student.mit.edu/catalog/m15b.html#15.681",
    "_src": {
     "page": "catalog/m15b",
-    "snapshot": "snapshots/catalog/m15b/2026-11-16T101317Z.html.gz",
-    "fetched_at": "2026-11-16T10:13:17Z"
+    "snapshot": "snapshots/catalog/m15b/2026-11-18T172633Z.html.gz",
+    "fetched_at": "2026-11-18T17:26:33Z"
    }
   },
   {
@@ -18057,8 +18057,8 @@
    "url": "https://student.mit.edu/catalog/m15b.html#15.691",
    "_src": {
     "page": "catalog/m15b",
-    "snapshot": "snapshots/catalog/m15b/2026-11-16T101317Z.html.gz",
-    "fetched_at": "2026-11-16T10:13:17Z"
+    "snapshot": "snapshots/catalog/m15b/2026-11-18T172633Z.html.gz",
+    "fetched_at": "2026-11-18T17:26:33Z"
    }
   },
   {
@@ -18095,8 +18095,8 @@
    "url": "https://student.mit.edu/catalog/m15b.html#15.698",
    "_src": {
     "page": "catalog/m15b",
-    "snapshot": "snapshots/catalog/m15b/2026-11-16T101317Z.html.gz",
-    "fetched_at": "2026-11-16T10:13:17Z"
+    "snapshot": "snapshots/catalog/m15b/2026-11-18T172633Z.html.gz",
+    "fetched_at": "2026-11-18T17:26:33Z"
    }
   },
   {
@@ -18141,8 +18141,8 @@
    "url": "https://student.mit.edu/catalog/m15c.html#15.700",
    "_src": {
     "page": "catalog/m15c",
-    "snapshot": "snapshots/catalog/m15c/2026-11-16T101319Z.html.gz",
-    "fetched_at": "2026-11-16T10:13:19Z"
+    "snapshot": "snapshots/catalog/m15c/2026-11-18T172634Z.html.gz",
+    "fetched_at": "2026-11-18T17:26:34Z"
    }
   },
   {
@@ -18179,8 +18179,8 @@
    "url": "https://student.mit.edu/catalog/m15c.html#15.701",
    "_src": {
     "page": "catalog/m15c",
-    "snapshot": "snapshots/catalog/m15c/2026-11-16T101319Z.html.gz",
-    "fetched_at": "2026-11-16T10:13:19Z"
+    "snapshot": "snapshots/catalog/m15c/2026-11-18T172634Z.html.gz",
+    "fetched_at": "2026-11-18T17:26:34Z"
    }
   },
   {
@@ -18224,8 +18224,8 @@
    "url": "https://student.mit.edu/catalog/m15c.html#15.702",
    "_src": {
     "page": "catalog/m15c",
-    "snapshot": "snapshots/catalog/m15c/2026-11-16T101319Z.html.gz",
-    "fetched_at": "2026-11-16T10:13:19Z"
+    "snapshot": "snapshots/catalog/m15c/2026-11-18T172634Z.html.gz",
+    "fetched_at": "2026-11-18T17:26:34Z"
    }
   },
   {
@@ -18260,8 +18260,8 @@
    "url": "https://student.mit.edu/catalog/m15c.html#15.703",
    "_src": {
     "page": "catalog/m15c",
-    "snapshot": "snapshots/catalog/m15c/2026-11-16T101319Z.html.gz",
-    "fetched_at": "2026-11-16T10:13:19Z"
+    "snapshot": "snapshots/catalog/m15c/2026-11-18T172634Z.html.gz",
+    "fetched_at": "2026-11-18T17:26:34Z"
    }
   },
   {
@@ -18298,8 +18298,8 @@
    "url": "https://student.mit.edu/catalog/m15c.html#15.704",
    "_src": {
     "page": "catalog/m15c",
-    "snapshot": "snapshots/catalog/m15c/2026-11-16T101319Z.html.gz",
-    "fetched_at": "2026-11-16T10:13:19Z"
+    "snapshot": "snapshots/catalog/m15c/2026-11-18T172634Z.html.gz",
+    "fetched_at": "2026-11-18T17:26:34Z"
    }
   },
   {
@@ -18343,8 +18343,8 @@
    "url": "https://student.mit.edu/catalog/m15c.html#15.705",
    "_src": {
     "page": "catalog/m15c",
-    "snapshot": "snapshots/catalog/m15c/2026-11-16T101319Z.html.gz",
-    "fetched_at": "2026-11-16T10:13:19Z"
+    "snapshot": "snapshots/catalog/m15c/2026-11-18T172634Z.html.gz",
+    "fetched_at": "2026-11-18T17:26:34Z"
    }
   },
   {
@@ -18389,8 +18389,8 @@
    "url": "https://student.mit.edu/catalog/m15c.html#15.707",
    "_src": {
     "page": "catalog/m15c",
-    "snapshot": "snapshots/catalog/m15c/2026-11-16T101319Z.html.gz",
-    "fetched_at": "2026-11-16T10:13:19Z"
+    "snapshot": "snapshots/catalog/m15c/2026-11-18T172634Z.html.gz",
+    "fetched_at": "2026-11-18T17:26:34Z"
    }
   },
   {
@@ -18425,8 +18425,8 @@
    "url": "https://student.mit.edu/catalog/m15c.html#15.708",
    "_src": {
     "page": "catalog/m15c",
-    "snapshot": "snapshots/catalog/m15c/2026-11-16T101319Z.html.gz",
-    "fetched_at": "2026-11-16T10:13:19Z"
+    "snapshot": "snapshots/catalog/m15c/2026-11-18T172634Z.html.gz",
+    "fetched_at": "2026-11-18T17:26:34Z"
    }
   },
   {
@@ -18461,8 +18461,8 @@
    "url": "https://student.mit.edu/catalog/m15c.html#15.709",
    "_src": {
     "page": "catalog/m15c",
-    "snapshot": "snapshots/catalog/m15c/2026-11-16T101319Z.html.gz",
-    "fetched_at": "2026-11-16T10:13:19Z"
+    "snapshot": "snapshots/catalog/m15c/2026-11-18T172634Z.html.gz",
+    "fetched_at": "2026-11-18T17:26:34Z"
    }
   },
   {
@@ -18497,8 +18497,8 @@
    "url": "https://student.mit.edu/catalog/m15c.html#15.711",
    "_src": {
     "page": "catalog/m15c",
-    "snapshot": "snapshots/catalog/m15c/2026-11-16T101319Z.html.gz",
-    "fetched_at": "2026-11-16T10:13:19Z"
+    "snapshot": "snapshots/catalog/m15c/2026-11-18T172634Z.html.gz",
+    "fetched_at": "2026-11-18T17:26:34Z"
    }
   },
   {
@@ -18533,8 +18533,8 @@
    "url": "https://student.mit.edu/catalog/m15c.html#15.712",
    "_src": {
     "page": "catalog/m15c",
-    "snapshot": "snapshots/catalog/m15c/2026-11-16T101319Z.html.gz",
-    "fetched_at": "2026-11-16T10:13:19Z"
+    "snapshot": "snapshots/catalog/m15c/2026-11-18T172634Z.html.gz",
+    "fetched_at": "2026-11-18T17:26:34Z"
    }
   },
   {
@@ -18569,8 +18569,8 @@
    "url": "https://student.mit.edu/catalog/m15c.html#15.714",
    "_src": {
     "page": "catalog/m15c",
-    "snapshot": "snapshots/catalog/m15c/2026-11-16T101319Z.html.gz",
-    "fetched_at": "2026-11-16T10:13:19Z"
+    "snapshot": "snapshots/catalog/m15c/2026-11-18T172634Z.html.gz",
+    "fetched_at": "2026-11-18T17:26:34Z"
    }
   },
   {
@@ -18605,8 +18605,8 @@
    "url": "https://student.mit.edu/catalog/m15c.html#15.715",
    "_src": {
     "page": "catalog/m15c",
-    "snapshot": "snapshots/catalog/m15c/2026-11-16T101319Z.html.gz",
-    "fetched_at": "2026-11-16T10:13:19Z"
+    "snapshot": "snapshots/catalog/m15c/2026-11-18T172634Z.html.gz",
+    "fetched_at": "2026-11-18T17:26:34Z"
    }
   },
   {
@@ -18641,8 +18641,8 @@
    "url": "https://student.mit.edu/catalog/m15c.html#15.716",
    "_src": {
     "page": "catalog/m15c",
-    "snapshot": "snapshots/catalog/m15c/2026-11-16T101319Z.html.gz",
-    "fetched_at": "2026-11-16T10:13:19Z"
+    "snapshot": "snapshots/catalog/m15c/2026-11-18T172634Z.html.gz",
+    "fetched_at": "2026-11-18T17:26:34Z"
    }
   },
   {
@@ -18686,8 +18686,8 @@
    "url": "https://student.mit.edu/catalog/m15c.html#15.717",
    "_src": {
     "page": "catalog/m15c",
-    "snapshot": "snapshots/catalog/m15c/2026-11-16T101319Z.html.gz",
-    "fetched_at": "2026-11-16T10:13:19Z"
+    "snapshot": "snapshots/catalog/m15c/2026-11-18T172634Z.html.gz",
+    "fetched_at": "2026-11-18T17:26:34Z"
    }
   },
   {
@@ -18722,8 +18722,8 @@
    "url": "https://student.mit.edu/catalog/m15c.html#15.718",
    "_src": {
     "page": "catalog/m15c",
-    "snapshot": "snapshots/catalog/m15c/2026-11-16T101319Z.html.gz",
-    "fetched_at": "2026-11-16T10:13:19Z"
+    "snapshot": "snapshots/catalog/m15c/2026-11-18T172634Z.html.gz",
+    "fetched_at": "2026-11-18T17:26:34Z"
    }
   },
   {
@@ -18758,8 +18758,8 @@
    "url": "https://student.mit.edu/catalog/m15c.html#15.720",
    "_src": {
     "page": "catalog/m15c",
-    "snapshot": "snapshots/catalog/m15c/2026-11-16T101319Z.html.gz",
-    "fetched_at": "2026-11-16T10:13:19Z"
+    "snapshot": "snapshots/catalog/m15c/2026-11-18T172634Z.html.gz",
+    "fetched_at": "2026-11-18T17:26:34Z"
    }
   },
   {
@@ -18794,8 +18794,8 @@
    "url": "https://student.mit.edu/catalog/m15c.html#15.721",
    "_src": {
     "page": "catalog/m15c",
-    "snapshot": "snapshots/catalog/m15c/2026-11-16T101319Z.html.gz",
-    "fetched_at": "2026-11-16T10:13:19Z"
+    "snapshot": "snapshots/catalog/m15c/2026-11-18T172634Z.html.gz",
+    "fetched_at": "2026-11-18T17:26:34Z"
    }
   },
   {
@@ -18839,8 +18839,8 @@
    "url": "https://student.mit.edu/catalog/m15c.html#15.722",
    "_src": {
     "page": "catalog/m15c",
-    "snapshot": "snapshots/catalog/m15c/2026-11-16T101319Z.html.gz",
-    "fetched_at": "2026-11-16T10:13:19Z"
+    "snapshot": "snapshots/catalog/m15c/2026-11-18T172634Z.html.gz",
+    "fetched_at": "2026-11-18T17:26:34Z"
    }
   },
   {
@@ -18877,8 +18877,8 @@
    "url": "https://student.mit.edu/catalog/m15c.html#15.723",
    "_src": {
     "page": "catalog/m15c",
-    "snapshot": "snapshots/catalog/m15c/2026-11-16T101319Z.html.gz",
-    "fetched_at": "2026-11-16T10:13:19Z"
+    "snapshot": "snapshots/catalog/m15c/2026-11-18T172634Z.html.gz",
+    "fetched_at": "2026-11-18T17:26:34Z"
    }
   },
   {
@@ -18922,8 +18922,8 @@
    "url": "https://student.mit.edu/catalog/m15c.html#15.724",
    "_src": {
     "page": "catalog/m15c",
-    "snapshot": "snapshots/catalog/m15c/2026-11-16T101319Z.html.gz",
-    "fetched_at": "2026-11-16T10:13:19Z"
+    "snapshot": "snapshots/catalog/m15c/2026-11-18T172634Z.html.gz",
+    "fetched_at": "2026-11-18T17:26:34Z"
    }
   },
   {
@@ -18958,8 +18958,8 @@
    "url": "https://student.mit.edu/catalog/m15c.html#15.726",
    "_src": {
     "page": "catalog/m15c",
-    "snapshot": "snapshots/catalog/m15c/2026-11-16T101319Z.html.gz",
-    "fetched_at": "2026-11-16T10:13:19Z"
+    "snapshot": "snapshots/catalog/m15c/2026-11-18T172634Z.html.gz",
+    "fetched_at": "2026-11-18T17:26:34Z"
    }
   },
   {
@@ -18996,8 +18996,8 @@
    "url": "https://student.mit.edu/catalog/m15c.html#15.727",
    "_src": {
     "page": "catalog/m15c",
-    "snapshot": "snapshots/catalog/m15c/2026-11-16T101319Z.html.gz",
-    "fetched_at": "2026-11-16T10:13:19Z"
+    "snapshot": "snapshots/catalog/m15c/2026-11-18T172634Z.html.gz",
+    "fetched_at": "2026-11-18T17:26:34Z"
    }
   },
   {
@@ -19032,8 +19032,8 @@
    "url": "https://student.mit.edu/catalog/m15c.html#15.729",
    "_src": {
     "page": "catalog/m15c",
-    "snapshot": "snapshots/catalog/m15c/2026-11-16T101319Z.html.gz",
-    "fetched_at": "2026-11-16T10:13:19Z"
+    "snapshot": "snapshots/catalog/m15c/2026-11-18T172634Z.html.gz",
+    "fetched_at": "2026-11-18T17:26:34Z"
    }
   },
   {
@@ -19068,8 +19068,8 @@
    "url": "https://student.mit.edu/catalog/m15c.html#15.730",
    "_src": {
     "page": "catalog/m15c",
-    "snapshot": "snapshots/catalog/m15c/2026-11-16T101319Z.html.gz",
-    "fetched_at": "2026-11-16T10:13:19Z"
+    "snapshot": "snapshots/catalog/m15c/2026-11-18T172634Z.html.gz",
+    "fetched_at": "2026-11-18T17:26:34Z"
    }
   },
   {
@@ -19107,8 +19107,8 @@
    "url": "https://student.mit.edu/catalog/m15c.html#15.731",
    "_src": {
     "page": "catalog/m15c",
-    "snapshot": "snapshots/catalog/m15c/2026-11-16T101319Z.html.gz",
-    "fetched_at": "2026-11-16T10:13:19Z"
+    "snapshot": "snapshots/catalog/m15c/2026-11-18T172634Z.html.gz",
+    "fetched_at": "2026-11-18T17:26:34Z"
    }
   },
   {
@@ -19152,8 +19152,8 @@
    "url": "https://student.mit.edu/catalog/m15c.html#15.732",
    "_src": {
     "page": "catalog/m15c",
-    "snapshot": "snapshots/catalog/m15c/2026-11-16T101319Z.html.gz",
-    "fetched_at": "2026-11-16T10:13:19Z"
+    "snapshot": "snapshots/catalog/m15c/2026-11-18T172634Z.html.gz",
+    "fetched_at": "2026-11-18T17:26:34Z"
    }
   },
   {
@@ -19188,8 +19188,8 @@
    "url": "https://student.mit.edu/catalog/m15c.html#15.733",
    "_src": {
     "page": "catalog/m15c",
-    "snapshot": "snapshots/catalog/m15c/2026-11-16T101319Z.html.gz",
-    "fetched_at": "2026-11-16T10:13:19Z"
+    "snapshot": "snapshots/catalog/m15c/2026-11-18T172634Z.html.gz",
+    "fetched_at": "2026-11-18T17:26:34Z"
    }
   },
   {
@@ -19225,8 +19225,8 @@
    "url": "https://student.mit.edu/catalog/m15c.html#15.734",
    "_src": {
     "page": "catalog/m15c",
-    "snapshot": "snapshots/catalog/m15c/2026-11-16T101319Z.html.gz",
-    "fetched_at": "2026-11-16T10:13:19Z"
+    "snapshot": "snapshots/catalog/m15c/2026-11-18T172634Z.html.gz",
+    "fetched_at": "2026-11-18T17:26:34Z"
    }
   },
   {
@@ -19262,8 +19262,8 @@
    "url": "https://student.mit.edu/catalog/m15c.html#15.736",
    "_src": {
     "page": "catalog/m15c",
-    "snapshot": "snapshots/catalog/m15c/2026-11-16T101319Z.html.gz",
-    "fetched_at": "2026-11-16T10:13:19Z"
+    "snapshot": "snapshots/catalog/m15c/2026-11-18T172634Z.html.gz",
+    "fetched_at": "2026-11-18T17:26:34Z"
    }
   },
   {
@@ -19300,8 +19300,8 @@
    "url": "https://student.mit.edu/catalog/m15c.html#15.737",
    "_src": {
     "page": "catalog/m15c",
-    "snapshot": "snapshots/catalog/m15c/2026-11-16T101319Z.html.gz",
-    "fetched_at": "2026-11-16T10:13:19Z"
+    "snapshot": "snapshots/catalog/m15c/2026-11-18T172634Z.html.gz",
+    "fetched_at": "2026-11-18T17:26:34Z"
    }
   },
   {
@@ -19339,8 +19339,8 @@
    "url": "https://student.mit.edu/catalog/m15c.html#15.738",
    "_src": {
     "page": "catalog/m15c",
-    "snapshot": "snapshots/catalog/m15c/2026-11-16T101319Z.html.gz",
-    "fetched_at": "2026-11-16T10:13:19Z"
+    "snapshot": "snapshots/catalog/m15c/2026-11-18T172634Z.html.gz",
+    "fetched_at": "2026-11-18T17:26:34Z"
    }
   },
   {
@@ -19386,8 +19386,8 @@
    "url": "https://student.mit.edu/catalog/m15c.html#15.739",
    "_src": {
     "page": "catalog/m15c",
-    "snapshot": "snapshots/catalog/m15c/2026-11-16T101319Z.html.gz",
-    "fetched_at": "2026-11-16T10:13:19Z"
+    "snapshot": "snapshots/catalog/m15c/2026-11-18T172634Z.html.gz",
+    "fetched_at": "2026-11-18T17:26:34Z"
    }
   },
   {
@@ -19422,8 +19422,8 @@
    "url": "https://student.mit.edu/catalog/m15c.html#15.740",
    "_src": {
     "page": "catalog/m15c",
-    "snapshot": "snapshots/catalog/m15c/2026-11-16T101319Z.html.gz",
-    "fetched_at": "2026-11-16T10:13:19Z"
+    "snapshot": "snapshots/catalog/m15c/2026-11-18T172634Z.html.gz",
+    "fetched_at": "2026-11-18T17:26:34Z"
    }
   },
   {
@@ -19458,8 +19458,8 @@
    "url": "https://student.mit.edu/catalog/m15c.html#15.741",
    "_src": {
     "page": "catalog/m15c",
-    "snapshot": "snapshots/catalog/m15c/2026-11-16T101319Z.html.gz",
-    "fetched_at": "2026-11-16T10:13:19Z"
+    "snapshot": "snapshots/catalog/m15c/2026-11-18T172634Z.html.gz",
+    "fetched_at": "2026-11-18T17:26:34Z"
    }
   },
   {
@@ -19494,8 +19494,8 @@
    "url": "https://student.mit.edu/catalog/m15c.html#15.742",
    "_src": {
     "page": "catalog/m15c",
-    "snapshot": "snapshots/catalog/m15c/2026-11-16T101319Z.html.gz",
-    "fetched_at": "2026-11-16T10:13:19Z"
+    "snapshot": "snapshots/catalog/m15c/2026-11-18T172634Z.html.gz",
+    "fetched_at": "2026-11-18T17:26:34Z"
    }
   },
   {
@@ -19557,8 +19557,8 @@
    "url": "https://student.mit.edu/catalog/m15c.html#15.761",
    "_src": {
     "page": "catalog/m15c",
-    "snapshot": "snapshots/catalog/m15c/2026-11-16T101319Z.html.gz",
-    "fetched_at": "2026-11-16T10:13:19Z"
+    "snapshot": "snapshots/catalog/m15c/2026-11-18T172634Z.html.gz",
+    "fetched_at": "2026-11-18T17:26:34Z"
    }
   },
   {
@@ -19600,8 +19600,8 @@
    "url": "https://student.mit.edu/catalog/m15c.html#15.762",
    "_src": {
     "page": "catalog/m15c",
-    "snapshot": "snapshots/catalog/m15c/2026-11-16T101319Z.html.gz",
-    "fetched_at": "2026-11-16T10:13:19Z"
+    "snapshot": "snapshots/catalog/m15c/2026-11-18T172634Z.html.gz",
+    "fetched_at": "2026-11-18T17:26:34Z"
    }
   },
   {
@@ -19644,8 +19644,8 @@
    "url": "https://student.mit.edu/catalog/m15c.html#15.763",
    "_src": {
     "page": "catalog/m15c",
-    "snapshot": "snapshots/catalog/m15c/2026-11-16T101319Z.html.gz",
-    "fetched_at": "2026-11-16T10:13:19Z"
+    "snapshot": "snapshots/catalog/m15c/2026-11-18T172634Z.html.gz",
+    "fetched_at": "2026-11-18T17:26:34Z"
    }
   },
   {
@@ -19686,8 +19686,8 @@
    "url": "https://student.mit.edu/catalog/m15c.html#15.764",
    "_src": {
     "page": "catalog/m15c",
-    "snapshot": "snapshots/catalog/m15c/2026-11-16T101319Z.html.gz",
-    "fetched_at": "2026-11-16T10:13:19Z"
+    "snapshot": "snapshots/catalog/m15c/2026-11-18T172634Z.html.gz",
+    "fetched_at": "2026-11-18T17:26:34Z"
    }
   },
   {
@@ -19729,8 +19729,8 @@
    "url": "https://student.mit.edu/catalog/m15c.html#15.765",
    "_src": {
     "page": "catalog/m15c",
-    "snapshot": "snapshots/catalog/m15c/2026-11-16T101319Z.html.gz",
-    "fetched_at": "2026-11-16T10:13:19Z"
+    "snapshot": "snapshots/catalog/m15c/2026-11-18T172634Z.html.gz",
+    "fetched_at": "2026-11-18T17:26:34Z"
    }
   },
   {
@@ -19765,8 +19765,8 @@
    "url": "https://student.mit.edu/catalog/m15c.html#15.766",
    "_src": {
     "page": "catalog/m15c",
-    "snapshot": "snapshots/catalog/m15c/2026-11-16T101319Z.html.gz",
-    "fetched_at": "2026-11-16T10:13:19Z"
+    "snapshot": "snapshots/catalog/m15c/2026-11-18T172634Z.html.gz",
+    "fetched_at": "2026-11-18T17:26:34Z"
    }
   },
   {
@@ -19816,8 +19816,8 @@
    "url": "https://student.mit.edu/catalog/m15c.html#15.767",
    "_src": {
     "page": "catalog/m15c",
-    "snapshot": "snapshots/catalog/m15c/2026-11-16T101319Z.html.gz",
-    "fetched_at": "2026-11-16T10:13:19Z"
+    "snapshot": "snapshots/catalog/m15c/2026-11-18T172634Z.html.gz",
+    "fetched_at": "2026-11-18T17:26:34Z"
    }
   },
   {
@@ -19867,8 +19867,8 @@
    "url": "https://student.mit.edu/catalog/m15c.html#15.768",
    "_src": {
     "page": "catalog/m15c",
-    "snapshot": "snapshots/catalog/m15c/2026-11-16T101319Z.html.gz",
-    "fetched_at": "2026-11-16T10:13:19Z"
+    "snapshot": "snapshots/catalog/m15c/2026-11-18T172634Z.html.gz",
+    "fetched_at": "2026-11-18T17:26:34Z"
    }
   },
   {
@@ -19906,8 +19906,8 @@
    "url": "https://student.mit.edu/catalog/m15c.html#15.769",
    "_src": {
     "page": "catalog/m15c",
-    "snapshot": "snapshots/catalog/m15c/2026-11-16T101319Z.html.gz",
-    "fetched_at": "2026-11-16T10:13:19Z"
+    "snapshot": "snapshots/catalog/m15c/2026-11-18T172634Z.html.gz",
+    "fetched_at": "2026-11-18T17:26:34Z"
    }
   },
   {
@@ -19958,8 +19958,8 @@
    "url": "https://student.mit.edu/catalog/m15c.html#15.770",
    "_src": {
     "page": "catalog/m15c",
-    "snapshot": "snapshots/catalog/m15c/2026-11-16T101319Z.html.gz",
-    "fetched_at": "2026-11-16T10:13:19Z"
+    "snapshot": "snapshots/catalog/m15c/2026-11-18T172634Z.html.gz",
+    "fetched_at": "2026-11-18T17:26:34Z"
    }
   },
   {
@@ -19997,8 +19997,8 @@
    "url": "https://student.mit.edu/catalog/m15c.html#15.771",
    "_src": {
     "page": "catalog/m15c",
-    "snapshot": "snapshots/catalog/m15c/2026-11-16T101319Z.html.gz",
-    "fetched_at": "2026-11-16T10:13:19Z"
+    "snapshot": "snapshots/catalog/m15c/2026-11-18T172634Z.html.gz",
+    "fetched_at": "2026-11-18T17:26:34Z"
    }
   },
   {
@@ -20038,8 +20038,8 @@
    "url": "https://student.mit.edu/catalog/m15c.html#15.773",
    "_src": {
     "page": "catalog/m15c",
-    "snapshot": "snapshots/catalog/m15c/2026-11-16T101319Z.html.gz",
-    "fetched_at": "2026-11-16T10:13:19Z"
+    "snapshot": "snapshots/catalog/m15c/2026-11-18T172634Z.html.gz",
+    "fetched_at": "2026-11-18T17:26:34Z"
    }
   },
   {
@@ -20098,8 +20098,8 @@
    "url": "https://student.mit.edu/catalog/m15c.html#15.774",
    "_src": {
     "page": "catalog/m15c",
-    "snapshot": "snapshots/catalog/m15c/2026-11-16T101319Z.html.gz",
-    "fetched_at": "2026-11-16T10:13:19Z"
+    "snapshot": "snapshots/catalog/m15c/2026-11-18T172634Z.html.gz",
+    "fetched_at": "2026-11-18T17:26:34Z"
    }
   },
   {
@@ -20136,8 +20136,8 @@
    "url": "https://student.mit.edu/catalog/m15c.html#15.775",
    "_src": {
     "page": "catalog/m15c",
-    "snapshot": "snapshots/catalog/m15c/2026-11-16T101319Z.html.gz",
-    "fetched_at": "2026-11-16T10:13:19Z"
+    "snapshot": "snapshots/catalog/m15c/2026-11-18T172634Z.html.gz",
+    "fetched_at": "2026-11-18T17:26:34Z"
    }
   },
   {
@@ -20186,8 +20186,8 @@
    "url": "https://student.mit.edu/catalog/m15c.html#15.776",
    "_src": {
     "page": "catalog/m15c",
-    "snapshot": "snapshots/catalog/m15c/2026-11-16T101319Z.html.gz",
-    "fetched_at": "2026-11-16T10:13:19Z"
+    "snapshot": "snapshots/catalog/m15c/2026-11-18T172634Z.html.gz",
+    "fetched_at": "2026-11-18T17:26:34Z"
    }
   },
   {
@@ -20248,8 +20248,8 @@
    "url": "https://student.mit.edu/catalog/m15c.html#15.777",
    "_src": {
     "page": "catalog/m15c",
-    "snapshot": "snapshots/catalog/m15c/2026-11-16T101319Z.html.gz",
-    "fetched_at": "2026-11-16T10:13:19Z"
+    "snapshot": "snapshots/catalog/m15c/2026-11-18T172634Z.html.gz",
+    "fetched_at": "2026-11-18T17:26:34Z"
    }
   },
   {
@@ -20284,8 +20284,8 @@
    "url": "https://student.mit.edu/catalog/m15c.html#15.778",
    "_src": {
     "page": "catalog/m15c",
-    "snapshot": "snapshots/catalog/m15c/2026-11-16T101319Z.html.gz",
-    "fetched_at": "2026-11-16T10:13:19Z"
+    "snapshot": "snapshots/catalog/m15c/2026-11-18T172634Z.html.gz",
+    "fetched_at": "2026-11-18T17:26:34Z"
    }
   },
   {
@@ -20324,8 +20324,8 @@
    "url": "https://student.mit.edu/catalog/m15c.html#15.779",
    "_src": {
     "page": "catalog/m15c",
-    "snapshot": "snapshots/catalog/m15c/2026-11-16T101319Z.html.gz",
-    "fetched_at": "2026-11-16T10:13:19Z"
+    "snapshot": "snapshots/catalog/m15c/2026-11-18T172634Z.html.gz",
+    "fetched_at": "2026-11-18T17:26:34Z"
    }
   },
   {
@@ -20364,8 +20364,8 @@
    "url": "https://student.mit.edu/catalog/m15c.html#15.781",
    "_src": {
     "page": "catalog/m15c",
-    "snapshot": "snapshots/catalog/m15c/2026-11-16T101319Z.html.gz",
-    "fetched_at": "2026-11-16T10:13:19Z"
+    "snapshot": "snapshots/catalog/m15c/2026-11-18T172634Z.html.gz",
+    "fetched_at": "2026-11-18T17:26:34Z"
    }
   },
   {
@@ -20400,8 +20400,8 @@
    "url": "https://student.mit.edu/catalog/m15c.html#15.782",
    "_src": {
     "page": "catalog/m15c",
-    "snapshot": "snapshots/catalog/m15c/2026-11-16T101319Z.html.gz",
-    "fetched_at": "2026-11-16T10:13:19Z"
+    "snapshot": "snapshots/catalog/m15c/2026-11-18T172634Z.html.gz",
+    "fetched_at": "2026-11-18T17:26:34Z"
    }
   },
   {
@@ -20443,8 +20443,8 @@
    "url": "https://student.mit.edu/catalog/m15c.html#15.783",
    "_src": {
     "page": "catalog/m15c",
-    "snapshot": "snapshots/catalog/m15c/2026-11-16T101319Z.html.gz",
-    "fetched_at": "2026-11-16T10:13:19Z"
+    "snapshot": "snapshots/catalog/m15c/2026-11-18T172634Z.html.gz",
+    "fetched_at": "2026-11-18T17:26:34Z"
    }
   },
   {
@@ -20481,8 +20481,8 @@
    "url": "https://student.mit.edu/catalog/m15c.html#15.784",
    "_src": {
     "page": "catalog/m15c",
-    "snapshot": "snapshots/catalog/m15c/2026-11-16T101319Z.html.gz",
-    "fetched_at": "2026-11-16T10:13:19Z"
+    "snapshot": "snapshots/catalog/m15c/2026-11-18T172634Z.html.gz",
+    "fetched_at": "2026-11-18T17:26:34Z"
    }
   },
   {
@@ -20517,8 +20517,8 @@
    "url": "https://student.mit.edu/catalog/m15c.html#15.785",
    "_src": {
     "page": "catalog/m15c",
-    "snapshot": "snapshots/catalog/m15c/2026-11-16T101319Z.html.gz",
-    "fetched_at": "2026-11-16T10:13:19Z"
+    "snapshot": "snapshots/catalog/m15c/2026-11-18T172634Z.html.gz",
+    "fetched_at": "2026-11-18T17:26:34Z"
    }
   },
   {
@@ -20556,8 +20556,8 @@
    "url": "https://student.mit.edu/catalog/m15c.html#15.786",
    "_src": {
     "page": "catalog/m15c",
-    "snapshot": "snapshots/catalog/m15c/2026-11-16T101319Z.html.gz",
-    "fetched_at": "2026-11-16T10:13:19Z"
+    "snapshot": "snapshots/catalog/m15c/2026-11-18T172634Z.html.gz",
+    "fetched_at": "2026-11-18T17:26:34Z"
    }
   },
   {
@@ -20594,8 +20594,8 @@
    "url": "https://student.mit.edu/catalog/m15c.html#15.789",
    "_src": {
     "page": "catalog/m15c",
-    "snapshot": "snapshots/catalog/m15c/2026-11-16T101319Z.html.gz",
-    "fetched_at": "2026-11-16T10:13:19Z"
+    "snapshot": "snapshots/catalog/m15c/2026-11-18T172634Z.html.gz",
+    "fetched_at": "2026-11-18T17:26:34Z"
    }
   },
   {
@@ -20646,8 +20646,8 @@
    "url": "https://student.mit.edu/catalog/m15c.html#15.792",
    "_src": {
     "page": "catalog/m15c",
-    "snapshot": "snapshots/catalog/m15c/2026-11-16T101319Z.html.gz",
-    "fetched_at": "2026-11-16T10:13:19Z"
+    "snapshot": "snapshots/catalog/m15c/2026-11-18T172634Z.html.gz",
+    "fetched_at": "2026-11-18T17:26:34Z"
    }
   },
   {
@@ -20694,8 +20694,8 @@
    "url": "https://student.mit.edu/catalog/m15c.html#15.794",
    "_src": {
     "page": "catalog/m15c",
-    "snapshot": "snapshots/catalog/m15c/2026-11-16T101319Z.html.gz",
-    "fetched_at": "2026-11-16T10:13:19Z"
+    "snapshot": "snapshots/catalog/m15c/2026-11-18T172634Z.html.gz",
+    "fetched_at": "2026-11-18T17:26:34Z"
    }
   },
   {
@@ -20742,8 +20742,8 @@
    "url": "https://student.mit.edu/catalog/m15c.html#15.799",
    "_src": {
     "page": "catalog/m15c",
-    "snapshot": "snapshots/catalog/m15c/2026-11-16T101319Z.html.gz",
-    "fetched_at": "2026-11-16T10:13:19Z"
+    "snapshot": "snapshots/catalog/m15c/2026-11-18T172634Z.html.gz",
+    "fetched_at": "2026-11-18T17:26:34Z"
    }
   },
   {
@@ -20778,8 +20778,8 @@
    "url": "https://student.mit.edu/catalog/m15c.html#15.809",
    "_src": {
     "page": "catalog/m15c",
-    "snapshot": "snapshots/catalog/m15c/2026-11-16T101319Z.html.gz",
-    "fetched_at": "2026-11-16T10:13:19Z"
+    "snapshot": "snapshots/catalog/m15c/2026-11-18T172634Z.html.gz",
+    "fetched_at": "2026-11-18T17:26:34Z"
    }
   },
   {
@@ -20827,8 +20827,8 @@
    "url": "https://student.mit.edu/catalog/m15c.html#15.814",
    "_src": {
     "page": "catalog/m15c",
-    "snapshot": "snapshots/catalog/m15c/2026-11-16T101319Z.html.gz",
-    "fetched_at": "2026-11-16T10:13:19Z"
+    "snapshot": "snapshots/catalog/m15c/2026-11-18T172634Z.html.gz",
+    "fetched_at": "2026-11-18T17:26:34Z"
    }
   },
   {
@@ -20863,8 +20863,8 @@
    "url": "https://student.mit.edu/catalog/m15c.html#15.815",
    "_src": {
     "page": "catalog/m15c",
-    "snapshot": "snapshots/catalog/m15c/2026-11-16T101319Z.html.gz",
-    "fetched_at": "2026-11-16T10:13:19Z"
+    "snapshot": "snapshots/catalog/m15c/2026-11-18T172634Z.html.gz",
+    "fetched_at": "2026-11-18T17:26:34Z"
    }
   },
   {
@@ -20914,8 +20914,8 @@
    "url": "https://student.mit.edu/catalog/m15c.html#15.818",
    "_src": {
     "page": "catalog/m15c",
-    "snapshot": "snapshots/catalog/m15c/2026-11-16T101319Z.html.gz",
-    "fetched_at": "2026-11-16T10:13:19Z"
+    "snapshot": "snapshots/catalog/m15c/2026-11-18T172634Z.html.gz",
+    "fetched_at": "2026-11-18T17:26:34Z"
    }
   },
   {
@@ -20953,8 +20953,8 @@
    "url": "https://student.mit.edu/catalog/m15c.html#15.819",
    "_src": {
     "page": "catalog/m15c",
-    "snapshot": "snapshots/catalog/m15c/2026-11-16T101319Z.html.gz",
-    "fetched_at": "2026-11-16T10:13:19Z"
+    "snapshot": "snapshots/catalog/m15c/2026-11-18T172634Z.html.gz",
+    "fetched_at": "2026-11-18T17:26:34Z"
    }
   },
   {
@@ -20992,8 +20992,8 @@
    "url": "https://student.mit.edu/catalog/m15c.html#15.821",
    "_src": {
     "page": "catalog/m15c",
-    "snapshot": "snapshots/catalog/m15c/2026-11-16T101319Z.html.gz",
-    "fetched_at": "2026-11-16T10:13:19Z"
+    "snapshot": "snapshots/catalog/m15c/2026-11-18T172634Z.html.gz",
+    "fetched_at": "2026-11-18T17:26:34Z"
    }
   },
   {
@@ -21030,8 +21030,8 @@
    "url": "https://student.mit.edu/catalog/m15c.html#15.822",
    "_src": {
     "page": "catalog/m15c",
-    "snapshot": "snapshots/catalog/m15c/2026-11-16T101319Z.html.gz",
-    "fetched_at": "2026-11-16T10:13:19Z"
+    "snapshot": "snapshots/catalog/m15c/2026-11-18T172634Z.html.gz",
+    "fetched_at": "2026-11-18T17:26:34Z"
    }
   },
   {
@@ -21082,8 +21082,8 @@
    "url": "https://student.mit.edu/catalog/m15c.html#15.830",
    "_src": {
     "page": "catalog/m15c",
-    "snapshot": "snapshots/catalog/m15c/2026-11-16T101319Z.html.gz",
-    "fetched_at": "2026-11-16T10:13:19Z"
+    "snapshot": "snapshots/catalog/m15c/2026-11-18T172634Z.html.gz",
+    "fetched_at": "2026-11-18T17:26:34Z"
    }
   },
   {
@@ -21133,8 +21133,8 @@
    "url": "https://student.mit.edu/catalog/m15c.html#15.833",
    "_src": {
     "page": "catalog/m15c",
-    "snapshot": "snapshots/catalog/m15c/2026-11-16T101319Z.html.gz",
-    "fetched_at": "2026-11-16T10:13:19Z"
+    "snapshot": "snapshots/catalog/m15c/2026-11-18T172634Z.html.gz",
+    "fetched_at": "2026-11-18T17:26:34Z"
    }
   },
   {
@@ -21174,8 +21174,8 @@
    "url": "https://student.mit.edu/catalog/m15c.html#15.834",
    "_src": {
     "page": "catalog/m15c",
-    "snapshot": "snapshots/catalog/m15c/2026-11-16T101319Z.html.gz",
-    "fetched_at": "2026-11-16T10:13:19Z"
+    "snapshot": "snapshots/catalog/m15c/2026-11-18T172634Z.html.gz",
+    "fetched_at": "2026-11-18T17:26:34Z"
    }
   },
   {
@@ -21212,8 +21212,8 @@
    "url": "https://student.mit.edu/catalog/m15c.html#15.835",
    "_src": {
     "page": "catalog/m15c",
-    "snapshot": "snapshots/catalog/m15c/2026-11-16T101319Z.html.gz",
-    "fetched_at": "2026-11-16T10:13:19Z"
+    "snapshot": "snapshots/catalog/m15c/2026-11-18T172634Z.html.gz",
+    "fetched_at": "2026-11-18T17:26:34Z"
    }
   },
   {
@@ -21260,8 +21260,8 @@
    "url": "https://student.mit.edu/catalog/m15c.html#15.838",
    "_src": {
     "page": "catalog/m15c",
-    "snapshot": "snapshots/catalog/m15c/2026-11-16T101319Z.html.gz",
-    "fetched_at": "2026-11-16T10:13:19Z"
+    "snapshot": "snapshots/catalog/m15c/2026-11-18T172634Z.html.gz",
+    "fetched_at": "2026-11-18T17:26:34Z"
    }
   },
   {
@@ -21308,8 +21308,8 @@
    "url": "https://student.mit.edu/catalog/m15c.html#15.839",
    "_src": {
     "page": "catalog/m15c",
-    "snapshot": "snapshots/catalog/m15c/2026-11-16T101319Z.html.gz",
-    "fetched_at": "2026-11-16T10:13:19Z"
+    "snapshot": "snapshots/catalog/m15c/2026-11-18T172634Z.html.gz",
+    "fetched_at": "2026-11-18T17:26:34Z"
    }
   },
   {
@@ -21354,8 +21354,8 @@
    ],
    "_src": {
     "page": "catalog/m15c",
-    "snapshot": "snapshots/catalog/m15c/2026-11-16T101319Z.html.gz",
-    "fetched_at": "2026-11-16T10:13:19Z"
+    "snapshot": "snapshots/catalog/m15c/2026-11-18T172634Z.html.gz",
+    "fetched_at": "2026-11-18T17:26:34Z"
    }
   },
   {
@@ -21393,8 +21393,8 @@
    "url": "https://student.mit.edu/catalog/m15c.html#15.846",
    "_src": {
     "page": "catalog/m15c",
-    "snapshot": "snapshots/catalog/m15c/2026-11-16T101319Z.html.gz",
-    "fetched_at": "2026-11-16T10:13:19Z"
+    "snapshot": "snapshots/catalog/m15c/2026-11-18T172634Z.html.gz",
+    "fetched_at": "2026-11-18T17:26:34Z"
    }
   },
   {
@@ -21436,8 +21436,8 @@
    "url": "https://student.mit.edu/catalog/m15c.html#15.847",
    "_src": {
     "page": "catalog/m15c",
-    "snapshot": "snapshots/catalog/m15c/2026-11-16T101319Z.html.gz",
-    "fetched_at": "2026-11-16T10:13:19Z"
+    "snapshot": "snapshots/catalog/m15c/2026-11-18T172634Z.html.gz",
+    "fetched_at": "2026-11-18T17:26:34Z"
    }
   },
   {
@@ -21472,8 +21472,8 @@
    "url": "https://student.mit.edu/catalog/m15c.html#15.870",
    "_src": {
     "page": "catalog/m15c",
-    "snapshot": "snapshots/catalog/m15c/2026-11-16T101319Z.html.gz",
-    "fetched_at": "2026-11-16T10:13:19Z"
+    "snapshot": "snapshots/catalog/m15c/2026-11-18T172634Z.html.gz",
+    "fetched_at": "2026-11-18T17:26:34Z"
    }
   },
   {
@@ -21531,8 +21531,8 @@
    "url": "https://student.mit.edu/catalog/m15c.html#15.871",
    "_src": {
     "page": "catalog/m15c",
-    "snapshot": "snapshots/catalog/m15c/2026-11-16T101319Z.html.gz",
-    "fetched_at": "2026-11-16T10:13:19Z"
+    "snapshot": "snapshots/catalog/m15c/2026-11-18T172634Z.html.gz",
+    "fetched_at": "2026-11-18T17:26:34Z"
    }
   },
   {
@@ -21571,8 +21571,8 @@
    "url": "https://student.mit.edu/catalog/m15c.html#15.872",
    "_src": {
     "page": "catalog/m15c",
-    "snapshot": "snapshots/catalog/m15c/2026-11-16T101319Z.html.gz",
-    "fetched_at": "2026-11-16T10:13:19Z"
+    "snapshot": "snapshots/catalog/m15c/2026-11-18T172634Z.html.gz",
+    "fetched_at": "2026-11-18T17:26:34Z"
    }
   },
   {
@@ -21630,8 +21630,8 @@
    "url": "https://student.mit.edu/catalog/m15c.html#15.873",
    "_src": {
     "page": "catalog/m15c",
-    "snapshot": "snapshots/catalog/m15c/2026-11-16T101319Z.html.gz",
-    "fetched_at": "2026-11-16T10:13:19Z"
+    "snapshot": "snapshots/catalog/m15c/2026-11-18T172634Z.html.gz",
+    "fetched_at": "2026-11-18T17:26:34Z"
    }
   },
   {
@@ -21666,8 +21666,8 @@
    "url": "https://student.mit.edu/catalog/m15c.html#15.876",
    "_src": {
     "page": "catalog/m15c",
-    "snapshot": "snapshots/catalog/m15c/2026-11-16T101319Z.html.gz",
-    "fetched_at": "2026-11-16T10:13:19Z"
+    "snapshot": "snapshots/catalog/m15c/2026-11-18T172634Z.html.gz",
+    "fetched_at": "2026-11-18T17:26:34Z"
    }
   },
   {
@@ -21702,8 +21702,8 @@
    "url": "https://student.mit.edu/catalog/m15c.html#15.877",
    "_src": {
     "page": "catalog/m15c",
-    "snapshot": "snapshots/catalog/m15c/2026-11-16T101319Z.html.gz",
-    "fetched_at": "2026-11-16T10:13:19Z"
+    "snapshot": "snapshots/catalog/m15c/2026-11-18T172634Z.html.gz",
+    "fetched_at": "2026-11-18T17:26:34Z"
    }
   },
   {
@@ -21740,8 +21740,8 @@
    "url": "https://student.mit.edu/catalog/m15c.html#15.878",
    "_src": {
     "page": "catalog/m15c",
-    "snapshot": "snapshots/catalog/m15c/2026-11-16T101319Z.html.gz",
-    "fetched_at": "2026-11-16T10:13:19Z"
+    "snapshot": "snapshots/catalog/m15c/2026-11-18T172634Z.html.gz",
+    "fetched_at": "2026-11-18T17:26:34Z"
    }
   },
   {
@@ -21790,8 +21790,8 @@
    "url": "https://student.mit.edu/catalog/m15c.html#15.879",
    "_src": {
     "page": "catalog/m15c",
-    "snapshot": "snapshots/catalog/m15c/2026-11-16T101319Z.html.gz",
-    "fetched_at": "2026-11-16T10:13:19Z"
+    "snapshot": "snapshots/catalog/m15c/2026-11-18T172634Z.html.gz",
+    "fetched_at": "2026-11-18T17:26:34Z"
    }
   },
   {
@@ -21839,8 +21839,8 @@
    "url": "https://student.mit.edu/catalog/m15c.html#15.900",
    "_src": {
     "page": "catalog/m15c",
-    "snapshot": "snapshots/catalog/m15c/2026-11-16T101319Z.html.gz",
-    "fetched_at": "2026-11-16T10:13:19Z"
+    "snapshot": "snapshots/catalog/m15c/2026-11-18T172634Z.html.gz",
+    "fetched_at": "2026-11-18T17:26:34Z"
    }
   },
   {
@@ -21877,8 +21877,8 @@
    "url": "https://student.mit.edu/catalog/m15c.html#15.902",
    "_src": {
     "page": "catalog/m15c",
-    "snapshot": "snapshots/catalog/m15c/2026-11-16T101319Z.html.gz",
-    "fetched_at": "2026-11-16T10:13:19Z"
+    "snapshot": "snapshots/catalog/m15c/2026-11-18T172634Z.html.gz",
+    "fetched_at": "2026-11-18T17:26:34Z"
    }
   },
   {
@@ -21918,8 +21918,8 @@
    "url": "https://student.mit.edu/catalog/m15c.html#15.903",
    "_src": {
     "page": "catalog/m15c",
-    "snapshot": "snapshots/catalog/m15c/2026-11-16T101319Z.html.gz",
-    "fetched_at": "2026-11-16T10:13:19Z"
+    "snapshot": "snapshots/catalog/m15c/2026-11-18T172634Z.html.gz",
+    "fetched_at": "2026-11-18T17:26:34Z"
    }
   },
   {
@@ -21958,8 +21958,8 @@
    "url": "https://student.mit.edu/catalog/m15c.html#15.904",
    "_src": {
     "page": "catalog/m15c",
-    "snapshot": "snapshots/catalog/m15c/2026-11-16T101319Z.html.gz",
-    "fetched_at": "2026-11-16T10:13:19Z"
+    "snapshot": "snapshots/catalog/m15c/2026-11-18T172634Z.html.gz",
+    "fetched_at": "2026-11-18T17:26:34Z"
    }
   },
   {
@@ -22005,8 +22005,8 @@
    "url": "https://student.mit.edu/catalog/m15c.html#15.906",
    "_src": {
     "page": "catalog/m15c",
-    "snapshot": "snapshots/catalog/m15c/2026-11-16T101319Z.html.gz",
-    "fetched_at": "2026-11-16T10:13:19Z"
+    "snapshot": "snapshots/catalog/m15c/2026-11-18T172634Z.html.gz",
+    "fetched_at": "2026-11-18T17:26:34Z"
    }
   },
   {
@@ -22041,8 +22041,8 @@
    "url": "https://student.mit.edu/catalog/m15c.html#15.910",
    "_src": {
     "page": "catalog/m15c",
-    "snapshot": "snapshots/catalog/m15c/2026-11-16T101319Z.html.gz",
-    "fetched_at": "2026-11-16T10:13:19Z"
+    "snapshot": "snapshots/catalog/m15c/2026-11-18T172634Z.html.gz",
+    "fetched_at": "2026-11-18T17:26:34Z"
    }
   },
   {
@@ -22090,8 +22090,8 @@
    "url": "https://student.mit.edu/catalog/m15c.html#15.911",
    "_src": {
     "page": "catalog/m15c",
-    "snapshot": "snapshots/catalog/m15c/2026-11-16T101319Z.html.gz",
-    "fetched_at": "2026-11-16T10:13:19Z"
+    "snapshot": "snapshots/catalog/m15c/2026-11-18T172634Z.html.gz",
+    "fetched_at": "2026-11-18T17:26:34Z"
    }
   },
   {
@@ -22131,8 +22131,8 @@
    "url": "https://student.mit.edu/catalog/m15c.html#15.912",
    "_src": {
     "page": "catalog/m15c",
-    "snapshot": "snapshots/catalog/m15c/2026-11-16T101319Z.html.gz",
-    "fetched_at": "2026-11-16T10:13:19Z"
+    "snapshot": "snapshots/catalog/m15c/2026-11-18T172634Z.html.gz",
+    "fetched_at": "2026-11-18T17:26:34Z"
    }
   },
   {
@@ -22169,8 +22169,8 @@
    "url": "https://student.mit.edu/catalog/m15c.html#15.913",
    "_src": {
     "page": "catalog/m15c",
-    "snapshot": "snapshots/catalog/m15c/2026-11-16T101319Z.html.gz",
-    "fetched_at": "2026-11-16T10:13:19Z"
+    "snapshot": "snapshots/catalog/m15c/2026-11-18T172634Z.html.gz",
+    "fetched_at": "2026-11-18T17:26:34Z"
    }
   },
   {
@@ -22213,8 +22213,8 @@
    "url": "https://student.mit.edu/catalog/m15c.html#15.914",
    "_src": {
     "page": "catalog/m15c",
-    "snapshot": "snapshots/catalog/m15c/2026-11-16T101319Z.html.gz",
-    "fetched_at": "2026-11-16T10:13:19Z"
+    "snapshot": "snapshots/catalog/m15c/2026-11-18T172634Z.html.gz",
+    "fetched_at": "2026-11-18T17:26:34Z"
    }
   },
   {
@@ -22249,8 +22249,8 @@
    "url": "https://student.mit.edu/catalog/m15c.html#15.915",
    "_src": {
     "page": "catalog/m15c",
-    "snapshot": "snapshots/catalog/m15c/2026-11-16T101319Z.html.gz",
-    "fetched_at": "2026-11-16T10:13:19Z"
+    "snapshot": "snapshots/catalog/m15c/2026-11-18T172634Z.html.gz",
+    "fetched_at": "2026-11-18T17:26:34Z"
    }
   },
   {
@@ -22287,8 +22287,8 @@
    "url": "https://student.mit.edu/catalog/m15c.html#15.928",
    "_src": {
     "page": "catalog/m15c",
-    "snapshot": "snapshots/catalog/m15c/2026-11-16T101319Z.html.gz",
-    "fetched_at": "2026-11-16T10:13:19Z"
+    "snapshot": "snapshots/catalog/m15c/2026-11-18T172634Z.html.gz",
+    "fetched_at": "2026-11-18T17:26:34Z"
    }
   },
   {
@@ -22325,8 +22325,8 @@
    "url": "https://student.mit.edu/catalog/m15c.html#15.929",
    "_src": {
     "page": "catalog/m15c",
-    "snapshot": "snapshots/catalog/m15c/2026-11-16T101319Z.html.gz",
-    "fetched_at": "2026-11-16T10:13:19Z"
+    "snapshot": "snapshots/catalog/m15c/2026-11-18T172634Z.html.gz",
+    "fetched_at": "2026-11-18T17:26:34Z"
    }
   },
   {
@@ -22365,8 +22365,8 @@
    "url": "https://student.mit.edu/catalog/m15c.html#15.933",
    "_src": {
     "page": "catalog/m15c",
-    "snapshot": "snapshots/catalog/m15c/2026-11-16T101319Z.html.gz",
-    "fetched_at": "2026-11-16T10:13:19Z"
+    "snapshot": "snapshots/catalog/m15c/2026-11-18T172634Z.html.gz",
+    "fetched_at": "2026-11-18T17:26:34Z"
    }
   },
   {
@@ -22405,8 +22405,8 @@
    "url": "https://student.mit.edu/catalog/m15c.html#15.941",
    "_src": {
     "page": "catalog/m15c",
-    "snapshot": "snapshots/catalog/m15c/2026-11-16T101319Z.html.gz",
-    "fetched_at": "2026-11-16T10:13:19Z"
+    "snapshot": "snapshots/catalog/m15c/2026-11-18T172634Z.html.gz",
+    "fetched_at": "2026-11-18T17:26:34Z"
    }
   },
   {
@@ -22443,8 +22443,8 @@
    "url": "https://student.mit.edu/catalog/m15c.html#15.949",
    "_src": {
     "page": "catalog/m15c",
-    "snapshot": "snapshots/catalog/m15c/2026-11-16T101319Z.html.gz",
-    "fetched_at": "2026-11-16T10:13:19Z"
+    "snapshot": "snapshots/catalog/m15c/2026-11-18T172634Z.html.gz",
+    "fetched_at": "2026-11-18T17:26:34Z"
    }
   },
   {
@@ -22481,8 +22481,8 @@
    "url": "https://student.mit.edu/catalog/m15c.html#15.C51",
    "_src": {
     "page": "catalog/m15c",
-    "snapshot": "snapshots/catalog/m15c/2026-11-16T101319Z.html.gz",
-    "fetched_at": "2026-11-16T10:13:19Z"
+    "snapshot": "snapshots/catalog/m15c/2026-11-18T172634Z.html.gz",
+    "fetched_at": "2026-11-18T17:26:34Z"
    }
   },
   {
@@ -22549,8 +22549,8 @@
    "url": "https://student.mit.edu/catalog/m15c.html#15.C57",
    "_src": {
     "page": "catalog/m15c",
-    "snapshot": "snapshots/catalog/m15c/2026-11-16T101319Z.html.gz",
-    "fetched_at": "2026-11-16T10:13:19Z"
+    "snapshot": "snapshots/catalog/m15c/2026-11-18T172634Z.html.gz",
+    "fetched_at": "2026-11-18T17:26:34Z"
    }
   },
   {
@@ -22587,8 +22587,8 @@
    "url": "https://student.mit.edu/catalog/m15c.html#15.S01",
    "_src": {
     "page": "catalog/m15c",
-    "snapshot": "snapshots/catalog/m15c/2026-11-16T101319Z.html.gz",
-    "fetched_at": "2026-11-16T10:13:19Z"
+    "snapshot": "snapshots/catalog/m15c/2026-11-18T172634Z.html.gz",
+    "fetched_at": "2026-11-18T17:26:34Z"
    }
   },
   {
@@ -22624,8 +22624,8 @@
    "url": "https://student.mit.edu/catalog/m15c.html#15.S02",
    "_src": {
     "page": "catalog/m15c",
-    "snapshot": "snapshots/catalog/m15c/2026-11-16T101319Z.html.gz",
-    "fetched_at": "2026-11-16T10:13:19Z"
+    "snapshot": "snapshots/catalog/m15c/2026-11-18T172634Z.html.gz",
+    "fetched_at": "2026-11-18T17:26:34Z"
    }
   },
   {
@@ -22673,8 +22673,8 @@
    "url": "https://student.mit.edu/catalog/m15c.html#15.S03",
    "_src": {
     "page": "catalog/m15c",
-    "snapshot": "snapshots/catalog/m15c/2026-11-16T101319Z.html.gz",
-    "fetched_at": "2026-11-16T10:13:19Z"
+    "snapshot": "snapshots/catalog/m15c/2026-11-18T172634Z.html.gz",
+    "fetched_at": "2026-11-18T17:26:34Z"
    }
   },
   {
@@ -22721,8 +22721,8 @@
    "url": "https://student.mit.edu/catalog/m15c.html#15.S04",
    "_src": {
     "page": "catalog/m15c",
-    "snapshot": "snapshots/catalog/m15c/2026-11-16T101319Z.html.gz",
-    "fetched_at": "2026-11-16T10:13:19Z"
+    "snapshot": "snapshots/catalog/m15c/2026-11-18T172634Z.html.gz",
+    "fetched_at": "2026-11-18T17:26:34Z"
    }
   },
   {
@@ -22779,8 +22779,8 @@
    "url": "https://student.mit.edu/catalog/m15c.html#15.S05",
    "_src": {
     "page": "catalog/m15c",
-    "snapshot": "snapshots/catalog/m15c/2026-11-16T101319Z.html.gz",
-    "fetched_at": "2026-11-16T10:13:19Z"
+    "snapshot": "snapshots/catalog/m15c/2026-11-18T172634Z.html.gz",
+    "fetched_at": "2026-11-18T17:26:34Z"
    }
   },
   {
@@ -22826,8 +22826,8 @@
    "url": "https://student.mit.edu/catalog/m15c.html#15.S06",
    "_src": {
     "page": "catalog/m15c",
-    "snapshot": "snapshots/catalog/m15c/2026-11-16T101319Z.html.gz",
-    "fetched_at": "2026-11-16T10:13:19Z"
+    "snapshot": "snapshots/catalog/m15c/2026-11-18T172634Z.html.gz",
+    "fetched_at": "2026-11-18T17:26:34Z"
    }
   },
   {
@@ -22873,8 +22873,8 @@
    "url": "https://student.mit.edu/catalog/m15c.html#15.S07",
    "_src": {
     "page": "catalog/m15c",
-    "snapshot": "snapshots/catalog/m15c/2026-11-16T101319Z.html.gz",
-    "fetched_at": "2026-11-16T10:13:19Z"
+    "snapshot": "snapshots/catalog/m15c/2026-11-18T172634Z.html.gz",
+    "fetched_at": "2026-11-18T17:26:34Z"
    }
   },
   {
@@ -22921,8 +22921,8 @@
    "url": "https://student.mit.edu/catalog/m15c.html#15.S08",
    "_src": {
     "page": "catalog/m15c",
-    "snapshot": "snapshots/catalog/m15c/2026-11-16T101319Z.html.gz",
-    "fetched_at": "2026-11-16T10:13:19Z"
+    "snapshot": "snapshots/catalog/m15c/2026-11-18T172634Z.html.gz",
+    "fetched_at": "2026-11-18T17:26:34Z"
    }
   },
   {
@@ -22980,8 +22980,8 @@
    "url": "https://student.mit.edu/catalog/m15c.html#15.S09",
    "_src": {
     "page": "catalog/m15c",
-    "snapshot": "snapshots/catalog/m15c/2026-11-16T101319Z.html.gz",
-    "fetched_at": "2026-11-16T10:13:19Z"
+    "snapshot": "snapshots/catalog/m15c/2026-11-18T172634Z.html.gz",
+    "fetched_at": "2026-11-18T17:26:34Z"
    }
   },
   {
@@ -23027,8 +23027,8 @@
    "url": "https://student.mit.edu/catalog/m15c.html#15.S10",
    "_src": {
     "page": "catalog/m15c",
-    "snapshot": "snapshots/catalog/m15c/2026-11-16T101319Z.html.gz",
-    "fetched_at": "2026-11-16T10:13:19Z"
+    "snapshot": "snapshots/catalog/m15c/2026-11-18T172634Z.html.gz",
+    "fetched_at": "2026-11-18T17:26:34Z"
    }
   },
   {
@@ -23068,14 +23068,14 @@
     }
    ],
    "schedule_summary": "Lecture: R EVE (4-7 PM)",
-   "description": "Opportunity for group study by graduate students on current topics related to management not otherwise included in curriculum.",
-   "instructor": "A. Makarin",
+   "description": "Opportunity for group study by graduate students on current topics related to management not otherwise included in curriculum. Staff 15.S10:",
+   "instructor": null,
    "source_page": "m15c",
    "url": "https://student.mit.edu/catalog/m15c.html#15.S11",
    "_src": {
     "page": "catalog/m15c",
-    "snapshot": "snapshots/catalog/m15c/2026-11-16T101319Z.html.gz",
-    "fetched_at": "2026-11-16T10:13:19Z"
+    "snapshot": "snapshots/catalog/m15c/2026-11-18T172634Z.html.gz",
+    "fetched_at": "2026-11-18T17:26:34Z"
    }
   },
   {
@@ -23121,8 +23121,8 @@
    "url": "https://student.mit.edu/catalog/m15c.html#15.S12",
    "_src": {
     "page": "catalog/m15c",
-    "snapshot": "snapshots/catalog/m15c/2026-11-16T101319Z.html.gz",
-    "fetched_at": "2026-11-16T10:13:19Z"
+    "snapshot": "snapshots/catalog/m15c/2026-11-18T172634Z.html.gz",
+    "fetched_at": "2026-11-18T17:26:34Z"
    }
   },
   {
@@ -23179,8 +23179,8 @@
    "url": "https://student.mit.edu/catalog/m15c.html#15.S13",
    "_src": {
     "page": "catalog/m15c",
-    "snapshot": "snapshots/catalog/m15c/2026-11-16T101319Z.html.gz",
-    "fetched_at": "2026-11-16T10:13:19Z"
+    "snapshot": "snapshots/catalog/m15c/2026-11-18T172634Z.html.gz",
+    "fetched_at": "2026-11-18T17:26:34Z"
    }
   },
   {
@@ -23215,8 +23215,8 @@
    "url": "https://student.mit.edu/catalog/m15c.html#15.S14",
    "_src": {
     "page": "catalog/m15c",
-    "snapshot": "snapshots/catalog/m15c/2026-11-16T101319Z.html.gz",
-    "fetched_at": "2026-11-16T10:13:19Z"
+    "snapshot": "snapshots/catalog/m15c/2026-11-18T172634Z.html.gz",
+    "fetched_at": "2026-11-18T17:26:34Z"
    }
   },
   {
@@ -23226,8 +23226,7 @@
    "category": "Special Subjects",
    "terms": [
     "Fall",
-    "IAP",
-    "Spring"
+    "IAP"
    ],
    "offering_status": "Offered",
    "offering_notes": [],
@@ -23258,14 +23257,14 @@
     }
    ],
    "schedule_summary": "Lecture: T EVE (6-9 PM)",
-   "description": "Group study of current topics related to management not otherwise included in curriculum. Fall:",
+   "description": "Group study of current topics related to management not otherwise included in curriculum.",
    "instructor": "S. Stern",
    "source_page": "m15c",
    "url": "https://student.mit.edu/catalog/m15c.html#15.S15",
    "_src": {
     "page": "catalog/m15c",
-    "snapshot": "snapshots/catalog/m15c/2026-11-16T101319Z.html.gz",
-    "fetched_at": "2026-11-16T10:13:19Z"
+    "snapshot": "snapshots/catalog/m15c/2026-11-18T172634Z.html.gz",
+    "fetched_at": "2026-11-18T17:26:34Z"
    }
   },
   {
@@ -23300,8 +23299,8 @@
    "url": "https://student.mit.edu/catalog/m15c.html#15.S16",
    "_src": {
     "page": "catalog/m15c",
-    "snapshot": "snapshots/catalog/m15c/2026-11-16T101319Z.html.gz",
-    "fetched_at": "2026-11-16T10:13:19Z"
+    "snapshot": "snapshots/catalog/m15c/2026-11-18T172634Z.html.gz",
+    "fetched_at": "2026-11-18T17:26:34Z"
    }
   },
   {
@@ -23348,8 +23347,8 @@
    "url": "https://student.mit.edu/catalog/m15c.html#15.S17",
    "_src": {
     "page": "catalog/m15c",
-    "snapshot": "snapshots/catalog/m15c/2026-11-16T101319Z.html.gz",
-    "fetched_at": "2026-11-16T10:13:19Z"
+    "snapshot": "snapshots/catalog/m15c/2026-11-18T172634Z.html.gz",
+    "fetched_at": "2026-11-18T17:26:34Z"
    }
   },
   {
@@ -23390,14 +23389,14 @@
     }
    ],
    "schedule_summary": "Lecture: T EVE (4-6 PM)",
-   "description": "Group study of current topics related to management not otherwise included in curriculum. Fall:",
+   "description": "Group study of current topics related to management not otherwise included in curriculum.",
    "instructor": "B. Grimmer",
    "source_page": "m15c",
    "url": "https://student.mit.edu/catalog/m15c.html#15.S18",
    "_src": {
     "page": "catalog/m15c",
-    "snapshot": "snapshots/catalog/m15c/2026-11-16T101319Z.html.gz",
-    "fetched_at": "2026-11-16T10:13:19Z"
+    "snapshot": "snapshots/catalog/m15c/2026-11-18T172634Z.html.gz",
+    "fetched_at": "2026-11-18T17:26:34Z"
    }
   },
   {
@@ -23432,8 +23431,8 @@
    "url": "https://student.mit.edu/catalog/m15c.html#15.S19",
    "_src": {
     "page": "catalog/m15c",
-    "snapshot": "snapshots/catalog/m15c/2026-11-16T101319Z.html.gz",
-    "fetched_at": "2026-11-16T10:13:19Z"
+    "snapshot": "snapshots/catalog/m15c/2026-11-18T172634Z.html.gz",
+    "fetched_at": "2026-11-18T17:26:34Z"
    }
   },
   {
@@ -23489,8 +23488,8 @@
    ],
    "_src": {
     "page": "catalog/m15c",
-    "snapshot": "snapshots/catalog/m15c/2026-11-16T101319Z.html.gz",
-    "fetched_at": "2026-11-16T10:13:19Z"
+    "snapshot": "snapshots/catalog/m15c/2026-11-18T172634Z.html.gz",
+    "fetched_at": "2026-11-18T17:26:34Z"
    }
   },
   {
@@ -23527,8 +23526,8 @@
    "url": "https://student.mit.edu/catalog/m15c.html#15.S30",
    "_src": {
     "page": "catalog/m15c",
-    "snapshot": "snapshots/catalog/m15c/2026-11-16T101319Z.html.gz",
-    "fetched_at": "2026-11-16T10:13:19Z"
+    "snapshot": "snapshots/catalog/m15c/2026-11-18T172634Z.html.gz",
+    "fetched_at": "2026-11-18T17:26:34Z"
    }
   },
   {
@@ -23566,8 +23565,8 @@
    "url": "https://student.mit.edu/catalog/m15c.html#15.S31",
    "_src": {
     "page": "catalog/m15c",
-    "snapshot": "snapshots/catalog/m15c/2026-11-16T101319Z.html.gz",
-    "fetched_at": "2026-11-16T10:13:19Z"
+    "snapshot": "snapshots/catalog/m15c/2026-11-18T172634Z.html.gz",
+    "fetched_at": "2026-11-18T17:26:34Z"
    }
   },
   {
@@ -23605,8 +23604,8 @@
    "url": "https://student.mit.edu/catalog/m15c.html#15.S32",
    "_src": {
     "page": "catalog/m15c",
-    "snapshot": "snapshots/catalog/m15c/2026-11-16T101319Z.html.gz",
-    "fetched_at": "2026-11-16T10:13:19Z"
+    "snapshot": "snapshots/catalog/m15c/2026-11-18T172634Z.html.gz",
+    "fetched_at": "2026-11-18T17:26:34Z"
    }
   },
   {
@@ -23643,8 +23642,8 @@
    "url": "https://student.mit.edu/catalog/m15c.html#15.S33",
    "_src": {
     "page": "catalog/m15c",
-    "snapshot": "snapshots/catalog/m15c/2026-11-16T101319Z.html.gz",
-    "fetched_at": "2026-11-16T10:13:19Z"
+    "snapshot": "snapshots/catalog/m15c/2026-11-18T172634Z.html.gz",
+    "fetched_at": "2026-11-18T17:26:34Z"
    }
   },
   {
@@ -23687,8 +23686,8 @@
    ],
    "_src": {
     "page": "catalog/m15c",
-    "snapshot": "snapshots/catalog/m15c/2026-11-16T101319Z.html.gz",
-    "fetched_at": "2026-11-16T10:13:19Z"
+    "snapshot": "snapshots/catalog/m15c/2026-11-18T172634Z.html.gz",
+    "fetched_at": "2026-11-18T17:26:34Z"
    }
   },
   {
@@ -23736,8 +23735,8 @@
    "url": "https://student.mit.edu/catalog/m15c.html#15.S50",
    "_src": {
     "page": "catalog/m15c",
-    "snapshot": "snapshots/catalog/m15c/2026-11-16T101319Z.html.gz",
-    "fetched_at": "2026-11-16T10:13:19Z"
+    "snapshot": "snapshots/catalog/m15c/2026-11-18T172634Z.html.gz",
+    "fetched_at": "2026-11-18T17:26:34Z"
    }
   },
   {
@@ -23785,8 +23784,8 @@
    "url": "https://student.mit.edu/catalog/m15c.html#15.S51",
    "_src": {
     "page": "catalog/m15c",
-    "snapshot": "snapshots/catalog/m15c/2026-11-16T101319Z.html.gz",
-    "fetched_at": "2026-11-16T10:13:19Z"
+    "snapshot": "snapshots/catalog/m15c/2026-11-18T172634Z.html.gz",
+    "fetched_at": "2026-11-18T17:26:34Z"
    }
   },
   {
@@ -23821,8 +23820,8 @@
    "url": "https://student.mit.edu/catalog/m15c.html#15.S52",
    "_src": {
     "page": "catalog/m15c",
-    "snapshot": "snapshots/catalog/m15c/2026-11-16T101319Z.html.gz",
-    "fetched_at": "2026-11-16T10:13:19Z"
+    "snapshot": "snapshots/catalog/m15c/2026-11-18T172634Z.html.gz",
+    "fetched_at": "2026-11-18T17:26:34Z"
    }
   },
   {
@@ -23857,8 +23856,8 @@
    "url": "https://student.mit.edu/catalog/m15c.html#15.S53",
    "_src": {
     "page": "catalog/m15c",
-    "snapshot": "snapshots/catalog/m15c/2026-11-16T101319Z.html.gz",
-    "fetched_at": "2026-11-16T10:13:19Z"
+    "snapshot": "snapshots/catalog/m15c/2026-11-18T172634Z.html.gz",
+    "fetched_at": "2026-11-18T17:26:34Z"
    }
   },
   {
@@ -23893,8 +23892,8 @@
    "url": "https://student.mit.edu/catalog/m15c.html#15.S54",
    "_src": {
     "page": "catalog/m15c",
-    "snapshot": "snapshots/catalog/m15c/2026-11-16T101319Z.html.gz",
-    "fetched_at": "2026-11-16T10:13:19Z"
+    "snapshot": "snapshots/catalog/m15c/2026-11-18T172634Z.html.gz",
+    "fetched_at": "2026-11-18T17:26:34Z"
    }
   },
   {
@@ -23941,8 +23940,8 @@
    "url": "https://student.mit.edu/catalog/m15c.html#15.S55",
    "_src": {
     "page": "catalog/m15c",
-    "snapshot": "snapshots/catalog/m15c/2026-11-16T101319Z.html.gz",
-    "fetched_at": "2026-11-16T10:13:19Z"
+    "snapshot": "snapshots/catalog/m15c/2026-11-18T172634Z.html.gz",
+    "fetched_at": "2026-11-18T17:26:34Z"
    }
   },
   {
@@ -23977,8 +23976,8 @@
    "url": "https://student.mit.edu/catalog/m15c.html#15.S56",
    "_src": {
     "page": "catalog/m15c",
-    "snapshot": "snapshots/catalog/m15c/2026-11-16T101319Z.html.gz",
-    "fetched_at": "2026-11-16T10:13:19Z"
+    "snapshot": "snapshots/catalog/m15c/2026-11-18T172634Z.html.gz",
+    "fetched_at": "2026-11-18T17:26:34Z"
    }
   },
   {
@@ -24013,8 +24012,8 @@
    "url": "https://student.mit.edu/catalog/m15c.html#15.S57",
    "_src": {
     "page": "catalog/m15c",
-    "snapshot": "snapshots/catalog/m15c/2026-11-16T101319Z.html.gz",
-    "fetched_at": "2026-11-16T10:13:19Z"
+    "snapshot": "snapshots/catalog/m15c/2026-11-18T172634Z.html.gz",
+    "fetched_at": "2026-11-18T17:26:34Z"
    }
   },
   {
@@ -24049,8 +24048,8 @@
    "url": "https://student.mit.edu/catalog/m15c.html#15.S58",
    "_src": {
     "page": "catalog/m15c",
-    "snapshot": "snapshots/catalog/m15c/2026-11-16T101319Z.html.gz",
-    "fetched_at": "2026-11-16T10:13:19Z"
+    "snapshot": "snapshots/catalog/m15c/2026-11-18T172634Z.html.gz",
+    "fetched_at": "2026-11-18T17:26:34Z"
    }
   },
   {
@@ -24085,8 +24084,8 @@
    "url": "https://student.mit.edu/catalog/m15c.html#15.S59",
    "_src": {
     "page": "catalog/m15c",
-    "snapshot": "snapshots/catalog/m15c/2026-11-16T101319Z.html.gz",
-    "fetched_at": "2026-11-16T10:13:19Z"
+    "snapshot": "snapshots/catalog/m15c/2026-11-18T172634Z.html.gz",
+    "fetched_at": "2026-11-18T17:26:34Z"
    }
   },
   {
@@ -24115,14 +24114,14 @@
    "same_as": [],
    "schedule": [],
    "schedule_summary": "",
-   "description": "Group study of current topics related to management not otherwise included in curriculum.",
-   "instructor": "C. Tucker",
+   "description": "Group study of current topics related to management not otherwise included in curriculum. Staff",
+   "instructor": null,
    "source_page": "m15c",
    "url": "https://student.mit.edu/catalog/m15c.html#15.S60",
    "_src": {
     "page": "catalog/m15c",
-    "snapshot": "snapshots/catalog/m15c/2026-11-16T101319Z.html.gz",
-    "fetched_at": "2026-11-16T10:13:19Z"
+    "snapshot": "snapshots/catalog/m15c/2026-11-18T172634Z.html.gz",
+    "fetched_at": "2026-11-18T17:26:34Z"
    }
   },
   {
@@ -24157,8 +24156,8 @@
    "url": "https://student.mit.edu/catalog/m15c.html#15.S61",
    "_src": {
     "page": "catalog/m15c",
-    "snapshot": "snapshots/catalog/m15c/2026-11-16T101319Z.html.gz",
-    "fetched_at": "2026-11-16T10:13:19Z"
+    "snapshot": "snapshots/catalog/m15c/2026-11-18T172634Z.html.gz",
+    "fetched_at": "2026-11-18T17:26:34Z"
    }
   },
   {
@@ -24193,8 +24192,8 @@
    "url": "https://student.mit.edu/catalog/m15c.html#15.S62",
    "_src": {
     "page": "catalog/m15c",
-    "snapshot": "snapshots/catalog/m15c/2026-11-16T101319Z.html.gz",
-    "fetched_at": "2026-11-16T10:13:19Z"
+    "snapshot": "snapshots/catalog/m15c/2026-11-18T172634Z.html.gz",
+    "fetched_at": "2026-11-18T17:26:34Z"
    }
   },
   {
@@ -24229,8 +24228,8 @@
    "url": "https://student.mit.edu/catalog/m15c.html#15.S63",
    "_src": {
     "page": "catalog/m15c",
-    "snapshot": "snapshots/catalog/m15c/2026-11-16T101319Z.html.gz",
-    "fetched_at": "2026-11-16T10:13:19Z"
+    "snapshot": "snapshots/catalog/m15c/2026-11-18T172634Z.html.gz",
+    "fetched_at": "2026-11-18T17:26:34Z"
    }
   },
   {
@@ -24265,8 +24264,8 @@
    "url": "https://student.mit.edu/catalog/m15c.html#15.S64",
    "_src": {
     "page": "catalog/m15c",
-    "snapshot": "snapshots/catalog/m15c/2026-11-16T101319Z.html.gz",
-    "fetched_at": "2026-11-16T10:13:19Z"
+    "snapshot": "snapshots/catalog/m15c/2026-11-18T172634Z.html.gz",
+    "fetched_at": "2026-11-18T17:26:34Z"
    }
   },
   {
@@ -24301,8 +24300,8 @@
    "url": "https://student.mit.edu/catalog/m15c.html#15.S65",
    "_src": {
     "page": "catalog/m15c",
-    "snapshot": "snapshots/catalog/m15c/2026-11-16T101319Z.html.gz",
-    "fetched_at": "2026-11-16T10:13:19Z"
+    "snapshot": "snapshots/catalog/m15c/2026-11-18T172634Z.html.gz",
+    "fetched_at": "2026-11-18T17:26:34Z"
    }
   },
   {
@@ -24339,8 +24338,8 @@
    "url": "https://student.mit.edu/catalog/m15c.html#15.S66",
    "_src": {
     "page": "catalog/m15c",
-    "snapshot": "snapshots/catalog/m15c/2026-11-16T101319Z.html.gz",
-    "fetched_at": "2026-11-16T10:13:19Z"
+    "snapshot": "snapshots/catalog/m15c/2026-11-18T172634Z.html.gz",
+    "fetched_at": "2026-11-18T17:26:34Z"
    }
   },
   {
@@ -24375,8 +24374,8 @@
    "url": "https://student.mit.edu/catalog/m15c.html#15.S67",
    "_src": {
     "page": "catalog/m15c",
-    "snapshot": "snapshots/catalog/m15c/2026-11-16T101319Z.html.gz",
-    "fetched_at": "2026-11-16T10:13:19Z"
+    "snapshot": "snapshots/catalog/m15c/2026-11-18T172634Z.html.gz",
+    "fetched_at": "2026-11-18T17:26:34Z"
    }
   },
   {
@@ -24411,8 +24410,8 @@
    "url": "https://student.mit.edu/catalog/m15c.html#15.S68",
    "_src": {
     "page": "catalog/m15c",
-    "snapshot": "snapshots/catalog/m15c/2026-11-16T101319Z.html.gz",
-    "fetched_at": "2026-11-16T10:13:19Z"
+    "snapshot": "snapshots/catalog/m15c/2026-11-18T172634Z.html.gz",
+    "fetched_at": "2026-11-18T17:26:34Z"
    }
   },
   {
@@ -24447,8 +24446,8 @@
    "url": "https://student.mit.edu/catalog/m15c.html#15.S69",
    "_src": {
     "page": "catalog/m15c",
-    "snapshot": "snapshots/catalog/m15c/2026-11-16T101319Z.html.gz",
-    "fetched_at": "2026-11-16T10:13:19Z"
+    "snapshot": "snapshots/catalog/m15c/2026-11-18T172634Z.html.gz",
+    "fetched_at": "2026-11-18T17:26:34Z"
    }
   },
   {
@@ -24483,8 +24482,8 @@
    "url": "https://student.mit.edu/catalog/m15c.html#15.S70",
    "_src": {
     "page": "catalog/m15c",
-    "snapshot": "snapshots/catalog/m15c/2026-11-16T101319Z.html.gz",
-    "fetched_at": "2026-11-16T10:13:19Z"
+    "snapshot": "snapshots/catalog/m15c/2026-11-18T172634Z.html.gz",
+    "fetched_at": "2026-11-18T17:26:34Z"
    }
   },
   {
@@ -24519,8 +24518,8 @@
    "url": "https://student.mit.edu/catalog/m15c.html#15.S71",
    "_src": {
     "page": "catalog/m15c",
-    "snapshot": "snapshots/catalog/m15c/2026-11-16T101319Z.html.gz",
-    "fetched_at": "2026-11-16T10:13:19Z"
+    "snapshot": "snapshots/catalog/m15c/2026-11-18T172634Z.html.gz",
+    "fetched_at": "2026-11-18T17:26:34Z"
    }
   },
   {
@@ -24555,8 +24554,8 @@
    "url": "https://student.mit.edu/catalog/m15c.html#15.S72",
    "_src": {
     "page": "catalog/m15c",
-    "snapshot": "snapshots/catalog/m15c/2026-11-16T101319Z.html.gz",
-    "fetched_at": "2026-11-16T10:13:19Z"
+    "snapshot": "snapshots/catalog/m15c/2026-11-18T172634Z.html.gz",
+    "fetched_at": "2026-11-18T17:26:34Z"
    }
   },
   {
@@ -24591,8 +24590,8 @@
    "url": "https://student.mit.edu/catalog/m15c.html#15.S73",
    "_src": {
     "page": "catalog/m15c",
-    "snapshot": "snapshots/catalog/m15c/2026-11-16T101319Z.html.gz",
-    "fetched_at": "2026-11-16T10:13:19Z"
+    "snapshot": "snapshots/catalog/m15c/2026-11-18T172634Z.html.gz",
+    "fetched_at": "2026-11-18T17:26:34Z"
    }
   },
   {
@@ -24627,8 +24626,8 @@
    "url": "https://student.mit.edu/catalog/m15c.html#15.S74",
    "_src": {
     "page": "catalog/m15c",
-    "snapshot": "snapshots/catalog/m15c/2026-11-16T101319Z.html.gz",
-    "fetched_at": "2026-11-16T10:13:19Z"
+    "snapshot": "snapshots/catalog/m15c/2026-11-18T172634Z.html.gz",
+    "fetched_at": "2026-11-18T17:26:34Z"
    }
   },
   {
@@ -24663,8 +24662,8 @@
    "url": "https://student.mit.edu/catalog/m15c.html#15.S75",
    "_src": {
     "page": "catalog/m15c",
-    "snapshot": "snapshots/catalog/m15c/2026-11-16T101319Z.html.gz",
-    "fetched_at": "2026-11-16T10:13:19Z"
+    "snapshot": "snapshots/catalog/m15c/2026-11-18T172634Z.html.gz",
+    "fetched_at": "2026-11-18T17:26:34Z"
    }
   },
   {
@@ -24702,8 +24701,8 @@
    "url": "https://student.mit.edu/catalog/m15c.html#15.960",
    "_src": {
     "page": "catalog/m15c",
-    "snapshot": "snapshots/catalog/m15c/2026-11-16T101319Z.html.gz",
-    "fetched_at": "2026-11-16T10:13:19Z"
+    "snapshot": "snapshots/catalog/m15c/2026-11-18T172634Z.html.gz",
+    "fetched_at": "2026-11-18T17:26:34Z"
    }
   },
   {
@@ -24750,8 +24749,8 @@
    "url": "https://student.mit.edu/catalog/m15c.html#15.961",
    "_src": {
     "page": "catalog/m15c",
-    "snapshot": "snapshots/catalog/m15c/2026-11-16T101319Z.html.gz",
-    "fetched_at": "2026-11-16T10:13:19Z"
+    "snapshot": "snapshots/catalog/m15c/2026-11-18T172634Z.html.gz",
+    "fetched_at": "2026-11-18T17:26:34Z"
    }
   },
   {
@@ -24782,14 +24781,14 @@
    "same_as": [],
    "schedule": [],
    "schedule_summary": "",
-   "description": "Required subject that allows students to apply finance concepts to an experiential learning experience. Subject requirements include an experiential learning experience related to their field of study, such as an internship (typically in the summer for at least three weeks in duration) and a written deliverable. Restricted to Master of Finance students in the 18-month program. IAP:",
+   "description": "Required subject that allows students to apply finance concepts to an experiential learning experience. Subject requirements include an experiential learning experience related to their field of study, such as an internship (typically in the summer for at least three weeks in duration) and a written deliverable. Restricted to Master of Finance students in the 18-month program.",
    "instructor": "C. Kane",
    "source_page": "m15c",
    "url": "https://student.mit.edu/catalog/m15c.html#15.997",
    "_src": {
     "page": "catalog/m15c",
-    "snapshot": "snapshots/catalog/m15c/2026-11-16T101319Z.html.gz",
-    "fetched_at": "2026-11-16T10:13:19Z"
+    "snapshot": "snapshots/catalog/m15c/2026-11-18T172634Z.html.gz",
+    "fetched_at": "2026-11-18T17:26:34Z"
    }
   },
   {
@@ -24829,8 +24828,8 @@
    "url": "https://student.mit.edu/catalog/m15c.html#15.998",
    "_src": {
     "page": "catalog/m15c",
-    "snapshot": "snapshots/catalog/m15c/2026-11-16T101319Z.html.gz",
-    "fetched_at": "2026-11-16T10:13:19Z"
+    "snapshot": "snapshots/catalog/m15c/2026-11-18T172634Z.html.gz",
+    "fetched_at": "2026-11-18T17:26:34Z"
    }
   },
   {
@@ -24875,8 +24874,8 @@
    "url": "https://student.mit.edu/catalog/m15c.html#15.999",
    "_src": {
     "page": "catalog/m15c",
-    "snapshot": "snapshots/catalog/m15c/2026-11-16T101319Z.html.gz",
-    "fetched_at": "2026-11-16T10:13:19Z"
+    "snapshot": "snapshots/catalog/m15c/2026-11-18T172634Z.html.gz",
+    "fetched_at": "2026-11-18T17:26:34Z"
    }
   },
   {
@@ -24923,8 +24922,8 @@
    "url": "https://student.mit.edu/catalog/m15c.html#15.THG",
    "_src": {
     "page": "catalog/m15c",
-    "snapshot": "snapshots/catalog/m15c/2026-11-16T101319Z.html.gz",
-    "fetched_at": "2026-11-16T10:13:19Z"
+    "snapshot": "snapshots/catalog/m15c/2026-11-18T172634Z.html.gz",
+    "fetched_at": "2026-11-18T17:26:34Z"
    }
   },
   {
