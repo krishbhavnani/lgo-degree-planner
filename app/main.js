@@ -61,9 +61,9 @@ document.getElementById("tab-plan").addEventListener("click",()=>setView("plan")
 // The weekly refresh normally keeps the data under a week old. Older than this means the job has
 // stopped (e.g. GitHub disabled the schedule), so say so instead of letting people trust it.
 const STALE_DAYS=21;
-function renderFreshness(m,now){
-  // data_updated = when the data was fetched; pulled_at = when the file was built (older files).
-  const raw=m.data_updated||String(m.pulled_at||'').slice(0,10);
+// `updated` is the date of the last refresh that changed the course database (YYYY-MM-DD).
+function renderFreshness(updated,now){
+  const raw=updated||'';
   const d=raw?new Date(raw+'T12:00:00'):null;
   const ok=d&&!isNaN(d);
   const label=ok?d.toLocaleDateString('en-US',{month:'short',day:'numeric',year:'numeric'}):'unknown';
@@ -75,7 +75,7 @@ function renderFreshness(m,now){
   stale.textContent=`⚠ Course data may be out of date (last updated ${label}). Check the MIT catalog for the latest offerings and schedules.`;
 }
 function init(){
-  renderFreshness({data_updated:CAT.meta.updated},new Date());
+  renderFreshness(CAT.meta.updated,new Date());
   renderLegends();
   const haveEval=COURSES.filter(c=>c.eval_hours_in!=null).length;
   const haveRate=COURSES.filter(c=>c.rating!=null).length;

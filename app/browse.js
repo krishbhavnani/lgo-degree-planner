@@ -68,7 +68,6 @@ function renderTermChips(c){
 }
 // Sorts by the first of the student's terms the course is offered in.
 function firstOffered(c){const t=PLAN_TERMS.find(t=>OFFERED.has(CAT.status(c.id,t).code));return t?CAT.termKey(t):null;}
-function numCell(v){return v==null?'<span class="empty">—</span>':`<span class="num">${v}</span>`;}
 function diffTotal(c){return (c.eval_hours_in!=null||c.eval_hours_out!=null)?((c.eval_hours_in||0)+(c.eval_hours_out||0)):null;}
 function diffInfo(t){if(t==null)return null; if(t<8)return{l:'Light',c:'d-l'}; if(t<11)return{l:'Moderate',c:'d-m'}; if(t<15)return{l:'Heavy',c:'d-h'}; return{l:'Very Heavy',c:'d-x'};}
 function diffBadge(c){const t=diffTotal(c); const d=diffInfo(t); return d?`<span class="dbadge ${d.c}" title="${t} hrs/week total (eval)">${d.l}</span>`:'<span class="empty">—</span>';}
