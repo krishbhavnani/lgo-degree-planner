@@ -164,3 +164,6 @@ select.catsel.t-thesis{background:#f3e8fb;color:#7a3ca8} select.catsel.t-python{
 .tchip{display:inline-block;font-size:10.5px;font-weight:600;border-radius:5px;padding:1px 4px;margin:1px 3px 1px 0;white-space:nowrap;cursor:help}
 tr.dim td{opacity:.5}
 .tchips{display:flex;flex-wrap:wrap;min-width:118px}
+.legend{display:flex;flex-wrap:wrap;gap:4px 12px;align-items:center;font-size:11.5px;color:var(--muted);margin:0 0 10px}
+.legend .lg-title{font-weight:600;color:var(--ink)}
+.legend .lg-item{display:inline-flex;align-items:center;cursor:help}

@@ -32,6 +32,16 @@ function track(name){
   if(window.goatcounter?.count) gcSend(name); else gcQueue.push(name);
 }
 
+// ---- badge legend (Browse and Plan) ---------------------------------------
+// One line, always visible, so nobody has to hover to learn what a chip means.
+const LEGEND_ITEMS=[["listed","Listed / ran"],["expected","Expected"],["unverified","Unverified"],
+  ["not_offered","Not offered / not listed"],["didnt_run","Didn't run"],["no_record","Before tracking began"],["not_projected","Not projected yet"]];
+function renderLegends(){
+  const h='<span class="lg-title">Term badges:</span>'+LEGEND_ITEMS.map(([code,label])=>{const b=Catalog.LEGEND[code];
+    return `<span class="lg-item" title="${esc(b.tip)}"><span class="tb tb-${code}">${b.symbol}</span>${esc(label)}</span>`;}).join("");
+  document.querySelectorAll(".legend").forEach(el=>el.innerHTML=h);
+}
+
 // ---- view switching ----
 function setView(v){
   const plan=v==="plan";
@@ -66,6 +76,7 @@ function renderFreshness(m,now){
 }
 function init(){
   renderFreshness({data_updated:CAT.meta.updated},new Date());
+  renderLegends();
   const haveEval=COURSES.filter(c=>c.eval_hours_in!=null).length;
   const haveRate=COURSES.filter(c=>c.rating!=null).length;
   document.getElementById('evalnote').textContent=

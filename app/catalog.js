@@ -24,8 +24,8 @@ const Catalog = (() => {
     removed:     { symbol: "⚠", label: "No longer listed", tip: "It was listed for this term, then dropped from the catalog." },
     not_listed:  { symbol: "⚠", label: "Not listed", tip: "Not in the catalog for this term." },
     didnt_run:   { symbol: "✗", label: "Didn't run", tip: "It didn't run this term." },
-    no_record:   { symbol: "•", label: "No record", tip: "Before tracking began: any course can be planned here." },
-    not_projected: { symbol: "·", label: "Not projected yet", tip: "Beyond the terms the catalog covers so far." },
+    no_record:   { symbol: "○", label: "Before tracking began", tip: "No catalog record this far back: any course can be planned here." },
+    not_projected: { symbol: "…", label: "Not projected yet", tip: "Beyond the terms the catalog covers so far." },
   };
   const badge = code => ({ code, ...LEGEND[code] });
   const AVAILABLE = new Set(["listed", "expected", "unverified"]);
