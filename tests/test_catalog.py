@@ -106,6 +106,22 @@ class IdentityTest(unittest.TestCase):
                                   block("15.S10-15.S11", "Range", anchors=["15.S10"])]))
         self.assertEqual([r["number"] for r in ex["records"]], ["15.S10", "15.S11"])
 
+    def test_block_missing_end_marker_does_not_swallow_the_next(self):
+        # On the live m15b page (Nov 2026) 15.401 has no "<!--end-->", so 15.402 was read as the
+        # tail of 15.401 and never listed. An undergraduate block missing its marker must not
+        # borrow the next block's Graduate icon either (2.674 / 2.675 on m2b).
+        unterminated = lambda b: b.replace("</p><!--end-->", "")
+        ex = catalog.extract(m15([
+            unterminated(block("15.401", "Managerial Finance")),
+            block("15.402", "Corporate Finance"),
+            unterminated(block("15.674", "Undergrad Lab", grad=False)),
+            block("15.675", "Grad Lab"),
+        ]))
+        self.assertEqual([(r["number"], r["title"]) for r in ex["records"]],
+                         [("15.401", "Managerial Finance"), ("15.402", "Corporate Finance"),
+                          ("15.675", "Grad Lab")])
+        self.assertNotIn("Corporate Finance", ex["records"][0]["description"])
+
     def test_undergraduate_skipped(self):
         ex = catalog.extract(m15([block("15.010", "Undergrad Econ", grad=False)]))
         self.assertEqual(ex["records"], [])

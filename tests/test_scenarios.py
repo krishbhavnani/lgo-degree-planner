@@ -184,7 +184,9 @@ class ScenarioTest(unittest.TestCase):
     def test_broken_html_fails_guardrails(self):
         """Markup change on one page: the parser finds no blocks though headings remain."""
         from pipeline.fetch import FetchResult
-        broken = dict(self.pages, m15b=self.pages["m15b"].replace("<!--end-->", ""))
+        # The subject anchors change ("<a name=" -> "<a id="); missing "<!--end-->" markers alone
+        # no longer break parsing (blocks also end at the next anchor).
+        broken = dict(self.pages, m15b=self.pages["m15b"].replace('<a name="', '<a id="'))
         before = guardrails.course_metrics(self.base["records"])
         after = guardrails.course_metrics(catalog.extract(broken)["records"])
         baseline = {"pages": {"catalog/%s" % p: v for p, v in before["pages"].items()},

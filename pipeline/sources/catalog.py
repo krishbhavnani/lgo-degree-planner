@@ -196,7 +196,13 @@ def offering_status(body, years):
 # Course block parsing
 # ---------------------------------------------------------------------------
 H2_RE = re.compile(r"<h2[^>]*>(.*?)</h2>", re.I | re.S)
-BLOCK_RE = re.compile(r'<a name="(\d+\.[^"]+)"></a>(.*?)<!--end-->', re.I | re.S)
+# A subject's block runs from its anchor to the page's "<!--end-->" marker. Some entries on the
+# live pages are missing that marker (15.401 on m15b, Nov 2026), so a block also ends at the next
+# subject's anchor; otherwise the following subject is swallowed into this one and never listed.
+# A range heading puts several anchors in a row ("2.S790", "2.S791", "2.S792"); the empty blocks
+# before the last one have no heading and are skipped, and the last carries the "2.S790-2.S792" h3.
+BLOCK_END = r'(?=<!--end-->|<a name="[^"]+"></a>|\Z)'
+BLOCK_RE = re.compile(r'<a name="(\d+\.[^"]+)"></a>(.*?)' + BLOCK_END, re.I | re.S)
 NUM_RE = re.compile(r"\b\d+\.[A-Za-z0-9]+\b")
 
 
@@ -430,7 +436,7 @@ def parse_common_ground(pages, existing_numbers, years):
             continue
         page_html = pages[page]
         cats = categories_by_pos(page_html)
-        for m in re.finditer(r'<a name="([^"]+)"></a>(.*?)<!--end-->', page_html, re.I | re.S):
+        for m in re.finditer(r'<a name="([^"]+)"></a>(.*?)' + BLOCK_END, page_html, re.I | re.S):
             anchor, body = m.group(1), m.group(2)
             cat = category_for(cats, m.start())
             if section and cat != section:
