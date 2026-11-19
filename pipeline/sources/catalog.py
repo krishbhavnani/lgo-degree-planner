@@ -369,9 +369,10 @@ def _blocks(page_html):
 
 
 def parse_departments(pages, years, own_numbers=()):
-    """Graduate subjects on the department pages. `own_numbers` are numbers known to have a
-    listing of their own elsewhere (e.g. EECS subject updates) so they leave any range."""
-    courses, all_titles, ranges = [], {}, []
+    """Graduate subjects on the department pages, plus the undergraduate numbers skipped.
+    `own_numbers` are numbers known to have a listing of their own elsewhere (e.g. EECS subject
+    updates) so they leave any range."""
+    courses, all_titles, ranges, undergrad = [], {}, [], []
     blocks = {}
     own = set(own_numbers)
     for dept in config.CATALOG_DEPARTMENTS:
@@ -412,7 +413,9 @@ def parse_departments(pages, years, own_numbers=()):
                     if range_numbers:
                         rec["range_numbers"] = range_numbers
                     courses.append(rec)
-    return courses, all_titles, ranges
+                elif not range_numbers:
+                    undergrad.append(number)
+    return courses, all_titles, ranges, undergrad
 
 
 # ---------------------------------------------------------------------------
@@ -431,6 +434,7 @@ def parse_common_ground(pages, existing_numbers, years):
     covered = {d["code"]: d["name"] for d in config.CATALOG_DEPARTMENTS}
     seen = set(existing_numbers)
     out = []
+    undergrad = []   # undergraduate numbers skipped
     for page, section in config.CG_SOURCES:
         if page not in pages:
             continue
@@ -465,11 +469,12 @@ def parse_common_ground(pages, existing_numbers, years):
             if prefix not in covered:
                 seen.update(joint)
             if not rec:
-                continue  # undergraduate
+                undergrad.append(num)
+                continue
             rec["url"] = CATALOG_URL.format(page) + "#" + anchor
             rec["common_ground"] = True
             out.append(rec)
-    return out
+    return out, undergrad
 
 
 # ---------------------------------------------------------------------------
@@ -478,8 +483,8 @@ def parse_common_ground(pages, existing_numbers, years):
 def extract(pages, own_numbers=()):
     """pages: {page name: html}. Returns the catalog extract (records + meta + problems)."""
     years, problems = detect_years(pages)
-    courses, all_titles, ranges = parse_departments(pages, years, own_numbers)
-    cg = parse_common_ground(pages, {c["number"] for c in courses}, years)
+    courses, all_titles, ranges, undergrad = parse_departments(pages, years, own_numbers)
+    cg, cg_undergrad = parse_common_ground(pages, {c["number"] for c in courses}, years)
     records = courses + cg
     counts = {}
     for r in records:
@@ -496,6 +501,8 @@ def extract(pages, own_numbers=()):
         "years": years,
         "records": records,
         "all_titles": all_titles,
+        # Seen on a catalog page but undergraduate: the course database must not hold these.
+        "undergraduate": sorted(set(undergrad + cg_undergrad) - {r["number"] for r in records}),
         "ranges": ranges,
         "page_dates": page_dates,
         "problems": problems,

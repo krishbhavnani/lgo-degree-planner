@@ -284,11 +284,18 @@ def _change(changes, date, run_id, course, kind, term=None, field=None, old=None
     changes.append(c)
 
 
-def merge(db, observed, run_id, date, current_term, aliases=()):
-    """Fold this run's observed courses into db (in place). Returns the list of changes."""
+def merge(db, observed, run_id, date, current_term, aliases=(), undergraduate=()):
+    """Fold this run's observed courses into db (in place). Returns the list of changes.
+
+    The database holds graduate subjects only. A stored course whose number the catalog now shows
+    as undergraduate was listed by mistake (e.g. a parse error), so it is deleted outright rather
+    than kept as "removed"."""
     changes = []
     courses = db["courses"]
     added_ids, removed_ids = [], []
+    undergraduate = set(undergraduate)
+    for cid in [i for i, c in courses.items() if c["number"] in undergraduate and i not in observed]:
+        del courses[cid]
 
     for cid, obs in observed.items():
         c = courses.get(cid)

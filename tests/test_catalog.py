@@ -121,6 +121,7 @@ class IdentityTest(unittest.TestCase):
                          [("15.401", "Managerial Finance"), ("15.402", "Corporate Finance"),
                           ("15.675", "Grad Lab")])
         self.assertNotIn("Corporate Finance", ex["records"][0]["description"])
+        self.assertEqual(ex["undergraduate"], ["15.674"])
 
     def test_undergraduate_skipped(self):
         ex = catalog.extract(m15([block("15.010", "Undergrad Econ", grad=False)]))

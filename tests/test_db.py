@@ -147,6 +147,25 @@ class ObserveTest(unittest.TestCase):
         self.assertNotIn("aags_note", d)
 
 
+class UndergraduateTest(unittest.TestCase):
+    def test_course_now_shown_undergraduate_is_deleted_not_removed(self):
+        # 2.674 was listed as graduate by a parse error; once the catalog shows it as
+        # undergraduate it must vanish from the database, not linger as "removed".
+        db = cdb.empty()
+        run(db, [row("2.674", "Micro/Nano Lab"), row("2.675", "Micro/Nano Lab (grad)")])
+        changes = cdb.merge(db, cdb.observe(ctx([row("2.675", "Micro/Nano Lab (grad)")])),
+                            "run-2", "2026-11-20", YEARS["term"], undergraduate=["2.674"])
+        self.assertEqual(sorted(db["courses"]), ["2.675"])
+        self.assertNotIn("2.674", [c.get("id") for c in changes])
+
+    def test_graduate_course_is_never_deleted_by_the_list(self):
+        db = cdb.empty()
+        run(db, [row("2.675", "Grad Lab")])
+        cdb.merge(db, cdb.observe(ctx([row("2.675", "Grad Lab")])), "run-2", "2026-11-20",
+                  YEARS["term"], undergraduate=["2.675"])
+        self.assertIn("2.675", db["courses"])
+
+
 class MergeTest(unittest.TestCase):
     def setUp(self):
         self.db = cdb.empty()

@@ -369,7 +369,8 @@ def build(sources, results, archive_dir=None):
           (len(courses), len(Counter(c["department"] for c in courses))))
     # What the course database (pipeline/db.py) needs from this build; not an extract.
     ex["_context"] = {"rows": courses, "special": special, "eval_records": by_num,
-                      "design_rows": ex["design"]["records"], "years": years}
+                      "design_rows": ex["design"]["records"], "years": years,
+                      "undergraduate": cat["undergraduate"]}
     return ex
 
 
@@ -413,7 +414,8 @@ def update_db(archive_dir, ctx, run_id, save=True, out_dir=HERE):
     observed = course_db.observe(ctx)
     aliases = identity.load_aliases(os.path.join(HERE, "aliases.json"))
     date = "%s-%s-%s" % (run_id[:4], run_id[5:7], run_id[8:10])
-    changes = course_db.merge(db, observed, run_id, date, ctx["years"]["term"], aliases)
+    changes = course_db.merge(db, observed, run_id, date, ctx["years"]["term"], aliases,
+                              ctx.get("undergraduate", ()))
     if save:
         course_db.save(archive_dir, db)
         if not first:   # creating the database would log every course as "added"
