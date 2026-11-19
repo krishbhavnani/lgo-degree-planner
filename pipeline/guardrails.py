@@ -6,8 +6,10 @@ A run fails (and publishes nothing) if any check fails. Count baselines come fro
 Checks
   fetch          page returned HTTP 200 and at least MIN_PAGE_BYTES
   login          a public source returned a login / single-sign-on page
-  produced       catalog page has a parseable "Produced:" stamp
-  stamps_match   all catalog pages carry the same Produced stamp
+  produced       catalog page has a parseable "Produced:" stamp, no older than the same page's
+                 stamp in the last passing run (an older one is a stale cached copy that would
+                 roll that department back). Pages are separate listings, so their stamps may
+                 differ from each other.
   page_count     subjects on a page fell more than MAX_DROP below baseline
   page_courses   graduate courses parsed from a page fell more than MAX_DROP below baseline
   page_fields    title/units/description share on a page fell sharply below baseline
@@ -28,7 +30,7 @@ import re
 from urllib.parse import urlparse
 
 from . import config
-from .snapshots import produced_stamp
+from .snapshots import parse_produced, produced_stamp
 
 _SUBJECT_RE = re.compile(r"<h3[^>]*>\s*\d+\.[A-Za-z0-9]+", re.I)
 
@@ -109,6 +111,16 @@ def _drop_check(name, scope, now, base, label):
                  "%d %s vs %d baseline (%+.0f%%)" % (now, label, base, pct))
 
 
+def _produced_check(key, m, base_raw):
+    """The page's stamp parses and isn't older than what the last passing run saw for it."""
+    raw, now, before = m.get("produced"), parse_produced(m.get("produced")), parse_produced(base_raw)
+    if now is None:
+        return Check("produced", key, False, raw or "no Produced: stamp")
+    if before and now < before:
+        return Check("produced", key, False, "%s is older than the last published %s" % (raw, base_raw))
+    return Check("produced", key, True, raw)
+
+
 def evaluate(sources, results, pages, courses_info, baseline, parse_error=None):
     """Run every check. Returns a list of Check.
 
@@ -121,7 +133,6 @@ def evaluate(sources, results, pages, courses_info, baseline, parse_error=None):
     checks = []
     base_pages = (baseline or {}).get("pages", {})
     base_totals = (baseline or {}).get("totals", {})
-    catalog_stamps = {}
 
     for s in sources:
         r, m = results.get(s.key), pages.get(s.key, {})
@@ -144,24 +155,10 @@ def evaluate(sources, results, pages, courses_info, baseline, parse_error=None):
         if not fetched:
             continue
         if s.kind == "catalog":
-            checks.append(Check("produced", s.key, m.get("produced_ok", False),
-                                m.get("produced") or "no Produced: stamp"))
-            if m.get("produced_ok"):
-                catalog_stamps[s.key] = m["produced"]
+            checks.append(_produced_check(s.key, m, base_pages.get(s.key, {}).get("produced")))
             base = base_pages.get(s.key, {}).get("subjects")
             checks.append(_drop_check("page_count", s.key, m.get("subjects", 0), base,
                                       "subjects"))
-
-    if len(set(catalog_stamps.values())) > 1:
-        groups = {}
-        for k, v in catalog_stamps.items():
-            groups.setdefault(v, []).append(k.split("/")[-1])
-        detail = "; ".join("%s: %s" % (v, ", ".join(ps)) for v, ps in sorted(groups.items()))
-        checks.append(Check("stamps_match", "run", False, detail))
-    elif catalog_stamps:
-        checks.append(Check("stamps_match", "run", True,
-                            "all %d pages %s" % (len(catalog_stamps),
-                                                 next(iter(catalog_stamps.values())))))
 
     if parse_error:
         checks.append(Check("parse", "run", False, parse_error))

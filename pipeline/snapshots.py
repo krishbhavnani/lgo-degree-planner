@@ -85,10 +85,15 @@ def produced_stamp(text):
     if not m:
         return None, None
     raw = m.group(1).strip()
+    return raw, parse_produced(raw)
+
+
+def parse_produced(raw):
+    """'19-NOV-2026 09:57 AM' -> datetime, or None if it doesn't parse."""
     try:
-        return raw, datetime.strptime(raw.title(), "%d-%b-%Y %I:%M %p")
+        return datetime.strptime((raw or "").title(), "%d-%b-%Y %I:%M %p")
     except ValueError:
-        return raw, None
+        return None
 
 
 def stamp(dt):

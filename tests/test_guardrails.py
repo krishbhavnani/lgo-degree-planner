@@ -66,9 +66,22 @@ class GuardrailsTest(unittest.TestCase):
         checks, _, _ = run(aags_links=0)
         self.assertIn(("aags_links", "run"), failed(checks))
 
-    def test_mismatched_stamps_fail(self):
-        checks, _, _ = run(bodies={M6B.key: fx.catalog_html(produced="26-OCT-2026 05:10 PM")})
-        self.assertIn(("stamps_match", "run"), failed(checks))
+    def test_pages_may_carry_different_stamps(self):
+        # Nov 19, 2026: MIT republished only the Course 15 pages; every page was current.
+        checks, _, _ = run(bodies={M6B.key: fx.catalog_html(produced="28-OCT-2026 09:57 AM")},
+                           baseline=self.baseline)
+        self.assertTrue(guardrails.passed(checks), [c for c in checks if not c.ok])
+
+    def test_page_older_than_its_last_published_stamp_fails(self):
+        # A stale cached copy would quietly roll that department back.
+        checks, _, _ = run(bodies={M6A.key: fx.catalog_html(produced="26-OCT-2026 05:10 PM")},
+                           baseline=self.baseline)
+        self.assertEqual(failed(checks), {("produced", M6A.key)})
+
+    def test_same_stamp_as_last_time_and_first_run_pass(self):
+        self.assertTrue(guardrails.passed(run(baseline=self.baseline)[0]))     # unchanged page
+        old = fx.catalog_html(produced="26-OCT-2026 05:10 PM")
+        self.assertTrue(guardrails.passed(run(bodies={M6A.key: old})[0]))     # no baseline yet
 
     def test_missing_stamp_fails(self):
         body = fx.catalog_html().replace(b"Produced:", b"Generated:")

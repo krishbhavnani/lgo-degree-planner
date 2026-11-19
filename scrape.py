@@ -88,28 +88,11 @@ def collect(sources, refresh, fetcher=None):
 
     Returns (all sources including discovered ones, results by source key). Fetched pages are
     not written to the .scratch/ cache here; main() does that only after the guardrails pass.
-
-    Live catalog pages whose Produced stamp differs from the newest one are refetched once
-    (MIT regenerates the listing daily; a fetch can straddle the regeneration).
     """
     fetcher = fetcher or Fetcher()
     results = {}
     for s in sources:
         _get(s, refresh, fetcher, results)
-    if refresh:
-        stamps = {}
-        for s in sources:
-            if s.kind == "catalog" and results[s.key].ok:
-                raw, dt = snapshots.produced_stamp(results[s.key].text())
-                if dt:
-                    stamps[s.key] = dt
-        if len(set(stamps.values())) > 1:
-            newest = max(stamps.values())
-            stale = [s for s in sources if s.key in stamps and stamps[s.key] != newest]
-            print("  Produced stamps differ; refetching %d page(s) once: %s" %
-                  (len(stale), ", ".join(s.page for s in stale)))
-            for s in stale:
-                results[s.key] = fetcher.get(s.url)
     all_sources = list(sources)
     for _ in range(3):  # index -> semester page -> fragment needs two rounds
         found = eecs_updates.discover(all_sources, results) + \
