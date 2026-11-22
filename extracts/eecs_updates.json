@@ -1,8 +1,32 @@
 {
  "format": 1,
  "source": "eecs_updates",
- "run_id": "2026-11-02T085804Z",
+ "run_id": "2026-11-22T215230Z",
  "records": [
+  {
+   "number": "6.4140",
+   "numbers": [
+    "6.4140"
+   ],
+   "title": "The History of Artificial Intelligence",
+   "term": "Spring 2027",
+   "level": "Undergraduate",
+   "units_raw": "3-0-9",
+   "prereq_raw": "none",
+   "satisfies": "",
+   "instructors": "Benjamin Lindquist (HISTORY)",
+   "schedule_raw": "Lecture: TR9:30-11, room E51-385",
+   "description": "Surveys the history of artificial intelligence from eighteenth century automata to contemporary large language models. Examines changing strategies for building intelligent machines and situates them in a cultural context. Emphasis on historical development, critical concepts, and ongoing debates.",
+   "new": false,
+   "was": [],
+   "also_under": [],
+   "url": "https://www.eecs.mit.edu/academics/subject-updates/subject-updates-spring-2027/#6_4140",
+   "_src": {
+    "page": "eecs-updates/subj_2027SP",
+    "snapshot": "snapshots/eecs-updates/subj_2027SP/2026-11-19T220704Z.html.gz",
+    "fetched_at": "2026-11-19T22:07:04Z"
+   }
+  },
   {
    "number": "18.S995",
    "numbers": [
@@ -374,6 +398,12 @@
   }
  ],
  "terms": [
+  {
+   "term": "Spring 2027",
+   "page": "https://www.eecs.mit.edu/academics/subject-updates/subject-updates-spring-2027/",
+   "fragment": "https://eecsis.mit.edu/plugins/subj_2027SP.html",
+   "subjects": 1
+  },
   {
    "term": "Fall 2026",
    "page": "https://www.eecs.mit.edu/academics/subject-updates/subject-updates-fall-2026/",
