@@ -80,7 +80,7 @@
     {"id": "leadership-challenges-y1fall", "course": "15.002", "units": 1,  "category": "MBA Elective",     "slot": "Y1 Fall"},
     {"id": "plant-trek-y1iap", "course": "15.766", "units": 9,  "category": "LGO Required MBA", "slot": "Y1 IAP"},
     {"id": "ops-strategy", "course": "15.769", "units": 9,  "category": "LGO Required MBA", "required": true, "allowed_slots": ["Y1 Spring", "Y2 Spring"]},
-    {"id": "ops-seminar-spring", "course": "15.792", "units": 2,  "category": "LGO Required MBA", "required": true, "allowed_slots": ["Y1 Spring", "Y2 Spring"]},
+    {"id": "ops-seminar-spring", "course": "15.792", "units": 2,  "category": "LGO Required MBA", "slot": "Y1 Spring", "required": true, "allowed_slots": ["Y1 Spring", "Y2 Spring"]},
     {"id": "ops-research-y2summer", "course": "15.794", "units": 1,  "category": "LGO Required MBA", "slot": "Y2 Summer"},
     {"id": "ops-research-y2fall", "course": "15.794", "units": 12, "category": "LGO Required MBA", "slot": "Y2 Fall"},
     {"id": "thesis-y2fall", "course": "15.THG", "units": 9,  "category": "Thesis",           "slot": "Y2 Fall"},

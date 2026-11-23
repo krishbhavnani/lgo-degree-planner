@@ -54,7 +54,10 @@ for (const [file, g] of goldens) {
 test("the migrated base plan stores nothing extra", () => {
   const g = readJson("tests/js/golden/a_base_plan.json");
   const { state } = State.migrateV1(ctx, { plan: clone(g.plan), reqs: null });
-  assert.deepEqual(state, State.newState(program, 2028));
+  // A saved plan keeps its own terms: the second 15.792 stays where the old default put it.
+  const expected = State.newState(program, 2028);
+  expected.items.find(it => it.base === "ops-seminar-spring").slot = "unassigned";
+  assert.deepEqual(state, expected);
 });
 
 test("migration keeps removed base courses removed, units edits, old term names, custom courses", () => {

@@ -58,8 +58,9 @@ Star courses (★) and export the starred ones as CSV. **＋** adds a course to 
   term relabels and your courses move with them. Years on offer: the incoming class and the three
   before it.
 - **The base plan.** Your plan starts with the LGO-required courses in their usual terms. Two
-  flexible required courses (15.769 and the second 15.792 seminar) start in *Unassigned* and can only
-  go in their allowed terms. Base-plan courses keep their category.
+  required courses have a choice of term: the second 15.792 seminar starts in year-1 Spring and
+  15.769 starts in *Unassigned*; each can only go in its allowed terms (year-1 or year-2 Spring).
+  Base-plan courses keep their category.
 - **Adding courses.** *＋ Add course* searches the catalog; each result shows its badge for the term
   you're adding to, best first. For a term that's already over, only courses that ran are shown.
   You can also type in a course that isn't in the catalog. *＋ Placeholder* holds a spot ("MBA

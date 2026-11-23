@@ -17,7 +17,9 @@ const clone = x => JSON.parse(JSON.stringify(x));
 test("a new plan is the base plan, item for item (ids and titles aside)", () => {
   const items = State.toItems(ctx, State.newState(program, 2028));
   const strip = its => its.map(({ id, title, course, ...rest }) => rest);
-  assert.deepEqual(strip(items), strip(golden("a_base_plan").plan));
+  // The base plan as first captured, except the second 15.792 now starts in year-1 Spring (B51).
+  const expected = golden("a_base_plan").plan.map(it => it.id === "p16" ? { ...it, term: "Spring 2027" } : it);
+  assert.deepEqual(strip(items), strip(expected));
   // Titles come from the catalog, or the base plan for a course the catalog doesn't list.
   assert.equal(items.find(it => it.number === "15.317").title, "Leadership and Organizational Change");
   assert.equal(items.find(it => it.number === "6.S090").title, "Python Workshop");
