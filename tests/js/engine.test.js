@@ -14,6 +14,7 @@ const program = Engine.resolve(readJson(path.join(ROOT, "programs/lgo.json")), r
 const Catalog = require("../../app/catalog.js");
 const cat = Catalog.load(readJson(path.join(GOLDEN, "db.json")));
 const info = key => cat.get(key) ? cat.info(key) : {};
+const known = cat.courses.map(c => c.number);   // lets notes name a list's current members
 
 // The fields the app shows, in the shape the fixtures recorded them.
 const shown = r => ({ id: r.id, n: r.value, courses: r.courses, target: r.target, met: r.met,
@@ -27,7 +28,7 @@ test("there are golden plans", () => assert.ok(goldens.length >= 9));
 for (const file of goldens) {
   const g = readJson(path.join(GOLDEN, file));
   test(`golden ${file}: ${g.description}`, () => {
-    const res = Engine.evaluate(program, g.plan, info, g.targets);
+    const res = Engine.evaluate(program, g.plan, info, g.targets, known);
     assert.deepEqual(res.requirements.map(shown), g.expected.requirements);
     assert.equal(summaryText(res), g.expected.summary);
     for (const t of g.expected.terms) {
@@ -76,4 +77,10 @@ test("a special subject counts toward AAGS only when the student claims it, with
   // Claiming an already-approved course changes nothing and adds no note.
   const approved = aags([it("a", "6.5060", 12, { claims: ["aags"] })]);
   assert.deepEqual([approved.value, approved.notes], [12, []]);
+});
+
+test("listMembers names a list's current members in catalog order", () => {
+  const nums = ["SCM.C51", "6.C51", "15.C51", "6.C511", "2.C51", "1.C53", "15.C51"];
+  assert.deepEqual(Engine.listMembers(program, "c51_modules", nums, info), ["2.C51", "6.C511", "15.C51", "SCM.C51"]);
+  assert.deepEqual(Engine.listMembers(program, "c51_modules", [], info), []);
 });

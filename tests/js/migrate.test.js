@@ -18,7 +18,7 @@ const goldens = fs.readdirSync(GOLDEN).filter(f => /^[a-z]\d*_\w+\.json$/.test(f
 
 const shown = r => ({ id: r.id, n: r.value, courses: r.courses, target: r.target, met: r.met,
   info: r.counted && r.counted.length ? ["Counted: " + r.counted.join(", ")] : [], notes: r.notes });
-const evaluate = state => Engine.evaluate(program, State.toItems(ctx, state), info, state.targets);
+const evaluate = state => Engine.evaluate(program, State.toItems(ctx, state), info, state.targets, cat.courses.map(c => c.number));
 // v1 requirement settings as older builds saved them: whole requirement copies.
 const v1Reqs = targets => program.requirements.map(r => ({ key: r.id, group: r.group, name: r.label,
   target: targets[r.id] ?? Engine.defaultTarget(r), tags: r.pool }));

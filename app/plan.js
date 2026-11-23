@@ -13,6 +13,7 @@ const CLAIMABLE=Object.entries(PROGRAM.lists).filter(([,l])=>l.claimable);
 const TAGCLASS=Object.fromEntries(PROGRAM.categories.map(c=>[c.id,c.style?"t-"+c.style:""]));
 const courseInfo=key=>CAT.get(key)?CAT.info(key):{};   // what the rules read about a course
 const CTX={program:PROGRAM,cat:CAT};
+const CATALOG_NUMBERS=CAT.courses.map(c=>c.number);   // lets notes name a list's current members
 const PLS={state:"lgo-dp.state",unreadable:"lgo-dp.state-unreadable",view:"lgo-dp.view",
   v1plan:"lgo-dp.plan",v1reqs:"lgo-dp.reqs",v1backup:"lgo-dp.v1-backup"};
 // Graduation years on offer today; a new plan starts as the class now in its first year.
@@ -58,9 +59,31 @@ let hideAudit=false;
 function addPlanItem(key,title,units,term){
   term=term||Engine.UNASSIGNED;
   const slot=SLOT_OF[term];
+  let id=null;
   if(title!=null||units!=null) State.addCustom(CTX,STATE,{number:key,title,units},slot);
-  else State.addCourse(STATE,CAT.get(key)?key:(CAT.resolve(key,term===Engine.UNASSIGNED?null:term)||key),slot);
+  else{ id=CAT.get(key)?key:(CAT.resolve(key,term===Engine.UNASSIGNED?null:term)||key); State.addCourse(STATE,id,slot); }
   planSave(); renderPlan(); track("course-added");
+  if(id&&CAT.get(id)) offerPartners(CAT.get(id).number,term);
+}
+// A bundle lead (6.C51) counts fully only with a partner module: offer the current modules for
+// the same term, unless the plan already has one.
+function offerPartners(number,term){
+  const b=PROGRAM.bundles.find(x=>x.lead===number); if(!b||!b.notes.add_prompt) return;
+  const isPartner=n=>Engine.listMembers(PROGRAM,b.partners,[n],courseInfo).length>0;
+  if(planItems.some(it=>isPartner(it.number))) return;
+  const real=term!==Engine.UNASSIGNED;
+  const rows=Engine.listMembers(PROGRAM,b.partners,CATALOG_NUMBERS,courseInfo).map(n=>{
+    const cid=CAT.resolve(n,real?term:null), o=CAT.offering(cid,real?term:null), u=o&&o.units&&o.units.total;
+    return `<div class="addresult" data-partner="${esc(cid)}">${real?badgeHtml(CAT.status(cid,term)):''}<b>${esc(n)}</b> ${esc(CAT.title(cid,real?term:null))}
+      <span class="hint">${u!=null?u+'u':''}</span><span class="ar-add">＋ add</span></div>`;}).join("");
+  openModal("Add a co-req module?",
+    `<div class="hint" style="margin-bottom:8px">${esc(b.notes.add_prompt)}</div>
+     <div style="max-height:300px;overflow:auto;border:1px solid var(--line);border-radius:7px">${rows}</div>
+     <div style="margin-top:10px"><button id="partner-skip">Not now</button></div>`);
+  document.getElementById("modal-body").querySelector("[data-partner]")?.parentElement.addEventListener("click",e=>{
+    const r=e.target.closest("[data-partner]"); if(!r) return;
+    State.addCourse(STATE,r.getAttribute("data-partner"),SLOT_OF[term]); planSave(); renderPlan(); track("course-added"); closeModal();});
+  document.getElementById("partner-skip").addEventListener("click",closeModal);
 }
 // A course's status in a term, as a small badge with a plain-language tooltip (one legend
 // everywhere: Browse, the add-course search and the plan).
@@ -71,7 +94,7 @@ const canClaim=it=>!it.base&&!it.required&&(it.course&&CAT.get(it.course)?CAT.cl
 const STATUS_RANK={listed:0,ran:0,expected:1,unverified:2,no_record:3,not_projected:3};
 const rankOf=b=>STATUS_RANK[b.code]??4;
 
-function evaluatePlan(){return Engine.evaluate(PROGRAM,planItems,courseInfo,STATE.targets);}
+function evaluatePlan(){return Engine.evaluate(PROGRAM,planItems,courseInfo,STATE.targets,CATALOG_NUMBERS);}
 function renderReqPanel(res=evaluatePlan()){
   const groups={}; res.requirements.forEach(b=>{(groups[b.group]=groups[b.group]||[]).push(b);});
   let h="";

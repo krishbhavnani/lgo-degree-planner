@@ -1,5 +1,6 @@
 {
  "description": "6.C51 with no co-req module.",
+ "note_change": "B52 (2026-11-23): the note names the catalog's current modules instead of \"e.g. 15.C51 or SCM.C51\"; the frozen test catalog holds two of them.",
  "targets": {},
  "plan": [
   {
@@ -62,7 +63,7 @@
      "Counted: 6.C51"
     ],
     "notes": [
-     "6.C51 needs a 6u co-req module (e.g. 15.C51 or SCM.C51) to count as a full 12u AAGS course."
+     "6.C51 needs a 6u co-req module to count as a full 12u AAGS course: 15.C51, SCM.C51."
     ]
    },
    {

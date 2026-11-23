@@ -28,7 +28,8 @@
   "bundles": [
     {"id": "c51", "lead": "6.C51", "partners": "c51_modules", "max_partners": 1, "full_units": 12,
      "notes": {
-       "no_partner": "6.C51 needs a 6u co-req module (e.g. 15.C51 or SCM.C51) to count as a full 12u AAGS course.",
+       "no_partner": "6.C51 needs a 6u co-req module to count as a full 12u AAGS course: {modules}.",
+       "add_prompt": "6.C51 counts as a full 12u AAGS course only together with one 6u co-req module. Add one to the same term?",
        "extra_partners": "Only one co-req module pairs with 6.C51; {extra} counted as eng electives instead.",
        "partner_alone": "{partners} only counts toward AAGS when paired with 6.C51."
      }}

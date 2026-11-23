@@ -5,11 +5,13 @@
 //                               markers in the base (lgo.json); lists and bundles merged
 //   termLabels(program, year)   ["Summer 2026", "Fall 2026", ...] for a plan starting in `year`
 //   classify(program, number, courseInfo)          default category for a newly added course
-//   evaluate(program, items, courseInfo, targets)  {requirements, terms, scheduled, summary}
+//   evaluate(program, items, courseInfo, targets, known)  {requirements, terms, scheduled, summary}
+//   listMembers(program, listId, numbers, courseInfo)  which of `numbers` are on a list
 //
 // courseInfo(key) -> {aags, design, department} (fields may be missing). key is an item's course
 // id when it has one (a special subject's topics differ), else its number.
 // targets: requirement id -> the user's own target, replacing min_units (min_courses for "count").
+// known: every course number in the catalog, so notes can name a list's current members.
 const Engine = (() => {
   const UNASSIGNED = "Unassigned";
 
@@ -62,6 +64,11 @@ const Engine = (() => {
     throw new Error("list " + listId + " has no numbers, pattern or designation");
   }
 
+  // The numbers on a list, in catalog order (1.C51, 2.C51, ..., 15.C51, SCM.C51).
+  const listMembers = (program, listId, numbers, info) => [...new Set(numbers)]
+    .filter(n => inList(program, listId, n, () => info(n)))
+    .sort((a, b) => a.localeCompare(b, undefined, { numeric: true }));
+
   function classify(program, number, info) {
     const infoOf = () => info(number) || {};
     const dept = infoOf().department || "";
@@ -85,7 +92,7 @@ const Engine = (() => {
   // from_set: candidates are bundles plus single courses on the list (bundle courses and the
   // `exclude` categories never count singly). The largest fill the requirement until it has both
   // its minimum courses and units; ties keep plan order. The courses used are claimed.
-  function fromSet(program, r, scheduled, info, target, claimed) {
+  function fromSet(program, r, scheduled, info, target, claimed, known) {
     const items = scheduled.filter(it => inPool(it, r.pool));
     const bundles = (r.bundles || []).map(id => program.bundles.find(b => b.id === id));
     const notes = [], cands = [];
@@ -97,7 +104,8 @@ const Engine = (() => {
         cands.push({ ids: [lead.id, ...used.map(p => p.id)],
           label: [lead.number, ...used.map(p => p.number)].join("+"),
           units: unitsOf(lead) + used.reduce((s, p) => s + unitsOf(p), 0) });
-        if (!used.length && unitsOf(lead) < b.full_units) notes.push(b.notes.no_partner);
+        if (!used.length && unitsOf(lead) < b.full_units)
+          notes.push(fill(b.notes.no_partner, { modules: listMembers(program, b.partners, known, info).join(", ") || "none in the catalog right now" }));
         if (partners.length > b.max_partners)
           notes.push(fill(b.notes.extra_partners, { extra: partners.slice(b.max_partners).map(p => p.number).join(", ") }));
       } else if (partners.length) {
@@ -128,13 +136,13 @@ const Engine = (() => {
       counted: core.map(c => c.label), notes };
   }
 
-  function evaluate(program, items, info, targets = {}) {
+  function evaluate(program, items, info, targets = {}, known = []) {
     const scheduled = items.filter(counts);
     const targetOf = r => targets[r.id] != null ? targets[r.id] : defaultTarget(r);
     const out = {}, claimed = {};
     // from_set first: other requirements can exclude the courses it claims.
     for (const r of program.requirements)
-      if (r.type === "from_set") out[r.id] = { ...fromSet(program, r, scheduled, info, targetOf(r), claimed), target: targetOf(r) };
+      if (r.type === "from_set") out[r.id] = { ...fromSet(program, r, scheduled, info, targetOf(r), claimed, known), target: targetOf(r) };
     for (const r of program.requirements) {
       if (r.type === "from_set") continue;
       const target = targetOf(r);
@@ -172,7 +180,7 @@ const Engine = (() => {
     return { requirements, terms, scheduled: scheduled.length, summary };
   }
 
-  return { resolve, termLabels, classify, evaluate, defaultTarget, UNASSIGNED };
+  return { resolve, termLabels, classify, evaluate, listMembers, defaultTarget, UNASSIGNED };
 })();
 
 if (typeof module !== "undefined") module.exports = Engine;
