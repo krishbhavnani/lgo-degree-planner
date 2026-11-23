@@ -27,7 +27,7 @@ _FRAGMENT_RE = re.compile(r"https?://eecsis\.mit\.edu/plugins/(subj_[A-Za-z0-9]+
 _SECTION_RE = re.compile(r'<h6[^>]*\bid="([^"]+)"[^>]*>(.*?)</h6>(.*?)(?=<h6\b|\Z)', re.I | re.S)
 _ROW_RE = re.compile(r"<td[^>]*>\s*([A-Za-z ]+):\s*</td>\s*<td[^>]*>(.*?)</td>", re.I | re.S)
 _NUM = r"[0-9A-Z]+\.[0-9A-Z]+"
-_HEAD_RE = re.compile(r"^(NEW\s+)?(" + _NUM + r"(?:/[0-9A-Z]+)*)\s*(?:\(also under ([^)]*)\))?\s*"
+_HEAD_RE = re.compile(r"^(NEW\s+)?(" + _NUM + r"(?:/(?:" + _NUM + r"|[0-9A-Z]+))*)\s*(?:\(also under ([^)]*)\))?\s*"
                       r"(.*?)\s*(?:\(was ([^)]*)\))?$", re.I)
 
 

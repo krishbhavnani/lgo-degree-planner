@@ -1,4 +1,4 @@
-"""Scenario fixtures: altered copies of the latest real catalog snapshots.
+"""Scenario fixtures: altered copies of real catalog snapshots (the Fall 2026 listing).
 
 Each test starts from a database built from the unaltered pages, applies one change the real
 catalog could make, and checks what the merge does. The pages are read from the archive (the
@@ -18,6 +18,9 @@ from pipeline import db as cdb
 from pipeline.sources import catalog
 
 ARCHIVE = os.environ.get("LGO_DP_ARCHIVE", config.ARCHIVE_DIR)
+# The pages as of the last run before MIT's semester flip (Nov 23, 2026), so every scenario starts
+# from the same Fall 2026 listing however the live catalog has moved on since.
+AS_OF = "2026-11-22T215230Z"
 
 
 def latest_pages():
@@ -29,7 +32,7 @@ def latest_pages():
         for line in f:
             e = json.loads(line)
             snap = e.get("stored") or e.get("unchanged_since")
-            if e["source"].startswith("catalog/") and snap:
+            if e["source"].startswith("catalog/") and snap and e.get("run_id", "") <= AS_OF:
                 latest[e["source"].split("/", 1)[1]] = snap
     pages = {}
     for page in config.catalog_pages():
@@ -153,10 +156,12 @@ class ScenarioTest(unittest.TestCase):
         self.assertTrue(removed[0].startswith(s["number"] + "~"))
 
     def test_semester_flip_freezes_fall(self):
-        flipped = {p: re.sub(r"<title>\s*Fall\s+2026", "<title>Spring 2027", h)
+        # The real flip (Nov 23, 2026) retitled every page "IAP/Spring 2027".
+        flipped = {p: re.sub(r"<title>\s*Fall\s+2026", "<title>IAP/Spring 2027", h)
                    for p, h in self.pages.items()}
-        ex, changes = self.merge(flipped, "2027-01-20")
-        self.assertEqual(ex["years"]["term"], "Spring 2027")
+        ex, changes = self.merge(flipped, "2026-11-23")
+        self.assertEqual(ex["years"]["term"], "IAP 2027")
+        self.assertEqual(ex["years"]["listed"], ["IAP 2027", "Spring 2027"])
         self.assertEqual([x for x in changes if x.get("term") == "Fall 2026"], [])
         fall = [c["offerings"]["Fall 2026"] for c in self.db["courses"].values()
                 if "Fall 2026" in c["offerings"]]
@@ -171,8 +176,8 @@ class ScenarioTest(unittest.TestCase):
             h = h.replace("academic year 2026-2027", "academic year 2027-2028")
             return re.sub(r"<title>\s*Fall\s+2026", "<title>Fall 2027", h)
         ex, changes = self.merge({p: roll(h) for p, h in self.pages.items()}, "2027-09-01")
-        self.assertEqual(ex["years"], {"term": "Fall 2027", "this": "2027-2028",
-                                       "next": "2028-2029"})
+        self.assertEqual(ex["years"], {"term": "Fall 2027", "listed": ["Fall 2027"],
+                                       "this": "2027-2028", "next": "2028-2029"})
         old_terms = {"Fall 2026", "IAP 2027", "Spring 2027", "Summer 2027"}
         self.assertEqual([x for x in changes if x.get("term") in old_terms], [])
         promoted = [x for x in changes if x.get("term") == "Fall 2027" and

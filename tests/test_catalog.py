@@ -33,8 +33,19 @@ def m15(blocks, **kw):
 class YearsTest(unittest.TestCase):
     def test_years_from_icons_and_title(self):
         years, problems = catalog.detect_years(m15([]))
-        self.assertEqual(years, {"term": "Fall 2026", "this": "2026-2027", "next": "2027-2028"})
+        self.assertEqual(years, {"term": "Fall 2026", "listed": ["Fall 2026"], "this": "2026-2027",
+                                 "next": "2027-2028"})
         self.assertEqual(problems, [])
+
+    def test_semester_flip_title_lists_two_terms(self):
+        # After the flip (Nov 23, 2026) MIT titles every page "IAP/Spring 2027".
+        pages = {p: h.replace("<title>Fall 2026", "<title>IAP/Spring\n2027")
+                 for p, h in m15([]).items()}
+        years, problems = catalog.detect_years(pages)
+        self.assertEqual((years["term"], years["listed"], years["this"]),
+                         ("IAP 2027", ["IAP 2027", "Spring 2027"], "2026-2027"))
+        self.assertEqual(problems, [])
+        self.assertEqual(catalog.page_terms("<title>Fall 2026 Course 6</title>"), ["Fall 2026"])
 
     def test_spring_term_same_academic_year(self):
         years, problems = catalog.detect_years(m15([], term="Spring 2027"))

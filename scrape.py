@@ -215,9 +215,16 @@ def research_area(satisfies, areas):
 
 def special_subject_course(rec, index_records, areas=()):
     units_raw, units, total = _units(rec.get("units_raw"))
-    prefix = rec["numbers"][0].split(".")[0]
+    # A listing can name several numbers. "Undergraduate and Graduate" pairs the two versions,
+    # undergraduate first (14.C396/14.C896), so the graduate subject is the last number and the
+    # undergraduate one is dropped. A graduate-only listing (6.S891/6.S893/12.S992) is one
+    # subject under several numbers: kept under the first, the others as joint numbers.
+    nums = rec["numbers"]
+    paired = "Undergraduate" in (rec.get("level") or "")
+    number = nums[-1] if paired else nums[0]
+    prefix = number.split(".")[0]
     return {
-        "number": rec["number"], "title": rec["title"],
+        "number": number, "title": rec["title"], "same_as": [] if paired else nums[1:],
         "department": catalog_index.department_name(prefix, index_records),
         "category": research_area(rec.get("satisfies"), areas),
         "terms": [rec["term"].split()[0]],

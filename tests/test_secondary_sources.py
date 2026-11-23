@@ -93,6 +93,28 @@ class EecsUpdatesTest(unittest.TestCase):
         self.assertEqual(recs["6.S974"]["also_under"], ["2.S988", "1.S980"])
         self.assertEqual(recs["6.S974"]["title"], "Games, Learning, and Security")
 
+    def test_heading_with_full_numbers_after_slashes(self):
+        # Spring 2027 page: "14.C396/14.C896 Capstone ..." and "6.S891/6.S893/12.S992 AI for ...".
+        frag = ('<h6 id="a">14.C396/14.C896 Capstone for AI Applications</h6>'
+                '<table><tr><td>Level:</td><td>Undergraduate and Graduate</td></tr></table>'
+                '<h6 id="b">6.S891/6.S893/12.S992 AI for Climate Action</h6>'
+                '<table><tr><td>Level:</td><td>Graduate</td></tr></table>')
+        recs = eecs_updates.parse_fragment(frag, "Spring 2027", "https://u/spring", "x")
+        self.assertEqual([(r["numbers"], r["title"]) for r in recs],
+                         [(["14.C396", "14.C896"], "Capstone for AI Applications"),
+                          (["6.S891", "6.S893", "12.S992"], "AI for Climate Action")])
+
+    def test_discovery_after_the_semester_flip(self):
+        # Nov 23, 2026: the catalog reads "IAP/Spring 2027", so IAP 2027 is current; the
+        # Spring 2027 page is followed and the past Fall 2026 page isn't.
+        cat = config.catalog_source("m6a")
+        index = ('<a href="https://www.eecs.mit.edu/academics/subject-updates/'
+                 'subject-updates-spring-2027/">Subject Updates Spring 2027</a>' + INDEX)
+        results = {cat.key: ok("<title>IAP/Spring\n2027 Course 6</title>"),
+                   config.EECS_UPDATES_SOURCE.key: ok(index)}
+        found = eecs_updates.discover([cat, config.EECS_UPDATES_SOURCE], results)
+        self.assertEqual([s.key for s in found], ["eecs-updates/spring-2027"])
+
     def _run(self, catalog_term="Fall 2026"):
         cat = config.catalog_source("m6a")
         sources = [cat, config.EECS_UPDATES_SOURCE]
@@ -363,6 +385,22 @@ class SecondaryFallbackTest(unittest.TestCase):
         os.remove(os.path.join(self.dir, "extracts", "design.json"))
         ex = self.run_secondary({"records": [], "problems": [("fail", "header changed")]})
         self.assertEqual(ex["problems"][0][0], "fail")
+
+
+
+class SpecialSubjectRowTest(unittest.TestCase):
+    def rec(self, numbers, level):
+        return {"numbers": numbers, "number": "/".join(numbers), "title": "T", "term": "Spring 2027",
+                "level": level, "units_raw": "3-0-9", "satisfies": "", "url": "u"}
+
+    def test_paired_listing_keeps_only_the_graduate_number(self):
+        row = scrape.special_subject_course(
+            self.rec(["14.C396", "14.C896"], "Undergraduate and Graduate"), [])
+        self.assertEqual((row["number"], row["same_as"]), ("14.C896", []))
+
+    def test_graduate_listing_with_several_numbers_is_one_joint_subject(self):
+        row = scrape.special_subject_course(self.rec(["6.S891", "6.S893", "12.S992"], "Graduate"), [])
+        self.assertEqual((row["number"], row["same_as"]), ("6.S891", ["6.S893", "12.S992"]))
 
 
 if __name__ == "__main__":

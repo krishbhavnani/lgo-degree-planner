@@ -141,6 +141,8 @@ def observe(ctx):
     records), eval_records (by number), design_rows, years. Returns {id: course view}."""
     years = ctx["years"]
     this_ay, current = years["this"], years["term"]
+    # The terms the catalog lists now (e.g. IAP + Spring 2027): its schedules belong to them.
+    listed = set(years.get("listed") or [current])
     next_ay = terms.next_ay(this_ay)
     special_by_num = {}
     for rec in ctx["special"]:
@@ -177,7 +179,7 @@ def observe(ctx):
             course["offerings"][rec["term"]] = {
                 "status": "listed", "title": topic, "units": _units(row),
                 "half": None, "instructor": row.get("instructor"),
-                "schedule_summary": row.get("schedule_summary") if rec["term"] == current else None,
+                "schedule_summary": row.get("schedule_summary") if rec["term"] in listed else None,
                 "schedule": None, "date_note": None}
         else:
             this, nxt = _statuses(row, special)
@@ -190,7 +192,7 @@ def observe(ctx):
                            "half": row.get("half_term"),
                            "instructor": row.get("instructor") if ay == this_ay else None,
                            "schedule_summary": None, "schedule": None, "date_note": None}
-                    if t == current:
+                    if t in listed:
                         off["schedule_summary"] = row.get("schedule_summary") or None
                         off["schedule"] = row.get("schedule") or None
                         off["date_note"] = row.get("date_note")
@@ -327,6 +329,8 @@ def merge(db, observed, run_id, date, current_term, aliases=(), undergraduate=()
     for cid, c in courses.items():
         if cid in observed or c.get("removed"):
             continue
+        if all(terms.key(t) < terms.key(current_term) for t in c["offerings"]):
+            continue   # every offering is past: it ran, it wasn't removed (e.g. a Fall-only special)
         c["removed"] = date
         removed_ids.append(cid)
         _change(changes, date, run_id, c, "course_removed")

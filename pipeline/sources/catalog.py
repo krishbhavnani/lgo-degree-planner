@@ -100,15 +100,25 @@ def schedule_summary(comps):
 # ---------------------------------------------------------------------------
 # Academic year / current term
 # ---------------------------------------------------------------------------
-TERM_TITLE_RE = re.compile(r"<title>\s*(Fall|IAP|Spring|Summer)\s+(\d{4})", re.I)
+_SEASON = r"(?:Fall|IAP|Spring|Summer)"
+TERM_TITLE_RE = re.compile(r"<title>\s*(" + _SEASON + r"(?:/" + _SEASON + r")*)\s+(\d{4})", re.I)
 NOT_OFFERED_RE = re.compile(r'alt="Not offered academic year (\d{4})-(\d{4})"')
 
 
-def page_term(page_html):
-    """'Fall 2026' from the page <title>, or None."""
+def page_terms(page_html):
+    """The terms a page lists, from its <title>: "Fall 2026" -> [Fall 2026]; after the semester
+    flip "IAP/Spring 2027" -> [IAP 2027, Spring 2027]. The schedules it prints belong to these."""
     m = TERM_TITLE_RE.search(page_html)
-    return "%s %s" % (m.group(1).title() if m.group(1).upper() != "IAP" else "IAP", m.group(2)) \
-        if m else None
+    if not m:
+        return []
+    return ["%s %s" % ("IAP" if s.upper() == "IAP" else s.title(), m.group(2))
+            for s in m.group(1).split("/")]
+
+
+def page_term(page_html):
+    """The page's current term: the first one it lists, or None."""
+    listed = page_terms(page_html)
+    return listed[0] if listed else None
 
 
 def term_academic_year(term):
@@ -130,7 +140,7 @@ def detect_years(pages):
     """
     problems = []
     starts = set()
-    terms = {}
+    terms, listings = {}, {}
     for page, h in pages.items():
         for a, b in NOT_OFFERED_RE.findall(h):
             if int(b) != int(a) + 1:
@@ -139,6 +149,7 @@ def detect_years(pages):
         t = page_term(h)
         if t:
             terms[page] = t
+            listings[t] = page_terms(h)
     distinct_terms = sorted(set(terms.values()))
     term = distinct_terms[0] if len(distinct_terms) == 1 else None
     if len(distinct_terms) > 1:
@@ -167,6 +178,7 @@ def detect_years(pages):
                          % (term, ay_label(this))))
     years = {
         "term": term,
+        "listed": listings.get(term, []),
         "this": ay_label(this) if this is not None else None,
         "next": ay_label(this + 1) if this is not None else None,
     }
