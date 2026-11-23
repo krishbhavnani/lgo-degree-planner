@@ -1,9 +1,13 @@
 {
  "format": 1,
  "source": "catalog",
- "run_id": "2026-11-23T223750Z",
+ "run_id": "2026-11-23T230837Z",
  "years": {
-  "term": null,
+  "term": "IAP 2027",
+  "listed": [
+   "IAP 2027",
+   "Spring 2027"
+  ],
   "this": "2026-2027",
   "next": "2027-2028"
  },

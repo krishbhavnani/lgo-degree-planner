@@ -1,7 +1,211 @@
 {
  "format": 1,
  "source": "eecs_updates",
- "run_id": "2026-11-23T223750Z",
- "records": [],
- "terms": []
+ "run_id": "2026-11-23T230837Z",
+ "records": [
+  {
+   "number": "14.C396/14.C896",
+   "numbers": [
+    "14.C396",
+    "14.C896"
+   ],
+   "title": "Capstone for AI Applications to Decision Making and Economics",
+   "term": "Spring 2027",
+   "level": "Undergraduate and Graduate",
+   "units_raw": "4-0-8 (12 units)",
+   "prereq_raw": "((6.3900 or 6.C01) and (14.01 or 14.03)) or permission of instructor",
+   "satisfies": "II; 6-3 Computers & Society track; (for 14.C896 only) AAGS in Artificial Intelligence",
+   "instructors": "Sendhil Mullainathan (Professor, EECS and Economics) Lindsey Raymond (Assistant Professor, EECS and Economics)",
+   "schedule_raw": "Lecture: TR2.30-4, room 34-304",
+   "description": "Students apply machine learning and AI methods to real-world decision-making problems, typically with nonprofit or mission-driven partner organizations. In small teams, students identify a problem, design technical and organizational solutions, and produce an end-to-end prototype that can inform or automate decision processes. Emphasis on problem formulation, innovative application of machine learning methods, and integration of economic insights into technical design. Students produce a functioning prototype, an individual written report, and documented reflections on challenges encountered. Students taking graduate version complete additional assignments.",
+   "new": false,
+   "was": [],
+   "also_under": [],
+   "url": "https://www.eecs.mit.edu/academics/subject-updates/subject-updates-spring-2027/#14_C396_14_C896",
+   "_src": {
+    "page": "eecs-updates/subj_2027SP",
+    "snapshot": "snapshots/eecs-updates/subj_2027SP/2026-11-23T230858Z.html.gz",
+    "fetched_at": "2026-11-23T23:08:58Z"
+   }
+  },
+  {
+   "number": "16.460",
+   "numbers": [
+    "16.460"
+   ],
+   "title": "Algorithmic Human Robot Interaction",
+   "term": "Spring 2027",
+   "level": "Graduate",
+   "units_raw": "3-0-9",
+   "prereq_raw": "None",
+   "satisfies": "AAGS in Artificial Intelligence concentration",
+   "instructors": "Andreea Bobu (Aero-Astro), Dylan Hadfield-Menell (EECS)",
+   "schedule_raw": "Lecture: MW9.30-11, room 37-212",
+   "description": "Explores algorithmic approaches to human-robot interaction through a human-centered lens. Topics include: mathematical models of human behavior, inverse reinforcement learning, imitation learning, active learning, explainable AI, and shared autonomy. Emphasizes recent research and foundational methods in the field. Combines lectures with student-led paper presentations, discussions, and short programming assignments. Students complete an individual research project or literature survey to engage with current challenges. Familiarity with probability, sequential decision-making, and Python programming is encouraged. Designed for graduate students; advanced undergraduates may enroll with instructor approval.",
+   "new": false,
+   "was": [],
+   "also_under": [],
+   "url": "https://www.eecs.mit.edu/academics/subject-updates/subject-updates-spring-2027/#16_460",
+   "_src": {
+    "page": "eecs-updates/subj_2027SP",
+    "snapshot": "snapshots/eecs-updates/subj_2027SP/2026-11-23T230858Z.html.gz",
+    "fetched_at": "2026-11-23T23:08:58Z"
+   }
+  },
+  {
+   "number": "6.4140",
+   "numbers": [
+    "6.4140"
+   ],
+   "title": "The History of Artificial Intelligence",
+   "term": "Spring 2027",
+   "level": "Undergraduate",
+   "units_raw": "3-0-9",
+   "prereq_raw": "none",
+   "satisfies": "",
+   "instructors": "Benjamin Lindquist (HISTORY)",
+   "schedule_raw": "Lecture: TR9:30-11, room E51-385",
+   "description": "Surveys the history of artificial intelligence from eighteenth century automata to contemporary large language models. Examines changing strategies for building intelligent machines and situates them in a cultural context. Emphasis on historical development, critical concepts, and ongoing debates.",
+   "new": false,
+   "was": [],
+   "also_under": [],
+   "url": "https://www.eecs.mit.edu/academics/subject-updates/subject-updates-spring-2027/#6_4140",
+   "_src": {
+    "page": "eecs-updates/subj_2027SP",
+    "snapshot": "snapshots/eecs-updates/subj_2027SP/2026-11-23T230858Z.html.gz",
+    "fetched_at": "2026-11-23T23:08:58Z"
+   }
+  },
+  {
+   "number": "6.9050",
+   "numbers": [
+    "6.9050"
+   ],
+   "title": "Spirit, Power, Intelligence: The Epic History of Electricity and Electronics",
+   "term": "Spring 2027",
+   "level": "Undergraduate",
+   "units_raw": "3-0-9",
+   "prereq_raw": "none",
+   "satisfies": "",
+   "instructors": "David Mindell (16, STS) Marc Baldo (VPRES)",
+   "schedule_raw": "Lecture: MW1-2.30, room 66-148",
+   "description": "Historical overview and synthesis of over 400 years of the core underlying technology of the modern world. Topics range from amber and magnetism in the ancient world to AI and electric power today. Touches on scientists and engineers like Franklin, Faraday, Maxwell, Edison, Hertz, and Tesla, as well as lesser-known contributors. Discusses the development, implementation, and impact of inventions including the light bulb, electric chair, telephone, electric guitar, transistor, integrated circuits, and digital networking. Includes histories of MIT Course 6 and Silicon Valley, as well as the evolution of the geopolitics of semiconductor manufacturing. Serves as a broad introduction to an electrical engineering undergraduate curriculum. Limited to 20.",
+   "new": false,
+   "was": [],
+   "also_under": [],
+   "url": "https://www.eecs.mit.edu/academics/subject-updates/subject-updates-spring-2027/#6_9050",
+   "_src": {
+    "page": "eecs-updates/subj_2027SP",
+    "snapshot": "snapshots/eecs-updates/subj_2027SP/2026-11-23T230858Z.html.gz",
+    "fetched_at": "2026-11-23T23:08:58Z"
+   }
+  },
+  {
+   "number": "6.S102/6.S180",
+   "numbers": [
+    "6.S102",
+    "6.S180"
+   ],
+   "title": "Software and Systems Engineering with AI Coding Agents",
+   "term": "Spring 2027",
+   "level": "Undergraduate",
+   "units_raw": "5-0-7 (S102); 6-0-6 (S180)",
+   "prereq_raw": "6.1010 AND 6.1910 AND 6.1210. Corequisites: (6.102 or 6.S102) AND (6.180 or 6.S180).",
+   "satisfies": "6.S102 automatically substitutes for 6.102. 6.S180 automatically substitutes for 6.180.",
+   "instructors": "Rob Miller (EECS), Armando Solar-Lezama (EECS)",
+   "schedule_raw": "S102: see schedule for 6.102 classes. S180: see schedule for 6.180 lectures and recitations. S102/S180 also meet together WF3-5, room 4-261.",
+   "description": "Introduces fundamental principles and techniques of AI-assisted software development for engineering computer software systems, combining 6.102 and 6.180 and new material. Software-engineering topics (from 6.102) include specifications and invariants; testing; abstract data types and representation independence; design patterns; concurrent programming, including message passing and shared memory concurrency; and functional programming with immutable data and higher-order functions. Computer systems topics (from 6.180) include techniques for controlling complexity; strong modularity using client-server design, operating systems; performance, networks; naming; security and privacy; fault-tolerant systems, atomicity and coordination of concurrent activities, and recovery; impact of computer systems on society. New topics (beyond 6.102 and 6.180) include software project management, architectural design patterns for larger systems, AI coding agents and agentic systems. Includes readings from the current literature, weekly programming projects, and larger group programming projects, all done with AI coding assistance. Enrollment may be limited.",
+   "new": false,
+   "was": [],
+   "also_under": [],
+   "url": "https://www.eecs.mit.edu/academics/subject-updates/subject-updates-spring-2027/#6_S102_6_S180",
+   "_src": {
+    "page": "eecs-updates/subj_2027SP",
+    "snapshot": "snapshots/eecs-updates/subj_2027SP/2026-11-23T230858Z.html.gz",
+    "fetched_at": "2026-11-23T23:08:58Z"
+   }
+  },
+  {
+   "number": "6.S891/6.S893/12.S992",
+   "numbers": [
+    "6.S891",
+    "6.S893",
+    "12.S992"
+   ],
+   "title": "AI for Climate Action",
+   "term": "Spring 2027",
+   "level": "Graduate",
+   "units_raw": "3-0-9",
+   "prereq_raw": "6.3900 OR 6.8300/1 OR 6.7960 OR equivalent",
+   "satisfies": "AAGS; Concentration subject in Artificial Intelligence",
+   "instructors": "Priya Donti (EECS), Sara Beery (EECS), Abigail Bodner (EECS, EAPS)",
+   "schedule_raw": "Lectures: MW2-3:30, room 4-145",
+   "description": "6.S891: Biodiversity and environment - Prof. Sara Beery 6.S893: Power and energy systems - Prof. Priya Donti 12.S992: Climate models - Prof. Abigail Bodner Examines applications of artificial intelligence and machine learning to climate change mitigation, adaptation, and climate science, with an emphasis on advanced machine learning methods. The course is taught collaboratively as a collection of domain-specific “forks.” Common (“merged”) lectures introduce climate fundamentals and foster exchange across AI-for-climate domains. Within fork-specific sessions, students present, critique, and lead discussions of current research papers and develop a written research proposal applying machine learning methods to the fork’s focus area. Both graduate and undergraduate students are encouraged to register.",
+   "new": false,
+   "was": [],
+   "also_under": [],
+   "url": "https://www.eecs.mit.edu/academics/subject-updates/subject-updates-spring-2027/#6_S891_6_S893_12_S992",
+   "_src": {
+    "page": "eecs-updates/subj_2027SP",
+    "snapshot": "snapshots/eecs-updates/subj_2027SP/2026-11-23T230858Z.html.gz",
+    "fetched_at": "2026-11-23T23:08:58Z"
+   }
+  },
+  {
+   "number": "6.S955",
+   "numbers": [
+    "6.S955"
+   ],
+   "title": "Machine Learning for Signal Processing",
+   "term": "Spring 2027",
+   "level": "Graduate",
+   "units_raw": "3-0-9",
+   "prereq_raw": "6.3000 and (18.06 or 18.C06) and (6.3700 or 6.3800 or 18.05)",
+   "satisfies": "",
+   "instructors": "Paris Smaragdis (MTA/EECS)",
+   "schedule_raw": "Lecture: MW1-2:30, room 32-155",
+   "description": "This class covers of machine learning and signal processing as they pertain to the development of systems that can understand complex real-world signals, such as speech, images, movies, music, biological and mechanical readings, etc. It focuses on developing a strong unifying perspective between machine learning and signal processing, covering both classical techniques, but also many of the latest developments. Subjects include hands-on examples of how to decompose, analyze, classify, detect and consolidate signals, and we examine various commonplace operations such as finding faces from camera feeds, organizing personal music collections, designing speech dialog systems, focusing radio arrays, etc. Graduate credit includes extra homework assignments and a final project.",
+   "new": false,
+   "was": [],
+   "also_under": [],
+   "url": "https://www.eecs.mit.edu/academics/subject-updates/subject-updates-spring-2027/#6_S955",
+   "_src": {
+    "page": "eecs-updates/subj_2027SP",
+    "snapshot": "snapshots/eecs-updates/subj_2027SP/2026-11-23T230858Z.html.gz",
+    "fetched_at": "2026-11-23T23:08:58Z"
+   }
+  },
+  {
+   "number": "6.S958",
+   "numbers": [
+    "6.S958"
+   ],
+   "title": "Human–AI Interaction and Alignment",
+   "term": "Spring 2027",
+   "level": "Graduate",
+   "units_raw": "3-0-9",
+   "prereq_raw": "machine learning/NLP (6.3900 or 6.4610 or 6.8610) and HCI (6.1040 or 6.4500)",
+   "satisfies": "AAGS in Artificial Intelligence or Graphics/HCI; 6-3 HCI track",
+   "instructors": "Mitchell Gordon (EECS)",
+   "schedule_raw": "Lecture: MW2:30-4, room 36-153",
+   "description": "Graduate seminar on human–AI interaction, safety, and alignment. Discusses how to design and evaluate AI systems that respond to human goals and values while supporting human agency and reducing harmful outcomes. Topics include human feedback and preference elicitation, interaction with language models and AI agents, oversight and control, evaluation with people, and pluralistic alignment. Students discuss research papers, lead a paper presentation, write reading responses, and complete an original research or design project.",
+   "new": false,
+   "was": [],
+   "also_under": [],
+   "url": "https://www.eecs.mit.edu/academics/subject-updates/subject-updates-spring-2027/#6_S958",
+   "_src": {
+    "page": "eecs-updates/subj_2027SP",
+    "snapshot": "snapshots/eecs-updates/subj_2027SP/2026-11-23T230858Z.html.gz",
+    "fetched_at": "2026-11-23T23:08:58Z"
+   }
+  }
+ ],
+ "terms": [
+  {
+   "term": "Spring 2027",
+   "page": "https://www.eecs.mit.edu/academics/subject-updates/subject-updates-spring-2027/",
+   "fragment": "https://eecsis.mit.edu/plugins/subj_2027SP.html",
+   "subjects": 8
+  }
+ ]
 }
