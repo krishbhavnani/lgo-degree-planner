@@ -8116,62 +8116,6 @@
      "first_seen": "2026-10-28",
      "last_seen": "2026-11-23",
      "history": []
-    },
-    "Spring 2027": {
-     "status": "removed",
-     "title": "Leadership in Disrupted Industries",
-     "units": {
-      "raw": "2-0-1",
-      "lec": 2,
-      "lab": 0,
-      "prep": 1,
-      "total": 3,
-      "kind": "fixed"
-     },
-     "half": "H2",
-     "instructor": "R. Pozen, B. Shields",
-     "schedule_summary": null,
-     "schedule": null,
-     "date_note": null,
-     "source": null,
-     "first_seen": "2026-10-28",
-     "last_seen": "2026-11-18",
-     "history": [
-      {
-       "date": "2026-11-22",
-       "field": "status",
-       "old": "listed",
-       "new": "removed"
-      }
-     ]
-    },
-    "Spring 2028": {
-     "status": "removed",
-     "title": "Leadership in Disrupted Industries",
-     "units": {
-      "raw": "2-0-1",
-      "lec": 2,
-      "lab": 0,
-      "prep": 1,
-      "total": 3,
-      "kind": "fixed"
-     },
-     "half": "H2",
-     "instructor": null,
-     "schedule_summary": null,
-     "schedule": null,
-     "date_note": null,
-     "source": null,
-     "first_seen": "2026-10-28",
-     "last_seen": "2026-11-18",
-     "history": [
-      {
-       "date": "2026-11-22",
-       "field": "status",
-       "old": "expected",
-       "new": "removed"
-      }
-     ]
     }
    }
   },

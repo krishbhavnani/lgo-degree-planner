@@ -280,8 +280,6 @@
 {"date": "2026-11-22", "run_id": "2026-11-22T215230Z", "id": "6.6520", "number": "6.6520", "kind": "changed", "term": "Spring 2027", "field": "status", "old": "listed", "new": "not_offered"}
 {"date": "2026-11-22", "run_id": "2026-11-22T215230Z", "id": "6.6520", "number": "6.6520", "kind": "changed", "term": "Spring 2028", "field": "status", "old": "not_offered", "new": "expected"}
 {"date": "2026-11-22", "run_id": "2026-11-22T215230Z", "id": "15.022", "number": "15.022", "kind": "changed", "term": "Spring 2028", "field": "status", "old": "expected", "new": "unverified"}
-{"date": "2026-11-22", "run_id": "2026-11-22T215230Z", "id": "15.325", "number": "15.325", "kind": "changed", "term": "Spring 2027", "field": "status", "old": "listed", "new": "removed"}
-{"date": "2026-11-22", "run_id": "2026-11-22T215230Z", "id": "15.325", "number": "15.325", "kind": "changed", "term": "Spring 2028", "field": "status", "old": "expected", "new": "removed"}
 {"date": "2026-11-22", "run_id": "2026-11-22T215230Z", "id": "15.326", "number": "15.326", "kind": "course_added"}
 {"date": "2026-11-22", "run_id": "2026-11-22T215230Z", "id": "15.326", "number": "15.326", "kind": "offering_added", "term": "Spring 2027"}
 {"date": "2026-11-22", "run_id": "2026-11-22T215230Z", "id": "15.326", "number": "15.326", "kind": "offering_added", "term": "Spring 2028"}
