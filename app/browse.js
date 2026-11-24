@@ -3,12 +3,12 @@ const HAS_RATINGS = COURSES.some(c=>c.rating!=null);
 const COLS = [
   {key:'flag',  label:'★', sort:false, fixed:true,
      get:c=>flags.has(c.id)?1:0, render:renderStar},
-  {key:'number',label:'Course', get:c=>c.number, render:c=>{
+  {key:'number',label:'Course', mit:true, get:c=>c.number, render:c=>{
      const planned=typeof planItems!=='undefined' && planItems.some(it=>it.course===c.id);
      return `<span class="cnum">${c.url?`<a href="${esc(c.url)}" target="_blank">${esc(c.number)}</a>`:esc(c.number)}</span> `+
        (planned?`<span class="addplan added" title="Already in your plan">✓</span>`
                :`<span class="addplan" data-addplan="${esc(c.id)}" title="Add to plan (Unassigned)">＋</span>`);}},
-  {key:'department',label:'Dept', get:c=>c.department||'', render:c=>{
+  {key:'department',label:'Dept', mit:true, get:c=>c.department||'', render:c=>{
      const d=c.department||'';
      const short=d.startsWith('Course 6')?'6 EECS':d.startsWith('Course 15')?'15 Mgmt':d.startsWith('Course 2')?'2 MechE':d.startsWith('Common Ground')?'CG':d;
      return `<span class="chip" title="${esc(d)}">${esc(short)}</span>`;}},
@@ -125,7 +125,7 @@ function renderDesc(c){
 function uniq(arr){return [...new Set(arr)].filter(x=>x!=null&&x!=='');}
 const AAGS=['Approved-Offered','Approved-NotThisYear','Approved-NotInCatalog','Needs approval','Not approved'];
 const CATS=uniq(COURSES.map(c=>c.category)).sort();
-const DEPTS=uniq(COURSES.map(c=>c.department)).sort();
+const DEPTS=uniq(COURSES.map(c=>c.department)).sort(Catalog.mitCompare);
 
 function checkList(host,items,name){
   document.getElementById(host).innerHTML=items.map(v=>
@@ -183,6 +183,7 @@ function sorted(list){
   const dir=sort.dir;
   return list.slice().sort((a,b)=>{
     let va=col.get(a), vb=col.get(b);
+    if(col.mit) return Catalog.mitCompare(va,vb)*dir;   // MIT course order, not text
     if(col.num){
       const na=va==null?null:+va, nb=vb==null?null:+vb;
       if(na==null&&nb==null)return 0; if(na==null)return 1; if(nb==null)return -1; // nulls last

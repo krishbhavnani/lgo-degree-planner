@@ -13,6 +13,17 @@ const Catalog = (() => {
   // Within a calendar year: IAP (January), Spring, Summer, Fall.
   const SEASONS = ["IAP", "Spring", "Summer", "Fall"];
   const termKey = t => { const [s, y] = String(t).split(" "); return +y * 4 + SEASONS.indexOf(s); };
+  // MIT order for course numbers and departments ("21M.301" or "Course 21M — Music"): numbered
+  // courses by number, then letter suffix (2, 6, 14, 15, 21A, 21M); anything else after them,
+  // alphabetically. Within a course the part after the dot compares as text, which keeps MIT's
+  // own order (6.100A, 6.1010, 6.1200, 6.C51; 15.9xx before 15.S12).
+  function mitCompare(a, b) {
+    const parse = s => { const m = /^(?:Course\s+)?(\d+)([A-Z]*)(?:\.(\S+))?/.exec(String(s));
+      return m ? [0, +m[1], m[2], m[3] || ""] : [1, 0, "", String(s)]; };
+    const x = parse(a), y = parse(b);
+    for (let i = 0; i < 4; i++) if (x[i] !== y[i]) return x[i] < y[i] ? -1 : 1;
+    return 0;
+  }
   // Academic year of a term: Fall 2026 .. Summer 2027 is "2026–27".
   const ayOf = t => { const [s, y] = t.split(" "); const start = s === "Fall" ? +y : +y - 1; return `${start}–${String(start + 1).slice(2)}`; };
 
@@ -140,7 +151,7 @@ const Catalog = (() => {
     return { meta, courses, get, byNumber, resolve, offering, title, info, status, addable, isPastTracked, tracked, coverage, claimable, row, inScope, termKey };
   }
 
-  return { load, LEGEND, termKey };
+  return { load, LEGEND, termKey, mitCompare };
 })();
 
 if (typeof module !== "undefined") module.exports = Catalog;

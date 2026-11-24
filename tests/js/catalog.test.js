@@ -134,3 +134,13 @@ test("Term scope: now or later by default; 'all' or the past term shows a past-o
   const now = c2.row(c2.get("6.1220"));                   // Spring 2027 listed
   assert.equal(c2.inScope(now, ""), true);
 });
+
+test("departments and course numbers sort in MIT order, not as text", () => {
+  const depts = ["Common Ground — other depts", "Course 21M — Music", "Course 15 — Management", "Course 2 — MechE",
+    "Course 18 — Mathematics", "Course 14 — Economics", "Course 6 — EECS", "Course 16 — Aero/Astro"];
+  assert.deepEqual([...depts].sort(Catalog.mitCompare), ["Course 2 — MechE", "Course 6 — EECS", "Course 14 — Economics",
+    "Course 15 — Management", "Course 16 — Aero/Astro", "Course 18 — Mathematics", "Course 21M — Music", "Common Ground — other depts"]);
+  const nums = ["21M.301", "15.S12", "6.C51", "15.401", "2.001", "14.01", "6.100A", "6.1010", "15.990"];
+  assert.deepEqual([...nums].sort(Catalog.mitCompare), ["2.001", "6.100A", "6.1010", "6.C51", "14.01", "15.401", "15.990", "15.S12", "21M.301"]);
+  assert.deepEqual(["21W.1", "21M.1", "21A.1"].sort(Catalog.mitCompare), ["21A.1", "21M.1", "21W.1"]);
+});
