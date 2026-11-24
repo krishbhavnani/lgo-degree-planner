@@ -43,9 +43,10 @@ description, and:
 - Marks for **🎨 LGO pre-approved design classes** (faded: conditionally approved) and
   **🧪 Action Learning labs**, and an **H1/H2** chip for half-term courses.
 
-Filter by department, **Offered in** (any of your terms), AAGS, design, Action Learning, research
-area, units and weekly hours; search; sort any column; show or hide columns. Browse lists courses
-offered now or later; tick *Include not currently offered* to see the rest, dimmed, with the reason.
+Filter by department, **Term**, AAGS, design, Action Learning, research area, units and weekly
+hours; search; sort any column; show or hide columns. **Term** starts at *Now or later* (courses
+offered in the current term or after); pick *Any term, including past* or one of your terms to see
+others. Courses not offered now or later are dimmed, with the reason (e.g. "Last offered Fall 2026").
 Star courses (★) and export the starred ones as CSV. **＋** adds a course to your plan.
 
 ### Plan

@@ -60,7 +60,6 @@ function renderStar(c){return `<span class="star ${flags.has(c.id)?'on':''}" dat
 // and past terms are left out (Browse is for planning ahead). Same badges and tooltips as the plan.
 const SEASON_SHORT={Fall:"F",IAP:"I",Spring:"S",Summer:"Su"};
 const SHOWN=new Set(["listed","expected","unverified"]);          // chips, sort and export
-const OFFERED=new Set(["listed","expected","unverified","ran"]);   // the "Offered in" filter
 const shownTerms=c=>PLAN_TERMS.map(t=>({t,b:CAT.status(c.id,t)})).filter(x=>SHOWN.has(x.b.code));
 function renderTermChips(c){
   const chips=shownTerms(c);
@@ -147,7 +146,7 @@ function getFilters(){
   return {
     q:document.getElementById('search').value.trim().toLowerCase(),
     flagged:document.getElementById('f_flagged').checked,
-    term:document.getElementById('f_term').value, notNow:document.getElementById('f_notnow').checked,
+    term:document.getElementById('f_term').value,
     aags:checkedVals('aags'), cat:checkedVals('cat'), dept:checkedVals('dept'),
     design:document.getElementById('f_design').checked,
     al:document.getElementById('f_al').checked,
@@ -159,7 +158,6 @@ function numOrNull(id){const v=document.getElementById(id).value;return v===''?n
 
 function passes(c,f){
   if(f.flagged && !flags.has(c.id)) return false;
-  if(!f.notNow && !c.available.now) return false;   // default: offered now or later
   if(f.dept.length && !f.dept.includes(c.department)) return false;
   if(f.design && !c.design_approved) return false;
   if(f.al && !c.action_learning) return false;
@@ -167,7 +165,6 @@ function passes(c,f){
     const hay=(c.number+' '+c.title+' '+(c.instructor||'')+' '+(c.description||'')+' '+(c.category||'')+' '+(c.department||'')).toLowerCase();
     if(!hay.includes(f.q)) return false;
   }
-  if(f.term && !OFFERED.has(CAT.status(c.id,f.term).code)) return false;
   if(f.aags.length && !f.aags.includes(c.aags||'Not approved')) return false;
   if(f.cat.length && !f.cat.includes(c.category)) return false;
   if(f.umin!=null && (c.units_total==null || c.units_total<f.umin)) return false;
@@ -204,23 +201,31 @@ function renderHead(){
     return `<th class="${hc}" data-col="${c.key}">${esc(c.label)} ${arr}</th>`;
   }).join('');
 }
-// "Offered in" lists the student's own terms that the catalog covers, so it follows the grad year.
+// The Term filter: now or later (default), any term, or one of the student's tracked terms (past
+// ones included), so it follows the grad year. CAT.inScope() is the rule.
 function syncTermFilter(){
   const sel=document.getElementById('f_term'), cur=sel.value;
-  sel.innerHTML='<option value="">any term</option>'+PLAN_TERMS.filter(CAT.tracked).map(t=>`<option ${t===cur?'selected':''}>${esc(t)}</option>`).join('');
+  const opt=(v,label)=>`<option value="${esc(v)}" ${v===cur?'selected':''}>${esc(label)}</option>`;
+  sel.innerHTML=opt('','Now or later')+opt('all','Any term, including past')+PLAN_TERMS.filter(CAT.tracked).map(t=>opt(t,t)).join('');
 }
 function renderRows(){
   syncTermFilter();
   const f=getFilters();
-  const list=sorted(COURSES.filter(c=>passes(c,f)));
+  // One pass: rows in the Term scope, and (for "Now or later") matches hidden only by it.
+  const inScope=[]; let pastOnly=0;
+  for(const c of COURSES){ if(!passes(c,f)) continue; if(CAT.inScope(c,f.term)) inScope.push(c); else if(!f.term) pastOnly++; }
+  const list=sorted(inScope);
   document.getElementById('rows').innerHTML=list.map(c=>
     '<tr>'+COLS.map(col=>{
       const hc=hidden.has(col.key)?'hcol':'';
       return `<td class="${hc} ${col.key==='number'?'cnum':''}">${col.render(c)}</td>`;
     }).join('')+'</tr>').join('');
-  // Not offered now or later (shown only with the toggle): dimmed, with the reason.
+  // Not offered now or later (shown for "Any term" or a past term): dimmed, with the reason.
   document.querySelectorAll('#rows tr').forEach((tr,i)=>{const c=list[i]; if(!c.available.now){tr.classList.add('dim'); tr.title=c.available.reason;}});
   document.getElementById('shown').textContent=list.length;
+  const more=document.getElementById('scope-more');
+  more.hidden=!pastOnly;
+  more.innerHTML=`${pastOnly} more match in past terms only. <a href="#" id="show-all-terms">Show all terms</a>`;
   document.getElementById('total').textContent=COURSES.length;
   document.getElementById('flagcount').textContent=flags.size;
 }
@@ -228,7 +233,7 @@ function renderAll(){renderHead();renderRows();}
 
 // ---- events --------------------------------------------------------------
 document.addEventListener('input',e=>{
-  if(e.target.matches('#search,[data-dept],#f_term,#f_notnow,[data-aags],[data-cat],#u_min,#u_max,#h_max,#r_min,#f_flagged,#f_design,#f_al'))
+  if(e.target.matches('#search,[data-dept],#f_term,[data-aags],[data-cat],#u_min,#u_max,#h_max,#r_min,#f_flagged,#f_design,#f_al'))
     renderRows();
 });
 document.getElementById('headrow').addEventListener('click',e=>{
@@ -252,10 +257,14 @@ document.getElementById('coltoggle').addEventListener('change',e=>{
   e.target.checked?hidden.delete(k):hidden.add(k);
   save(LS.hidden,[...hidden]); renderAll();
 });
+document.getElementById('scope-more').addEventListener('click',e=>{
+  if(!e.target.closest('#show-all-terms')) return;
+  e.preventDefault(); document.getElementById('f_term').value='all'; renderRows();
+});
 document.getElementById('resetf').addEventListener('click',()=>{
   document.getElementById('search').value='';
   document.querySelectorAll('[data-dept],[data-aags],[data-cat]').forEach(x=>x.checked=false);
-  document.getElementById('f_term').value=''; document.getElementById('f_notnow').checked=false;
+  document.getElementById('f_term').value='';
   ['u_min','u_max','h_max'].forEach(id=>document.getElementById(id).value='');
   document.getElementById('r_min').value='0';
   document.getElementById('f_flagged').checked=false;

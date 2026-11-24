@@ -8,6 +8,7 @@
 //   cat.status(id, term)    {code, symbol, label, tip}  (see LEGEND)
 //   cat.coverage(term)      "before" | "after" | null   (why a term has no schedule data)
 //   cat.row(course)         the flat fields Browse renders
+//   cat.inScope(row, scope) Browse's Term filter: "" now or later, "all", or one term
 const Catalog = (() => {
   // Within a calendar year: IAP (January), Spring, Summer, Fall.
   const SEASONS = ["IAP", "Spring", "Summer", "Fall"];
@@ -107,8 +108,14 @@ const Catalog = (() => {
       if (later.some(t => AVAILABLE.has(c.offerings[t].status))) return { now: true, reason: "" };
       const removed = later.find(t => c.offerings[t].status === "removed");
       if (removed) return { now: false, reason: `No longer listed since ${c.offerings[removed].last_seen}` };
+      const lastRan = termsOf(c).filter(t => termKey(t) < current && c.offerings[t].status === "listed").pop();
+      if (lastRan) return { now: false, reason: `Last offered ${lastRan}` };
       return { now: false, reason: `Not offered ${ayOf(meta.current_term)}` };
     }
+    // Browse's one Term control: "" = offered now or later, "all" = no restriction, or a term
+    // (past ones included) = offered that term.
+    const OFFERED = new Set(["listed", "expected", "unverified", "ran"]);
+    const inScope = (r, scope) => !scope ? r.available.now : scope === "all" || OFFERED.has(status(r.id, scope).code);
 
     function row(c) {
       const o = c.offerings[reference(c)] || {}, u = o.units || {}, d = c.designations || {}, ev = c.evals || {};
@@ -130,7 +137,7 @@ const Catalog = (() => {
       };
     }
 
-    return { meta, courses, get, byNumber, resolve, offering, title, info, status, addable, isPastTracked, tracked, coverage, claimable, row, termKey };
+    return { meta, courses, get, byNumber, resolve, offering, title, info, status, addable, isPastTracked, tracked, coverage, claimable, row, inScope, termKey };
   }
 
   return { load, LEGEND, termKey };

@@ -119,3 +119,18 @@ test("EECS's AAGS wording reads 'Needs approval' and makes a course claimable; a
   assert.equal(c2.claimable("6.5060"), false);                                  // already approved
   assert.equal(c2.claimable("6.1220"), false);                                  // regular, no EECS wording
 });
+
+test("Term scope: now or later by default; 'all' or the past term shows a past-only course", () => {
+  const db2 = JSON.parse(JSON.stringify(db));
+  db2.meta.current_term = "IAP 2027";                     // after the flip: Fall 2026 is past
+  db2.courses.push({ id: "6.S978~engineering-ai", number: "6.S978", kind: "special", title: "Engineering AI",
+    department: "Course 6 — EECS", offerings: { "Fall 2026": off("listed") } });
+  const c2 = Catalog.load(db2), r = c2.row(c2.get("6.S978~engineering-ai"));
+  assert.deepEqual(r.available, { now: false, reason: "Last offered Fall 2026" });
+  assert.equal(c2.inScope(r, ""), false);
+  assert.equal(c2.inScope(r, "all"), true);
+  assert.equal(c2.inScope(r, "Fall 2026"), true);
+  assert.equal(c2.inScope(r, "Spring 2027"), false);
+  const now = c2.row(c2.get("6.1220"));                   // Spring 2027 listed
+  assert.equal(c2.inScope(now, ""), true);
+});
