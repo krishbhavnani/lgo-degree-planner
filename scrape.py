@@ -223,6 +223,7 @@ def special_subject_course(rec, index_records, areas=()):
     paired = "Undergraduate" in (rec.get("level") or "")
     number = nums[-1] if paired else nums[0]
     prefix = number.split(".")[0]
+    instructor = clean_instructors(rec.get("instructors"))   # EECS lists one set for the term
     return {
         "number": number, "title": rec["title"], "same_as": [] if paired else nums[1:],
         "department": catalog_index.department_name(prefix, index_records),
@@ -234,7 +235,7 @@ def special_subject_course(rec, index_records, areas=()):
         "prereqs": [], "units_raw": units_raw, "units": units, "units_total": total,
         "schedule": [], "schedule_summary": pretty_schedule(rec.get("schedule_raw")),
         "description": rec.get("description", ""),
-        "instructor": clean_instructors(rec.get("instructors")),
+        "instructors": {"": instructor} if instructor else {},
         "source_page": rec.get("_page") or (rec.get("_src") or {}).get("page"),
         "url": rec.get("url"),
         "eval_status": None, "eval_hours_in": None, "eval_hours_out": None,

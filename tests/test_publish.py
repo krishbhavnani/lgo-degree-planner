@@ -34,7 +34,7 @@ class PublishTest(unittest.TestCase):
 
     def test_feed_and_recent_changes(self):
         r = row("15.100", "Strategy", terms=("Fall", "Spring"))
-        r["instructor"] = "B. New"
+        r["instructors"] = {"": "B. New"}
         changes = run(self.db, [r], "2026-11-04")
         publish.append_feed(self.dir, changes)
         publish.append_feed(self.dir, [{"date": "2026-01-01", "kind": "changed"}])

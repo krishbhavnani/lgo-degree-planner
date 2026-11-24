@@ -102,7 +102,7 @@ class ScenarioTest(unittest.TestCase):
         self.assertEqual(len([x for x in changes if x["kind"] == "course_removed"]), 1)
 
     def test_description_edited(self):
-        r = self.pick("m6c", lambda r: r["description"] and r["instructor"])
+        r = self.pick("m6c", lambda r: r["description"] and list(r["instructors"]) == [""])
         a, b = block_span(self.pages["m6c"], r["number"])
         blk = self.pages["m6c"][a:b]
         i = blk.rfind("<I>")
@@ -114,7 +114,7 @@ class ScenarioTest(unittest.TestCase):
         self.assertIn("lab component", self.db["courses"][r["number"]]["description"])
 
     def test_instructor_added(self):
-        r = self.pick("m15b", lambda r: r["instructor"] and "Fall" in r["terms"])
+        r = self.pick("m15b", lambda r: list(r["instructors"]) == [""] and "Fall" in r["terms"])
         a, b = block_span(self.pages["m15b"], r["number"])
         blk = self.pages["m15b"][a:b].replace("</I>", ", Z. Newcomer</I>", 1)
         self.pages["m15b"] = self.pages["m15b"][:a] + blk + self.pages["m15b"][b:]

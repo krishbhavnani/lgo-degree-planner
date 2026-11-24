@@ -151,6 +151,23 @@ class IdentityTest(unittest.TestCase):
         self.assertEqual(catalog.expand_range("15.5", "16.2"), ["15.5", "16.2"])
 
 
+class InstructorTest(unittest.TestCase):
+    def test_instructors_by_season_and_description_without_labels(self):
+        # 15.402 on m15b: "Fall: <I>J. Bai</I><br>Spring: <I>C. Palmer</I>". The description
+        # used to keep the dangling "Fall:" and every term got J. Bai.
+        b = block("15.402", "Corporate Finance").replace(
+            "<br><I>A. Teacher</I>", "\n<br>Fall: <I>J. Bai</I><br>Spring: <I>C. Palmer</I>"
+            "<br>No textbook information available\n")
+        (r,) = catalog.extract(m15([b]))["records"]
+        self.assertEqual(r["instructors"], {"Fall": "J. Bai", "Spring": "C. Palmer"})
+        self.assertEqual(r["description"], "About Corporate Finance.")
+
+    def test_unlabeled_name_covers_every_season(self):
+        (r,) = catalog.extract(m15([block("15.401", "Managerial Finance")]))["records"]
+        self.assertEqual(r["instructors"], {"": "A. Teacher"})
+        self.assertEqual(r["description"], "About Managerial Finance.")
+
+
 class AagsTest(unittest.TestCase):
     def test_link_colors(self):
         html = ('<a style="color:blue;" href="x?search=6.7900">a</a>'

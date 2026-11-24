@@ -178,7 +178,7 @@ def observe(ctx):
             course["aliases"] = list(rec.get("was") or [])
             course["offerings"][rec["term"]] = {
                 "status": "listed", "title": topic, "units": _units(row),
-                "half": None, "instructor": row.get("instructor"),
+                "half": None, "instructor": _instructor(row, rec["term"].split()[0]),
                 "schedule_summary": row.get("schedule_summary") if rec["term"] in listed else None,
                 "schedule": None, "date_note": None}
         else:
@@ -190,7 +190,7 @@ def observe(ctx):
                         continue   # e.g. Summer of this AY when the current term is Fall
                     off = {"status": status, "title": topic, "units": _units(row),
                            "half": row.get("half_term"),
-                           "instructor": row.get("instructor") if ay == this_ay else None,
+                           "instructor": _instructor(row, season) if ay == this_ay else None,
                            "schedule_summary": None, "schedule": None, "date_note": None}
                     if t in listed:
                         off["schedule_summary"] = row.get("schedule_summary") or None
@@ -261,6 +261,13 @@ def _designations(row, special, topic, ctx, this_ay, lab=True, aags=True, design
                                 "source": "MIT Sloan Action Learning booklet",
                                 "scope": this_ay}
     return d
+
+
+def _instructor(row, season):
+    """The row's instructor for one season: its own line ("Spring: C. Palmer"), else the
+    unlabeled name that covers every season."""
+    names = row.get("instructors") or {}
+    return names.get(season) or names.get("")
 
 
 def _evals(row, special, topic, ctx):

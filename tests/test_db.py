@@ -15,7 +15,7 @@ def row(number, title="Some Subject", terms=("Fall",), status="Offered", **kw):
          "prereq_numbers": [], "units_raw": "3-0-9", "units": {"lec": 3, "lab": 0, "prep": 9},
          "units_total": 12, "units_kind": "fixed", "half_term": None, "date_note": None,
          "schedule": [], "schedule_summary": "Lecture: Mon 10:00–11:00",
-         "description": "About %s." % title, "instructor": "A. Teacher",
+         "description": "About %s." % title, "instructors": {"": "A. Teacher"},
          "url": "https://x#" + number, "aags": "N/A", "design_approved": None,
          "action_learning": None}
     r.update(kw)
@@ -61,6 +61,16 @@ class ObserveTest(unittest.TestCase):
         self.assertIsNone(offs["Spring 2027"]["schedule_summary"])
         self.assertIsNone(offs["Fall 2027"]["instructor"])
         self.assertEqual(obs["15.005"]["offerings"]["Spring 2027"]["half"], "H2")
+
+    def test_each_offering_gets_its_own_seasons_instructor(self):
+        obs = cdb.observe(ctx([row("15.402", terms=("Fall", "Spring"),
+                                   instructors={"Fall": "J. Bai", "Spring": "C. Palmer"}),
+                               row("15.401", terms=("Fall", "Spring"))]))
+        name = lambda cid, t: obs[cid]["offerings"][t]["instructor"]
+        self.assertEqual([name("15.402", "Fall 2026"), name("15.402", "Spring 2027")],
+                         ["J. Bai", "C. Palmer"])
+        self.assertEqual(name("15.401", "Spring 2027"), "A. Teacher")   # unlabeled: every season
+        self.assertIsNone(name("15.402", "Spring 2028"))                # next year: not known yet
 
     def test_joint_group_and_clean_title(self):
         obs = cdb.observe(ctx([row("2.739", "[J] Product Design", same_as=["15.783"]),
@@ -180,7 +190,7 @@ class MergeTest(unittest.TestCase):
 
     def test_instructor_change_updates_in_place_with_history(self):
         rows = copy.deepcopy(self.rows)
-        rows[0]["instructor"] = "B. New"
+        rows[0]["instructors"] = {"": "B. New"}
         changes = run(self.db, rows, "2026-11-04")
         self.assertEqual({(c["term"], c["field"]) for c in changes},
                          {("Fall 2026", "instructor"), ("Spring 2027", "instructor")})

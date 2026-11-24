@@ -216,6 +216,8 @@ H2_RE = re.compile(r"<h2[^>]*>(.*?)</h2>", re.I | re.S)
 BLOCK_END = r'(?=<!--end-->|<a name="[^"]+"></a>|\Z)'
 BLOCK_RE = re.compile(r'<a name="(\d+\.[^"]+)"></a>(.*?)' + BLOCK_END, re.I | re.S)
 NUM_RE = re.compile(r"\b\d+\.[A-Za-z0-9]+\b")
+# One instructor line: an optional season label, then the italic name(s).
+INSTRUCTOR_RE = re.compile(r"(?:(" + _SEASON + r"):\s*)?<I>\s*(.*?)\s*</I>", re.I | re.S)
 
 
 def categories_by_pos(page_html):
@@ -291,19 +293,20 @@ def parse_block(number, body, category, page, department, years, title=None):
     if ms:
         schedule = parse_schedule(ms.group(1))
 
-    # Description + instructor: everything after the SECOND hr.gif divider.
+    # Description + instructors: everything after the SECOND hr.gif divider. Instructors are
+    # italic names at the end, each optionally after a season label ("Fall: <I>J. Bai</I><br>
+    # Spring: <I>C. Palmer</I>"). They become {season: name}; an unlabeled name is keyed ""
+    # and applies to every season. The description ends where the first one (label included)
+    # starts.
     hrs = [m.end() for m in re.finditer(r'<img[^>]*hr\.gif[^>]*>', body, re.I)]
     description = ""
-    instructor = None
+    instructors = {}
     if len(hrs) >= 2:
         tail = body[hrs[1]:]
-        mi = re.search(r"<I>\s*(.*?)\s*</I>", tail, re.I | re.S)
-        if mi:
-            instructor = strip_tags(mi.group(1))
-            desc_part = tail[:mi.start()]
-        else:
-            desc_part = tail
-        description = strip_tags(desc_part)
+        found = list(INSTRUCTOR_RE.finditer(tail))
+        for mi in found:
+            instructors.setdefault(mi.group(1) or "", strip_tags(mi.group(2)))
+        description = strip_tags(tail[:found[0].start()] if found else tail)
         # Drop trailing textbook boilerplate if it leaked in.
         description = re.sub(r"\s*No textbook information available\s*$", "",
                              description).strip()
@@ -330,7 +333,7 @@ def parse_block(number, body, category, page, department, years, title=None):
         "schedule": schedule,
         "schedule_summary": schedule_summary(schedule),
         "description": description,
-        "instructor": instructor,
+        "instructors": instructors,
         "source_page": page,
         "url": CATALOG_URL.format(page) + "#" + number.split("-")[0],
         # eval / rating placeholders (filled by later steps; merged on rerun)
