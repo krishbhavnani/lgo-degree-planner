@@ -3,8 +3,9 @@
 The index page links one page per semester ("Subject Updates Fall 2026"); the term is taken
 from the link text because the URLs are inconsistent. Each semester page is an empty shell
 that loads its content from an eecsis.mit.edu fragment (subj_2027FA.html = Fall 2026), so we
-follow index -> semester page -> fragment. Only the current and future terms are followed (no
-backfill of past semesters).
+follow index -> semester page -> fragment. Every semester from config.EECS_UPDATES_FIRST_TERM on
+is followed (past, current and future), so corrections to a past term are still picked up and
+new semesters appear without a code change.
 
 Every graduate subject on a fragment is kept, whatever its department (18.S995, 21M.589...).
 Headings can carry extra facts kept for later identity work:
@@ -16,7 +17,6 @@ Headings can carry extra facts kept for later identity work:
 import re
 
 from .. import config
-from .catalog import page_term
 from .common import strip_tags
 
 SEASONS = {"IAP": 0, "Spring": 1, "Summer": 2, "Fall": 3}
@@ -60,25 +60,19 @@ def term_page_name(term):
     return "%s-%s" % (season.lower(), year)
 
 
-def current_catalog_term(sources, results):
-    for s in sources:
-        if s.kind == "catalog" and s.key in results and results[s.key].ok:
-            t = page_term(results[s.key].text())
-            if t:
-                return t
-    return None
+def followed_links(index_html):
+    """The semesters we read: every (term, url) on the index from EECS_UPDATES_FIRST_TERM on."""
+    first = term_key(config.EECS_UPDATES_FIRST_TERM)
+    return [(t, u) for t, u in semester_links(index_html) if term_key(t) >= first]
 
 
 def discover(sources, results):
     """New sources to fetch: semester pages from the index, then fragments from those pages."""
     out = []
     idx = results.get(config.EECS_UPDATES_SOURCE.key)
-    current = current_catalog_term(sources, results)
-    if not idx or not idx.ok or not current:
+    if not idx or not idx.ok:
         return out
-    for term, url in semester_links(idx.text()):
-        if term_key(term) < term_key(current):
-            continue
+    for term, url in followed_links(idx.text()):
         shell = config.Source("eecs-updates", term_page_name(term), url, normalize="html",
                               min_bytes=2048, secondary=True)
         out.append(shell)
@@ -142,16 +136,13 @@ def extract(sources, results):
     if not idx or not idx.ok:
         return {"records": [], "terms": [], "problems": [("fail", "subject-updates index "
                                                                   "not fetched")]}
-    links = semester_links(idx.text())
+    links = followed_links(idx.text())
     if not links:
         problems.append(("fail", "no semester links found on the subject-updates index"))
     by_page = {s.page: s for s in sources if s.kind == "eecs-updates"}
-    current = current_catalog_term(sources, results)
     for term, url in links:
         shell = by_page.get(term_page_name(term))
-        if not shell:
-            continue
-        res = results.get(shell.key)
+        res = results.get(shell.key) if shell else None
         if not res or not res.ok:
             problems.append(("fail", "%s page not fetched" % term))
             continue
@@ -170,6 +161,4 @@ def extract(sources, results):
         terms.append({"term": term, "page": url, "fragment": fm.group(0),
                       "subjects": len(recs)})
         records += recs
-    if current and not any(t["term"] == current for t in terms):
-        problems.append(("info", "no subject updates page for %s yet" % current))
     return {"records": records, "terms": terms, "problems": problems}

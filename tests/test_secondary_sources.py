@@ -104,17 +104,6 @@ class EecsUpdatesTest(unittest.TestCase):
                          [(["14.C396", "14.C896"], "Capstone for AI Applications"),
                           (["6.S891", "6.S893", "12.S992"], "AI for Climate Action")])
 
-    def test_discovery_after_the_semester_flip(self):
-        # Nov 23, 2026: the catalog reads "IAP/Spring 2027", so IAP 2027 is current; the
-        # Spring 2027 page is followed and the past Fall 2026 page isn't.
-        cat = config.catalog_source("m6a")
-        index = ('<a href="https://www.eecs.mit.edu/academics/subject-updates/'
-                 'subject-updates-spring-2027/">Subject Updates Spring 2027</a>' + INDEX)
-        results = {cat.key: ok("<title>IAP/Spring\n2027 Course 6</title>"),
-                   config.EECS_UPDATES_SOURCE.key: ok(index)}
-        found = eecs_updates.discover([cat, config.EECS_UPDATES_SOURCE], results)
-        self.assertEqual([s.key for s in found], ["eecs-updates/spring-2027"])
-
     def _run(self, catalog_term="Fall 2026"):
         cat = config.catalog_source("m6a")
         sources = [cat, config.EECS_UPDATES_SOURCE]
@@ -123,7 +112,7 @@ class EecsUpdatesTest(unittest.TestCase):
         new = eecs_updates.discover(sources, results)
         return sources, results, new
 
-    def test_discover_skips_past_terms_then_finds_fragment(self):
+    def test_discover_skips_terms_before_the_first_then_finds_fragment(self):
         sources, results, new = self._run()
         self.assertEqual([s.key for s in new], ["eecs-updates/fall-2026"])
         results[new[0].key] = ok(SHELL)
@@ -144,11 +133,33 @@ class EecsUpdatesTest(unittest.TestCase):
         ex = eecs_updates.extract(sources + new, results)
         self.assertEqual(ex["problems"][0][0], "fail")
 
-    def test_no_page_for_current_term_is_info(self):
-        sources, results, new = self._run(catalog_term="Spring 2027")
-        self.assertEqual(new, [])
+    def test_follows_every_semester_from_the_first_term(self):
+        # Index links Spring 2027, Fall 2026 and Spring 2026; first term Fall 2026; the catalog
+        # has flipped to IAP/Spring 2027. Fall 2026 is past but still read; Spring 2026 isn't.
+        link = lambda t: ('<a href="https://www.eecs.mit.edu/academics/subject-updates/subject-'
+                          'updates-%s/">Subject Updates %s</a>' % (t.lower().replace(" ", "-"), t))
+        index = "".join(link(t) for t in ("Spring 2027", "Fall 2026", "Spring 2026"))
+        cat = config.catalog_source("m6a")
+        sources = [cat, config.EECS_UPDATES_SOURCE]
+        results = {cat.key: ok("<title>IAP/Spring\n2027 Course 6</title>"),
+                   config.EECS_UPDATES_SOURCE.key: ok(index)}
+        self.assertEqual(config.EECS_UPDATES_FIRST_TERM, "Fall 2026")
+        shells = eecs_updates.discover(sources, results)
+        self.assertEqual([s.key for s in shells], ["eecs-updates/spring-2027", "eecs-updates/fall-2026"])
+        codes = {"spring-2027": "subj_2027SP", "fall-2026": "subj_2027FA"}
+        for sh in shells:
+            results[sh.key] = ok(SHELL.replace("subj_2027FA", codes[sh.page]))
+        sources += shells
+        frags = [s for s in eecs_updates.discover(sources, results) if s.page.startswith("subj_")]
+        for f in frags:
+            results[f.key] = ok(FRAGMENT)
+        sources += frags
         ex = eecs_updates.extract(sources, results)
-        self.assertEqual(ex["problems"], [("info", "no subject updates page for Spring 2027 yet")])
+        self.assertEqual(ex["problems"], [])
+        self.assertEqual([t["term"] for t in ex["terms"]], ["Spring 2027", "Fall 2026"])
+        # A semester EECS adds later is followed with no code change.
+        results[config.EECS_UPDATES_SOURCE.key] = ok(link("Fall 2027") + index)
+        self.assertIn("eecs-updates/fall-2027", [s.key for s in eecs_updates.discover(sources, results)])
 
 
 DESIGN_HTML = """<table><tr><th>Course #</th><th>Name</th><th>Units</th></tr>

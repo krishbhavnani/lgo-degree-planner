@@ -13,6 +13,11 @@ CATALOG_URL = "https://student.mit.edu/catalog/{}.html"
 AAGS_URL = "https://eecsis.mit.edu/degree_requirements.pcgi?program=AAGS"
 CATALOG_INDEX_URL = "https://student.mit.edu/catalog/index.cgi"
 EECS_UPDATES_URL = "https://www.eecs.mit.edu/academics/subject-updates/"
+# The earliest subject-updates semester read. Every semester on the index from this one on is
+# read (past, current and future), and new ones are picked up automatically.
+# TODO: don't set it earlier than the first term the catalog tracks until meta.terms comes from
+# catalog coverage (an earlier term would make every course read "not offered" there).
+EECS_UPDATES_FIRST_TERM = "Fall 2026"
 DESIGN_URL = ("https://lgo-handbook.mit.edu/students/academic-guide/"
               "overview-of-academic-requirements/appendix-2-preapproved-design-classes/")
 AL_URL = "https://mitsloan.mit.edu/action-learning"
