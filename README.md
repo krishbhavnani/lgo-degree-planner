@@ -24,18 +24,15 @@ different topic each term) gets one row per topic.
 For each course you see the title, research area, units, schedule, prerequisites, instructor and
 description, and:
 
-- **Your terms:** the terms of *your* plan in which the catalog lists the course, each with a badge.
-  The badge legend sits above the table:
+- **Your terms:** your current and upcoming terms (from your plan's graduation year) in which the
+  course is offered, each with a badge. A term the course isn't offered in doesn't appear. The
+  **Key** button above the table explains the badges, and hovering a badge gives the details:
 
   | Badge | Meaning |
   |---|---|
-  | ✓ | Listed in the catalog for that term (or, for a past term, it ran) |
-  | ~ | Expected: offered regularly, but that year's catalog isn't out yet |
-  | ? | Unverified: not offered regularly; check with the department |
-  | ⚠ | Not offered, not listed, or dropped from the catalog |
-  | ✗ | Didn't run that term |
-  | ○ | Before tracking began (Fall 2026): no record, any course can be planned |
-  | … | Beyond the terms the catalog covers so far |
+  | ✓ | Offered: on MIT's schedule for that term |
+  | ~ | Likely offered: usually offered then, but MIT hasn't posted that term's schedule yet |
+  | ? | Check with the department: offered irregularly |
 
 - **AAGS** status, taken only from the EECS AAGS list. EECS special subjects whose EECS page says
   "AAGS in …" but that aren't on the list show **"AAGS ? needs approval"**: you decide whether to count
@@ -62,10 +59,11 @@ Star courses (★) and export the starred ones as CSV. **＋** adds a course to 
   15.769 starts in *Unassigned*; each can only go in its allowed terms (year-1 or year-2 Spring).
   Base-plan courses keep their category.
 - **Adding courses.** *＋ Add course* searches the catalog; each result shows its badge for the term
-  you're adding to, best first. For a term that's already over, only courses that ran are shown.
+  you're adding to, best first. For a term that's already over, only courses offered that term are shown.
   You can also type in a course that isn't in the catalog. *＋ Placeholder* holds a spot ("MBA
   Elective placeholder, 9u") for a course you haven't picked yet; it counts like a real course.
-- **Each course** shows its badge for its term. Pick which requirement it counts toward (one
+- **Each course** shows its badge for its term (✓ ~ ? as above, ✕ not offered; the **Key** button
+  explains them). Pick which requirement it counts toward (one
   category per course), toggle **LGO Design**, change its units, move it, or mark it **audit**
   (shown, not counted). Courses in *Unassigned* don't count until you place them.
 - **AAGS on your own call.** A special subject (or a course EECS describes as AAGS but that isn't
@@ -103,8 +101,8 @@ anonymously (GoatCounter, no cookies).
 - **Course coverage:** Course 6 subjects listed only on catalog page m6e (about 84, e.g. Gordon
   Engineering Leadership) aren't included yet. The EECS IAP offerings page and next spring's EECS
   subject updates aren't read yet; IAP courses come from the MIT catalog only.
-- **Terms before Fall 2026** have no catalog record (tracking began then), and terms beyond the
-  current catalog show as "not projected yet".
+- **Terms before Fall 2026** have no catalog record (tracking began then), and MIT hasn't published
+  terms beyond the current catalog. Courses in those terms get no badge; the term's header says why.
 - **6.C51 pairing** is simplified: a module without 6.C51 still counts as an engineering elective.
 - **Workload hours** come from the most recent evaluation and may reflect another instructor or
   year. MechE, Common Ground and new special subjects mostly have none; special-subject hours only

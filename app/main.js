@@ -32,14 +32,30 @@ function track(name){
   if(window.goatcounter?.count) gcSend(name); else gcQueue.push(name);
 }
 
-// ---- badge legend (Browse and Plan) ---------------------------------------
-// One line, always visible, so nobody has to hover to learn what a chip means.
-const LEGEND_ITEMS=[["listed","Listed / ran"],["expected","Expected"],["unverified","Unverified"],
-  ["not_offered","Not offered / not listed"],["didnt_run","Didn't run"],["no_record","Before tracking began"],["not_projected","Not projected yet"]];
-function renderLegends(){
-  const h='<span class="lg-title">Term badges:</span>'+LEGEND_ITEMS.map(([code,label])=>{const b=Catalog.LEGEND[code];
-    return `<span class="lg-item" title="${esc(b.tip)}"><span class="tb tb-${code}">${b.symbol}</span>${esc(label)}</span>`;}).join("");
-  document.querySelectorAll(".legend").forEach(el=>el.innerHTML=h);
+// ---- badge key (Browse and Plan) -----------------------------------------
+// A small "Key" button that opens a popover listing only the badges that page can show. Each
+// badge's own tooltip carries the specifics; the key is for a first look and for touch screens,
+// where tooltips don't work. Open/closed is remembered per page.
+const KEY_ITEMS={
+  browse:[["listed","Offered","on MIT's schedule"],["expected","Likely offered","usually offered; not posted yet"],
+          ["unverified","Check with dept.","offered irregularly"]],
+  plan:  [["listed","Offered","on MIT's schedule"],["expected","Likely offered","usually offered; not posted yet"],
+          ["unverified","Check with dept.","offered irregularly"],["not_offered","Not offered","not offered that term"]],
+};
+function renderKeys(){
+  const terms=CAT.meta.terms||[], span=terms.length?`${terms[0]} to ${terms[terms.length-1]}`:"";
+  const notes={
+    browse:"Terms a course isn't offered don't appear. Hover a chip for details.",
+    plan:`No mark: no schedule data for that term${span?` (MIT data covers ${esc(span)})`:""}. Hover a badge for details.`,
+  };
+  document.querySelectorAll("details.key").forEach(el=>{
+    const page=el.dataset.page, stored="lgo-dp.key."+page;
+    el.querySelector(".key-pop").innerHTML=KEY_ITEMS[page].map(([code,label,desc])=>
+      `<div class="key-row"><span class="tb tb-${code}">${Catalog.LEGEND[code].symbol}</span><b>${esc(label)}</b>${desc?`<span>${esc(desc)}</span>`:""}</div>`).join("")+
+      `<div class="key-note">${notes[page]}</div>`;
+    el.open=!!load(stored,false);
+    el.addEventListener("toggle",()=>{try{save(stored,el.open);}catch(e){}});
+  });
 }
 
 // ---- view switching ----
@@ -76,7 +92,7 @@ function renderFreshness(updated,now){
 }
 function init(){
   renderFreshness(CAT.meta.updated,new Date());
-  renderLegends();
+  renderKeys();
   const haveEval=COURSES.filter(c=>c.eval_hours_in!=null).length;
   const haveRate=COURSES.filter(c=>c.rating!=null).length;
   document.getElementById('evalnote').textContent=

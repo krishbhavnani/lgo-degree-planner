@@ -1,11 +1,12 @@
 // Course data from db.js (courses x term offerings): lookups, a course's status in a given term,
-// the badge legend, and the fields Browse shows. Pure (no DOM), so node tests load it too.
+// the term badges, and the fields Browse shows. Pure (no DOM), so node tests load it too.
 //
 //   const cat = Catalog.load(window.COURSE_DB)
 //   cat.get(id) / cat.byNumber(number) / cat.resolve(number, term)
 //   cat.info(id)            {aags, design, department}  (what the degree rules read)
 //   cat.offering(id, term)  that term's offering, or the course's reference offering
 //   cat.status(id, term)    {code, symbol, label, tip}  (see LEGEND)
+//   cat.coverage(term)      "before" | "after" | null   (why a term has no schedule data)
 //   cat.row(course)         the flat fields Browse renders
 const Catalog = (() => {
   // Within a calendar year: IAP (January), Spring, Summer, Fall.
@@ -14,18 +15,21 @@ const Catalog = (() => {
   // Academic year of a term: Fall 2026 .. Summer 2027 is "2026–27".
   const ayOf = t => { const [s, y] = t.split(" "); const start = s === "Fall" ? +y : +y - 1; return `${start}–${String(start + 1).slice(2)}`; };
 
-  // One legend for Browse, the add-course search and the plan.
+  // One set of badges for Browse, the add-course search and the plan. Students see four marks
+  // (✓ ~ ? ✕); the codes stay distinct so the tooltip can say exactly why. A term with no
+  // schedule data (before tracking began, or beyond the published catalog) gets no mark at all:
+  // the plan says so once in the term's header instead of on every course.
   const LEGEND = {
-    listed:      { symbol: "✓", label: "Listed", tip: "Listed in the MIT catalog for this term." },
-    ran:         { symbol: "✓", label: "Ran", tip: "Ran this term." },
-    expected:    { symbol: "~", label: "Expected", tip: "Offered regularly; this year's catalog doesn't cover the term yet." },
-    unverified:  { symbol: "?", label: "Unverified", tip: "Not offered regularly; check with the department." },
-    not_offered: { symbol: "⚠", label: "Not offered", tip: "The catalog says it isn't offered this term." },
-    removed:     { symbol: "⚠", label: "No longer listed", tip: "It was listed for this term, then dropped from the catalog." },
-    not_listed:  { symbol: "⚠", label: "Not listed", tip: "Not in the catalog for this term." },
-    didnt_run:   { symbol: "✗", label: "Didn't run", tip: "It didn't run this term." },
-    no_record:   { symbol: "○", label: "Before tracking began", tip: "No catalog record this far back: any course can be planned here." },
-    not_projected: { symbol: "…", label: "Not projected yet", tip: "Beyond the terms the catalog covers so far." },
+    listed:      { symbol: "✓", label: "Offered", tip: "On MIT's schedule for this term." },
+    ran:         { symbol: "✓", label: "Offered", tip: "Was offered this term." },
+    expected:    { symbol: "~", label: "Likely offered", tip: "Usually offered this term; MIT hasn't posted the schedule yet." },
+    unverified:  { symbol: "?", label: "Check with dept.", tip: "Offered irregularly; confirm with the department before counting on it." },
+    not_offered: { symbol: "✕", label: "Not offered", tip: "MIT's catalog says it isn't offered this term." },
+    removed:     { symbol: "✕", label: "Not offered", tip: "Was on this term's schedule, then removed from the catalog." },
+    not_listed:  { symbol: "✕", label: "Not offered", tip: "Not on MIT's schedule for this term." },
+    didnt_run:   { symbol: "✕", label: "Not offered", tip: "Wasn't offered this term, so it can't be added here." },
+    no_record:   { symbol: "", label: "No data", tip: "No schedule data this far back: any course can be planned here." },
+    not_projected: { symbol: "", label: "No data", tip: "MIT hasn't published schedules this far ahead." },
   };
   const badge = code => ({ code, ...LEGEND[code] });
   const AVAILABLE = new Set(["listed", "expected", "unverified"]);
@@ -93,6 +97,9 @@ const Catalog = (() => {
     const isPastTracked = term => termKey(term) < current && termKey(term) >= first;
     // Inside the terms the catalog covers (not before tracking began, not beyond it).
     const tracked = term => termKey(term) >= first && termKey(term) <= last;
+    // Why a term has no schedule data: "before" tracking began, "after" the published catalog,
+    // or null when the catalog covers it.
+    const coverage = term => termKey(term) < first ? "before" : termKey(term) > last ? "after" : null;
 
     // Offered in a term now or later? If not, why not (for the dimmed rows in Browse).
     function availability(c) {
@@ -123,7 +130,7 @@ const Catalog = (() => {
       };
     }
 
-    return { meta, courses, get, byNumber, resolve, offering, title, info, status, addable, isPastTracked, tracked, claimable, row, termKey };
+    return { meta, courses, get, byNumber, resolve, offering, title, info, status, addable, isPastTracked, tracked, coverage, claimable, row, termKey };
   }
 
   return { load, LEGEND, termKey };

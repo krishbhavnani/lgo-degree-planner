@@ -85,9 +85,12 @@ function offerPartners(number,term){
     State.addCourse(STATE,r.getAttribute("data-partner"),SLOT_OF[term]); planSave(); renderPlan(); track("course-added"); closeModal();});
   document.getElementById("partner-skip").addEventListener("click",closeModal);
 }
-// A course's status in a term, as a small badge with a plain-language tooltip (one legend
-// everywhere: Browse, the add-course search and the plan).
-const badgeHtml=b=>`<span class="tb tb-${b.code}" title="${esc(b.label)}: ${esc(b.tip)}">${b.symbol}</span>`;
+// A course's status in a term, as a small badge with a plain-language tooltip (the same badges
+// everywhere: Browse, the add-course search and the plan). A term with no schedule data gets no
+// badge; termNote() says so once in the term's header.
+const badgeHtml=b=>b.symbol?`<span class="tb tb-${b.code}" title="${esc(b.label)}: ${esc(b.tip)}">${b.symbol}</span>`:"";
+const termNote=term=>{const c=term===Engine.UNASSIGNED?null:CAT.coverage(term);
+  return c?`<div class="term-note">${c==="before"?"No schedule data for this term":"MIT hasn't published this far ahead"}</div>`:"";};
 // Special subjects (and courses EECS describes as AAGS but that aren't on the list) can be
 // counted toward AAGS by the student; so can a course typed in by hand.
 const canClaim=it=>!it.base&&!it.required&&(it.course&&CAT.get(it.course)?CAT.claimable(it.course):!!it.number);
@@ -142,7 +145,7 @@ function renderTerms(res=evaluatePlan()){
     for(const it of items){ if(it.audit) continue; const hh=halfOf(it); if(hh) hasHalf=true; load[hh||"full"]+=(+it.units||0); }
     const halves=hasHalf&&term!=="Unassigned"?` <span class="hint halfload" title="Half-term courses load only their half of the term">H1 ${load.full+load.H1}u · H2 ${load.full+load.H2}u</span>`:"";
     h+=`<div class="term ${term==='Unassigned'?'unassigned':''}"><div class="term-h">${esc(term)}${term==='Unassigned'?' <span class="hint" style="font-weight:400">· not counted toward requirements</span>':''}
-        <span class="tu ${tot>cap?'over':''}" ${tot>cap?`title="Over the limit of ${limit} units per term"`:''}>${term==='Unassigned'?'':`${tot}u${tot>cap?` · over ${limit}u limit`:''}`}${halves}</span></div><div class="term-body">`;
+        <span class="tu ${tot>cap?'over':''}" ${tot>cap?`title="Over the limit of ${limit} units per term"`:''}>${term==='Unassigned'?'':`${tot}u${tot>cap?` · over ${limit}u limit`:''}`}${halves}</span></div>${termNote(term)}<div class="term-body">`;
     for(const it of items){
       const req=!!it.required, lockTags=!!(it.base||it.required);  // base-plan categories are fixed
       const cat=(it.tags||[]).find(t=>!ADDON_IDS.has(t))||"";
@@ -263,7 +266,7 @@ function addCourseModal(){
     const q=document.getElementById("add-search").value.trim().toLowerCase();
     const term=document.getElementById("add-term").value, real=term!==Engine.UNASSIGNED;
     const past=real&&CAT.isPastTracked(term);
-    if(!q){resBox.innerHTML=`<div class="hint" style="padding:8px">Type to search ${CAT.courses.length} courses…${past?` For ${esc(term)}, only courses that ran are shown.`:''}</div>`;return;}
+    if(!q){resBox.innerHTML=`<div class="hint" style="padding:8px">Type to search ${CAT.courses.length} courses…${past?` For ${esc(term)}, only courses offered that term are shown.`:''}</div>`;return;}
     const inPlan=new Set(planItems.map(it=>it.course));
     let hits=CAT.courses.filter(c=>(c.number+" "+c.title).toLowerCase().includes(q));
     if(past) hits=hits.filter(c=>CAT.addable(c.id,term));       // a past term: only what ran

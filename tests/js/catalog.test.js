@@ -47,7 +47,19 @@ test("status in every kind of term", () => {
   assert.equal(code("6.5130", "Fall 2027"), "not_offered");
   assert.equal(code("15.007", "IAP 2027"), "removed");
   assert.equal(cat.status("6.5060", "Fall 2026").symbol, "✓");
-  for (const k of Object.keys(Catalog.LEGEND)) assert.ok(Catalog.LEGEND[k].tip, k);
+  for (const k of Object.keys(Catalog.LEGEND)) assert.ok(Catalog.LEGEND[k].tip && Catalog.LEGEND[k].label, k);
+});
+
+test("students see four marks; a term with no schedule data gets none", () => {
+  const sym = code => Catalog.LEGEND[code].symbol;
+  assert.deepEqual([...new Set(Object.keys(Catalog.LEGEND).map(sym))].sort(), ["", "?", "~", "✓", "✕"].sort());
+  for (const c of ["not_offered", "removed", "not_listed", "didnt_run"]) assert.equal(Catalog.LEGEND[c].label, "Not offered", c);
+  assert.equal(sym("no_record"), "");
+  assert.equal(sym("not_projected"), "");
+  assert.equal(cat.coverage("Summer 2026"), "before");
+  assert.equal(cat.coverage("Fall 2026"), null);
+  assert.equal(cat.coverage("Summer 2028"), null);
+  assert.equal(cat.coverage("Fall 2028"), "after");
 });
 
 test("past terms inside tracking: ran or didn't run, and only courses that ran can be added", () => {
