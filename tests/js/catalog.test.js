@@ -89,13 +89,11 @@ test("what the rules read about a course", () => {
 
 test("Browse rows come from the current or next offering", () => {
   const r = cat.row(cat.get("6.5060"));
-  assert.deepEqual([r.units_total, r.instructor, r.schedule_summary, r.eval_hours_out, r.prereqs[0].name, r.available.now],
-    [12, "J. Shun", "MW 1-2:30", 7, "Design and Analysis of Algorithms", true]);
+  assert.deepEqual([r.units_total, r.instructor, r.schedule_summary, r.eval_hours_out, r.prereqs[0].name],
+    [12, "J. Shun", "MW 1-2:30", 7, "Design and Analysis of Algorithms"]);
   assert.equal(cat.row(cat.get("15.005")).half_term, "H2");
   const lab = cat.row(cat.get("15.S04~generative-ai-lab"));
   assert.deepEqual([lab.units_raw, lab.units_total, lab.action_learning, lab.design_approved], ["arranged", null, "GENAI-LAB", "approved"]);
-  assert.deepEqual(cat.row(cat.get("6.5130")).available, { now: false, reason: "Not offered 2026–27" });
-  assert.deepEqual(cat.row(cat.get("15.007")).available, { now: false, reason: "No longer listed since 2026-10-30" });
 });
 
 test("titles and offerings by term", () => {
@@ -120,19 +118,27 @@ test("EECS's AAGS wording reads 'Needs approval' and makes a course claimable; a
   assert.equal(c2.claimable("6.1220"), false);                                  // regular, no EECS wording
 });
 
-test("Term scope: now or later by default; 'all' or the past term shows a past-only course", () => {
+test("Term scope: your remaining terms by default; 'all' or the term itself shows the rest", () => {
   const db2 = JSON.parse(JSON.stringify(db));
   db2.meta.current_term = "IAP 2027";                     // after the flip: Fall 2026 is past
   db2.courses.push({ id: "6.S978~engineering-ai", number: "6.S978", kind: "special", title: "Engineering AI",
-    department: "Course 6 — EECS", offerings: { "Fall 2026": off("listed") } });
-  const c2 = Catalog.load(db2), r = c2.row(c2.get("6.S978~engineering-ai"));
-  assert.deepEqual(r.available, { now: false, reason: "Last offered Fall 2026" });
-  assert.equal(c2.inScope(r, ""), false);
-  assert.equal(c2.inScope(r, "all"), true);
-  assert.equal(c2.inScope(r, "Fall 2026"), true);
-  assert.equal(c2.inScope(r, "Spring 2027"), false);
-  const now = c2.row(c2.get("6.1220"));                   // Spring 2027 listed
-  assert.equal(c2.inScope(now, ""), true);
+    department: "Course 6 — EECS", offerings: { "Fall 2026": off("listed") } },
+    { id: "15.010", number: "15.010", kind: "regular", title: "Economic Analysis", department: "Course 15 — Management",
+      offerings: { "Fall 2027": off("expected") } });
+  const c2 = Catalog.load(db2), row = id => c2.row(c2.get(id));
+  // Class of 2027: IAP and Spring 2027 remain.
+  const class27 = ["Summer 2025", "Fall 2025", "IAP 2026", "Spring 2026", "Summer 2026", "Fall 2026", "IAP 2027", "Spring 2027"];
+  const eco = row("15.010");
+  assert.equal(c2.inScope(eco, "", class27), false);       // only in Fall 2027: after the plan ends
+  assert.equal(c2.inScope(eco, "all", class27), true);
+  assert.equal(c2.inScope(eco, "Fall 2027", class27), true);
+  const past = row("6.S978~engineering-ai");
+  assert.equal(c2.termsSummary(past, class27).reason, "Last offered Fall 2026");
+  assert.equal(c2.inScope(past, "", class27), false);
+  assert.equal(c2.inScope(past, "all", class27), true);
+  assert.equal(c2.inScope(past, "Fall 2026", class27), true);
+  assert.equal(c2.inScope(past, "Spring 2027", class27), false);
+  assert.equal(c2.inScope(row("6.1220"), "", class27), true);   // Spring 2027 listed: a chip
 });
 
 test("Your terms: chips for the student's remaining terms, or why there are none", () => {

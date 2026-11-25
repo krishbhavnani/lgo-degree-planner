@@ -196,19 +196,22 @@ function renderHead(){
     return `<th class="${hc}" data-col="${c.key}">${esc(c.label)} ${arr}</th>`;
   }).join('');
 }
-// The Term filter: now or later (default), any term, or one of the student's tracked terms (past
-// ones included), so it follows the grad year. CAT.inScope() is the rule.
+// The Term filter: the student's remaining terms (default), all terms, or one of their tracked
+// terms (past ones included). Labels come from the plan's terms, so they follow the grad year.
+// CAT.inScope() is the rule. A plan with no terms left (graduated) says so instead of "()".
 function syncTermFilter(){
-  const sel=document.getElementById('f_term'), cur=sel.value;
+  const sel=document.getElementById('f_term'), cur=sel.value, left=CAT.remaining(PLAN_TERMS);
+  const span=left.length?[...new Set([left[0],left[left.length-1]])].join(' – '):'none left';
   const opt=(v,label)=>`<option value="${esc(v)}" ${v===cur?'selected':''}>${esc(label)}</option>`;
-  sel.innerHTML=opt('','Now or later')+opt('all','Any term, including past')+PLAN_TERMS.filter(CAT.tracked).map(t=>opt(t,t)).join('');
+  sel.innerHTML=opt('',`Your remaining terms (${span})`)+opt('all','All terms, including past')+
+    '<optgroup label="One term">'+PLAN_TERMS.filter(CAT.tracked).map(t=>opt(t,CAT.isPastTracked(t)?`${t} (past)`:t)).join('')+'</optgroup>';
 }
 function renderRows(){
   syncTermFilter();
   const f=getFilters();
-  // One pass: rows in the Term scope, and (for "Now or later") matches hidden only by it.
-  const inScope=[]; let pastOnly=0;
-  for(const c of COURSES){ if(!passes(c,f)) continue; if(CAT.inScope(c,f.term)) inScope.push(c); else if(!f.term) pastOnly++; }
+  // One pass: rows in the Term scope, and (for the default scope) matches hidden only by it.
+  const inScope=[]; let outside=0;
+  for(const c of COURSES){ if(!passes(c,f)) continue; if(CAT.inScope(c,f.term,PLAN_TERMS)) inScope.push(c); else if(!f.term) outside++; }
   const list=sorted(inScope);
   document.getElementById('rows').innerHTML=list.map(c=>
     '<tr>'+COLS.map(col=>{
@@ -219,8 +222,8 @@ function renderRows(){
   document.querySelectorAll('#rows tr').forEach((tr,i)=>{ if(!summary(list[i]).chips.length) tr.classList.add('dim'); });
   document.getElementById('shown').textContent=list.length;
   const more=document.getElementById('scope-more');
-  more.hidden=!pastOnly;
-  more.innerHTML=`${pastOnly} more match in past terms only. <a href="#" id="show-all-terms">Show all terms</a>`;
+  more.hidden=!outside;
+  more.innerHTML=`${outside} more match outside your remaining terms. <a href="#" id="show-all-terms">Show all terms</a>`;
   document.getElementById('total').textContent=COURSES.length;
   document.getElementById('flagcount').textContent=flags.size;
 }

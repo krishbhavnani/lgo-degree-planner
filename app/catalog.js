@@ -9,7 +9,7 @@
 //   cat.coverage(term)      "before" | "after" | null   (why a term has no schedule data)
 //   cat.row(course)         the flat fields Browse renders
 //   cat.termsSummary(row, planTerms)  {chips, reason, first}: Browse's "Your terms"
-//   cat.inScope(row, scope) Browse's Term filter: "" now or later, "all", or one term
+//   cat.inScope(row, scope, planTerms)  Browse's Term filter: "" your remaining terms, "all", or one term
 const Catalog = (() => {
   // Within a calendar year: IAP (January), Spring, Summer, Fall.
   const SEASONS = ["IAP", "Spring", "Summer", "Fall"];
@@ -114,15 +114,14 @@ const Catalog = (() => {
     // or null when the catalog covers it.
     const coverage = term => termKey(term) < first ? "before" : termKey(term) > last ? "after" : null;
 
-    // Offered in a term now or later? If not, why not (for the dimmed rows in Browse).
-    function availability(c) {
-      const later = termsOf(c).filter(t => termKey(t) >= current);
-      if (later.some(t => AVAILABLE.has(c.offerings[t].status))) return { now: true, reason: "" };
-      const removed = later.find(t => c.offerings[t].status === "removed");
-      if (removed) return { now: false, reason: `No longer listed since ${c.offerings[removed].last_seen}` };
+    // Why a course isn't offered from the current term on: taken off the schedule, last ran in a
+    // past term, or not offered this academic year.
+    function notOfferedReason(c) {
+      const removed = termsOf(c).find(t => termKey(t) >= current && c.offerings[t].status === "removed");
+      if (removed) return `No longer listed since ${c.offerings[removed].last_seen}`;
       const lastRan = termsOf(c).filter(t => termKey(t) < current && c.offerings[t].status === "listed").pop();
-      if (lastRan) return { now: false, reason: `Last offered ${lastRan}` };
-      return { now: false, reason: `Not offered ${ayOf(meta.current_term)}` };
+      if (lastRan) return `Last offered ${lastRan}`;
+      return `Not offered ${ayOf(meta.current_term)}`;
     }
     // What's left of the student's plan: their terms from the current one on.
     const remaining = planTerms => planTerms.filter(t => termKey(t) >= current);
@@ -136,12 +135,14 @@ const Catalog = (() => {
       if (chips.length) return { chips, reason: "", first: chips[0].term };
       const after = left.length ? termKey(left[left.length - 1]) : current - 1, c = get(r.id);
       const next = termsOf(c).find(t => termKey(t) > after && AVAILABLE.has(c.offerings[t].status));
-      return { chips, reason: next ? `Next offered ${next}` : availability(c).reason, first: next || null };
+      return { chips, reason: next ? `Next offered ${next}` : notOfferedReason(c), first: next || null };
     }
-    // Browse's one Term control: "" = offered now or later, "all" = no restriction, or a term
+    // Browse's one Term control: "" = offered in one of the student's remaining terms (the same
+    // rule as the Your terms chips, so the two can't disagree), "all" = no restriction, or a term
     // (past ones included) = offered that term.
     const OFFERED = new Set(["listed", "expected", "unverified", "ran"]);
-    const inScope = (r, scope) => !scope ? r.available.now : scope === "all" || OFFERED.has(status(r.id, scope).code);
+    const inScope = (r, scope, planTerms) => !scope ? termsSummary(r, planTerms).chips.length > 0
+      : scope === "all" || OFFERED.has(status(r.id, scope).code);
 
     function row(c) {
       const o = c.offerings[reference(c)] || {}, u = o.units || {}, d = c.designations || {}, ev = c.evals || {};
@@ -159,7 +160,6 @@ const Catalog = (() => {
         eval_hours_in: ev.hours_in ?? null, eval_hours_out: ev.hours_out ?? null, eval_responses: ev.responses ?? null,
         eval_term: ev.term || null, eval_instructor: ev.instructor || null,
         eval_instructor_match: ev.instructor_match ?? null, eval_status: c.evals ? "ok" : null,
-        available: availability(c),
       };
     }
 

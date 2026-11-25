@@ -46,9 +46,9 @@ description, and:
   **🧪 Action Learning labs**, and an **H1/H2** chip for half-term courses.
 
 Filter by department, **Term**, AAGS, design, Action Learning, research area, units and weekly
-hours; search; sort any column; show or hide columns. **Term** starts at *Now or later* (courses
-offered in the current term or after); pick *Any term, including past* or one of your terms to see
-others. Star courses (★) and export the starred ones as CSV (*Your terms* exports as the terms, or
+hours; search; sort any column; show or hide columns. **Term** starts at *Your remaining terms* (courses
+offered in at least one of your terms from the current one on, the same terms *Your terms* shows);
+pick *All terms, including past* or one term (past ones marked) to see others. Star courses (★) and export the starred ones as CSV (*Your terms* exports as the terms, or
 the reason). **＋** adds a course to your plan.
 
 ### Plan
