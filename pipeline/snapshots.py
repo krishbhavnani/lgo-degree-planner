@@ -19,6 +19,9 @@ import json
 import os
 import re
 from datetime import datetime, timezone
+from zoneinfo import ZoneInfo
+
+from . import config
 
 _PRODUCED_RE = re.compile(rb"Produced:\s*[^<\r\n]*", re.I)
 _EXPIRES_RE = re.compile(rb"<meta\s+http-equiv\s*=\s*[\"']?expires[\"']?[^>]*>", re.I)
@@ -103,6 +106,14 @@ def stamp(dt):
 
 def iso(dt):
     return dt.astimezone(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
+
+
+def local_date(run_id=None):
+    """The calendar date in MIT's time zone of a run id (stamp()), or of now: run
+    2026-11-25T025425Z, Nov 24 at 9:54 PM in Boston, is "2026-11-24"."""
+    dt = (datetime.strptime(run_id, "%Y-%m-%dT%H%M%SZ").replace(tzinfo=timezone.utc) if run_id
+          else datetime.now(timezone.utc))
+    return dt.astimezone(ZoneInfo(config.TIMEZONE)).date().isoformat()
 
 
 class Archive:

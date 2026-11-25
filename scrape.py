@@ -421,7 +421,7 @@ def update_db(archive_dir, ctx, run_id, save=True, out_dir=HERE):
     first = not db["courses"]
     observed = course_db.observe(ctx)
     aliases = identity.load_aliases(os.path.join(HERE, "aliases.json"))
-    date = "%s-%s-%s" % (run_id[:4], run_id[5:7], run_id[8:10])
+    date = snapshots.local_date(run_id)
     changes = course_db.merge(db, observed, run_id, date, ctx["years"]["term"], aliases,
                               ctx.get("undergraduate", ()))
     if save:

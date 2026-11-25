@@ -8,6 +8,9 @@ USER_AGENT = "lgo-degree-planner/1.0 (+%s; unofficial MIT LGO course planner)" %
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # Local checkout (git worktree) of the public `data` branch that holds raw snapshots.
 ARCHIVE_DIR = os.path.join(ROOT, ".data")
+# MIT's time zone. Calendar dates the pipeline writes (the database's "updated", first/last seen,
+# the change feed, refresh commit messages) are Boston dates; run ids and timestamps stay UTC.
+TIMEZONE = "America/New_York"
 
 CATALOG_URL = "https://student.mit.edu/catalog/{}.html"
 AAGS_URL = "https://eecsis.mit.edu/degree_requirements.pcgi?program=AAGS"

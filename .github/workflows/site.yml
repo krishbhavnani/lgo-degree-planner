@@ -82,7 +82,8 @@ jobs:
           case "${{ steps.build.outputs.code }}" in
             0) result=pass ;; 2) result="pass with warnings" ;; *) result=FAILED ;;
           esac
-          git diff --cached --quiet || git commit -q -m "Weekly refresh $(date -u +%F): $result"
+          day=$(cd .. && python3 -c 'from pipeline import snapshots; print(snapshots.local_date())')   # Boston date
+          git diff --cached --quiet || git commit -q -m "Weekly refresh $day: $result"
           git push origin HEAD:data
 
       - name: Stage the site

@@ -9,6 +9,15 @@ from pipeline import config, snapshots
 from tests import fixtures as fx
 
 
+class LocalDateTest(unittest.TestCase):
+    def test_run_id_to_boston_date(self):
+        self.assertEqual(snapshots.local_date("2026-11-25T025425Z"), "2026-11-24")   # 9:54 PM EST
+        self.assertEqual(snapshots.local_date("2026-11-25T150000Z"), "2026-11-25")
+        self.assertEqual(snapshots.local_date("2026-07-01T035959Z"), "2026-06-30")   # EDT, -4h
+        self.assertEqual(snapshots.local_date(snapshots.stamp(datetime(2026, 11, 24, 23, 0, tzinfo=timezone.utc))),
+                         "2026-11-24")
+
+
 class NormalizeTest(unittest.TestCase):
     def test_daily_stamp_and_expiry_ignored(self):
         a = fx.catalog_html(produced="26-OCT-2026 05:10 PM", expires="27 OCT 2026")
