@@ -135,6 +135,25 @@ test("Term scope: now or later by default; 'all' or the past term shows a past-o
   assert.equal(c2.inScope(now, ""), true);
 });
 
+test("Your terms: chips for the student's remaining terms, or why there are none", () => {
+  const db2 = JSON.parse(JSON.stringify(db));
+  db2.courses.push({ id: "15.010", number: "15.010", kind: "regular", title: "Economic Analysis", department: "Course 15 — Management",
+    offerings: { "Fall 2027": off("expected") } });
+  const c2 = Catalog.load(db2), s = (id, terms) => c2.termsSummary(c2.row(c2.get(id)), terms);
+  // Class of 2027, current term Fall 2026: Summer 2025 .. Spring 2027, of which Fall 2026 on remain.
+  const class27 = ["Summer 2025", "Fall 2025", "IAP 2026", "Spring 2026", "Summer 2026", "Fall 2026", "IAP 2027", "Spring 2027"];
+  assert.deepEqual(c2.remaining(class27), ["Fall 2026", "IAP 2027", "Spring 2027"]);
+  const alg = s("6.5060", class27);
+  assert.deepEqual([alg.chips.map(x => x.term + " " + x.badge.symbol), alg.reason, alg.first], [["Fall 2026 ✓"], "", "Fall 2026"]);
+  assert.deepEqual(s("15.010", class27), { chips: [], reason: "Next offered Fall 2027", first: "Fall 2027" });
+  assert.deepEqual(s("6.5130", class27), { chips: [], reason: "Not offered 2026–27", first: null });
+  assert.deepEqual(s("15.007", class27).reason, "No longer listed since 2026-10-30");
+  // Class of 2028 reaches Fall 2027, so the same course gets a chip.
+  const class28 = ["Summer 2026", "Fall 2026", "IAP 2027", "Spring 2027", "Summer 2027", "Fall 2027", "IAP 2028", "Spring 2028"];
+  assert.deepEqual(s("15.010", class28).chips.map(x => x.term + " " + x.badge.symbol), ["Fall 2027 ~"]);
+  assert.deepEqual(s("15.010", []).reason, "Next offered Fall 2027");          // nothing left: next from now
+});
+
 test("departments and course numbers sort in MIT order, not as text", () => {
   const depts = ["Common Ground — other depts", "Course 21M — Music", "Course 15 — Management", "Course 2 — MechE",
     "Course 18 — Mathematics", "Course 14 — Economics", "Course 6 — EECS", "Course 16 — Aero/Astro"];

@@ -24,9 +24,11 @@ different topic each term) gets one row per topic.
 For each course you see the title, research area, units, schedule, prerequisites, instructor and
 description, and:
 
-- **Your terms:** your current and upcoming terms (from your plan's graduation year) in which the
-  course is offered, each with a badge. A term the course isn't offered in doesn't appear. The
-  **Key** button above the table explains the badges, and hovering a badge gives the details:
+- **Your terms:** your remaining terms (from your plan's graduation year) in which the course is
+  offered, each with a badge. A term the course isn't offered in doesn't appear. When none of your
+  remaining terms has it, the cell says why in grey ("Next offered Fall 2027", "Last offered Fall
+  2026", "Not offered 2026–27") and the row is dimmed. The **Key** button above the table explains
+  the badges, and hovering a badge gives the details:
 
   | Badge | Meaning |
   |---|---|
@@ -46,8 +48,8 @@ description, and:
 Filter by department, **Term**, AAGS, design, Action Learning, research area, units and weekly
 hours; search; sort any column; show or hide columns. **Term** starts at *Now or later* (courses
 offered in the current term or after); pick *Any term, including past* or one of your terms to see
-others. Courses not offered now or later are dimmed, with the reason (e.g. "Last offered Fall 2026").
-Star courses (★) and export the starred ones as CSV. **＋** adds a course to your plan.
+others. Star courses (★) and export the starred ones as CSV (*Your terms* exports as the terms, or
+the reason). **＋** adds a course to your plan.
 
 ### Plan
 

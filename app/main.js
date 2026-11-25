@@ -45,7 +45,7 @@ const KEY_ITEMS={
 function renderKeys(){
   const terms=CAT.meta.terms||[], span=terms.length?`${terms[0]} to ${terms[terms.length-1]}`:"";
   const notes={
-    browse:"Terms a course isn't offered don't appear. Hover a chip for details.",
+    browse:"Terms a course isn't offered don't appear; with none of your remaining terms, the row is dimmed and says why. Hover a chip for details.",
     plan:`No mark: no schedule data for that term${span?` (MIT data covers ${esc(span)})`:""}. Hover a badge for details.`,
   };
   document.querySelectorAll("details.key").forEach(el=>{

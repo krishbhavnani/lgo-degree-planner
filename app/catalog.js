@@ -8,6 +8,7 @@
 //   cat.status(id, term)    {code, symbol, label, tip}  (see LEGEND)
 //   cat.coverage(term)      "before" | "after" | null   (why a term has no schedule data)
 //   cat.row(course)         the flat fields Browse renders
+//   cat.termsSummary(row, planTerms)  {chips, reason, first}: Browse's "Your terms"
 //   cat.inScope(row, scope) Browse's Term filter: "" now or later, "all", or one term
 const Catalog = (() => {
   // Within a calendar year: IAP (January), Spring, Summer, Fall.
@@ -123,6 +124,20 @@ const Catalog = (() => {
       if (lastRan) return { now: false, reason: `Last offered ${lastRan}` };
       return { now: false, reason: `Not offered ${ayOf(meta.current_term)}` };
     }
+    // What's left of the student's plan: their terms from the current one on.
+    const remaining = planTerms => planTerms.filter(t => termKey(t) >= current);
+    // Browse's "Your terms": the remaining terms the course is offered in (chips, each with its
+    // badge), or, with none, why not: the next term it's offered after them, else why it isn't
+    // offered. `first` (the first chip's term, else that next term) orders the column; chip terms
+    // all come before any next term, so one key sorts both.
+    function termsSummary(r, planTerms) {
+      const left = remaining(planTerms);
+      const chips = left.map(term => ({ term, badge: status(r.id, term) })).filter(x => AVAILABLE.has(x.badge.code));
+      if (chips.length) return { chips, reason: "", first: chips[0].term };
+      const after = left.length ? termKey(left[left.length - 1]) : current - 1, c = get(r.id);
+      const next = termsOf(c).find(t => termKey(t) > after && AVAILABLE.has(c.offerings[t].status));
+      return { chips, reason: next ? `Next offered ${next}` : availability(c).reason, first: next || null };
+    }
     // Browse's one Term control: "" = offered now or later, "all" = no restriction, or a term
     // (past ones included) = offered that term.
     const OFFERED = new Set(["listed", "expected", "unverified", "ran"]);
@@ -148,7 +163,7 @@ const Catalog = (() => {
       };
     }
 
-    return { meta, courses, get, byNumber, resolve, offering, title, info, status, addable, isPastTracked, tracked, coverage, claimable, row, inScope, termKey };
+    return { meta, courses, get, byNumber, resolve, offering, title, info, status, addable, isPastTracked, tracked, coverage, claimable, row, remaining, termsSummary, inScope, termKey };
   }
 
   return { load, LEGEND, termKey, mitCompare };

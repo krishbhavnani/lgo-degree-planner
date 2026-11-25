@@ -18,8 +18,7 @@ const COLS = [
      (c.half_term?` <span class="chip half" title="Half-term course (${c.half_term==='H1'?'first':'second'} half)">${c.half_term}</span>`:'')+
      (c.kind==='special'?` <span class="hint" title="Special subjects reuse their number for a different topic each term">· topic changes each term</span>`:'')},
   {key:'category',label:'Research area', get:c=>c.category||'', render:c=>esc(c.category||'')},
-  {key:'terms', label:'Your terms', num:true, get:c=>firstOffered(c), render:renderTermChips},
-  {key:'offering',label:'Offering', get:c=>c.available.now?'':c.available.reason, render:renderOffering},
+  {key:'terms', label:'Your terms', num:true, get:c=>{const f=summary(c).first;return f?CAT.termKey(f):null;}, render:renderTermChips},
   {key:'aags', label:'AAGS', get:c=>c.aags||'', render:renderAags},
   {key:'units_raw',label:'Units', get:c=>c.units_raw||'', render:c=>esc(c.units_raw||'—')},
   {key:'units_total',label:'Total', num:true, get:c=>c.units_total, render:c=>
@@ -55,20 +54,18 @@ const expanded = new Set();
 
 // ---- renderers ----------------------------------------------------------
 function renderStar(c){return `<span class="star ${flags.has(c.id)?'on':''}" data-star="${esc(c.id)}">★</span>`;}
-// The student's current and upcoming terms (from the Plan's grad year) in which the course is or
-// may be offered, e.g. "S27 ✓  F27 ~  S28 ?". A term it isn't offered in simply doesn't appear,
-// and past terms are left out (Browse is for planning ahead). Same badges and tooltips as the plan.
+// "Your terms": the student's remaining terms (from the Plan's grad year) in which the course is or
+// may be offered, e.g. "S27 ✓  F27 ~  S28 ?", with the plan's badges and tooltips. With none, the
+// cell says why instead ("Next offered Fall 2027"). CAT.termsSummary() is the rule; the column,
+// its sort, the row dimming and the CSV export all read it.
 const SEASON_SHORT={Fall:"F",IAP:"I",Spring:"S",Summer:"Su"};
-const SHOWN=new Set(["listed","expected","unverified"]);          // chips, sort and export
-const shownTerms=c=>PLAN_TERMS.map(t=>({t,b:CAT.status(c.id,t)})).filter(x=>SHOWN.has(x.b.code));
+const summary=c=>CAT.termsSummary(c,PLAN_TERMS);
 function renderTermChips(c){
-  const chips=shownTerms(c);
-  return chips.length?'<span class="tchips">'+chips.map(({t,b})=>{const [s,y]=t.split(" ");
-    return `<span class="tchip tb-${b.code}" title="${esc(t)}: ${esc(b.label)}. ${esc(b.tip)}">${SEASON_SHORT[s]||s}${y.slice(2)} ${b.symbol}</span>`;}).join('')+'</span>'
-    :'<span class="empty">—</span>';
+  const {chips,reason}=summary(c);
+  return chips.length?'<span class="tchips">'+chips.map(({term,badge:b})=>{const [s,y]=term.split(" ");
+    return `<span class="tchip tb-${b.code}" title="${esc(term)}: ${esc(b.label)}. ${esc(b.tip)}">${SEASON_SHORT[s]||s}${y.slice(2)} ${b.symbol}</span>`;}).join('')+'</span>'
+    :`<span class="empty">${esc(reason)}</span>`;
 }
-// Sorts by the first of the student's upcoming terms the course is offered in.
-function firstOffered(c){const x=shownTerms(c)[0];return x?CAT.termKey(x.t):null;}
 function diffTotal(c){return (c.eval_hours_in!=null||c.eval_hours_out!=null)?((c.eval_hours_in||0)+(c.eval_hours_out||0)):null;}
 function diffInfo(t){if(t==null)return null; if(t<8)return{l:'Light',c:'d-l'}; if(t<11)return{l:'Moderate',c:'d-m'}; if(t<15)return{l:'Heavy',c:'d-h'}; return{l:'Very Heavy',c:'d-x'};}
 function diffBadge(c){const t=diffTotal(c); const d=diffInfo(t); return d?`<span class="dbadge ${d.c}" title="${t} hrs/week total (eval)">${d.l}</span>`:'<span class="empty">—</span>';}
@@ -77,9 +74,6 @@ function hoursCell(c,v){
   const bits=[]; if(c.eval_term)bits.push(c.eval_term); if(c.eval_responses!=null)bits.push('n='+c.eval_responses);
   const lowN=c.eval_responses!=null&&c.eval_responses<5;
   return `<span class="num${lowN?' lown':''}" title="${esc(bits.join(' · '))}">${v}${lowN?'*':''}</span>`;
-}
-function renderOffering(c){
-  return c.available.now?'<span class="badge b-ok">Offered</span>':`<span class="badge b-grey">${esc(c.available.reason)}</span>`;
 }
 function renderAags(c){
   const a=c.aags||'Not approved';
@@ -221,8 +215,8 @@ function renderRows(){
       const hc=hidden.has(col.key)?'hcol':'';
       return `<td class="${hc} ${col.key==='number'?'cnum':''}">${col.render(c)}</td>`;
     }).join('')+'</tr>').join('');
-  // Not offered now or later (shown for "Any term" or a past term): dimmed, with the reason.
-  document.querySelectorAll('#rows tr').forEach((tr,i)=>{const c=list[i]; if(!c.available.now){tr.classList.add('dim'); tr.title=c.available.reason;}});
+  // None of the student's remaining terms: dimmed (the Your terms cell says why).
+  document.querySelectorAll('#rows tr').forEach((tr,i)=>{ if(!summary(list[i]).chips.length) tr.classList.add('dim'); });
   document.getElementById('shown').textContent=list.length;
   const more=document.getElementById('scope-more');
   more.hidden=!pastOnly;
@@ -274,12 +268,12 @@ document.getElementById('resetf').addEventListener('click',()=>{
   renderRows();
 });
 document.getElementById('export').addEventListener('click',()=>{
-  const cols=['number','title','department','category','terms','offering','aags','units_raw','units_total',
+  const cols=['number','title','department','category','terms','aags','units_raw','units_total',
               'schedule_summary','prereq_raw','eval_hours_in','eval_hours_out','eval_instructor_match',
               ...(HAS_RATINGS?['rating','rating_rationale']:[]),'instructor','url'];
   const rows=COURSES.filter(c=>flags.has(c.id));
-  const field=(c,k)=>k==='terms'?shownTerms(c).map(({t,b})=>`${t} ${b.label}`)
-    :k==='offering'?(c.available.now?'Offered':c.available.reason):c[k];
+  const terms=c=>{const {chips,reason}=summary(c); return chips.length?chips.map(({term,badge})=>`${term} ${badge.label}`):reason;};
+  const field=(c,k)=>k==='terms'?terms(c):c[k];
   const csv=[cols.join(',')].concat(rows.map(c=>cols.map(k=>{
     let v=field(c,k); if(Array.isArray(v))v=v.join('; '); v=v==null?'':String(v);
     return '"'+v.replace(/"/g,'""')+'"';
