@@ -8,7 +8,7 @@ const { readJson } = require("./helpers.js");
 
 const program = Engine.resolve(readJson("programs/lgo.json"), readJson("programs/eecs.json"));
 const Catalog = require("../../app/catalog.js");
-const cat = Catalog.load(readJson("tests/js/golden/db.json"));   // frozen db.js subset
+const cat = Catalog.load(readJson("tests/js/golden/db.json"), { today: new Date(2026, 10, 2) });   // frozen db.js subset, Nov 2, 2026
 const ctx = { program, cat };
 const info = key => cat.get(key) ? cat.info(key) : {};
 const golden = name => readJson(path.join("tests/js/golden", name + ".json"));

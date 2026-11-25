@@ -17,7 +17,7 @@ const CATALOG_NUMBERS=CAT.courses.map(c=>c.number);   // lets notes name a list'
 const PLS={state:"lgo-dp.state",unreadable:"lgo-dp.state-unreadable",view:"lgo-dp.view",
   v1plan:"lgo-dp.plan",v1reqs:"lgo-dp.reqs",v1backup:"lgo-dp.v1-backup"};
 // Graduation years on offer today; a new plan starts as the class now in its first year.
-const GRAD_YEARS=State.gradYearOptions(PROGRAM,new Date());
+const GRAD_YEARS=State.gradYearOptions(PROGRAM,CAT.today);
 const DEFAULT_GRAD_YEAR=GRAD_YEARS[GRAD_YEARS.length-2];
 
 let notices=[];  // shown once above the term grid

@@ -28,7 +28,10 @@ const db = {
       department: "Course 15 — Management", offerings: { "Fall 2026": off("listed", 9) } },
   ],
 };
-const cat = Catalog.load(db);
+// "Now" comes from the date, never from meta.current_term (the catalog's term); tests pass it.
+const day = s => { const [y, m, d] = s.split("-").map(Number); return new Date(y, m - 1, d); };
+const NOV2 = { today: day("2026-11-02") };
+const cat = Catalog.load(db, NOV2);
 
 test("term order: IAP, Spring, Summer, Fall within a year", () => {
   const ts = ["Fall 2027", "IAP 2027", "Summer 2026", "Spring 2027", "Fall 2026"];
@@ -63,7 +66,7 @@ test("students see four marks; a term with no schedule data gets none", () => {
 });
 
 test("past terms inside tracking: ran or didn't run, and only courses that ran can be added", () => {
-  const later = Catalog.load({ ...db, meta: { ...db.meta, current_term: "Spring 2027" } });
+  const later = Catalog.load(db, { today: day("2027-03-01") });   // Spring 2027
   assert.equal(later.status("6.5060", "Fall 2026").code, "ran");
   assert.equal(later.status("6.1220", "Fall 2026").code, "didnt_run");
   assert.equal(later.addable("6.1220", "Fall 2026"), false);
@@ -108,7 +111,7 @@ test("EECS's AAGS wording reads 'Needs approval' and makes a course claimable; a
   db2.courses.push({ id: "6.S978~engineering-ai", number: "6.S978", kind: "special", title: "Engineering AI", department: "Course 6 — EECS",
     designations: { aags_note: { text: "AUS, AAGS in Computer Systems", source: "EECS subject updates", scope: "Fall 2026" } },
     offerings: { "Fall 2026": off("listed") } });
-  const c2 = Catalog.load(db2);
+  const c2 = Catalog.load(db2, NOV2);
   const r = c2.row(c2.get("6.S978~engineering-ai"));
   assert.deepEqual([r.aags, r.aags_note], ["Needs approval", "AUS, AAGS in Computer Systems"]);
   assert.equal(c2.info("6.S978~engineering-ai").aags, "Needs approval");     // not "Approved…": rules won't count it
@@ -120,13 +123,13 @@ test("EECS's AAGS wording reads 'Needs approval' and makes a course claimable; a
 
 test("Term scope: your remaining terms by default; 'all' or the term itself shows the rest", () => {
   const db2 = JSON.parse(JSON.stringify(db));
-  db2.meta.current_term = "IAP 2027";                     // after the flip: Fall 2026 is past
+  db2.meta.current_term = "IAP 2027";                     // MIT's catalog after the flip
   db2.courses.push({ id: "6.S978~engineering-ai", number: "6.S978", kind: "special", title: "Engineering AI",
     department: "Course 6 — EECS", offerings: { "Fall 2026": off("listed") } },
     { id: "15.010", number: "15.010", kind: "regular", title: "Economic Analysis", department: "Course 15 — Management",
       offerings: { "Fall 2027": off("expected") } });
-  const c2 = Catalog.load(db2), row = id => c2.row(c2.get(id));
-  // Class of 2027: IAP and Spring 2027 remain.
+  const c2 = Catalog.load(db2, { today: day("2027-01-05") }), row = id => c2.row(c2.get(id));
+  // Class of 2027 in January: IAP and Spring 2027 remain.
   const class27 = ["Summer 2025", "Fall 2025", "IAP 2026", "Spring 2026", "Summer 2026", "Fall 2026", "IAP 2027", "Spring 2027"];
   const eco = row("15.010");
   assert.equal(c2.inScope(eco, "", class27), false);       // only in Fall 2027: after the plan ends
@@ -145,7 +148,7 @@ test("Your terms: chips for the student's remaining terms, or why there are none
   const db2 = JSON.parse(JSON.stringify(db));
   db2.courses.push({ id: "15.010", number: "15.010", kind: "regular", title: "Economic Analysis", department: "Course 15 — Management",
     offerings: { "Fall 2027": off("expected") } });
-  const c2 = Catalog.load(db2), s = (id, terms) => c2.termsSummary(c2.row(c2.get(id)), terms);
+  const c2 = Catalog.load(db2, NOV2), s = (id, terms) => c2.termsSummary(c2.row(c2.get(id)), terms);
   // Class of 2027, current term Fall 2026: Summer 2025 .. Spring 2027, of which Fall 2026 on remain.
   const class27 = ["Summer 2025", "Fall 2025", "IAP 2026", "Spring 2026", "Summer 2026", "Fall 2026", "IAP 2027", "Spring 2027"];
   assert.deepEqual(c2.remaining(class27), ["Fall 2026", "IAP 2027", "Spring 2027"]);
@@ -168,4 +171,30 @@ test("departments and course numbers sort in MIT order, not as text", () => {
   const nums = ["21M.301", "15.S12", "6.C51", "15.401", "2.001", "14.01", "6.100A", "6.1010", "15.990"];
   assert.deepEqual([...nums].sort(Catalog.mitCompare), ["2.001", "6.100A", "6.1010", "6.C51", "14.01", "15.401", "15.990", "15.S12", "21M.301"]);
   assert.deepEqual(["21W.1", "21M.1", "21A.1"].sort(Catalog.mitCompare), ["21A.1", "21M.1", "21W.1"]);
+});
+
+test("the current term comes from the date, by MIT's calendar", () => {
+  const on = s => Catalog.termOn(day(s));
+  assert.deepEqual(["2026-11-25", "2026-12-31", "2027-01-05", "2027-02-01", "2027-06-01", "2027-09-01"].map(on),
+    ["Fall 2026", "Fall 2026", "IAP 2027", "Spring 2027", "Summer 2027", "Fall 2027"]);
+  assert.equal(Catalog.load(db, { today: day("2026-11-25") }).currentTerm, "Fall 2026");
+});
+
+test("after MIT's catalog flips to IAP/Spring, Fall is still now until January", () => {
+  const db2 = JSON.parse(JSON.stringify(db));
+  db2.meta.current_term = "IAP 2027";                     // what MIT's catalog says from Nov 23
+  db2.courses.push({ id: "6.S978~engineering-ai", number: "6.S978", kind: "special", title: "Engineering AI",
+    department: "Course 6 — EECS", offerings: { "Fall 2026": off("listed") } });
+  const class27 = ["Summer 2025", "Fall 2025", "IAP 2026", "Spring 2026", "Summer 2026", "Fall 2026", "IAP 2027", "Spring 2027"];
+  const id = "6.S978~engineering-ai";
+  const nov = Catalog.load(db2, { today: day("2026-11-25") }), r = nov.row(nov.get(id));
+  assert.equal(nov.inScope(r, "", class27), true);
+  assert.equal(nov.status(id, "Fall 2026").code, "listed");
+  assert.equal(nov.isPastTracked("Fall 2026"), false);
+  assert.deepEqual(nov.remaining(class27), ["Fall 2026", "IAP 2027", "Spring 2027"]);
+  const jan = Catalog.load(db2, { today: day("2027-01-05") }), rj = jan.row(jan.get(id));
+  assert.equal(jan.isPastTracked("Fall 2026"), true);
+  assert.equal(jan.inScope(rj, "", class27), false);
+  assert.equal(jan.termsSummary(rj, class27).reason, "Last offered Fall 2026");
+  assert.equal(jan.status(id, "Fall 2026").code, "ran");
 });

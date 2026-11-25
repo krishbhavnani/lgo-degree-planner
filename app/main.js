@@ -1,6 +1,6 @@
 // Course facts: db.js (courses x term offerings), read through app/catalog.js. Browse shows one
 // row per course; a special subject gets one row per topic.
-const CAT = Catalog.load(window.COURSE_DB);
+const CAT = Catalog.load(window.COURSE_DB);   // the one place the app reads the clock (CAT.today)
 const COURSES = CAT.courses.map(c=>CAT.row(c));
 // Personal overlay: personal/ratings.js (gitignored) sets window.PERSONAL_RATINGS = {number: {rating, rating_rationale}}.
 // Present only on Krish's machine, so the public site never shows Rating/Why columns.
@@ -91,7 +91,7 @@ function renderFreshness(updated,now){
   stale.textContent=`⚠ Course data may be out of date (last updated ${label}). Check the MIT catalog for the latest offerings and schedules.`;
 }
 function init(){
-  renderFreshness(CAT.meta.updated,new Date());
+  renderFreshness(CAT.meta.updated,CAT.today);
   renderKeys();
   const haveEval=COURSES.filter(c=>c.eval_hours_in!=null).length;
   const haveRate=COURSES.filter(c=>c.rating!=null).length;

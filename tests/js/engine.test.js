@@ -12,7 +12,7 @@ const readJson = p => JSON.parse(fs.readFileSync(p, "utf8"));
 const program = Engine.resolve(readJson(path.join(ROOT, "programs/lgo.json")), readJson(path.join(ROOT, "programs/eecs.json")));
 // Course facts come from a frozen db.js subset, read through catalog.js as the app does.
 const Catalog = require("../../app/catalog.js");
-const cat = Catalog.load(readJson(path.join(GOLDEN, "db.json")));
+const cat = Catalog.load(readJson(path.join(GOLDEN, "db.json")), { today: new Date(2026, 10, 2) });   // captured Nov 2, 2026
 const info = key => cat.get(key) ? cat.info(key) : {};
 const known = cat.courses.map(c => c.number);   // lets notes name a list's current members
 

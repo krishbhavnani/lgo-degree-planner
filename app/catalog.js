@@ -1,7 +1,8 @@
 // Course data from db.js (courses x term offerings): lookups, a course's status in a given term,
 // the term badges, and the fields Browse shows. Pure (no DOM), so node tests load it too.
 //
-//   const cat = Catalog.load(window.COURSE_DB)
+//   const cat = Catalog.load(window.COURSE_DB)       ({today} for tests; default: the clock)
+//   cat.currentTerm / cat.today   the term students are in today ("now" everywhere in the app)
 //   cat.get(id) / cat.byNumber(number) / cat.resolve(number, term)
 //   cat.info(id)            {aags, design, department}  (what the degree rules read)
 //   cat.offering(id, term)  that term's offering, or the course's reference offering
@@ -25,6 +26,12 @@ const Catalog = (() => {
     for (let i = 0; i < 4; i++) if (x[i] !== y[i]) return x[i] < y[i] ? -1 : 1;
     return 0;
   }
+  // The term students are in on a date, by MIT's calendar: January is IAP, February-May Spring,
+  // June-August Summer, September-December Fall. December counts as Fall: finals end in mid-
+  // December and nothing is taken over the break, so no exact-date table is needed.
+  const SEASON_BY_MONTH = ["IAP", "Spring", "Spring", "Spring", "Spring", "Summer", "Summer", "Summer",
+    "Fall", "Fall", "Fall", "Fall"];
+  const termOn = date => `${SEASON_BY_MONTH[date.getMonth()]} ${date.getFullYear()}`;
   // Academic year of a term: Fall 2026 .. Summer 2027 is "2026–27".
   const ayOf = t => { const [s, y] = t.split(" "); const start = s === "Fall" ? +y : +y - 1; return `${start}–${String(start + 1).slice(2)}`; };
 
@@ -47,13 +54,17 @@ const Catalog = (() => {
   const badge = code => ({ code, ...LEGEND[code] });
   const AVAILABLE = new Set(["listed", "expected", "unverified"]);
 
-  function load(db) {
+  // `today` sets "now". meta.current_term is a different thing: the term MIT's online catalog
+  // describes, which flips weeks before that term starts (to "IAP/Spring 2027" on Nov 23, 2026,
+  // while Fall classes run to mid-December). The pipeline uses it to decide what's fresh; the
+  // app uses the current term for everything that means now, past or remaining.
+  function load(db, { today = new Date() } = {}) {
     const courses = db.courses, meta = db.meta;
     const byId = new Map(courses.map(c => [c.id, c]));
     const byNum = new Map();
     for (const c of courses) { if (!byNum.has(c.number)) byNum.set(c.number, []); byNum.get(c.number).push(c); }
     const first = termKey(meta.terms[0]), last = termKey(meta.terms[meta.terms.length - 1]);
-    const current = termKey(meta.current_term);
+    const currentTerm = termOn(today), current = termKey(currentTerm);
     // Departments the AAGS list covers (from the pipeline's config): there, a course not on the
     // list is "Not approved"; elsewhere AAGS doesn't apply.
     const aagsDepts = new Set(meta.aags_departments || []);
@@ -115,7 +126,8 @@ const Catalog = (() => {
     const coverage = term => termKey(term) < first ? "before" : termKey(term) > last ? "after" : null;
 
     // Why a course isn't offered from the current term on: taken off the schedule, last ran in a
-    // past term, or not offered this academic year.
+    // past term, or not offered in the catalog's academic year. That last one is the catalog's
+    // own statement ("Not offered this year (2026-2027)"), so it names the catalog's year.
     function notOfferedReason(c) {
       const removed = termsOf(c).find(t => termKey(t) >= current && c.offerings[t].status === "removed");
       if (removed) return `No longer listed since ${c.offerings[removed].last_seen}`;
@@ -163,10 +175,10 @@ const Catalog = (() => {
       };
     }
 
-    return { meta, courses, get, byNumber, resolve, offering, title, info, status, addable, isPastTracked, tracked, coverage, claimable, row, remaining, termsSummary, inScope, termKey };
+    return { meta, courses, today, currentTerm, get, byNumber, resolve, offering, title, info, status, addable, isPastTracked, tracked, coverage, claimable, row, remaining, termsSummary, inScope, termKey };
   }
 
-  return { load, LEGEND, termKey, mitCompare };
+  return { load, LEGEND, termKey, termOn, mitCompare };
 })();
 
 if (typeof module !== "undefined") module.exports = Catalog;
